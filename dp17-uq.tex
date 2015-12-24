@@ -1,6 +1,6 @@
 \documentclass[a4paper,fontsize=12pt]{scrartcl}
-% \usepackage{Alegreya}
-% \usepackage{AlegreyaSans}
+\usepackage{Alegreya}
+\usepackage{AlegreyaSans}
 
 \usepackage[svgnames,hyperref]{xcolor}
 \usepackage{url}
@@ -43,13 +43,84 @@ hyperfootnotes=true]{hyperref}
 
 \date{\today}
 
-\title{Online Uncertainty Quantification for Time-Critical Decisionmaking}
+\title{Human-in-the-loop Model Uncertainty Quantification for
+  Time-Critical Decisionmaking (TBC)}
 
 \begin{document}
 
 \maketitle
 
-Please give us all the money, and we'll do amazing science.
+\noindent
+\textbf{Note to readers:} this is all really rough---just a grab-bag
+of related ideas, really---but you've gotta start somewhere.
+Comments/edits very welcome.
+
+\section{Introduction}
+\label{sec:introduction}
+
+Inverse uncertainty quantification is a critical aspect of any
+simulation/modelling workflow. As numerical modelling becomes
+increasingly pervasive---from industrial design to basic science to
+economic policymaking---the ability to understand and update these
+models in response to measurements from the real world is critical in
+translating insights from modelling and simulation to actionable
+knowledge. A rich understanding of the uncertainty in a model is also
+important when the model is used as an input to a human decisionmaking
+process (as most models invariably are). What can we say about the
+strength of the connection of the different aspects of the model to
+reality? How confident can we be about various predictions given by
+the model?
+
+In addition, recent developments in sensor networks and pervasive
+monitoring technologies have increased our ability to gather data from
+the world. Streaming data analysis is an active area of research, and
+in an uncertainty quantification context streaming data provides the
+opportunity to be continuously estimating model uncertainties and
+updating our models in response to new data coming in.
+
+This project asks the question: \textbf{can streaming data be used to
+  update and model uncertainties and provide intelligible insights in
+  time-critical decisionmaking scenarios?} (TODO this needs to be
+tighter)
+
+One example scenario: sensors detect an earthquake in the Pacific Ocean,
+and the countdown timer begins---what is the likelihood of a
+destructive tsunami, where will it impact, and does an evacuation
+order need to be issued? Some initial modelling has already been done,
+but new readings are coming in regularly from sensor buoys throughout
+the ocean. How can this new (and potentially noisy) data be used to
+update the model, and how does this affect the predicted impact? How
+does uncertainty in the buoy readings affect our confidence in the
+model?
+
+This problem has two main components: a mathematical component, and a
+a human factors component.
+\begin{itemize}
+\item We will deal with the \textbf{mathematical challenges} using a
+  sparse grids approach, using combination techniques
+  to incorporate new measurements/information in an efficient way.
+\item We will deal with the \textbf{human factors challenges} using a
+  live steering (maybe even live programming?) approach, building
+  interfaces which provide expert decisionmakers with the ability to
+  steer computation/optimisation procedures, exploring different model
+  parameterisations and scenarios with real-time feedback.
+\end{itemize}
+
+That's all I've got. Merry Christmas!
+
+\section{TODO}
+\label{sec:todo}
+
+\begin{itemize}
+\item references
+\item example projects
+\item all the rest of it\ldots
+\end{itemize}
+
+% \section{Conclusion}
+% \label{sec:conclusion}
+
+% Please give us all the money, and we'll do amazing science.
 
 \printbibliography[title=References]
 
