@@ -43,9 +43,6 @@ hyperfootnotes=true]{hyperref}
 
 \date{\today}
 
-\title{Human-in-the-loop Model Uncertainty Quantification for
-  Time-Critical Decisionmaking (TBC)}
-
 \begin{document}
 
 \maketitle
@@ -55,8 +52,27 @@ hyperfootnotes=true]{hyperref}
 of related ideas, really---but you've gotta start somewhere.
 Comments/edits very welcome.
 
-\section{Introduction}
-\label{sec:introduction}
+places to get copy from\ldots
+
+- sandia 2-page grant app
+- last year's DP grant app
+- CSIRO grant?
+
+\renewcommand{\thesection}{\Alph{section}}
+
+\setcounter{section}{3} % C1.
+\subsection{Project Description}
+\label{sec:project-description}
+% (Please upload a Project Description as detailed in the Instructions
+% to Applicants in no more than 10 A4 pages and in the required
+% format. Please refer to the Instructions to Applicants for detailed
+% instructions on the required content and format of the Project
+% Description.)
+
+\subsubsection*{PROJECT TITLE}
+
+\textbf{Human-in-the-loop Model Uncertainty Quantification for
+  Time-Critical Decisionmaking (TBC)}
 
 Inverse uncertainty quantification is a critical aspect of any
 simulation/modelling workflow. As numerical modelling becomes
@@ -105,6 +121,461 @@ a human factors component.
   steer computation/optimisation procedures, exploring different model
   parameterisations and scenarios with real-time feedback.
 \end{itemize}
+
+\subsubsection*{AIMS AND BACKGROUND}
+
+\paragraph*{Aims}\mbox{}\\
+
+The modern world appears to be saturated with computing power.
+Contemporary smart phones outperform the original Cray~1
+``supercomputer'' by three orders of magnitude. Accessing contemporary
+high-performance computing (HPC) resources has never been easier and,
+when combined with machine learning\cite{Hastie2009}, and big
+data\cite{Manyika2011}, modern supercomputing performance has the
+potential to provide answers to deep questions in science, business
+and the humanities.
+
+Modern comodity computing devices are spectacularly \textbf{visual}
+and \textbf{interactive}, enabling users to slide, tap, watch, speak
+and listen with real-time feedback. It is this combination of
+interactivity with power which makes mobile and personal computing
+useful, usable and an agent of change.
+
+But the closer one comes to true high-performance computing, the less
+interactive computing systems become. Due to a combination of
+technical and social factors, high-performance scientific computing
+(HPSC) is still often performed in a batch \emph{compile-run-analyse}
+style: simulation codes are complex both conceptually (i.e.~the
+underlying mathematics and physics) and in implementation (distributed
+computation, large codebases). Supercomputing resources are expensive
+and need to be kept secure.
+
+It is worthwhile imagining some example scenarios that might be
+possible if better interactive \textbf{access to} and \textbf{steering
+  of} scientific supercomputing applications were to be available:
+\begin{enumerate}
+\item A computational physicist submits a job to a supercomputer which
+  takes 3 weeks to execute. But subsequent monitoring of incremental
+  visualisations indicates that something about the simulation does
+  not make sense.A check of the, almost 200, input parameters reveals
+  that two of these have been incorrectly set. The phyicist cancels
+  this run and submits another.
+
+\item That same physicist has a sudden insight into the physical
+  system being modelled as a result of watching some of the
+  incremental visualisations of the running code. She initiaties a new
+  simulation with several changes to the parameter deck before the
+  first simulation is complete. Both simulations turn out to be useful
+  in understanding the phenomenon under study.
+
+\item Our physicist decides to improve the numerical accuracy of the
+  model itself. She quickly modifies one of the functions being called
+  by that simulation, one that implements flux-conservation across
+  computational elements of the magneto-fluid being modelled. She then
+  tests her new function on the active program by branching the
+  simulation and swapping the function call on active data. Through a
+  comparison of the two active simulations, she is able to estimate
+  what the effects of her new numerical method will be on the
+  accumulation of errors in the simulation data. She lets both
+  simulations run to completion, and in her subsequent data analysis,
+  she is able to use her error estimates to adjust and compare
+  sumulations using both methods.
+
+\item Performance diagnostics reveal that a multicore simulation is
+  very unbalanced in terms of processor allocation. Due to the
+  complexity of this simulation, the only way to rebalance resources
+  is to rewrite part of the code which maps the geometric grid to the
+  processor model. Our physicist is able to rewrite this function and
+  to swap the new version in, in real-time. The simulation continues
+  seemlessly with enhanced use of resources and finishes faster.
+
+\item A computer scientist is developing a custom visualisation of a
+  scientific simulation. Because of the size of the dataset being
+  rendered, and because of its distribution across hundreds of
+  processors it is impossible to move all of the data. Instead each
+  data nodes needs to be ``visited'' and a sample of that data
+  transferred for visualisation. This visualisation is planned, tuned
+  and debugged on running code and is complete by the time actual the
+  simulation is finished.
+
+ % \item A bioinformatics researcher runs a supercomputer simulation which searches and matches millions of generated phylogenic candidates in order to develop evolutionary trees. Rather than 
+
+%A subsequent analysis of the results finds that the stopping
+%   criteria were satisfied after only the first hundered such files had
+%   been compared.
+
+\item A team of emergency-services personnel are monitoring a
+  real-time satellite feed of a bushfire which is hours away from
+  threatening homes and lives. A computational simulation of the
+  bushfire is being monitored and compared with data but it appears to
+  be giving unreliable results. The simulation experts quickly
+  initiate several companion simulations having different values of
+  fuel loads. The fire-front trajectories of these companion
+  simulations neatly bracket those of the main simulation and provide
+  an estimate of the confidence that can be ascribed to those
+  predicted fire-fronts.
+
+
+%\item A growing hi-tech manufacturing company has historically relied
+%  on managing their supply chain by hand. However, as the company
+%  grows and the number of supplier relationships increases this is no
+% longer feasible. A purely automated approach generates suboptimal
+%  results, because the supply chain involves a complex network of
+%  human relationships and hand-shake agreements between the suppliers.
+%  The expert team can see subtle problems with the results (and
+%  appropriate subtle corrections) as the automated model is running,
+%  but are prevented by the software from making these changes until
+%  the model has finished running.
+\end{enumerate}
+
+All of these scenarios benefit from a tight human-in-the-loop (HIL)
+coupling between run-time analysis, visualisation and high-performance
+simulation software. The benefits include greater \emph{efficiency}
+and greater \textbf{potential for discovery} in scientific workflows.
+\textbf{The aim of this project proposal is thus to build
+  human-in-the-loop interactivity into high performance scientific
+  computing}.
+
+\paragraph*{Background}\mbox{}\\
+
+In 2007, a National Science Foundation (NSF)
+workshop\parencite{Gil2007} highlighted the need for dynamic
+interactivity as a looming ``grand challenge'' in scientific
+computation and data analysis.
+% Other challenges included data provenance (where data comes
+% from\cite{McPhillips2009}), reproducibility and shareability of
+% complex data processing software pipelines.
+In spite of many advances in the field of computational steering it is
+clear that challenges remain. A recent (2014) review, ``Dynamic
+steering of HPC scientific workflows: A survey''\parencite{Mattoso},
+identified six key areas of interaction/steering:
+\begin{enumerate}
+\item \textbf{monitoring}: the ability to monitor intermediate
+  quantities of interest (e.g.~total energy)
+\item \textbf{analysis}: the ability to perform analysis of simulation
+  quantities (e.g.~viewing a live histogram of the energy
+  distribution)
+\item \textbf{adaptation}: the ability to adapt/modify the running
+  simulation
+\item \textbf{notification}: the ability of the system to alert users of the
+  need/opportunity to interfere
+\item \textbf{interface for interaction}: the interface (either command-based
+  or GUI) presented to the user to monitor and adapt the computation
+\item \textbf{computing model}: the ability to tailor the types of interaction
+  depending on the compute model in use (e.g.~providing full
+  monitoring when running locally on a workstation vs only statistical
+  sampling when the job is distributed over a cluster)
+\end{enumerate}
+At the end of their survey, Mattoso et~al.~particularly identify the
+\emph{analysis} and \emph{adaptation} branches of their taxonomy as
+not being well addressed by the current state of the art.
+
+Elaborating further, in terms of \emph{real-time analysis} the open
+challenges are:
+\begin{itemize}
+\item \textbf{in-situ analysis}: modern terascale compute
+  infrastructure is often IO-bound, and HPC applications must minimise
+  inter-node communication to achieve efficient use of the hardware.
+  As a result, it is often unfeasible to move the data of interest
+  back to a central node for processing and analysis, so any such
+  analysis must be performed in-situ\cite{Bennett2012} on the compute
+  node itself.
+\item \textbf{decision-support tools}: giving a user the
+  \emph{ability} to interfere with a running computational process is
+  one thing---knowing \emph{when and how} to interfere is another
+  thing altogether. Dynamic SWfMS must provide as useful real-time
+  feedback to the user (a domain expert) to assist them in deciding
+  when and how to interfere. This problem is an example of a more
+  general end-user programming (EUP)\cite{Myers2006} problem---giving
+  domain experts the appropriate tools to transfer their domain
+  expertise into the computational domain.
+\end{itemize}
+In the area of \emph{adaptation} the open challenges are:
+\begin{itemize}
+\item \textbf{dynamic workflow engines}: most of the surveyed systems
+  allowed the user to adapt the computation at a high level (e.g.
+  add/delete subtasks). However, there was much less support for
+  modifying the evolution of specific tasks (e.g.~swapping out
+  low-level algorithms and tight-loops in computation). This level of
+  adaptivity would allow for even more steering possibilities, but may
+  exacerbate the problem of deciding when/how to interfere (although
+  support for rolling back interventions would be helpful here).
+\item \textbf{parameter slice exploration}: many scientific problems
+  involve searching high-dimensional parameter spaces for optimal
+  parameter configurations, and many algorithms exist for this task.
+  However, there are some problems (e.g.~buisness informatics) where
+  cost/loss functions are hard to articulate, and more traditional
+  purely numerical optimization approaches tend to overfit or get
+  stuck in local maxima. In these situations an expert domain user, if
+  presented with appropriate feedback in real-time, may be able to
+  recognise these type of convergence problems early on, and perform
+  appropriate algorithmic and parameter adaptations to avoid the
+  problem.
+\end{itemize}
+
+The authors of this project proposal contend that all of these
+challenges can now be effectively investigated by deploying recent
+developments in programming language systems, known as ``live
+programming'' (LP), into the context of high performance scientific
+simulation. Live programming is a term which has been used to denote
+systems which support the direct intervention of the programmer in a
+program's runtime state. It can be thought of as an extreme version of
+just-in-time (JIT) programming where there is a direct correlation
+between a program's representation and its execution. An example of
+this is the visual language Self\cite{Ungar1987} where each visual
+element in the language is a directly programmable object. As the
+ambition of LP systems has grown, these systems and languages
+themselves have evolved to have access to clock-time and other
+computer-system properties at a language level in order to, for
+example, create, modify and interact with computer music and devices
+in real time. Examples of the latter include the
+Impromptu\cite{Sorensen2005} and Extempore\cite{Sorensen} languages
+which one of the authors of this proposal has been working on and with
+over several years.
+
+
+\subsubsection*{RESEARCH PROJECT}
+
+% explore $\rightarrow$ enliven $\rightarrow$ empower
+
+% Want to bring the idea of ``liveness'' to HPC/big data software – allow
+% developers to get rapid, incremental update of target data process
+% algs ; allow developers to get near-instantaneous feedback on input of
+% changes to outputs data via rich visualisations
+
+% Want to leverage domain-specific visual languages to specify these big
+% data analysis problems to enable end users a high-level, controlled
+% environment c.f. R-type scripting, code, BI configs etc
+
+% Want to leverage rich information visualisations to provide small
+% snapshot and overall output understanding by end users
+
+% << Worth a big picture ``concept diagram'' here >>
+
+% The aim of this project is thus to invent a new approach to specifying
+% and realizing data-centric software systems using live visual
+% programming and data visualisation we break into specific aims:
+
+% - SDL++ for data analytics
+% - Live visual programming of data analytics - DSVLs
+% - extempore -> live update of GPU/HPC/IR/ML algs etc
+% - live visualisations of complex data analytics alg data for feedback,
+%   output
+% - evaluate effectiveness by apply to several exemplars e.g.~particles,
+%   big data analysis, infoVis...
+
+This project will allow domain experts to better harness the power of
+computational simulation the in a safe and effective way by creating
+tools and interfaces for \emph{interactive} computational simulation
+and anaylsis. This involves integrating research and tools from the
+domains where such computational analyses are used with insights from
+human-computer interaction and software workflows.
+
+Through a series of exemplar case studies in different domains, we
+will unlock new ways to perform complex computation analyses through
+three steps:
+
+\begin{enumerate}
+\item \textbf{explore}: first, by exploring the problem domain (and
+  existing tools) of interest in conjunction with domain experts, do
+  determine the dimensions of the domain which could most benefit from
+  interactive, human-in-the-loop analysis
+\item \textbf{enliven}: taking these modelling and simulation codes
+  and providing new interfaces for real-time interaction---this is not
+  just a matter of superficially wrapping these systems in a slick
+  GUI, but requires a restructuring of codes which are designed with
+  batch processing in mind to allow for meaningful interaction and
+  feedback
+\item \textbf{empower}: using a user-centred design approach, we will
+  create appropriate interfaces (e.g.~graphical user interfaces) to
+  empower these domain experts to unlock their expertise in
+  interactive computational simulation
+\end{enumerate}
+
+\paragraph*{Research significance}\mbox{}\\
+
+
+Computational simulation and modelling is ubiquitous in both academia
+and industry, and its importance is growing. Large-scale basic physics
+relies on computational simulation to probe the subatomic landscape;
+the auto industry uses simulation extensively for calculating the
+efficiency of new designs; and algorithmic pattern recognition and
+recommendation has transformed the way we search (Google), shop
+(Amazon), watch (Netflix).
+
+However, performing these analyses increasingly requires specialised
+computational skills such as high-performance and distributed
+computing. There is a risk that the power of simulation is available
+only to a HPC-literate elite, and to those rare experts who assimilate
+both the domain knowledge and computing skills to access it, and to
+interpret it's results.
+
+This research is significant because it aims to unlock the power of
+computational simulation for interactive use. Although we concentrate
+our research on case studies from extant computational science, the
+ultimate potential of this work is to eventually empower domain
+experts from a broad range of areas to use the high-performance
+computing power which is now available to them. We envision a future
+where performing a complex particle physics simulation is as
+interactive and \emph{alive} as flicking through photos on an iPad,
+rather than a tedious ``queue up the job, come back a week later to
+pore over a dump of the results'' process. This benefits not only
+experts already working in that field, but also allows new researchers
+(or even schoolchildren) to understand the behaviour of such systems
+through interactive play rather than dry textbooks.
+
+% Big data software, HPC software becoming massively important
+% Development of both still rudimentary, limited use of ``liveness''
+% concept in HPC/DSVLs to date (some in InfoVis). Many applications of
+% our approach; a very enabling technology. Examples might include\ldots
+
+\paragraph*{Advancing the knowledge base with innovation}\mbox{}\\
+
+As highlighted by Mattoso et~al.\parencite{Mattoso}, there is a desire for
+more dynamic interactivity in scientific workflows, but progress in
+that area has been limited. This project will contribute to the
+knowledge base by providing these dynamic workflows, allowing us to
+answer open questions such as:
+
+\begin{itemize}
+\item how can interactivity most effectively be ``added'' to existing
+  scientific workflows?
+\item how can automated assistance/analysis be provided to the user to
+  best guide their interaction?
+\item how do other outstanding issues in scientific computation, such
+  as data provenance, reproducibility, etc.~impact the interactive
+  workflow?
+\end{itemize}
+
+% \begin{itemize}
+% \item very limited use of ``liveness'' concept to date in BI, HPC, etc;
+%   adding into these very novel
+% \item limited DSVLs leveraged to date in these domains; enables end
+%   users
+% \item InfoVis well studied but specification low-level, limited;
+%   enables greater generality
+% \item running the concept of ``liveness'' through these: DSVLs <->
+%   HPC/Big Data code <-> InfoVis
+% \end{itemize}
+
+\paragraph*{Conceptual}\mbox{}\\
+
+Series of research problems to be solved:
+
+\begin{enumerate}
+\item Add ability to modify HPC/Big Data code while
+  running---``liveness''
+\item Invent set of DSVLs for specifying such applications
+\item Use DSVLs to generate code / modify code (via 2, 1 above)
+\item Specifying rich, live InfoVis solution for data processed (by 1
+  above)
+\item Evaluate effectivess on set of exemplars
+\end{enumerate}
+
+\paragraph*{Feasibility, methodology and timeline}\mbox{}\\
+
+% -set of steps
+% -set of prototype interations
+
+% Work per quarter
+
+\paragraph*{Outcomes and impact}\mbox{}\\
+
+Real, working software workflows (open-source!)
+
+\paragraph*{National benefit and strategic research priorities}\mbox{}\\
+
+
+
+\subsubsection*{ROLE OF PERSONNEL}
+
+
+
+\subsubsection*{RESEARCH ENVIRONMENT}
+
+\paragraph*{Existing research environment}\mbox{}\\
+
+ANU is a great place to do this.
+
+\paragraph*{Developing research environment}\mbox{}\\
+
+Need to build the team.
+
+\paragraph*{Collaboration, communication and commercialization}\mbox{}\\
+
+\subsubsection*{COMMUNICATION OF RESULTS}
+
+reproducable code/software artefacts
+
+\subsubsection*{MANAGEMENT OF DATA}
+
+Data provenance, reproducibility
+
+\subsubsection*{REFERENCES}
+
+\vskip -2em % filthy hack to get the spacing right
+
+\printbibliography[title=\ ]
+
+\newpage
+\setcounter{section}{5} % E1.
+\setcounter{subsection}{0}
+\subsection{Justification of funding requested from the ARC for the
+  duration of the Project}
+\label{sec:funding-justification}
+% (In no more than 5 A4 pages and within the required format fully
+% justify, in terms of need and cost, each budget item requested from
+% the ARC. Use the same headings as in the Description column in the
+% budget at Part D of this Proposal. )
+
+
+
+\newpage
+% E2.
+\subsection{Details of non-ARC contributions}
+\label{sec:non-arc-contributions}
+% (In no more than 2 A4 pages and within the required format, provide
+% an explanation of how non-ARC contributions will support the
+% proposed Project. Use the same headings as in the Description column
+% in the budget at Part D of this Proposal. )
+
+
+\newpage
+\setcounter{section}{6}
+\setcounter{subsection}{11} % F12. 
+\subsection{Research Opportunity and Performance Evidence (ROPE)\\
+  Recent significant research outputs and ARC grants (since 2005)}
+\label{sec:recent-significant-outputs}
+% (Please attach a PDF with a list of your recent significant research
+% outputs and ARC grants most relevant to this Proposal (20 pages
+% maximum). Please refer to the Instructions to Applicants for the
+% required content and formatting.)
+
+
+
+\newpage
+% F13. 
+\subsection{Research Opportunity and Performance Evidence (ROPE)\\
+  Ten career-best research outputs}
+\label{sec:ten-best-outputs}
+% (Please attach a PDF with a list of your 10 career-best research
+% outputs, with a brief paragraph for each output explaining its
+% significance (5 pages maximum). Please refer to the Instructions to
+% Applicants for the required content and formatting.)
+
+
+
+\newpage
+\setcounter{section}{7} % G1. 
+\setcounter{subsection}{0}
+\subsection{Research support from sources other than the ARC}
+\label{sec:other-research-support}
+% (For all participants on this Proposal, please provide details of
+% research funding from sources other than the ARC (in Australia and
+% overseas) for the years 2014 to 2018 inclusive. That is, list all
+% Projects/Proposals/Fellowships awarded or requests submitted for
+% funding involving the Proposal participants. Please refer to the
+% Instructions to Applicants for submission requirements.)
 
 That's all I've got. Merry Christmas!
 
