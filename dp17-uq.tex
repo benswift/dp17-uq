@@ -45,20 +45,28 @@ hyperfootnotes=true]{hyperref}
 
 \begin{document}
 
-\maketitle
+\subsubsection{Overall comments}
+\label{sec:overall-comments}
 
 \noindent
-\textbf{Note to readers:} this is all really rough---just a grab-bag
-of related ideas, really---but you've gotta start somewhere.
-Comments/edits very welcome.
-
-places to get copy from\ldots
-
-- sandia 2-page grant app
-- last year's DP grant app
-- CSIRO grant?
+\textbf{Note to readers:} comments/edits very welcome. Some general
+thoughts and questions:
+\begin{enumerate}
+\item how specific should we be with examples? is it a ``general
+  problem'' which we're solving, and the examples (e.g. flood/tsunami
+  modelling, bushfire etc.) are just exemplars? Or do we want to pick
+  1--3 problem domains which we want to tackle, and major on the
+  concrete contributions we can make there?
+\item feel free to correct any funny maths notation, I'm not
+  necessarily up on what the greek letters \emph{du jour} are.
+\item How do we balance the emphasis on UQ with the problem of ``model
+  accessibility'' more generally? How do we most effectively weave the
+  UQ stuff into the description of the problem? Examples are crucial here.
+\end{enumerate}
 
 \renewcommand{\thesection}{\Alph{section}}
+
+\subsubsection*{PROJECT TITLE}
 
 \setcounter{section}{3} % C1.
 \subsection{Project Description}
@@ -68,6 +76,215 @@ places to get copy from\ldots
 % format. Please refer to the Instructions to Applicants for detailed
 % instructions on the required content and format of the Project
 % Description.)
+
+\emph{need to be careful with vocab here---modelling/simulation,
+  quantities/features, etc.}
+
+\subsubsection*{AIMS AND BACKGROUND}
+
+Modelling is the process of exploring and predicting the relationship
+between quantities, the nature and meaning of which differs between
+application domains:
+\begin{itemize}
+\item in a manufacturing process we may be interested in the
+  relationship between the quality of the input materials and the
+  defect rate in the finished widgets
+\item in design/engineering, we might be interested in the
+  relationship between an airfoil's shape (at both micro and macro
+  scales) and its aerodynamic properties
+\item in urban planning, the relationship between road and rail
+  topologies and traffic congestion
+\item in climate science, the relationship between atmospheric CO2
+  levels and global temperatures and weather
+\item in disaster response scenarios, predicting future impacts of
+  fire/flood threats based on current sensor readings and reports from
+  the field
+\item in economic policy, the relationship between fiscal policy
+  settings and other features of the macroeconomy
+\end{itemize}
+
+In these situations, there are some quantities we \emph{know}
+(including some parameters we can control) and some quantities we
+\emph{want} to know---our model inputs and outputs
+respectively. More formally, we have a model
+\begin{equation}
+  \label{eq:1}
+  \mathbf{u}_p(\mathbf{x})
+\end{equation}
+defined for $\mathbf{x}$ in some domain, with a (set of) parameters
+$p \in \mathcal{P}$. One can think of $\mathbf{x}$ as the input
+parameters intrinsic to the problem domain (e.g. spatial dimensions,
+sensor readings or economic indicators) while the model parameters $p$
+are ``knobs to tweak'' in the model.
+
+In many (most?) cases the goal is to better understand the
+relationship between $p$ and some lower-dimensional (simpler?)
+quantity of interest $Q(u_p)$, or to find the parameter choice $p$
+which optimises $Q$ over all $\mathbf{x}$. It is worth pointing out
+that in the abstract, this process does not require formal
+computational modelling at all, in fact in many real-world situations
+the optimal settings (i.e. the optimal $p$) for a given process are
+obtained through trial and error, expert judgements or semi-educated
+guesswork. There may be many reasons for this---perhaps there are no
+appropriate computational models for the domain, perhaps the models
+exist but are cumbersome to use/configure, or perhaps the ultimate
+decisionmakers are unconvinced of the usefulness of computational
+modelling vs the ``good old ways'' of reading the tea leaves. Whatever
+the reason, the key point is that modelling, when considered
+holistically, is a complex socio-technical system with feedback loops
+involving both machine and human intelligence.
+
+When considered as a human factors problem, the challenge is to provide
+the decision-maker (who may or may not understand the subtleties of
+the model) with tools and interfaces for \emph{exploring} the
+relationship between $p$ and $Q(u_p)$. This will allow them to better
+understand the connection (and the associated uncertainty) between
+these different dimensions of $p$ (i.e. the knobs under their control)
+and the overall response of the system. Otherwise, they may choose
+suboptimal parameters, or at worst mistrust and ignore the results of
+the modelling altogether.
+
+\emph{Should we formally mention UQ here? Perhaps through an example}
+
+\subsubsection*{RESEARCH PROJECT}
+
+To make models more accessible and \emph{useful} to decisionmakers, we
+will develop a framework for building interactive
+interfaces/environments for model exploration, especially uncertainty
+quantification/sensitivity analysis.
+
+There are two main challenges in designing such an interface:
+\begin{enumerate}
+\item how do we perform the modelling step $p \rightarrow
+  \mathbf{u}_p(\mathbf{x}) \rightarrow Q(\mathbf{u}_p)$ sufficiently quickly
+  for interactive exploration, while still providing adequate
+  fidelity?
+\item how do we present the quantities $p$, $\mathbf{u}_p(\mathbf{x})$
+  and $Q(\mathbf{u}_p)$ to the decision-maker (and take interactive input) in a
+  way which provides meaningful insight into the validity of the
+  model, ultimately providing actionable knowledge?
+\end{enumerate}
+
+\paragraph{Efficient parameter space exploration with sparse grids}
+
+\emph{This is Brendan's stuff. At some stage I'll make sure it flows
+  nicely.}
+
+With mathematical models becoming increasingly complex one finds that
+the parameter spaces which are inputs to such models are high
+dimensional. This makes problems like parameter estimation and
+uncertainty quantification more and more difficult. There has been
+much interest in reduced basis methods to make such problems more
+tractible [references]. Sparse grid methods have also proved to be
+highly successful in the study and computation of high dimensional
+problems [many references].
+
+Another challenge faced by scientists is the ever increasing number of
+algorithms one has available to approximate the solution of a variety
+of mathematical models. Scientists frequently ask the questions: which
+model/method should I use, and what is the best model/method for my
+problem? Recent work on sparse grid techniques is finding new ways to
+combine results from not only mathematical models computed via
+different methods [sparse grid extrapolation techniques] but also
+entirely different mathematical models [Jouke et.al. work on ship hull
+with 2 models]. It is clear that different methods and models have
+their own advantages and disadvantages which have the potential to be
+combined in new and interesting ways. [Point trying to make: a) the
+usual 'too many methods' dilemma, and b) there is generally no one
+'best' method and yet it is typical to pick one and stick with it
+(based on some comparison with others)]
+
+Of course the difficulty is that such exploration is time consuming
+and can be difficult to keep track of. By combining all of these
+methodologies and techniques into a single framework one may more
+easily test and combine the vast number of different approaches to
+solving any given problem. Further, by implementing this within a live
+programming environment, users can quickly adjust methods and
+parameters as needed whilst getting near instant feedback and
+response. Such tools could significantly increase the speed at which
+research is undertaken and allow us to learn more from our
+mathematical models than previously envisioned.
+
+This section will also include the offline/online stuff, and the
+flexible cloud infrastructure stuff as well.
+
+\paragraph{Navigating complex data with immersive environments}
+
+\noindent
+\textbf{TODO Henry} do you have some stuff from your last grant which
+we can use here?
+
+Why is interactivity important? Because it takes the abstract
+connection between $p$ and $Q(\mathbf{u}_p)$ and makes it a malleable,
+responsive, tactile one. What happens when I change $p$ a little bit
+in this direction? What about in \emph{that} one? How about \emph{both
+  together?}
+
+\subsubsection*{ROLE OF PERSONNEL}
+\subsubsection*{RESEARCH ENVIRONMENT}
+\subsubsection*{COMMUNICATION OF RESULTS}
+\subsubsection*{MANAGEMENT OF DATA}
+\subsubsection*{REFERENCES}
+
+
+
+lawrence murray
+
+domain of applicability
+
+noninvasive!
+
+GAs as alternatives (Zoe Brain)
+
+point to problems of the size where they will be advantageous (d ~ 10)
+
+if the goal is optimization, talk about GAs
+
+sensitivity analysis
+
+talk about all the competing approaches (MC, autodiff, non-autodiff)
+
+go away and develop a simple proof-of-concept (be careful that you
+don't attract this criticism)
+
+% guff BEGINS HERE
+
+With mathematical models becoming increasingly complex one finds that
+the parameter spaces which are inputs to such models are high
+dimensional. This makes problems like parameter estimation and
+uncertainty quantification more and more difficult. There has been
+much interest in reduced basis methods to make such problems more
+tractible [references]. Sparse grid methods have also proved to be
+highly successful in the study and computation of high dimensional
+problems [many references].
+
+Another challenge faced by scientists is the ever increasing number of
+algorithms one has available to approximate the solution of a variety
+of mathematical models. Scientists frequently ask the questions: which
+model/method should I use, and what is the best model/method for my
+problem? Recent work on sparse grid techniques is finding new ways to
+combine results from not only mathematical models computed via
+different methods [sparse grid extrapolation techniques] but also
+entirely different mathematical models [Jouke et.al. work on ship hull
+with 2 models]. It is clear that different methods and models have
+their own advantages and disadvantages which have the potential to be
+combined in new and interesting ways. [Point trying to make: a) the
+usual 'too many methods' dilemma, and b) there is generally no one
+'best' method and yet it is typical to pick one and stick with it
+(based on some comparison with others)]
+
+Of course the difficulty is that such exploration is time consuming
+and can be difficult to keep track of. By combining all of these
+methodologies and techniques into a single framework one may more
+easily test and combine the vast number of different approaches to
+solving any given problem. Further, by implementing this within a live
+programming environment, users can quickly adjust methods and
+parameters as needed whilst getting near instant feedback and
+response. Such tools could significantly increase the speed at which
+research is undertaken and allow us to learn more from our
+mathematical models than previously envisioned. [This is somewhat
+genereic/non-specific at the moment]
+
 
 \subsubsection*{PROJECT TITLE}
 
@@ -596,3 +813,7 @@ That's all I've got. Merry Christmas!
 \printbibliography[title=References]
 
 \end{document}
+
+% Local Variables:
+% TeX-engine: xetex
+% End:
