@@ -3,7 +3,7 @@
 Model/parameter selection is hard. Humans are better at making fine
 adjustments when we get instant feedback. With flexible cloud
 infrastructure and funky ways of front-loading as much of the work as
-possible, we can build interactive and immersive interfaces for toying
+possible, we can build interactive and immersive interfaces for experimenting
 with the model parameters to gain a deeper understanding about the
 relationship between the things we can control (the model parameters)
 and their effect on the system under consideration.
@@ -28,7 +28,7 @@ narrative that we structure everything around - we've gotta tell a
 story, after all. So, here are a few one-paragraph angles that we
 could use to pitch the grant...
 
-## Interactive optimisation in non-convex (and generally hairy) parameter spaces
+## A) Interactive optimisation in non-convex (and generally hairy) parameter spaces
 
 ### The problem
 
@@ -53,12 +53,13 @@ interpolate efficiently in the parameter space, allowing otherwise
 computationally expensive model families to be explored in a
 real-time, interactive fashion. We also have the tools and expertise
 to incorporate these methods in an interactive audiovisual environment
-suitable for parameter exploration.
+suitable for immersive parameter exploration.
 
 ### Key concepts
 
 - optimisation
 - interfaces
+- numerical methods?
 
 ### Notes
 
@@ -66,7 +67,7 @@ This one is the most general (probably *too* general) but is useful as a
 reference - it could be used as the base for a new angle if we don't
 like any of the others.
 
-## Communicating model uncertainty to decision-makers
+## B) Communicating model uncertainty to decision-makers
 
 ### The problem
 
@@ -91,7 +92,7 @@ decision-making.
 We've (in Steve) got some mathematical sophistication in uncertainty
 quantification (UQ), and displaying the uncertainty in a model's
 output (especially in a responsive "what about under these
-conditions... ok now what if that parameter is slightly higher..."
+conditions... ok now what if that parameter is slightly higher...")
 could go a long way to convincing a decision-maker of the model's
 validity
 
@@ -105,7 +106,7 @@ validity
 
 
 
-## Immersive environments for visualising model uncertainty
+## C) Immersive environments for visualising model uncertainty
 
 ### The problem
 
@@ -134,12 +135,7 @@ not many other folks do both.
 
 
 
-## Exploring the impact of model uncertainty in Fire & Flood disaster response scenarios
-
-This one is more specific in its problem domain, which I think is
-helpful overall. Note though that we could use the fire/flood domains
-with one of the other "angles" listed here, or indeed we could replace
-these domains with others.
+## D) Exploring the impact of model uncertainty in Fire & Flood disaster response scenarios
 
 ### The problem
 
@@ -165,5 +161,11 @@ SES decision-makers.
 - immersive environments
 - elastic cloud processing
 - data visualisation
+- numerical methods?
 
 ### Notes
+
+This one is more specific in its problem domain, which I think is
+helpful overall. Note though that we could use the fire/flood domains
+with one of the other "angles" listed here, or indeed we could replace
+these domains with others.
