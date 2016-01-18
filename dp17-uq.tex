@@ -45,7 +45,7 @@ hyperfootnotes=true]{hyperref}
 
 \begin{document}
 
-\subsubsection{Overall comments}
+\subsection*{Overall comments}
 \label{sec:overall-comments}
 
 \noindent
@@ -81,6 +81,10 @@ thoughts and questions:
   quantities/features, etc.}
 
 \subsubsection*{AIMS AND BACKGROUND}
+% - Describe the aims and background of the Proposal
+% - Include information about national/international progress in this
+%   field of research and its relationship to this Proposal
+% - Refer only to outputs that are accessible to the national and international research communities.
 
 Modelling is the process of exploring and predicting the relationship
 between quantities, the nature and meaning of which differs between
@@ -109,21 +113,21 @@ In these situations, there are some quantities we \emph{know}
 respectively. More formally, we have a model
 \begin{equation}
   \label{eq:1}
-  \mathbf{u}_p(\mathbf{x})
+  u_{\mathbf{p}}(\mathbf{x})
 \end{equation}
 defined for $\mathbf{x}$ in some domain, with a (set of) parameters
-$p \in \mathcal{P}$. One can think of $\mathbf{x}$ as the input
+$\mathbf{p} \in \mathcal{P}$. One can think of $\mathbf{x}$ as the input
 parameters intrinsic to the problem domain (e.g. spatial dimensions,
-sensor readings or economic indicators) while the model parameters $p$
+sensor readings or economic indicators) while the model parameters $\mathbf{p}$
 are ``knobs to tweak'' in the model.
 
 In many (most?) cases the goal is to better understand the
-relationship between $p$ and some lower-dimensional (simpler?)
-quantity of interest $Q(u_p)$, or to find the parameter choice $p$
+relationship between $\mathbf{p}$ and some lower-dimensional (simpler?)
+quantity of interest $Q(u_{\mathbf{p}})$, or to find the parameter choice $\mathbf{p}$
 which optimises $Q$ over all $\mathbf{x}$. It is worth pointing out
 that in the abstract, this process does not require formal
 computational modelling at all, in fact in many real-world situations
-the optimal settings (i.e. the optimal $p$) for a given process are
+the optimal settings (i.e. the optimal $\mathbf{p}$) for a given process are
 obtained through trial and error, expert judgements or semi-educated
 guesswork. There may be many reasons for this---perhaps there are no
 appropriate computational models for the domain, perhaps the models
@@ -137,9 +141,9 @@ involving both machine and human intelligence.
 When considered as a human factors problem, the challenge is to provide
 the decision-maker (who may or may not understand the subtleties of
 the model) with tools and interfaces for \emph{exploring} the
-relationship between $p$ and $Q(u_p)$. This will allow them to better
+relationship between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$. This will allow them to better
 understand the connection (and the associated uncertainty) between
-these different dimensions of $p$ (i.e. the knobs under their control)
+these different dimensions of $\mathbf{p}$ (i.e. the knobs under their control)
 and the overall response of the system. Otherwise, they may choose
 suboptimal parameters, or at worst mistrust and ignore the results of
 the modelling altogether.
@@ -147,6 +151,24 @@ the modelling altogether.
 \emph{Should we formally mention UQ here? Perhaps through an example}
 
 \subsubsection*{RESEARCH PROJECT}
+% - Describe how the research is significant and how it addresses an important problem
+% - Describe how the Proposal meets the objectives of the Discovery Projects scheme
+% - Describe how the anticipated outcomes will advance the knowledge base of the discipline and
+%   how the Proposal aims and concepts are novel and innovative
+% - Outline the conceptual framework, design and methods and demonstrate that these are
+%   adequately developed, well integrated and appropriate to the aims of the Proposal. Include
+%   research plans and proposed timelines
+% - Detail what new methodologies or technologies will be developed in the course of the research
+%   and how they will advance knowledge
+% - Outline the feasibility of the project, in terms of design, budget and proposed timeline
+% - If the rationale for some of the Proposal rests upon manuscripts that are still in the process of
+%   being published, or on results of work that may not be available to assessors, include a
+%   summary of the relevant work
+% - Describe the expected outcomes and likely impact of the proposed research
+% - Describe how the Proposal might result in national or international economic, commercial,
+%   environmental, social and/or cultural benefits
+% - If the research has been nominated as focussing upon a topic or outcome that falls within one
+%   of the Science and Research Priorities, describe the potential for the project to contribute to the associated Priority Goals.
 
 To make models more accessible and \emph{useful} to decisionmakers, we
 will develop a framework for building interactive
@@ -155,12 +177,12 @@ quantification/sensitivity analysis.
 
 There are two main challenges in designing such an interface:
 \begin{enumerate}
-\item how do we perform the modelling step $p \rightarrow
-  \mathbf{u}_p(\mathbf{x}) \rightarrow Q(\mathbf{u}_p)$ sufficiently quickly
+\item how do we perform the modelling step $\mathbf{p} \rightarrow
+  u_{\mathbf{p}}(\mathbf{x}) \rightarrow Q(u_{\mathbf{p}})$ sufficiently quickly
   for interactive exploration, while still providing adequate
   fidelity?
-\item how do we present the quantities $p$, $\mathbf{u}_p(\mathbf{x})$
-  and $Q(\mathbf{u}_p)$ to the decision-maker (and take interactive input) in a
+\item how do we present the quantities $\mathbf{p}$, $u_{\mathbf{p}}(\mathbf{x})$
+  and $Q(u_{\mathbf{p}})$ to the decision-maker (and take interactive input) in a
   way which provides meaningful insight into the validity of the
   model, ultimately providing actionable knowledge?
 \end{enumerate}
@@ -215,20 +237,46 @@ flexible cloud infrastructure stuff as well.
 we can use here?
 
 Why is interactivity important? Because it takes the abstract
-connection between $p$ and $Q(\mathbf{u}_p)$ and makes it a malleable,
-responsive, tactile one. What happens when I change $p$ a little bit
+connection between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$ and makes it a malleable,
+responsive, tactile one. What happens when I change $\mathbf{p}$ a little bit
 in this direction? What about in \emph{that} one? How about \emph{both
   together?}
 
+
 \subsubsection*{ROLE OF PERSONNEL}
+% - Summarise the role, responsibilities and contributions of each Chief Investigator (CI) and Partner Investigator (PI)
+% - Summarise the roles and levels of involvement of other Participants, for example, technical staff, Research Associates and other personnel
+% - Describe how each Participant will ensure they have the ‘time and capacity’ to undertake the proposed research, taking into account any other grants or roles that they hold.
+
+
+
 \subsubsection*{RESEARCH ENVIRONMENT}
+% - Outline the adequacy and opportunities within the Research Environment in your relevant department, school or research group, and the extent to which it will provide for knowledge growth, innovation, collaboration, mentoring and student training
+% - Describe the existing, or developing, research environment within the Administering Organisation and collaborating Organisation(s) which will enable this Project
+% - Describe how the Project aligns with the Administering Organisation’s research plans and strategies.
+
+
+
 \subsubsection*{COMMUNICATION OF RESULTS}
+% - Outline plans for communicating the research results to other researchers and the broader community, including but not limited to scholarly and public communication and dissemination.
+
+
+
 \subsubsection*{MANAGEMENT OF DATA}
+% - Outline plans for the management of data produced as a result of the proposed research, including but not limited to storage, access and re-use arrangements.
+% - It is not sufficient to state that the organisation has a data management policy. Researchers are encouraged to highlight specific plans for the management of their research data.
+
+
+
 \subsubsection*{REFERENCES}
 
 
 
-lawrence murray
+% guff BEGINS HERE
+
+lawrence murray (CSIRO)
+
+malcolm sambridge (ANU)
 
 domain of applicability
 
@@ -247,7 +295,14 @@ talk about all the competing approaches (MC, autodiff, non-autodiff)
 go away and develop a simple proof-of-concept (be careful that you
 don't attract this criticism)
 
-% guff BEGINS HERE
+
+
+
+
+
+
+
+
 
 With mathematical models becoming increasingly complex one finds that
 the parameter spaces which are inputs to such models are high
