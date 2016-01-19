@@ -8,13 +8,20 @@ with the model parameters to gain a deeper understanding about the
 relationship between the things we can control (the model parameters)
 and their effect on the system under consideration.
 
-Or, alternatively...
+*Or, alternatively...*
 
-The goal is to explore the model until a) we have a good idea about
-how the model responds to different parameter choices (UQ techniques
-can also assist us in finding the "interesting" parts of the parameter
-space) and b) we can select the best model for the circumstances to
-gain maximum input into the task at hand.
+Exploring the relationship between the parameters and response of a
+model is crucial for gleaning insight into the system being modelled,
+leading to actionable knowledge. Interactive interfaces/environments
+allow us to *explore* the parameter space, and uncertainty
+quantification tells us *where to look*---which parts of the space
+will be interesting.
+
+<!-- The goal is to explore the model until a) we have a good idea about -->
+<!-- how the model responds to different parameter choices (UQ techniques -->
+<!-- can also assist us in finding the "interesting" parts of the parameter -->
+<!-- space) and b) we can select the best model for the circumstances to -->
+<!-- gain maximum input into the task at hand. -->
 
 # The "angle" of attack
 
