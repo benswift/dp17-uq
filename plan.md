@@ -28,7 +28,7 @@ narrative that we structure everything around - we've gotta tell a
 story, after all. So, here are a few one-paragraph angles that we
 could use to pitch the grant...
 
-## A) Interactive optimisation in non-convex (and generally hairy) parameter spaces
+## A) Interactive optimisation in (hairy) parameter spaces
 
 ### The problem
 
