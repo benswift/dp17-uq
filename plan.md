@@ -48,18 +48,20 @@ impact of different parameter choices.
 
 ### Our secret sauce
 
-In the sparse grids and reduced basis models, we have the ability to
+Using sparse grids and reduced basis models, we have the ability to
 interpolate efficiently in the parameter space, allowing otherwise
 computationally expensive model families to be explored in a
-real-time, interactive fashion. We also have the tools and expertise
-to incorporate these methods in an interactive audiovisual environment
-suitable for immersive parameter exploration.
+real-time, interactive fashion. These tools can also be extented to 
+aid in the quantification of uncertainties in the model at little 
+cost. We also have the tools and expertise
+to incorporate these methods in an immersive audiovisual environment
+suitable for parameter exploration.
 
 ### Key concepts
 
 - optimisation
 - interfaces
-- numerical methods?
+- numerical methods
 
 ### Notes
 
@@ -80,7 +82,7 @@ limitations of modelling to policymakers.
 
 By providing interfaces and visualisation techniques for real-time
 interactive exploration of different model parameters, including the
-ability to perturb the more sensitive inputs and see the resulting
+ability to perturb the more sensitive inputs and observe the resulting
 impact on the model outcomes, decision-makers will be able to see the
 results of their decisions under various scenarios (parameter
 choices), increasing their confidence in the validity and usefulness
@@ -110,9 +112,10 @@ validity
 
 ### The problem
 
-Quantifying the uncertainty in a model is one thing, but how do we
-effectively communicate this information to the scientist to enable
-them to better understand the phenomena under investigation?
+Computing simulations and quantifying the uncertainty in a model is 
+one thing, but how do we effectively communicate this information to 
+the scientist to enable them to better understand the phenomena under
+investigation?
 
 ### The solution
 
@@ -133,6 +136,7 @@ not many other folks do both.
 
 ### Notes
 
+Requires funding for equipment?
 
 
 ## D) Exploring the impact of model uncertainty in Fire & Flood disaster response scenarios
@@ -161,7 +165,7 @@ SES decision-makers.
 - immersive environments
 - elastic cloud processing
 - data visualisation
-- numerical methods?
+- numerical methods
 
 ### Notes
 
