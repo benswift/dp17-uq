@@ -15,6 +15,9 @@ maxbibnames=10,
 url=false,
 doi=false]{biblatex}
 
+% make bibliography a bit smaller if necessary
+% \renewcommand*{\bibfont}{\small}
+
 % \AtEveryBibitem{\clearfield{month}}
 % \AtEveryCitekey{\clearfield{month}}
 
@@ -39,34 +42,19 @@ allcolors=DarkBlue,
 pdfpagelabels,
 hyperfootnotes=true]{hyperref}
 
+\usepackage{todonotes}
+
 \author{}
 
 \date{\today}
 
 \begin{document}
 
-\subsection*{Overall comments}
-\label{sec:overall-comments}
-
 \noindent
-\textbf{Note to readers:} comments/edits very welcome. Some general
-thoughts and questions:
-\begin{enumerate}
-\item how specific should we be with examples? is it a ``general
-  problem'' which we're solving, and the examples (e.g. flood/tsunami
-  modelling, bushfire etc.) are just exemplars? Or do we want to pick
-  1--3 problem domains which we want to tackle, and major on the
-  concrete contributions we can make there?
-\item feel free to correct any funny maths notation, I'm not
+\textbf{Note to readers:} comments/edits very welcome, and feel free to correct any funny maths notation, I'm not
   necessarily up on what the greek letters \emph{du jour} are.
-\item How do we balance the emphasis on UQ with the problem of ``model
-  accessibility'' more generally? How do we most effectively weave the
-  UQ stuff into the description of the problem? Examples are crucial here.
-\end{enumerate}
 
 \renewcommand{\thesection}{\Alph{section}}
-
-\subsubsection*{PROJECT TITLE}
 
 \setcounter{section}{3} % C1.
 \subsection{Project Description}
@@ -77,8 +65,9 @@ thoughts and questions:
 % instructions on the required content and format of the Project
 % Description.)
 
-\emph{need to be careful with vocab here---modelling/simulation,
-  quantities/features, etc.}
+\subsubsection*{PROJECT TITLE}
+
+\textbf{Interactive workflows for exploring uncertainty relationships using sparse grids}
 
 \subsubsection*{AIMS AND BACKGROUND}
 % - Describe the aims and background of the Proposal
@@ -86,9 +75,37 @@ thoughts and questions:
 %   field of research and its relationship to this Proposal
 % - Refer only to outputs that are accessible to the national and international research communities.
 
-Modelling is the process of exploring and predicting the relationship
-between quantities, the nature and meaning of which differs between
-application domains:
+\todo[inline]{\textbf{One idea:} we open with a brief vignette about
+  the 2011 Brisbane floods. Steve, can we check that we've got the
+  story straight and get some references for this?
+  (\parencite{vandenhonert_2011_2011} looks like a good start). Do we
+  know any folks who were involved?}
+
+\noindent\emph{If we do end
+  up leading with this story, we'll add more context/backgroud and make it
+  much punchier.} In the 2011 Lockyer Valley floods in Queensland,
+one issue facing authorities was their uncertainty about the amount of
+rainfall in the Wivenhoe Dam catchment area in the preceeding
+fortnight. As a result, they chose not to include this information in
+their modelling, which resulted in a decision to delay opening the dam
+until it was too late. Had they been able to incorporate their
+uncertainty about the preceeding rainfall, they may have been able to
+see the worst-case scenario more clearly and avert the disaster:
+\blockquote[\cite{vandenhonert_2011_2011} p1170]{Whilst the dam
+  operators were acting in accordance with the operations manual for
+  the dam, their modeling did not take account of forecast rainfall in
+  determining the predicted dam water level, and this resulted in a
+  sub-optimal water release strategy. Employing tools for decision
+  making under uncertainty would have resulted in a different water
+  release strategy.}
+
+\emph{Then, after the story about how a nimble application of
+  modelling with uncertainty could have saved Brisbane, we segue
+  into\ldots}
+
+Computational models are tools for describing and predicting the
+relationship between quantities. The nature and meaning of these
+quantities differs between application domains:
 \begin{itemize}
 \item in a manufacturing process we may be interested in the
   relationship between the quality of the input materials and the
@@ -106,11 +123,10 @@ application domains:
 \item in economic policy, the relationship between fiscal policy
   settings and other features of the macroeconomy
 \end{itemize}
-
-In these situations, there are some quantities we \emph{know}
-(including some parameters we can control) and some quantities we
-\emph{want} to know---our model inputs and outputs
-respectively. More formally, we have a model
+In such a workflow there are some quantities a scientist or domain
+expert may \emph{know} (including some parameters they can
+\emph{control}) and some quantities they \emph{want} to know---the
+model inputs and outputs respectively. More formally, there is a model
 \begin{equation}
   \label{eq:1}
   u_{\mathbf{p}}(\mathbf{x})
@@ -118,37 +134,102 @@ respectively. More formally, we have a model
 defined for $\mathbf{x}$ in some domain, with a (set of) parameters
 $\mathbf{p} \in \mathcal{P}$. One can think of $\mathbf{x}$ as the input
 parameters intrinsic to the problem domain (e.g. spatial dimensions,
-sensor readings or economic indicators) while the model parameters $\mathbf{p}$
+sensor readings, economic indicators, etc.) while the model parameters $\mathbf{p}$
 are ``knobs to tweak'' in the model.
 
-In many (most?) cases the goal is to better understand the
-relationship between $\mathbf{p}$ and some lower-dimensional (simpler?)
-quantity of interest $Q(u_{\mathbf{p}})$, or to find the parameter choice $\mathbf{p}$
-which optimises $Q$ over all $\mathbf{x}$. It is worth pointing out
-that in the abstract, this process does not require formal
-computational modelling at all, in fact in many real-world situations
-the optimal settings (i.e. the optimal $\mathbf{p}$) for a given process are
-obtained through trial and error, expert judgements or semi-educated
-guesswork. There may be many reasons for this---perhaps there are no
-appropriate computational models for the domain, perhaps the models
-exist but are cumbersome to use/configure, or perhaps the ultimate
-decisionmakers are unconvinced of the usefulness of computational
-modelling vs the ``good old ways'' of reading the tea leaves. Whatever
-the reason, the key point is that modelling, when considered
-holistically, is a complex socio-technical system with feedback loops
-involving both machine and human intelligence.
+\missingfigure{concept diagram of model inputs/outputs? not really
+  necessary at this point, but could be useful for developing a
+  diagrammatic vocabulary which we then flesh out in subsequent
+  diagrams}
 
-When considered as a human factors problem, the challenge is to provide
-the decision-maker (who may or may not understand the subtleties of
-the model) with tools and interfaces for \emph{exploring} the
-relationship between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$. This will allow them to better
-understand the connection (and the associated uncertainty) between
-these different dimensions of $\mathbf{p}$ (i.e. the knobs under their control)
-and the overall response of the system. Otherwise, they may choose
-suboptimal parameters, or at worst mistrust and ignore the results of
-the modelling altogether.
+In many cases \textbf{the goal} is to better understand the
+relationship between $\mathbf{p}$ and some lower-dimensional
+(simpler?) quantity of interest $Q(u_{\mathbf{p}})$, or to find the
+parameter choice $\mathbf{p}$ which optimises $Q$ over all
+$\mathbf{x}$. This very general description of the ``model
+selection/optimisation'' problem glosses many nuances, but the
+``finding the best settings on the knobs we have under our control''
+workflow lies at the heart of a great deal of modern science.\todo{ref}
 
-\emph{Should we formally mention UQ here? Perhaps through an example}
+There are many ways of finding the optimal $\mathbf{p}$ from trial and
+error or expert judgements through to fully automated algorithmic
+optimization procedures (providing both $Q(u_{\mathbf{p}})$ and
+$Q(u_{\mathbf{p}})$ are sufficiently nice, although this is often not
+the case in real-world problems). For a given $\mathbf{p}$, the
+scientist applies the model, updates their understanding of the system
+based on the computed $Q(u_{\mathbf{p}})$, and potentially adjusts
+$\mathbf{p}$ and continues the process. This process of ``twiddling
+the knobs to find the parameters which give the desired outcome''
+occupy a large part of the scientist's time.
+
+From a workflow perspective, the productivity of the scientist is
+proportional to the rate at which they can explore the
+$\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship. Any latency
+improvements in this feedback loop could potentially translate into
+productivity wins\todo{ref}.
+
+\missingfigure{figure of this feedback loop}
+
+The fundamental aim of this project is to develop a conceptual
+framework and concrete workflow management tools for accelerating the
+feedback loop between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$, including
+estimates of uncertainty. This will give the scientist the ability to
+interactively \emph{explore} the connection (and the associated
+uncertainty) between the different dimensions of $\mathbf{p}$ (i.e.
+the knobs under their control) and the overall response of the
+system.\todo{include some cognitive HCI stuff about how interactivity
+  is helpful/necessary? for this sort of thing} If the model
+parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known precisely
+and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate and easy
+interpret, then the task is simple: provide the scientist with an
+interface for manipulating $\mathbf{p}$ and set them loose. However,
+for real-world models (such as those used in flood scenario
+modelling?) this is often not the case. \todo[inline]{rather than the
+  generic appeal to ``in the real world\ldots'', we could say ``we
+  limit our analysis to situations where''\ldots}
+\begin{enumerate}
+  \item \emph{The model inputs may not be known precisely}---as in the
+    Lockyer valley example. Many models do not provide methods for
+    including uncertainty information in their inputs.
+  \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
+      calculate}. Many sophisticated models require non-trivial
+    computing resources to perform, such as supercomputers. These
+    compute resources may be difficult to secure, with jobs having to
+    wait in a queue, and may take a long time to compute even when the
+    resources are available.
+  \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
+      interpret}. This may be because of technical reasons, such as a
+    complex problem domain where coming up with a meaningful loss
+    function is difficult, or may be due to ethical reasons---how to
+    balance the predicted cost to private property vs damage to the
+    natural environment. Finally, this is a visualisation
+    problem---even the simplified quantity $Q(u_{\mathbf{p}})$ may be
+    high-dimensional, and presenting that to the scientist (especially
+    with uncertainty information) may not be straightforward.
+\end{enumerate}
+Ultimately, the scientist needs \textbf{a workflow tool} for gleaning
+insights from their models in the presence of these challenges.
+Designing such a tool breaks down into two subtasks:
+\begin{enumerate}
+\item performing the modelling step
+  $\mathbf{p} \rightarrow u_{\mathbf{p}}(\mathbf{x}) \rightarrow
+  Q(u_{\mathbf{p}})$ sufficiently quickly for interactive exploration,
+  while still providing adequate fidelity
+\item presenting the quantities $\mathbf{p}$,
+  $u_{\mathbf{p}}(\mathbf{x})$ and $Q(u_{\mathbf{p}})$ to the
+  scientist (and take interactive input) in a way which provides
+  meaningful insight
+\end{enumerate}
+\todo[inline]{if we're going to say that interactivity is necessary
+  (or at least extremely beneficial) then we need to make a case for
+  it. I think we can, and it goes like: dealing with uncertainty
+  requires the ability to explore, and exploration is \emph{heaps}
+  better with a fast feedback loop, so interactive IO is
+  necessary(ish). But if we decide that we don't want to make such a
+  strong claim, we don't have to put this stuff in here.}
+
+\missingfigure{full diagram of the scientist, the modelling steps and
+  the relevant IO in an interactive feedback loop}
 
 \subsubsection*{RESEARCH PROJECT}
 % - Describe how the research is significant and how it addresses an important problem
@@ -175,46 +256,67 @@ will develop a framework for building interactive
 interfaces/environments for model exploration, especially uncertainty
 quantification/sensitivity analysis.
 
-There are two main challenges in designing such an interface:
-\begin{enumerate}
-\item how do we perform the modelling step $\mathbf{p} \rightarrow
-  u_{\mathbf{p}}(\mathbf{x}) \rightarrow Q(u_{\mathbf{p}})$ sufficiently quickly
-  for interactive exploration, while still providing adequate
-  fidelity?
-\item how do we present the quantities $\mathbf{p}$, $u_{\mathbf{p}}(\mathbf{x})$
-  and $Q(u_{\mathbf{p}})$ to the decision-maker (and take interactive input) in a
-  way which provides meaningful insight into the validity of the
-  model, ultimately providing actionable knowledge?
-\end{enumerate}
+There are two opposite, and equally unhelpful, ways of dealing with
+uncertainty in modelling. The first is to ignore it, and assume that
+the inputs to our models are known exactly. While this approach can
+be (and indeed is) used
+when the uncertainties involved are small, increasingly complex models
+means increasingly complex interactions between the different
+parameters, and so it very difficult to say which uncertainties are
+``small enough'' to ignore. The opposite approach is to \emph{ignore} input
+data about which there is too much uncertainty. While this is a more
+conservative approach, it too can lead to real problems, as in the
+2011 Brisbane floods.
 
-\paragraph{Efficient parameter space exploration with sparse grids}
+There has been much interest in reduced basis methods to make such
+problems more tractible\todo{Brendan add refs}. Sparse grid methods
+have also proved to be highly successful in the study and computation
+of high dimensional problems\todo{Brendan add refs}.
 
-\emph{This is Brendan's stuff. At some stage I'll make sure it flows
-  nicely.}
-
-With mathematical models becoming increasingly complex one finds that
-the parameter spaces which are inputs to such models are high
-dimensional. This makes problems like parameter estimation and
-uncertainty quantification more and more difficult. There has been
-much interest in reduced basis methods to make such problems more
-tractible [references]. Sparse grid methods have also proved to be
-highly successful in the study and computation of high dimensional
-problems [many references].
-
-Another challenge faced by scientists is the ever increasing number of
-algorithms one has available to approximate the solution of a variety
-of mathematical models. Scientists frequently ask the questions: which
-model/method should I use, and what is the best model/method for my
-problem? Recent work on sparse grid techniques is finding new ways to
+Recent work on sparse grid techniques is finding new ways to
 combine results from not only mathematical models computed via
-different methods [sparse grid extrapolation techniques] but also
-entirely different mathematical models [Jouke et.al. work on ship hull
-with 2 models]. It is clear that different methods and models have
-their own advantages and disadvantages which have the potential to be
-combined in new and interesting ways. [Point trying to make: a) the
-usual 'too many methods' dilemma, and b) there is generally no one
+different methods \todo{Brendan add refs to sparse grid extrapolation
+techniques} but also entirely different mathematical
+models \todo{Brendan add refs to Jouke et.al. work on ship hull with 2
+models}. It is clear that different methods and models
+have their own advantages and disadvantages which have the potential
+to be combined in new and interesting ways. [Point trying to make: a)
+the usual 'too many methods' dilemma, and b) there is generally no one
 'best' method and yet it is typical to pick one and stick with it
 (based on some comparison with others)]
+
+Of course the difficulty is that such exploration is time consuming
+and can be difficult to keep track of. By combining all of these
+methodologies and techniques into a single framework one may more
+easily test and combine the vast number of different approaches to
+solving any given problem. Further, by implementing this within an
+interactive programming environment, users can quickly adjust methods
+and parameters as needed whilst getting near instant feedback and
+response. Such tools could significantly increase the speed at which
+research is undertaken and allow us to learn more from our
+mathematical models than previously envisioned.
+
+
+
+
+This problem has two main components: a mathematical component, and a
+a human factors component.
+\begin{itemize}
+\item We will deal with the \textbf{mathematical challenges} using a
+  sparse grids approach, using combination techniques
+  to incorporate new measurements/information in an efficient way.
+\item We will deal with the \textbf{human factors challenges} using a
+  live steering (maybe even live programming?) approach, building
+  interfaces which provide expert decisionmakers with the ability to
+  steer computation/optimisation procedures, exploring different model
+  parameterisations and scenarios with real-time feedback.
+\end{itemize}
+
+
+
+
+
+\paragraph{Efficient parameter space exploration with sparse grids}
 
 Of course the difficulty is that such exploration is time consuming
 and can be difficult to keep track of. By combining all of these
@@ -248,14 +350,44 @@ in this direction? What about in \emph{that} one? How about \emph{both
 % - Summarise the roles and levels of involvement of other Participants, for example, technical staff, Research Associates and other personnel
 % - Describe how each Participant will ensure they have the ‘time and capacity’ to undertake the proposed research, taking into account any other grants or roles that they hold.
 
+The personnel on this grant cover the key research areas discussed in
+the \emph{Research Project} section of this application:
 
+\begin{itemize}
+\item \textbf{Steve Roberts}: uncertainty quantification, sparse grids, flood
+  modelling
+\item \textbf{Markus Hegland}: sparse grids
+\item \textbf{Peter Strazdins}: sparse grids, distributed computing
+\item \textbf{Henry Gardner}: HCI, interfaces
+\end{itemize}
 
 \subsubsection*{RESEARCH ENVIRONMENT}
 % - Outline the adequacy and opportunities within the Research Environment in your relevant department, school or research group, and the extent to which it will provide for knowledge growth, innovation, collaboration, mentoring and student training
 % - Describe the existing, or developing, research environment within the Administering Organisation and collaborating Organisation(s) which will enable this Project
 % - Describe how the Project aligns with the Administering Organisation’s research plans and strategies.
 
+\todo[inline]{I'm open to suggestions on how to pitch the ``research
+  environment'' section from those more experienced at getting money
+  out of the ARC than I}
 
+It seems we need to address three issues: 
+
+\begin{enumerate}
+\item the environment within the department/school/research group
+\item the environment between the groups---perhaps between the MSI
+  group and the CS group, (and also CSIRO?)
+\item how does it align with the ANU's research plans and strategies
+\end{enumerate}
+
+Ideas\ldots
+
+Numerical methods and applied mathematics---we're kicking goals.
+
+Collaboration across maths and compsci, have track record through e.g.
+the Fujitsu grant
+
+CSIRO/ADFA/BOM(? although we haven't mentioned them thus far) for more
+fire and flood stuff
 
 \subsubsection*{COMMUNICATION OF RESULTS}
 % - Outline plans for communicating the research results to other researchers and the broader community, including but not limited to scholarly and public communication and dissemination.
@@ -270,7 +402,30 @@ in this direction? What about in \emph{that} one? How about \emph{both
 
 \subsubsection*{REFERENCES}
 
+overview of dynamic decision support
+systems\parencite{gonzalez_decision_2005}
 
+mceachern on the current SoA in visual analytics and
+uncertainty\cite{maceachren_visual_2015}
+
+\textquote[\cite{sprague_framework_1980}]{interactive computer
+  based systems, which help decision makers utilize data and models to
+  solve unstructured problems.}
+
+\blockquote[\cite{zack_role_2007}]{
+  \begin{itemize}
+  \item Uncertainty: not having enough information;
+  \item Complexity: having more information than one can
+  \item Ambiguity: not having a conceptual framework for interpreting
+    information;
+  \item Equivocality: having several competing or contradictory
+    conceptual frameworks.
+  \end{itemize}}
+
+\printbibliography[title=References]
+
+\appendix
+\newpage
 
 % guff BEGINS HERE
 
@@ -300,65 +455,6 @@ don't attract this criticism)
 
 
 
-
-
-
-
-With mathematical models becoming increasingly complex one finds that
-the parameter spaces which are inputs to such models are high
-dimensional. This makes problems like parameter estimation and
-uncertainty quantification more and more difficult. There has been
-much interest in reduced basis methods to make such problems more
-tractible [references]. Sparse grid methods have also proved to be
-highly successful in the study and computation of high dimensional
-problems [many references].
-
-Another challenge faced by scientists is the ever increasing number of
-algorithms one has available to approximate the solution of a variety
-of mathematical models. Scientists frequently ask the questions: which
-model/method should I use, and what is the best model/method for my
-problem? Recent work on sparse grid techniques is finding new ways to
-combine results from not only mathematical models computed via
-different methods [sparse grid extrapolation techniques] but also
-entirely different mathematical models [Jouke et.al. work on ship hull
-with 2 models]. It is clear that different methods and models have
-their own advantages and disadvantages which have the potential to be
-combined in new and interesting ways. [Point trying to make: a) the
-usual 'too many methods' dilemma, and b) there is generally no one
-'best' method and yet it is typical to pick one and stick with it
-(based on some comparison with others)]
-
-Of course the difficulty is that such exploration is time consuming
-and can be difficult to keep track of. By combining all of these
-methodologies and techniques into a single framework one may more
-easily test and combine the vast number of different approaches to
-solving any given problem. Further, by implementing this within a live
-programming environment, users can quickly adjust methods and
-parameters as needed whilst getting near instant feedback and
-response. Such tools could significantly increase the speed at which
-research is undertaken and allow us to learn more from our
-mathematical models than previously envisioned. [This is somewhat
-genereic/non-specific at the moment]
-
-
-\subsubsection*{PROJECT TITLE}
-
-\textbf{Human-in-the-loop Model Uncertainty Quantification for
-  Time-Critical Decisionmaking (TBC)}
-
-Inverse uncertainty quantification is a critical aspect of any
-simulation/modelling workflow. As numerical modelling becomes
-increasingly pervasive---from industrial design to basic science to
-economic policymaking---the ability to understand and update these
-models in response to measurements from the real world is critical in
-translating insights from modelling and simulation to actionable
-knowledge. A rich understanding of the uncertainty in a model is also
-important when the model is used as an input to a human decisionmaking
-process (as most models invariably are). What can we say about the
-strength of the connection of the different aspects of the model to
-reality? How confident can we be about various predictions given by
-the model?
-
 In addition, recent developments in sensor networks and pervasive
 monitoring technologies have increased our ability to gather data from
 the world. Streaming data analysis is an active area of research, and
@@ -368,8 +464,7 @@ updating our models in response to new data coming in.
 
 This project asks the question: \textbf{can streaming data be used to
   update and model uncertainties and provide intelligible insights in
-  time-critical decisionmaking scenarios?} (TODO this needs to be
-tighter)
+  time-critical decisionmaking scenarios?}
 
 One example scenario: sensors detect an earthquake in the Pacific Ocean,
 and the countdown timer begins---what is the likelihood of a
@@ -381,18 +476,12 @@ update the model, and how does this affect the predicted impact? How
 does uncertainty in the buoy readings affect our confidence in the
 model?
 
-This problem has two main components: a mathematical component, and a
-a human factors component.
-\begin{itemize}
-\item We will deal with the \textbf{mathematical challenges} using a
-  sparse grids approach, using combination techniques
-  to incorporate new measurements/information in an efficient way.
-\item We will deal with the \textbf{human factors challenges} using a
-  live steering (maybe even live programming?) approach, building
-  interfaces which provide expert decisionmakers with the ability to
-  steer computation/optimisation procedures, exploring different model
-  parameterisations and scenarios with real-time feedback.
-\end{itemize}
+
+
+
+
+
+\subsubsection*{PROJECT TITLE}
 
 \subsubsection*{AIMS AND BACKGROUND}
 
@@ -848,17 +937,6 @@ Data provenance, reproducibility
 % Projects/Proposals/Fellowships awarded or requests submitted for
 % funding involving the Proposal participants. Please refer to the
 % Instructions to Applicants for submission requirements.)
-
-That's all I've got. Merry Christmas!
-
-\section{TODO}
-\label{sec:todo}
-
-\begin{itemize}
-\item references
-\item example projects
-\item all the rest of it\ldots
-\end{itemize}
 
 % \section{Conclusion}
 % \label{sec:conclusion}
