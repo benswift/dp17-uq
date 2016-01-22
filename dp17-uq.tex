@@ -67,7 +67,10 @@ hyperfootnotes=true]{hyperref}
 
 \subsubsection*{PROJECT TITLE}
 
-\textbf{Interactive workflows for exploring uncertainty relationships using sparse grids}
+\textbf{Interactive interfaces/workflows/systems for exploring uncertainty relationships using sparse grids}
+
+\todo[inline]{We don't have any mention of the application domain in
+  this version, e.g. Fire \& Flood. But perhaps we should?}
 
 \subsubsection*{AIMS AND BACKGROUND}
 % - Describe the aims and background of the Proposal
@@ -79,18 +82,17 @@ hyperfootnotes=true]{hyperref}
   the 2011 Brisbane floods. Steve, can we check that we've got the
   story straight and get some references for this?
   (\parencite{vandenhonert_2011_2011} looks like a good start). Do we
-  know any folks who were involved?}
+  know any folks who were involved? If we do end up leading with this
+  story, we'll add more context/backgroud and make it much punchier.}
 
-\noindent\emph{If we do end
-  up leading with this story, we'll add more context/backgroud and make it
-  much punchier.} In the 2011 Lockyer Valley floods in Queensland,
-one issue facing authorities was their uncertainty about the amount of
-rainfall in the Wivenhoe Dam catchment area in the preceeding
-fortnight. As a result, they chose not to include this information in
-their modelling, which resulted in a decision to delay opening the dam
-until it was too late. Had they been able to incorporate their
-uncertainty about the preceeding rainfall, they may have been able to
-see the worst-case scenario more clearly and avert the disaster:
+In the 2011 Lockyer Valley floods in Queensland, one issue facing
+authorities was their uncertainty about the amount of rainfall in the
+Wivenhoe Dam catchment area in the preceeding fortnight. As a result,
+they chose not to include this information in their modelling, which
+resulted in a decision to delay opening the dam until it was too late.
+Had they been able to incorporate their uncertainty about the
+preceeding rainfall, they may have been able to see the worst-case
+scenario more clearly and avert the disaster:
 \blockquote[\cite{vandenhonert_2011_2011} p1170]{Whilst the dam
   operators were acting in accordance with the operations manual for
   the dam, their modeling did not take account of forecast rainfall in
@@ -180,32 +182,34 @@ the knobs under their control) and the overall response of the
 system.\todo{include some cognitive HCI stuff about how interactivity
   is helpful/necessary? for this sort of thing} If the model
 parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known precisely
-and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate and easy
+and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate and easy to
 interpret, then the task is simple: provide the scientist with an
 interface for manipulating $\mathbf{p}$ and set them loose. However,
 for real-world models (such as those used in flood scenario
-modelling?) this is often not the case. \todo[inline]{rather than the
-  generic appeal to ``in the real world\ldots'', we could say ``we
-  limit our analysis to situations where''\ldots}
+modelling?) this is often not the case, for the following reasons.
+\todo[inline]{rather than the generic appeal to ``in the real
+  world\ldots'', we could say ``we limit our analysis to situations
+  where''\ldots}
 \begin{enumerate}
-  \item \emph{The model inputs may not be known precisely}---as in the
-    Lockyer valley example. Many models do not provide methods for
-    including uncertainty information in their inputs.
-  \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
-      calculate}. Many sophisticated models require non-trivial
-    computing resources to perform, such as supercomputers. These
-    compute resources may be difficult to secure, with jobs having to
-    wait in a queue, and may take a long time to compute even when the
-    resources are available.
-  \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
-      interpret}. This may be because of technical reasons, such as a
-    complex problem domain where coming up with a meaningful loss
-    function is difficult, or may be due to ethical reasons---how to
-    balance the predicted cost to private property vs damage to the
-    natural environment. Finally, this is a visualisation
-    problem---even the simplified quantity $Q(u_{\mathbf{p}})$ may be
-    high-dimensional, and presenting that to the scientist (especially
-    with uncertainty information) may not be straightforward.
+\item \emph{The model may not provide a way to express uncertainty in
+    the inputs}. Many models do not provide methods for including
+  uncertainty information in their inputs, as was the case in the
+  Lockyer valley example.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
+    calculate}. Many sophisticated models require non-trivial
+  computing resources to perform, such as supercomputers. These
+  compute resources may be difficult to secure, with jobs having to
+  wait in a queue, and may take a long time to compute even when the
+  resources are available.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
+    interpret}. This may be because of technical reasons, such as a
+  complex problem domain where coming up with a meaningful loss
+  function is difficult, or may be due to ethical reasons---how to
+  balance the predicted cost to private property vs damage to the
+  natural environment. Finally, this is a visualisation problem---even
+  the simplified quantity $Q(u_{\mathbf{p}})$ may be high-dimensional,
+  and presenting that to the scientist (especially with uncertainty
+  information) may not be straightforward.
 \end{enumerate}
 Ultimately, the scientist needs \textbf{a workflow tool} for gleaning
 insights from their models in the presence of these challenges.
@@ -214,11 +218,19 @@ Designing such a tool breaks down into two subtasks:
 \item performing the modelling step
   $\mathbf{p} \rightarrow u_{\mathbf{p}}(\mathbf{x}) \rightarrow
   Q(u_{\mathbf{p}})$ sufficiently quickly for interactive exploration,
-  while still providing adequate fidelity
-\item presenting the quantities $\mathbf{p}$,
+  while still providing adequate fidelity (including uncertainty). In this project, we will
+  achieve this using \textbf{sparse grids} and \textbf{reduced basis
+    models}.\todo{to what extent should we mention both SGs and RBMs?}
+\item Presenting the quantities $\mathbf{p}$,
   $u_{\mathbf{p}}(\mathbf{x})$ and $Q(u_{\mathbf{p}})$ to the
-  scientist (and take interactive input) in a way which provides
-  meaningful insight
+  scientist, and take interactive input/parameter updates, in a way
+  which provides meaningful insight. In this project, we will achieve
+  this with \textbf{interactive scientific workflow management systems
+    (SWfMS)}.\todo[inline]{we don't have to go the whole hog and talk
+    about SWfMS, we could just call them interfaces, or interactive
+    environments. Pros and cons to each. I guess the idea of using the
+    SWfMS moniker is to tie it into existing research, and the call
+    for full-stack SWfMS is loud in SoftEng at least.}
 \end{enumerate}
 \todo[inline]{if we're going to say that interactivity is necessary
   (or at least extremely beneficial) then we need to make a case for
@@ -251,22 +263,40 @@ Designing such a tool breaks down into two subtasks:
 % - If the research has been nominated as focussing upon a topic or outcome that falls within one
 %   of the Science and Research Priorities, describe the potential for the project to contribute to the associated Priority Goals.
 
-To make models more accessible and \emph{useful} to decisionmakers, we
-will develop a framework for building interactive
-interfaces/environments for model exploration, especially uncertainty
-quantification/sensitivity analysis.
-
 There are two opposite, and equally unhelpful, ways of dealing with
 uncertainty in modelling. The first is to ignore it, and assume that
-the inputs to our models are known exactly. While this approach can
-be (and indeed is) used
-when the uncertainties involved are small, increasingly complex models
-means increasingly complex interactions between the different
-parameters, and so it very difficult to say which uncertainties are
-``small enough'' to ignore. The opposite approach is to \emph{ignore} input
-data about which there is too much uncertainty. While this is a more
-conservative approach, it too can lead to real problems, as in the
-2011 Brisbane floods.
+the inputs to our models are known exactly. While this approach can be
+(and indeed is) used when the uncertainties involved are small,
+increasingly complex models means increasingly complex interactions
+between the different parameters, and so it very difficult to say
+which uncertainties are ``small enough'' to ignore. The opposite
+approach is to \emph{ignore} input data about which there is too much
+uncertainty. While this is a more conservative approach, it too can
+lead to real problems, as in the 2011 Brisbane floods.
+
+\paragraph{Sparse grids (and reduced basis models as well?)}
+
+\todo[inline]{Brendan will beef up this section with lots of tricky
+  maths which makes us sound smart. But it's very much a
+  work-in-progress at the moment.}
+
+In this project we will use sparse grid techniques\todo{ref} to construct
+high-fidelity approximate models $\tilde{u}_{\mathbf{p}}(\mathbf{x})$
+which are:
+\begin{enumerate}
+\item able to express and propagate uncertainty in both input
+  parameters and outputs
+\item cheap to calculate, so that these approximations can be explored
+  in a real-time human-in-the-loop exploratory workflow
+\end{enumerate}
+As an added bonus, these general techniques can be used to quantify
+the uncertainty in models (or ensembles of models) even when the
+models themselves were not designed with uncertainty quantification
+(UQ) in mind \todo{in the parameter space, anyway---Brendan, is this
+  the ``smarter monte carlo'' stuff you were talking about the other
+  day?}, and to combine multiple models (e.g. high- and low-fidelity
+models) in a sophisticated way to leverage the benefits of many
+different models.
 
 There has been much interest in reduced basis methods to make such
 problems more tractible\todo{Brendan add refs}. Sparse grid methods
@@ -296,28 +326,6 @@ response. Such tools could significantly increase the speed at which
 research is undertaken and allow us to learn more from our
 mathematical models than previously envisioned.
 
-
-
-
-This problem has two main components: a mathematical component, and a
-a human factors component.
-\begin{itemize}
-\item We will deal with the \textbf{mathematical challenges} using a
-  sparse grids approach, using combination techniques
-  to incorporate new measurements/information in an efficient way.
-\item We will deal with the \textbf{human factors challenges} using a
-  live steering (maybe even live programming?) approach, building
-  interfaces which provide expert decisionmakers with the ability to
-  steer computation/optimisation procedures, exploring different model
-  parameterisations and scenarios with real-time feedback.
-\end{itemize}
-
-
-
-
-
-\paragraph{Efficient parameter space exploration with sparse grids}
-
 Of course the difficulty is that such exploration is time consuming
 and can be difficult to keep track of. By combining all of these
 methodologies and techniques into a single framework one may more
@@ -332,18 +340,17 @@ mathematical models than previously envisioned.
 This section will also include the offline/online stuff, and the
 flexible cloud infrastructure stuff as well.
 
-\paragraph{Navigating complex data with immersive environments}
+\paragraph*{Building interactive systems for exploring uncertainty relationships}\mbox{}\\
 
-\noindent
-\textbf{TODO Henry} do you have some stuff from your last grant which
-we can use here?
+\todo[inline]{We have some stuff to use here (see content on page
+  \pageref{SWfMS-grant}), but it needs some work to be successfully
+  integrated.}
 
-Why is interactivity important? Because it takes the abstract
-connection between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$ and makes it a malleable,
-responsive, tactile one. What happens when I change $\mathbf{p}$ a little bit
-in this direction? What about in \emph{that} one? How about \emph{both
-  together?}
-
+% Why is interactivity important? Because it takes the abstract
+% connection between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$ and makes it a malleable,
+% responsive, tactile one. What happens when I change $\mathbf{p}$ a little bit
+% in this direction? What about in \emph{that} one? How about \emph{both
+%   together?}
 
 \subsubsection*{ROLE OF PERSONNEL}
 % - Summarise the role, responsibilities and contributions of each Chief Investigator (CI) and Partner Investigator (PI)
@@ -402,58 +409,33 @@ fire and flood stuff
 
 \subsubsection*{REFERENCES}
 
-overview of dynamic decision support
-systems\parencite{gonzalez_decision_2005}
-
-mceachern on the current SoA in visual analytics and
-uncertainty\cite{maceachren_visual_2015}
-
-\textquote[\cite{sprague_framework_1980}]{interactive computer
-  based systems, which help decision makers utilize data and models to
-  solve unstructured problems.}
-
-\blockquote[\cite{zack_role_2007}]{
-  \begin{itemize}
-  \item Uncertainty: not having enough information;
-  \item Complexity: having more information than one can
-  \item Ambiguity: not having a conceptual framework for interpreting
-    information;
-  \item Equivocality: having several competing or contradictory
-    conceptual frameworks.
-  \end{itemize}}
-
-\printbibliography[title=References]
+\vskip -3em
+\printbibliography[title=\ ]
 
 \appendix
 \newpage
 
-% guff BEGINS HERE
+\todo[inline]{Ok, from here on it's the wild west. Caveat lector.}
 
-lawrence murray (CSIRO)
+% overview of dynamic decision support
+% systems\parencite{gonzalez_decision_2005}
 
-malcolm sambridge (ANU)
+% mceachern on the current SoA in visual analytics and
+% uncertainty\cite{maceachren_visual_2015}
 
-domain of applicability
+% \textquote[\cite{sprague_framework_1980}]{interactive computer
+%   based systems, which help decision makers utilize data and models to
+%   solve unstructured problems.}
 
-noninvasive!
-
-GAs as alternatives (Zoe Brain)
-
-point to problems of the size where they will be advantageous (d ~ 10)
-
-if the goal is optimization, talk about GAs
-
-sensitivity analysis
-
-talk about all the competing approaches (MC, autodiff, non-autodiff)
-
-go away and develop a simple proof-of-concept (be careful that you
-don't attract this criticism)
-
-
-
-
-
+\textcite{zack_role_2007} describes four classes (well, $2\times2$ really) of uncertainty:
+\begin{itemize}
+\item Uncertainty: not having enough information;
+\item Complexity: having more information than one can
+\item Ambiguity: not having a conceptual framework for interpreting
+  information;
+\item Equivocality: having several competing or contradictory
+  conceptual frameworks.
+\end{itemize}
 
 In addition, recent developments in sensor networks and pervasive
 monitoring technologies have increased our ability to gather data from
@@ -476,15 +458,14 @@ update the model, and how does this affect the predicted impact? How
 does uncertainty in the buoy readings affect our confidence in the
 model?
 
-
-
-
-
-
-\subsubsection*{PROJECT TITLE}
+\todo[inline]{What follows is from a draft which Henry and Ben started
+to put together last year, and there is some material here which could
+be used to fill out the ``building the interfaces'' part of the
+``Research Project'' section of this application. But it won't
+necessarily make sense as-is.}
 
 \subsubsection*{AIMS AND BACKGROUND}
-
+\label{SWfMS-grant}
 \paragraph*{Aims}\mbox{}\\
 
 The modern world appears to be saturated with computing power.
@@ -832,51 +813,6 @@ Series of research problems to be solved:
   above)
 \item Evaluate effectivess on set of exemplars
 \end{enumerate}
-
-\paragraph*{Feasibility, methodology and timeline}\mbox{}\\
-
-% -set of steps
-% -set of prototype interations
-
-% Work per quarter
-
-\paragraph*{Outcomes and impact}\mbox{}\\
-
-Real, working software workflows (open-source!)
-
-\paragraph*{National benefit and strategic research priorities}\mbox{}\\
-
-
-
-\subsubsection*{ROLE OF PERSONNEL}
-
-
-
-\subsubsection*{RESEARCH ENVIRONMENT}
-
-\paragraph*{Existing research environment}\mbox{}\\
-
-ANU is a great place to do this.
-
-\paragraph*{Developing research environment}\mbox{}\\
-
-Need to build the team.
-
-\paragraph*{Collaboration, communication and commercialization}\mbox{}\\
-
-\subsubsection*{COMMUNICATION OF RESULTS}
-
-reproducable code/software artefacts
-
-\subsubsection*{MANAGEMENT OF DATA}
-
-Data provenance, reproducibility
-
-\subsubsection*{REFERENCES}
-
-\vskip -2em % filthy hack to get the spacing right
-
-\printbibliography[title=\ ]
 
 \newpage
 \setcounter{section}{5} % E1.
