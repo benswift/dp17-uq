@@ -6,6 +6,10 @@
 \usepackage{url}
 \usepackage{graphicx}
 
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
 % \usepackage{fullpage}
 
 \usepackage[%
@@ -144,10 +148,18 @@ domain (e.g. spatial dimensions,
 sensor readings, economic indicators, etc.) while the model parameters $\mathbf{p}$
 are ``knobs to tweak'' in the model.
 
-\missingfigure{concept diagram of model inputs/outputs? not really
+%\missingfigure{concept diagram of model inputs/outputs? not really
+%  necessary at this point, but could be useful for developing a
+%  diagrammatic vocabulary which we then flesh out in subsequent
+%  diagrams}
+\begin{figure}[h!]
+\centering
+\input{model_diagram_fig.tex}
+\caption{concept diagram of model inputs/outputs? not really
   necessary at this point, but could be useful for developing a
   diagrammatic vocabulary which we then flesh out in subsequent
   diagrams}
+\end{figure}
 
 In many cases \textbf{the goal} is to better understand the
 relationship between $\mathbf{p}$ and some lower-dimensional
