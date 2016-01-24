@@ -87,11 +87,11 @@ hyperfootnotes=true]{hyperref}
 
 In the 2011 Lockyer Valley floods in Queensland, one issue facing
 authorities was their uncertainty about the amount of rainfall in the
-Wivenhoe Dam catchment area in the preceeding fortnight. As a result,
+Wivenhoe Dam catchment area in the preceding fortnight. As a result,
 they chose not to include this information in their modelling, which
 resulted in a decision to delay opening the dam until it was too late.
 Had they been able to incorporate their uncertainty about the
-preceeding rainfall, they may have been able to see the worst-case
+preceding rainfall, they may have been able to see the worst-case
 scenario more clearly and avert the disaster:
 \blockquote[\cite{vandenhonert_2011_2011} p1170]{Whilst the dam
   operators were acting in accordance with the operations manual for
@@ -111,7 +111,7 @@ quantities differs between application domains:
 \begin{itemize}
 \item in a manufacturing process we may be interested in the
   relationship between the quality of the input materials and the
-  defect rate in the finished widgets
+  defect rate in the finished products
 \item in design/engineering, we might be interested in the
   relationship between an airfoil's shape (at both micro and macro
   scales) and its aerodynamic properties
@@ -128,14 +128,19 @@ quantities differs between application domains:
 In such a workflow there are some quantities a scientist or domain
 expert may \emph{know} (including some parameters they can
 \emph{control}) and some quantities they \emph{want} to know---the
-model inputs and outputs respectively. More formally, there is a model
+model inputs and outputs respectively. More formally, we suppose there is a mathematical model $M_{\mathbf{p}}$ parametrised by $p\in\mathcal{P}$, with compact $\mathcal{P}\subset\mathbb{R}^{P}$ for example.
+For example, $M_{\mathbf{p}}$ may be an operator for a parametrised partial differential equation (PPDE).
+For each $\mathbf{p}$ we suppose the model is well-defined and there exists a function 
 \begin{equation}
   \label{eq:1}
-  u_{\mathbf{p}}(\mathbf{x})
+  u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
 \end{equation}
-defined for $\mathbf{x}$ in some domain, with a (set of) parameters
-$\mathbf{p} \in \mathcal{P}$. One can think of $\mathbf{x}$ as the input
-parameters intrinsic to the problem domain (e.g. spatial dimensions,
+which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
+Here we suppose the domain $\Omega$ is a compact subset of $\mathbb{R}^{d}$ or $\mathbb{C}^{d}$. 
+% Perhaps we could provide an example, e.g. using the shallow water wave equations?
+One can think of $\mathbf{x}$ as the 
+input parameters intrinsic to the problem % rethink this!!!
+domain (e.g. spatial dimensions,
 sensor readings, economic indicators, etc.) while the model parameters $\mathbf{p}$
 are ``knobs to tweak'' in the model.
 
@@ -146,9 +151,10 @@ are ``knobs to tweak'' in the model.
 
 In many cases \textbf{the goal} is to better understand the
 relationship between $\mathbf{p}$ and some lower-dimensional
-(simpler?) quantity of interest $Q(u_{\mathbf{p}})$, or to find the
-parameter choice $\mathbf{p}$ which optimises $Q$ over all
-$\mathbf{x}$. This very general description of the ``model
+%(simpler?) % I would avoid using the word `simpler'
+quantity of interest $Q(u_{\mathbf{p}})$, or to find the
+parameter choice $\mathbf{p}$ which optimises $Q$. %over all $\mathbf{x}$. 
+This very general description of the ``model
 selection/optimisation'' problem glosses many nuances, but the
 ``finding the best settings on the knobs we have under our control''
 workflow lies at the heart of a great deal of modern science.\todo{ref}
@@ -162,13 +168,14 @@ scientist applies the model, updates their understanding of the system
 based on the computed $Q(u_{\mathbf{p}})$, and potentially adjusts
 $\mathbf{p}$ and continues the process. This process of ``twiddling
 the knobs to find the parameters which give the desired outcome''
-occupy a large part of the scientist's time.
+occupy a large part of the scientists and/or domain experts time.
 
 From a workflow perspective, the productivity of the scientist is
 proportional to the rate at which they can explore the
 $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship. Any latency
 improvements in this feedback loop could potentially translate into
-productivity wins\todo{ref}.
+productivity gains\todo{ref}.
+% With a tight feedback loop a natural extension would be providing tools for exploring the $Q(u_{\mathbf{p}}) \rightarrow \mathbf{p}$ relationship.
 
 \missingfigure{figure of this feedback loop}
 
@@ -197,7 +204,7 @@ modelling?) this is often not the case, for the following reasons.
   Lockyer valley example.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
     calculate}. Many sophisticated models require non-trivial
-  computing resources to perform, such as supercomputers. These
+  computing resources to evaluate, such as supercomputers. These
   compute resources may be difficult to secure, with jobs having to
   wait in a queue, and may take a long time to compute even when the
   resources are available.
@@ -206,8 +213,8 @@ modelling?) this is often not the case, for the following reasons.
   complex problem domain where coming up with a meaningful loss
   function is difficult, or may be due to ethical reasons---how to
   balance the predicted cost to private property vs damage to the
-  natural environment. Finally, this is a visualisation problem---even
-  the simplified quantity $Q(u_{\mathbf{p}})$ may be high-dimensional,
+  natural environment. Finally, this is a visualisation problem---
+  the mapping $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimensional,
   and presenting that to the scientist (especially with uncertainty
   information) may not be straightforward.
 \end{enumerate}
@@ -220,7 +227,7 @@ Designing such a tool breaks down into two subtasks:
   Q(u_{\mathbf{p}})$ sufficiently quickly for interactive exploration,
   while still providing adequate fidelity (including uncertainty). In this project, we will
   achieve this using \textbf{sparse grids} and \textbf{reduced basis
-    models}.\todo{to what extent should we mention both SGs and RBMs?}
+    models}.\todo{to what extent should we mention both SGs and RBMs?} %Probably SGs more than RBMs?
 \item Presenting the quantities $\mathbf{p}$,
   $u_{\mathbf{p}}(\mathbf{x})$ and $Q(u_{\mathbf{p}})$ to the
   scientist, and take interactive input/parameter updates, in a way
