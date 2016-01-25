@@ -301,22 +301,32 @@ lead to real problems, as in the 2011 Brisbane floods.
   work-in-progress at the moment.}
 
 In this project we will use sparse grid 
-techniques~\cite{BungartzGriebel2004,Griebel1990} \todo{more refs?} 
+techniques~\cite{BungartzGriebel2004} \todo{more refs?} 
 to approximate the model solutions $\tilde{u}_{\mathbf{p}}(\mathbf{x})$.
 Sparse grids are well-known to reduce the effects of the so called 
-`curse of dimensionality' whereby the cost of computation increases 
-exponentially with the dimension of the model. \todo{add some actual math in here}
+`curse of dimensionality', whereby the cost of computation increases 
+exponentially with the dimension of the model. 
+For example, discretising $[0,1]^{d}$ such that there are $m$ points in each dimension leads to $m^{d}$ points whereas a sparse grid approximation uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
+This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
+The combination technique~\cite{Griebel1990} is a method of computing sparse grid solutions without the need of working with directly with the hierarchical basis.
+When we refer to computing with sparse grids in what follows we typically mean via the combination technique.
+
 There are two ways in which classical sparse grid methods can benefit this 
 project:
 \begin{enumerate}
 \item For many problems the computation of solutions 
 $u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
-cheaply using the sparse grid combination technique over the domain $\mathbf{x}\in\Omega$,
+cheaply using the combination technique over the domain $\mathbf{x}\in\Omega$,
 \item A sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
-and efficient exploration of the parameter space.
+and efficient exploration of parameter space. This can be approached in an online/offline approach.
 \end{enumerate}
 
-\missingfigure{add figure of a sparse grid?}
+\begin{figure}[h!]
+\centering
+\input{sparse_grid_fig.tex}
+\caption{Combination grids on the left (with coefficients, blue plus for $+1$ and red minus for $-1$), sparse grid in the middle, full grid on the right.}
+\end{figure}
+
 
 Much recent work with sparse grids has shown that the methods and ideas
 from the classical work can be applied in other ways.
