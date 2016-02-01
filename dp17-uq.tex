@@ -283,7 +283,7 @@ are ``knobs to tweak'' in the model.
 \caption{concept diagram of model inputs/outputs? not really
   necessary at this point, but could be useful for developing a
   diagrammatic vocabulary which we then flesh out in subsequent
-  diagrams. Digram currently includes the feedback loop as well, 
+  diagrams. Diagram currently includes the feedback loop as well, 
   perhaps make two versions.}
 \end{figure}
 
@@ -477,7 +477,7 @@ This leads to the all too common question `what is the `best' model and alorithm
 Naturally `best' depends on the criteria but typically no one model/algorithm is
 the `best' for all selection criteria.
 Gradient-enhanced and multi-fidelity approximation and similar ideas give one
-to combine the `best' attributes from several methods into one approximation.
+the ability to combine some of the `best' attributes from several methods into one approximation.
 This potentially leads to a more accurate result and more generally a much better
 understanding of the models and their relation to the physical problem under investigation.
 Of course the problem is that managing and evaluating several methods is time
@@ -485,21 +485,34 @@ consuming. By making such tools available in a highly interactive environment
 such exploration will become more accessible. With accessibility comes higher 
 uptake leading to significant gains in understanding for a variety of problems.
 
-Many of the models used in modern science requires high performance computing
+Many of the models used in modern science require high performance computing
 to approximate solutions. Much work has gone into the development 
 of highly scalable sparse grid algorithms, specifically using the combination 
-technique, which this project can utilise and continue to develop. 
+technique, which this project will utilise and continue to develop. 
 One challenge is that faults become more frequent with increasing 
 complexities in computing hardware and ever more components essential 
-for a system to function correctly. Fortunately, there has been much interest in 
+for a HPC system to function correctly. Fortunately, there has been much interest in 
 fault-tolerance recently and, in particular, the development of fault tolerant 
 sparse grid methods. By leveraging this work into the project we can ensure
 accurate results even in the event of some data being lost during the computation.
-More generally, having framework which is robust to errors increases the confidence 
+Prior reseach has focused on recovery from hard faults. Whilst some studies are
+being conducted into recovery from silent errors there is more research to be done in this area.
+More generally, having a framework which is robust to errors increases the confidence 
 in the results and therefore also the decisions which are based on those results.
 
-There are still many open questions related to the application of 
-sparse grids to uncertainty quantification. 
+Sparse grids are typically applied to uncertainty quantification in the
+estimation of high dimensional integrals (to estimate expectations for example). 
+For sufficiently smooth probability density functions sparse grids provide
+an accurate estimate using far fewer function evaluations then the Monte Carlo 
+method~\cite{JakemanRoberts2013}.
+This approach also suits an offline-online model of computation.
+Given a sparse grid sampling/surrogate computed in an offline phase, high 
+dimensional integrals, including the estimation of moments of a probability distribution,
+can be quickly and accurately estimated in an offline phase.
+Additionally, there is potential to extend existing work in this area. 
+In particular, the addition of gradient estimates to the sparse grid surrogate, 
+the extension to a more probablistic sparse grid model (akin to kriging) and
+and how these enhance the quantification of uncertainty will be investigated.
 % Examples? Any snappy quotes from the refernces I can use?
 
 %in ways which are:
@@ -523,7 +536,7 @@ approximation are also relatively new areas of research requiring
 further study and analysis.
 
 
-There has been much interest in reduced basis methods to make such
+There has been much interest in reduced basis methods to make large
 problems more tractible~\cite{LiebermanEtal2010}. \todo{more refs?}
 Reduced basis methods could have several applications to this project.
 The computation of a reduced basis model in an offline phase
@@ -533,8 +546,8 @@ Further, a reduced basis model may allow a scientist to learn more about the
 the inverse problem of finding the parameters $\mathbf{p}$ that lead to a 
 given output $Q(u_{\mathbf{p}})$.
 There are several opportunities to continue developing the application 
-of sparse grid methods to reduced basis construction which could then 
-easily become a feature of the interactive scientific workflow management system.
+of sparse grid methods to reduced basis construction which would be
+fully integrated into the interactive scientific workflow management system.
 
 
 %Recent work on sparse grid techniques is finding new ways to
