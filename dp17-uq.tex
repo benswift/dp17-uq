@@ -583,10 +583,13 @@ Instead, approximations are computed on several aniotropic grids and then combin
 Figure~\ref{fig:sparse_grids} depicts the combination technique, the equivalent sparse grid and the corresponding full grid.
 When we refer to computing with sparse grids in what follows we typically mean via the combination technique.
 
-\begin{figure}[h!]
-\centering
-\input{sparse_grid_fig.tex}
-\caption{Combination grids on the left (with coefficients, blue plus for $+1$ and red minus for $-1$), sparse grid in the middle, full grid on the right.}\label{fig:sparse_grids}
+\begin{figure}
+  \centering
+  \input{figures/sparse_grid_fig.tex}  
+  \caption{Combination grids on the left (with coefficients, marked with
+    a blue plus for $+1$ and red minus for $-1$), sparse grid in the
+    middle, full grid on the right.}
+  \label{fig:sparse_grid_fig}
 \end{figure}
 
 There are two ways in which classical sparse grid methods can benefit this 
@@ -609,13 +612,6 @@ significant benefits over classical Monte Carlo methods when the
 integrand is sufficiently
 smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 
-\begin{figure}[h!]
-\centering
-\input{figures/sparse_grid_fig.tex}
-\caption{Combination grids on the left (with coefficients, marked with
-  a blue plus for $+1$ and red minus for $-1$), sparse grid in the
-  middle, full grid on the right.}
-\end{figure}
 
 
 Much recent work with sparse grids has shown that the methods and ideas
