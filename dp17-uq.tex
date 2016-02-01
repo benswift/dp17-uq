@@ -443,13 +443,13 @@ lead to real problems, as in the 2011 Brisbane floods.
 %from the classical work can be applied in other ways.
 %For example, sparse grids and related ideas have been used for
 %\begin{itemize}
-%\item fault tolerant computing~\cite{HardingHLS2015,AliEtal2015}
-%\item development of highly scalable algorithms~\cite{StrazdinsEtal2015}
-%\item gradient-enhanced approximation methods~\cite{deBaarHarding2015,Jakeman2015}
-%\item multi-fidelity approximation (similar to~\cite{deBaarRDM2015}) 
-%\item solution of large scale inverse problems~\cite{Zabaras2010}
-%\item uncertainty quantification~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
-%\item reduced basis methods~\cite{Peherstorfer2013,ChenSchwab2015}
+%\item fault tolerant computing~\parencite{HardingHLS2015,AliEtal2015}
+%\item development of highly scalable algorithms~\parencite{StrazdinsEtal2015}
+%\item gradient-enhanced approximation methods~\parencite{deBaarHarding2015,Jakeman2015}
+%\item multi-fidelity approximation (similar to~\parencite{deBaarRDM2015}) 
+%\item solution of large scale inverse problems~\parencite{Zabaras2010}
+%\item uncertainty quantification~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
+%\item reduced basis methods~\parencite{Peherstorfer2013,ChenSchwab2015}
 %\end{itemize}
 %We envisage this project making full use of these advances in addition 
 %to the classical approaches with the end goal of providing fast, accurate
@@ -522,7 +522,7 @@ lead to real problems, as in the 2011 Brisbane floods.
 %
 %
 %There has been much interest in reduced basis methods to make large
-%problems more tractible~\cite{LiebermanEtal2010}. %\todo{more refs?}
+%problems more tractible~\parencite{LiebermanEtal2010}. %\todo{more refs?}
 %
 %Reduced basis methods could have several applications to this project.
 %The computation of a reduced basis model in an offline phase
@@ -572,12 +572,12 @@ lead to real problems, as in the 2011 Brisbane floods.
 
 The mathematical component of this project will be based on new mathematical developments combining sparse grids and uncertainty quantification.
 One of the main difficulties in current models is the high dimensional spaces involved, often both in the parameter and domain spaces.
-Sparse grids~\cite{BungartzGriebel2004} are well-known to reduce the effects of the so called 
+Sparse grids~\parencite{BungartzGriebel2004} are well-known to reduce the effects of the so called 
 `curse of dimensionality', whereby the cost of computation increases 
 exponentially with the dimension of the model. 
 For example, discretising $[0,1]^{d}$ such that there are $m$ points in each dimension leads to $m^{d}$ points whereas a sparse grid approximation uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
 %This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
-A popular way of estimating sparse grid solutions is via the combination technique~\cite{Griebel1990}. 
+A popular way of estimating sparse grid solutions is via the combination technique~\parencite{Griebel1990}. 
 This technique is un-intrusive as it allows one to avoid working with directly with the hierarchical basis.
 Instead, approximations are computed on several aniotropic grids and then combined additively.
 Figure~\ref{fig:sparse_grids} depicts the combination technique, the equivalent sparse grid and the corresponding full grid.
@@ -599,9 +599,15 @@ cheaply using the combination technique over the domain $\mathbf{x}\in\Omega$,
 and efficient exploration of parameter space. This can be approached in an online/offline approach.
 \end{enumerate}
 
-The latter is particularly important in application to uncertainty quanitfication, which is critical in developing a full understanding of the complex models which are pervasive in modern science.
-Integrals over subsets of parameter space $\mathcal{P}$, e.g. in the estimation of expectations, can be efficiently be computed from the sparse grid sampling (which becomes a surrogate for the model problem).
-This has significant benefits over classical Monte Carlo methods when the integrand is sufficiently smooth~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
+The latter is particularly important in application to uncertainty
+quanitfication, which is critical in developing a full understanding
+of the complex models which are pervasive in modern science. Integrals
+over subsets of parameter space $\mathcal{P}$, e.g. in the estimation
+of expectations, can be efficiently be computed from the sparse grid
+sampling (which becomes a surrogate for the model problem). This has
+significant benefits over classical Monte Carlo methods when the
+integrand is sufficiently
+smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 
 \begin{figure}[h!]
 \centering
@@ -616,13 +622,13 @@ Much recent work with sparse grids has shown that the methods and ideas
 from the classical work can be applied in other ways.
 For example, sparse grids and related ideas have been used for
 \begin{itemize}
-\item fault tolerant computing~\cite{HardingHLS2015,AliEtal2015}
-\item development of highly scalable algorithms~\cite{StrazdinsEtal2015}
-\item gradient-enhanced approximation methods~\cite{deBaarHarding2015,Jakeman2015}
-\item multi-fidelity approximation (similar to~\cite{deBaarRDM2015}) 
-\item solution of large scale inverse problems~\cite{Zabaras2010}
-\item uncertainty quantification~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
-\item reduced basis methods~\cite{Peherstorfer2013,ChenSchwab2015}
+\item fault tolerant computing~\parencite{HardingHLS2015,AliEtal2015}
+\item development of highly scalable algorithms~\parencite{StrazdinsEtal2015}
+\item gradient-enhanced approximation methods~\parencite{deBaarHarding2015,Jakeman2015}
+\item multi-fidelity approximation (similar to~\parencite{deBaarRDM2015}) 
+\item solution of large scale inverse problems~\parencite{Zabaras2010}
+\item uncertainty quantification~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
+\item reduced basis methods~\parencite{Peherstorfer2013,ChenSchwab2015}
 \end{itemize}
 We envisage this project making full use of these advances in addition 
 to the classical approaches with the end goal of providing fast, accurate
@@ -637,7 +643,7 @@ numerical methods for approximating solutions of the model.
 This leads to the all too common question: what is the `best' model and alorithm?
 Naturally `best' depends on the criteria but typically no one model/algorithm is
 the `best' for all selection criteria.
-Recent work is finding new ways to incorporate gradient information and multi-fidelity models into sparse grid approximations~\cite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}. 
+Recent work is finding new ways to incorporate gradient information and multi-fidelity models into sparse grid approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}. 
 This has many potential benefits to uncertainty quantification of large scale problems which will be explored as part of this project.
 These methods will be developed to provide faster and more accurate approximations of not only model solutions but also the uncertainties involved.
 Integrating the results into a highly interactive online stage will also significantly improve the accessibility of information which is computed.
@@ -645,15 +651,15 @@ Integrating the results into a highly interactive online stage will also signifi
 Another challenge faced by computational science is the sheer size of the computations required to be carried out to evaluate models. 
 This poses two problems in general, the first being the even distribution of workload across a large parallel machine, and the second being resilience to failures that may occur.
 Having highly scalable software for the offline phase that is resilient to errors is crucial in matinaining confidence in the discoveries and decisions that are established from the model output.
-Much work has been carried out on the development of highly scalable algorithms for the combination technique~\cite{StrazdinsEtal2015} which we will utilise and continue to develop.
-Further, there are known techniques that we will employ to ensure the computations are robust to hard faults~\cite{HardingHLS2015,AliEtal2015}.
+Much work has been carried out on the development of highly scalable algorithms for the combination technique~\parencite{StrazdinsEtal2015} which we will utilise and continue to develop.
+Further, there are known techniques that we will employ to ensure the computations are robust to hard faults~\parencite{HardingHLS2015,AliEtal2015}.
 Research on the resilience to soft faults is currently underway~[cite Alfredo et.al.] and is also something we intend to integrate into the software framework as it develops. 
 Through the usage and evaluation of these techniques we hope to continue to stimulate research in these areas.
 
 The study of large scale inverse problems has made significant gains in recent years. Given the forward problem of computing $u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$ given a $\mathbf{p}\in\mathcal{P}$ then the inverse problem is to estimate the $\mathbf{p}$ which produce a given (and generally noisy) $u_{\mathbf{p}}(\mathbf{x})$ or $Q(u_{\mathbf{p}}(\mathbf{x}))$.
-Sparse grids have had some impact in this area~\cite{Zabaras2010}, and further, the Bayesian approach to solving inverse problems has some parallels with uncertainty quantification.
+Sparse grids have had some impact in this area~\parencite{Zabaras2010}, and further, the Bayesian approach to solving inverse problems has some parallels with uncertainty quantification.
 Thus, combined with the fast and highly interactive exploration of the forward model problem, the integration of techiques for solving inverse problems would be a natural extension to this project.
-There are also opportunities to incorporate reduced basis models~\cite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015} into the software framework.
+There are also opportunities to incorporate reduced basis models~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015} into the software framework.
 
 
 
