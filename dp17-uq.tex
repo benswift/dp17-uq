@@ -89,49 +89,6 @@ application domains we're planning to use as exemplars, e.g.
 \item \emph{with applications in fire \& flood risk analysis}
 \end{enumerate}
 
-Ben notes:
-
-uncertainty and risk in decisionmaking - it's a real problem that bites
-
-BNE floods were in part a human factors problem - they decided to make
-decision based on ignorance rather than uncertainty
-
-fire: The myriad of information collected from diverse sources had a broad
-range of reliability---\parencite{cruz_anatomy_2012}
-
-\blockquote[\cite{alexander_limitations_2013}]{Given the nonlinear
-  dynamics of free-burning wildland fires (Sullivan 2009d), model
-  output may be highly sensitive to a particular parameter over one
-  range of values and quite insensitive to that same parameter over a
-  different value range (Albini 1976a, Cruz et al. 2006)}
-
-but one other limitation is the modelling is just provided - limited
-ability to assess different scenarios other than the ones presented,
-and therefore unable to do the helpful ``relative/anchoring'' natural
-decisionmaking approach which is what actually happens in these
-scenarios
-
-\blockquote[\cite{vandenhonert_2011_2011} p1158]{In the aftermath of
-  the January 2011 flood, a senior Wivenhoe engineer has stated before
-  the Commission of Inquiry [17] that uncertainty in BoM rainfall
-  forecasts and the paucity of rain gauges in the catchment
-  immediately above the Wivenhoe Dam led them to conclude that the
-  precipitation forecasts were not sufficiently reliable to form the
-  basis for operational decision making.}
-
-naturalistic decisionmaking\parencite{lipshitz_taking_2001}
-
-Can we make the case that the better approach to the uncertainty thing
-is the constructivist one? need some refs I reckon
-
-
-uncertainty and complexity are present and irreducible. human factors!
-
-human in the loop (or something similar) is generally accepted
-
-but all the papers making a big deal of that gloss over the technical
-challenges of this + complex models
-
 \subsubsection*{AIMS AND BACKGROUND}
 % - Describe the aims and background of the Proposal
 % - Include information about national/international progress in this
@@ -169,13 +126,13 @@ causes, impacts and implications of the floods,
   for decision making under uncertainty would have resulted in a
   different water release strategy.}
 At the other end of the environmental spectrum, bushfire model
-predictions are similarly \textquote[\cite{alexander_limitations_2013}
+predictions are similarly \textquote[\parencite{alexander_limitations_2013}
 p375]{fraught with uncertainty}.
 
 Decision-making in the face of natural disasters is a complex and
 difficult task, and the solution is not to point the finger at poor
 decisions made in the past but to find better ways to incorporate
-uncertainty in modelling~\cite{thompson_social_2014-1}. More
+uncertainty in modelling~\parencite{thompson_social_2014-1}. More
 generally, uncertainty quantification (UQ)
 is an active research topic. Various frameworks for identifying and
 representing uncertainty in modelling have been
@@ -424,14 +381,14 @@ lead to real problems, as in the 2011 Brisbane floods.
   work-in-progress at the moment.}
 
 In this project we will use sparse grid 
-techniques~\cite{BungartzGriebel2004} \todo{more refs?} 
+techniques~\parencite{BungartzGriebel2004} \todo{more refs?}
 to approximate the model solutions $\tilde{u}_{\mathbf{p}}(\mathbf{x})$.
 Sparse grids are well-known to reduce the effects of the so called 
 `curse of dimensionality', whereby the cost of computation increases 
 exponentially with the dimension of the model. 
 For example, discretising $[0,1]^{d}$ such that there are $m$ points in each dimension leads to $m^{d}$ points whereas a sparse grid approximation uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
 This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
-The combination technique~\cite{Griebel1990} is a method of computing sparse grid solutions without the need of working with directly with the hierarchical basis.
+The combination technique~\parencite{Griebel1990} is a method of computing sparse grid solutions without the need of working with directly with the hierarchical basis.
 When we refer to computing with sparse grids in what follows we typically mean via the combination technique.
 
 There are two ways in which classical sparse grid methods can benefit this 
@@ -535,6 +492,7 @@ and how each of these enhance the quantification of uncertainty will be investig
 
 There has been much interest in reduced basis methods to make large
 problems more tractible~\cite{LiebermanEtal2010}. %\todo{more refs?}
+
 Reduced basis methods could have several applications to this project.
 The computation of a reduced basis model in an offline phase
 will allow a scientist to quickly explore the parameter space in an online
@@ -650,13 +608,96 @@ fire and flood stuff
 
 \todo[inline]{Ok, from here on it's the wild west. Caveat lector.}
 
+\textbf{Ben notes}: uncertainty and risk in decisionmaking - it's a
+real problem that bites
+
+BNE floods were in part a human factors problem - they decided to make
+decision based on ignorance rather than uncertainty
+
+fire: The myriad of information collected from diverse sources had a broad
+range of reliability---\parencite{cruz_anatomy_2012}
+
+\blockquote[\parencite{alexander_limitations_2013}]{Given the nonlinear
+  dynamics of free-burning wildland fires (Sullivan 2009d), model
+  output may be highly sensitive to a particular parameter over one
+  range of values and quite insensitive to that same parameter over a
+  different value range (Albini 1976a, Cruz et al. 2006)}
+
+but one other limitation is the modelling is just provided - limited
+ability to assess different scenarios other than the ones presented,
+and therefore unable to do the helpful ``relative/anchoring'' natural
+decisionmaking approach which is what actually happens in these
+scenarios
+
+\blockquote[\parencite{vandenhonert_2011_2011} p1158]{In the aftermath of
+  the January 2011 flood, a senior Wivenhoe engineer has stated before
+  the Commission of Inquiry [17] that uncertainty in BoM rainfall
+  forecasts and the paucity of rain gauges in the catchment
+  immediately above the Wivenhoe Dam led them to conclude that the
+  precipitation forecasts were not sufficiently reliable to form the
+  basis for operational decision making.}
+
+naturalistic decisionmaking\parencite{lipshitz_taking_2001}
+
+Can we make the case that the better approach to the uncertainty thing
+is the constructivist one? need some refs I reckon
+
+
+uncertainty and complexity are present and irreducible. human factors!
+
+human in the loop (or something similar) is generally accepted
+
+but all the papers making a big deal of that gloss over the technical
+challenges of this + complex models
+
+\textbf{Notes from Henry}: important in the project proposal is to identify the
+potential ``discoveries''. What are they and how to they motive
+funding?
+
+\begin{enumerate}
+\item a suite of interactive, real-time modelling tools which combine
+full simulations with coarse-grid, rough simulations to quantify
+uncertainty, optimised for human use
+\item software support for running these simulations in unpredictable
+and error-prone environments
+\item interactive information visualisations of simulation predictions
+together with uncertainty
+\item an agile software engineering approach to the further delopment
+and optimisation of these software systems
+\end{enumerate}
+
+The proposal needs to document the methodology to be followed. I think
+that this could include:
+
+\begin{enumerate}
+\item construction of a virtual command room
+\item construction of a prototype suite of modelling software
+\item interviews with domain experts from Geosciences, Flood
+  management, RFT
+  \begin{enumerate}
+  \item from these interviews, develop principal distraction scenarios
+    to be tested in the virtual command room
+  \item build a form of cooperative game that would be played by a
+    group of test participants
+  \end{enumerate}
+\item development and testing of interactive visualistions
+\end{enumerate}
+
+What this proposal does NOT include is advice from AI agents. That can
+be left to others in collaboration with us.
+
+At present, the version of the proposal that I have seen has a focus
+on flood modelling. I wonder if we could better position it in the
+realms of storm surges. Important for the future. Links to bathymetry
+and tsunamis etc. What do people think?
+
 % overview of dynamic decision support
 % systems\parencite{gonzalez_decision_2005}
 
 % mceachern on the current SoA in visual analytics and
-% uncertainty\cite{maceachren_visual_2015}
+% uncertainty\parencite{maceachren_visual_2015}
 
-% \textquote[\cite{sprague_framework_1980}]{interactive computer
+% \textquote[\parencite{sprague_framework_1980}]{interactive computer
 %   based systems, which help decision makers utilize data and models to
 %   solve unstructured problems.}
 
@@ -705,8 +746,8 @@ The modern world appears to be saturated with computing power.
 Contemporary smart phones outperform the original Cray~1
 ``supercomputer'' by three orders of magnitude. Accessing contemporary
 high-performance computing (HPC) resources has never been easier and,
-when combined with machine learning\cite{Hastie2009}, and big
-data\cite{Manyika2011}, modern supercomputing performance has the
+when combined with machine learning\parencite{Hastie2009}, and big
+data\parencite{Manyika2011}, modern supercomputing performance has the
 potential to provide answers to deep questions in science, business
 and the humanities.
 
@@ -818,7 +859,7 @@ workshop\parencite{Gil2007} highlighted the need for dynamic
 interactivity as a looming ``grand challenge'' in scientific
 computation and data analysis.
 % Other challenges included data provenance (where data comes
-% from\cite{McPhillips2009}), reproducibility and shareability of
+% from\parencite{McPhillips2009}), reproducibility and shareability of
 % complex data processing software pipelines.
 In spite of many advances in the field of computational steering it is
 clear that challenges remain. A recent (2014) review, ``Dynamic
@@ -853,7 +894,7 @@ challenges are:
   inter-node communication to achieve efficient use of the hardware.
   As a result, it is often unfeasible to move the data of interest
   back to a central node for processing and analysis, so any such
-  analysis must be performed in-situ\cite{Bennett2012} on the compute
+  analysis must be performed in-situ\parencite{Bennett2012} on the compute
   node itself.
 \item \textbf{decision-support tools}: giving a user the
   \emph{ability} to interfere with a running computational process is
@@ -861,7 +902,7 @@ challenges are:
   thing altogether. Dynamic SWfMS must provide as useful real-time
   feedback to the user (a domain expert) to assist them in deciding
   when and how to interfere. This problem is an example of a more
-  general end-user programming (EUP)\cite{Myers2006} problem---giving
+  general end-user programming (EUP)\parencite{Myers2006} problem---giving
   domain experts the appropriate tools to transfer their domain
   expertise into the computational domain.
 \end{itemize}
@@ -897,14 +938,14 @@ systems which support the direct intervention of the programmer in a
 program's runtime state. It can be thought of as an extreme version of
 just-in-time (JIT) programming where there is a direct correlation
 between a program's representation and its execution. An example of
-this is the visual language Self\cite{Ungar1987} where each visual
+this is the visual language Self\parencite{Ungar1987} where each visual
 element in the language is a directly programmable object. As the
 ambition of LP systems has grown, these systems and languages
 themselves have evolved to have access to clock-time and other
 computer-system properties at a language level in order to, for
 example, create, modify and interact with computer music and devices
 in real time. Examples of the latter include the
-Impromptu\cite{Sorensen2005} and Extempore\cite{Sorensen} languages
+Impromptu\parencite{Sorensen2005} and Extempore\parencite{Sorensen} languages
 which one of the authors of this proposal has been working on and with
 over several years.
 
