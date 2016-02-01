@@ -224,11 +224,10 @@ For each $\mathbf{p}$ we suppose the model is well-defined and there exists a fu
 which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
 Here we suppose the domain $\Omega$ is a compact subset of $\mathbb{R}^{d}$ or $\mathbb{C}^{d}$. 
 % Perhaps we could provide an example, e.g. using the shallow water wave equations?
-One can think of $\mathbf{x}$ as the 
-input parameters intrinsic to the problem % rethink this!!!
-domain (e.g. spatial dimensions,
-sensor readings, economic indicators, etc.) while the model parameters $\mathbf{p}$
-are ``knobs to tweak'' in the model.
+One can think of $\mathbf{x}$ as the input parameters intrinsic to the
+problem domain (e.g. spatial dimensions, sensor readings, economic
+indicators, etc.) while the model parameters $\mathbf{p}$ are ``knobs
+to tweak''\todo{can we think of a better expression?} in the model.
 
 %\missingfigure{concept diagram of model inputs/outputs? not really
 %  necessary at this point, but could be useful for developing a
@@ -244,21 +243,47 @@ are ``knobs to tweak'' in the model.
   perhaps make two versions.}
 \end{figure}
 
-In many cases \textbf{the goal} is to better understand the
-relationship between $\mathbf{p}$ and some lower-dimensional
-%(simpler?) % I would avoid using the word `simpler'
-quantity of interest $Q(u_{\mathbf{p}})$, or to find the
-parameter choice $\mathbf{p}$ which optimises $Q$. %over all $\mathbf{x}$. 
-This very general description of the ``model
-selection/optimisation'' problem glosses many nuances, but the
-``finding the best settings on the knobs we have under our control''
-workflow lies at the heart of a great deal of modern science.\todo{ref}
+The goal of the scientist is to better understand the relationship
+between $\mathbf{p}$ and some lower-dimensional quantity of interest
+$Q(u_{\mathbf{p}})$, or to find the parameter choice $\mathbf{p}$
+which optimises $Q$. %over all $\mathbf{x}$.
+This high-level description of the ``model selection/optimisation''
+problem glosses over many nuances, but this general workflow (shown
+graphically in Figure~\ref{fig:general-fb-loop}) lies at the heart of
+a great deal of modern science.\todo{ref}
 
-There are many ways of finding the optimal $\mathbf{p}$ from trial and
-error or expert judgements through to fully automated algorithmic
+\begin{figure}
+  \centering
+  \includegraphics[width=.75\textwidth]{figures/general-fb-loop.pdf}
+  \caption{The modelling workflow. A scientist selects an initial
+    parameter $\mathbf{p}$ for their model, examines the model output
+    $Q(u_{\mathbf{p}})$, and either accepts the output of the model
+    or re-runs the model with a different choice of the parameter
+    $\mathbf{p}$.}
+  \label{fig:general-fb-loop}
+\end{figure}
+
+There are many ways of finding the optimal $\mathbf{p}$, from trial
+and error or expert judgements through to fully automated algorithmic
 optimization procedures (providing both $Q(u_{\mathbf{p}})$ and
 $Q(u_{\mathbf{p}})$ are sufficiently nice, although this is often not
-the case in real-world problems). For a given $\mathbf{p}$, the
+the case in real-world problems). Often there are some parameters
+which may be optimised algorithmically, although this often introduces
+new parameters (the inputs to the optimisation algorithm) which must
+be selected by the scientist. As a result, this feedback loop will
+often require many iterations, with a human scientist evaluating the
+results of the model (possibly through visualising the model output)
+and choosing a parameter update $\delta p$ at each step (see
+Figure~\ref{fig:unrolled-fb-loop}).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figures/unrolled-fb-loop.pdf}
+  \caption{This process may require many iterations.}
+  \label{fig:unrolled-fb-loop}
+\end{figure}
+
+For a given $\mathbf{p}$, the
 scientist applies the model, updates their understanding of the system
 based on the computed $Q(u_{\mathbf{p}})$, and potentially adjusts
 $\mathbf{p}$ and continues the process. This process of ``twiddling
@@ -271,8 +296,6 @@ $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship. Any latency
 improvements in this feedback loop will translate into
 productivity gains\todo{ref}.
 % With a tight feedback loop a natural extension would be providing tools for exploring the $Q(u_{\mathbf{p}}) \rightarrow \mathbf{p}$ relationship.
-
-\missingfigure{figure of this feedback loop}
 
 If the model parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known
 precisely and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate
@@ -287,13 +310,13 @@ modelling?) this is often not the case, for the following reasons.
 \item \emph{The model may not provide a way to express uncertainty in
     the inputs}. Many models do not provide methods for including
   uncertainty information in their inputs, as was the case in the
-  Lockyer valley example.
+  Lockyer valley example.@
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
-    calculate}. Many sophisticated models require non-trivial
-  computing resources to evaluate, such as supercomputers. These
-  compute resources may be difficult to secure, with jobs having to
-  wait in a queue, and may take a long time to compute even when the
-  resources are available.
+    calculate} (as shown in Figure~\ref{fig:long-fb-loop.pdf}). Many
+  sophisticated models require non-trivial computing resources to
+  evaluate, such as supercomputers. These compute resources may be
+  difficult to secure, with jobs having to wait in a queue, and may
+  take a long time to compute even when the resources are available.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
     interpret}. This may be because of technical reasons, such as a
   complex problem domain where coming up with a meaningful loss
@@ -304,6 +327,17 @@ modelling?) this is often not the case, for the following reasons.
   and presenting that to the scientist (especially with uncertainty
   information) may not be straightforward.
 \end{enumerate}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figures/long-fb-loop.pdf}
+  \caption{If the model is computationally expensive to run, then the
+    workflow is dominated by waiting for the model to finish. This
+    results in lower productivity---not only due to the time spent
+    waiting for the model, but also because of the temporal separation
+  between the selection of a new parameter $\mathbf{p}$, and seeing
+  its impact on the results of the model.}
+  \label{fig:long-fb-loop.pdf}
+\end{figure}
 By accelerating the feedback loop between $\mathbf{p}$ and
 $Q(u_{\mathbf{p}})$, including estimates of uncertainty, we will give
 the scientist the ability to interactively \emph{explore} the
@@ -332,6 +366,17 @@ challenges. Designing such a tool breaks down into two subtasks:
     SWfMS moniker is to tie it into existing research, and the call
     for full-stack SWfMS is loud in SoftEng at least.}
 \end{enumerate}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figures/sg-surrogate-model-fb-loop.pdf}
+  \caption{If the model is computationally expensive to run, then the
+    workflow is dominated by waiting for the model to finish. This
+    results in lower productivity---not only due to the time spent
+    waiting for the model, but also because of the temporal separation
+  between the selection of a new parameter $\mathbf{p}$, and seeing
+  its impact on the results of the model.}
+  \label{fig:sg-surrogate-model-fb-loop.pdf}
+\end{figure}
 \todo[inline]{if we're going to say that interactivity is necessary
   (or at least extremely beneficial) then we need to make a case for
   it. I think we can, and it goes like: dealing with uncertainty
