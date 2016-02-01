@@ -425,16 +425,183 @@ lead to real problems, as in the 2011 Brisbane floods.
   maths which makes us sound smart. But it's very much a
   work-in-progress at the moment.}
 
-In this project we will use sparse grid 
-techniques~\parencite{BungartzGriebel2004} \todo{more refs?}
-to approximate the model solutions $\tilde{u}_{\mathbf{p}}(\mathbf{x})$.
-Sparse grids are well-known to reduce the effects of the so called 
+%In this project we will use sparse grid 
+%techniques~\parencite{BungartzGriebel2004} \todo{more refs?}
+%to approximate the model solutions $\tilde{u}_{\mathbf{p}}(\mathbf{x})$.
+%Sparse grids are well-known to reduce the effects of the so called 
+%`curse of dimensionality', whereby the cost of computation increases 
+%exponentially with the dimension of the model. 
+%For example, discretising $[0,1]^{d}$ such that there are $m$ points in each dimension leads to $m^{d}$ points whereas a sparse grid approximation uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
+%This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
+%The combination technique~\parencite{Griebel1990} is a method of computing sparse grid solutions without the need of working with directly with the hierarchical basis.
+%When we refer to computing with sparse grids in what follows we typically mean via the combination technique.
+%
+%There are two ways in which classical sparse grid methods can benefit this 
+%project:
+%\begin{enumerate}
+%\item For many problems the computation of solutions 
+%$u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
+%cheaply using the combination technique over the domain $\mathbf{x}\in\Omega$,
+%\item A sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
+%and efficient exploration of parameter space. This can be approached in an online/offline approach.
+%\end{enumerate}
+%
+%\begin{figure}[h!]
+%\centering
+%\input{sparse_grid_fig.tex}
+%\caption{Combination grids on the left (with coefficients, blue plus for $+1$ and red minus for $-1$), sparse grid in the middle, full grid on the right.}
+%\end{figure}
+%
+%
+%Much recent work with sparse grids has shown that the methods and ideas
+%from the classical work can be applied in other ways.
+%For example, sparse grids and related ideas have been used for
+%\begin{itemize}
+%\item fault tolerant computing~\cite{HardingHLS2015,AliEtal2015}
+%\item development of highly scalable algorithms~\cite{StrazdinsEtal2015}
+%\item gradient-enhanced approximation methods~\cite{deBaarHarding2015,Jakeman2015}
+%\item multi-fidelity approximation (similar to~\cite{deBaarRDM2015}) 
+%\item solution of large scale inverse problems~\cite{Zabaras2010}
+%\item uncertainty quantification~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
+%\item reduced basis methods~\cite{Peherstorfer2013,ChenSchwab2015}
+%\end{itemize}
+%We envisage this project making full use of these advances in addition 
+%to the classical approaches with the end goal of providing fast, accurate
+%and robust approximations of model solutions to scientists whilst 
+%incorporating all of the uncertainties in the underlying model and its inputs. 
+%Achieving this goal will require further research and development.
+%We expand on some of these points in the remainder of the section.
+%
+%One of the problems often faced by scientists is having too many models 
+%to choose from. On top of this, for each model there are typically numerous
+%numerical methods for approximating solutions of the model.
+%This leads to the all too common question `what is the `best' model and alorithm?'.
+%Naturally `best' depends on the criteria but typically no one model/algorithm is
+%the `best' for all selection criteria.
+%Gradient-enhanced and multi-fidelity approximation and similar ideas give one
+%the ability to combine some of the `best' attributes from several methods into one approximation.
+%This potentially leads to a more accurate result and more generally a much better
+%understanding of the models and their relation to the physical problem under investigation.
+%Of course the problem is that managing and evaluating several methods is time
+%consuming. By making such tools available in a highly interactive environment
+%such exploration will become more accessible. With accessibility comes higher 
+%uptake leading to significant gains in understanding for a variety of problems.
+%
+%Many of the models used in modern science require high performance computing
+%to approximate solutions. Much work has gone into the development 
+%of highly scalable sparse grid algorithms, specifically using the combination 
+%technique, which this project will utilise and continue to develop. 
+%One challenge is that faults become more frequent with increasing 
+%complexities in computing hardware and ever more components essential 
+%for a HPC system to function correctly. Fortunately, there has been much interest in 
+%fault-tolerance recently and, in particular, the development of fault tolerant 
+%sparse grid methods. By leveraging this work into our framework we can ensure
+%accurate results even in the event of some data being lost during the computation.
+%Prior reseach has focused on recovery from hard faults. Whilst some studies are
+%being conducted into recovery from silent errors there is more research to be done in this area.
+%More generally, having a framework which is robust to errors increases the confidence 
+%in the results and therefore also the decisions which are based on those results.
+%
+%Sparse grids are typically applied to uncertainty quantification in the
+%estimation of high dimensional integrals (to estimate expectations for example). 
+%For sufficiently smooth probability density functions sparse grids provide
+%an accurate estimate using far fewer function evaluations then the Monte Carlo 
+%method.
+%This approach also suits an offline-online model of computation.
+%Given a sparse grid sampling/surrogate computed in an offline phase, high 
+%dimensional integrals, including the estimation of moments of a probability distribution,
+%can be quickly and accurately estimated in an offline phase.
+%Additionally, there is potential to extend existing work in this area. 
+%In particular, the addition of gradient estimates and multi-fidelity models 
+%to the sparse grid surrogate, 
+%the extension to a more probablistic sparse grid model (akin to kriging) and
+%and how each of these enhance the quantification of uncertainty will be investigated.
+%% Examples? Any snappy quotes from the refernces I can use?
+%
+%%in ways which are:
+%%\begin{enumerate}
+%%\item able to express and propagate uncertainty in both input
+%%  parameters and outputs
+%%\item cheap to calculate, so that these approximations can be explored
+%%  in a real-time human-in-the-loop exploratory workflow
+%%\end{enumerate}
+%%As an added bonus, these general techniques can be used to quantify
+%%the uncertainty in models (or ensembles of models) even when the
+%%models themselves were not designed with uncertainty quantification
+%%(UQ) in mind \todo{in the parameter space, anyway---Brendan, is this
+%%  the ``smarter monte carlo'' stuff you were talking about the other
+%%  day?}, and to combine multiple models (e.g. high- and low-fidelity
+%%models) in a sophisticated way to leverage the benefits of many
+%%different models.
+%
+%
+%There has been much interest in reduced basis methods to make large
+%problems more tractible~\cite{LiebermanEtal2010}. %\todo{more refs?}
+%
+%Reduced basis methods could have several applications to this project.
+%The computation of a reduced basis model in an offline phase
+%will allow a scientist to quickly explore the parameter space in an online
+%phase.
+%Further, a reduced basis model may allow a scientist to learn more about the 
+%the inverse problem of finding the parameters $\mathbf{p}$ that lead to a 
+%given output $Q(u_{\mathbf{p}})$.
+%There are several opportunities to continue developing the application 
+%of sparse grid methods to reduced basis construction which would be
+%fully integrated into the interactive scientific workflow management system.
+%
+%
+%%Recent work on sparse grid techniques is finding new ways to
+%%combine results from not only mathematical models computed via
+%%different methods \todo{Brendan add refs to sparse grid extrapolation
+%%techniques} but also entirely different mathematical
+%%models \todo{Brendan add refs to Jouke et.al. work on ship hull with 2
+%%models}. It is clear that different methods and models
+%%have their own advantages and disadvantages which have the potential
+%%to be combined in new and interesting ways. [Point trying to make: a)
+%%the usual 'too many methods' dilemma, and b) there is generally no one
+%%'best' method and yet it is typical to pick one and stick with it
+%%(based on some comparison with others)]
+%
+%%Of course the difficulty is that such exploration is time consuming
+%%and can be difficult to keep track of. By combining all of these
+%%methodologies and techniques into a single framework one may more
+%%easily test and combine the vast number of different approaches to
+%%solving any given problem. Further, by implementing this within an
+%%interactive/live programming environment, users can quickly adjust methods
+%%and parameters as needed whilst getting near instant feedback and
+%%response. Such tools could significantly increase the speed at which
+%%research is undertaken and allow us to learn more from our
+%%mathematical models than previously envisioned.
+
+
+
+
+
+
+
+
+
+
+
+
+The mathematical component of this project will be based on new mathematical developments combining sparse grids and uncertainty quantification.
+One of the main difficulties in current models is the high dimensional spaces involved, often both in the parameter and domain spaces.
+Sparse grids~\cite{BungartzGriebel2004} are well-known to reduce the effects of the so called 
 `curse of dimensionality', whereby the cost of computation increases 
 exponentially with the dimension of the model. 
 For example, discretising $[0,1]^{d}$ such that there are $m$ points in each dimension leads to $m^{d}$ points whereas a sparse grid approximation uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
-This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
-The combination technique~\parencite{Griebel1990} is a method of computing sparse grid solutions without the need of working with directly with the hierarchical basis.
+%This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
+A popular way of estimating sparse grid solutions is via the combination technique~\cite{Griebel1990}. 
+This technique is un-intrusive as it allows one to avoid working with directly with the hierarchical basis.
+Instead, approximations are computed on several aniotropic grids and then combined additively.
+Figure~\ref{fig:sparse_grids} depicts the combination technique, the equivalent sparse grid and the corresponding full grid.
 When we refer to computing with sparse grids in what follows we typically mean via the combination technique.
+
+\begin{figure}[h!]
+\centering
+\input{sparse_grid_fig.tex}
+\caption{Combination grids on the left (with coefficients, blue plus for $+1$ and red minus for $-1$), sparse grid in the middle, full grid on the right.}\label{fig:sparse_grids}
+\end{figure}
 
 There are two ways in which classical sparse grid methods can benefit this 
 project:
@@ -445,133 +612,47 @@ cheaply using the combination technique over the domain $\mathbf{x}\in\Omega$,
 \item A sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
 and efficient exploration of parameter space. This can be approached in an online/offline approach.
 \end{enumerate}
-
-\begin{figure}[h!]
-\centering
-\input{sparse_grid_fig.tex}
-\caption{Combination grids on the left (with coefficients, blue plus for $+1$ and red minus for $-1$), sparse grid in the middle, full grid on the right.}
-\end{figure}
-
-
-Much recent work with sparse grids has shown that the methods and ideas
-from the classical work can be applied in other ways.
-For example, sparse grids and related ideas have been used for
-\begin{itemize}
-\item fault tolerant computing~\cite{HardingHLS2015,AliEtal2015}
-\item development of highly scalable algorithms~\cite{StrazdinsEtal2015}
-\item gradient-enhanced approximation methods~\cite{deBaarHarding2015,Jakeman2015}
-\item multi-fidelity approximation (similar to~\cite{deBaarRDM2015}) 
-\item solution of large scale inverse problems~\cite{Zabaras2010}
-\item uncertainty quantification~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
-\item reduced basis methods~\cite{Peherstorfer2013,ChenSchwab2015}
-\end{itemize}
-We envisage this project making full use of these advances in addition 
-to the classical approaches with the end goal of providing fast, accurate
-and robust approximations of model solutions to scientists whilst 
-incorporating all of the uncertainties in the underlying model and its inputs. 
-Achieving this goal will require further research and development.
-We expand on some of these points in the remainder of the section.
+The latter is particularly important in application to uncertainty quanitfication, which is critical in developing a full understanding of the complex models which are pervasive in modern science.
+Integrals over subsets of parameter space $\mathcal{P}$, e.g. in the estimation of expectations, can be efficiently be computed from the sparse grid sampling (which becomes a surrogate for the model problem).
+This has significant benefits over classical Monte Carlo methods when the integrand is sufficiently smooth~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 
 One of the problems often faced by scientists is having too many models 
 to choose from. On top of this, for each model there are typically numerous
 numerical methods for approximating solutions of the model.
-This leads to the all too common question `what is the `best' model and alorithm?'.
+This leads to the all too common question: what is the `best' model and alorithm?
 Naturally `best' depends on the criteria but typically no one model/algorithm is
 the `best' for all selection criteria.
-Gradient-enhanced and multi-fidelity approximation and similar ideas give one
-the ability to combine some of the `best' attributes from several methods into one approximation.
-This potentially leads to a more accurate result and more generally a much better
-understanding of the models and their relation to the physical problem under investigation.
-Of course the problem is that managing and evaluating several methods is time
-consuming. By making such tools available in a highly interactive environment
-such exploration will become more accessible. With accessibility comes higher 
-uptake leading to significant gains in understanding for a variety of problems.
+Recent work is finding new ways to incorporate gradient information and multi-fidelity models into sparse grid approximations~\cite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}. 
+This has many potential benefits to uncertainty quantification of large scale problems which will be explored as part of this project.
+These methods will be developed to provide faster and more accurate approximations of not only model solutions but also the uncertainties involved.
+Integrating the results into a highly interactive online stage will also significantly improve the accessibility of information which is computed.
 
-Many of the models used in modern science require high performance computing
-to approximate solutions. Much work has gone into the development 
-of highly scalable sparse grid algorithms, specifically using the combination 
-technique, which this project will utilise and continue to develop. 
-One challenge is that faults become more frequent with increasing 
-complexities in computing hardware and ever more components essential 
-for a HPC system to function correctly. Fortunately, there has been much interest in 
-fault-tolerance recently and, in particular, the development of fault tolerant 
-sparse grid methods. By leveraging this work into our framework we can ensure
-accurate results even in the event of some data being lost during the computation.
-Prior reseach has focused on recovery from hard faults. Whilst some studies are
-being conducted into recovery from silent errors there is more research to be done in this area.
-More generally, having a framework which is robust to errors increases the confidence 
-in the results and therefore also the decisions which are based on those results.
+Another challenge faced by computational science is the sheer size of the computations required to be carried out to evaluate models. 
+This poses two problems in general, the first being the even distribution of workload across a large parallel machine, and the second being resilience to failures that may occur.
+Having highly scalable software for the offline phase that is resilient to errors is crucial in matinaining confidence in the discoveries and decisions that are established from the model output.
+Much work has been carried out on the development of highly scalable algorithms for the combination technique~\cite{StrazdinsEtal2015} which we will utilise and continue to develop.
+Further, there are known techniques that we will employ to ensure the computations are robust to hard faults~\cite{HardingHLS2015,AliEtal2015}.
+Research on the resilience to soft faults is currently underway~[cite Alfredo et.al.] and is also something we intend to integrate into the software framework as it develops. 
+Through the usage and evaluation of these techniques we hope to continue to stimulate research in these areas.
 
-Sparse grids are typically applied to uncertainty quantification in the
-estimation of high dimensional integrals (to estimate expectations for example). 
-For sufficiently smooth probability density functions sparse grids provide
-an accurate estimate using far fewer function evaluations then the Monte Carlo 
-method.
-This approach also suits an offline-online model of computation.
-Given a sparse grid sampling/surrogate computed in an offline phase, high 
-dimensional integrals, including the estimation of moments of a probability distribution,
-can be quickly and accurately estimated in an offline phase.
-Additionally, there is potential to extend existing work in this area. 
-In particular, the addition of gradient estimates and multi-fidelity models 
-to the sparse grid surrogate, 
-the extension to a more probablistic sparse grid model (akin to kriging) and
-and how each of these enhance the quantification of uncertainty will be investigated.
-% Examples? Any snappy quotes from the refernces I can use?
-
-%in ways which are:
-%\begin{enumerate}
-%\item able to express and propagate uncertainty in both input
-%  parameters and outputs
-%\item cheap to calculate, so that these approximations can be explored
-%  in a real-time human-in-the-loop exploratory workflow
-%\end{enumerate}
-%As an added bonus, these general techniques can be used to quantify
-%the uncertainty in models (or ensembles of models) even when the
-%models themselves were not designed with uncertainty quantification
-%(UQ) in mind \todo{in the parameter space, anyway---Brendan, is this
-%  the ``smarter monte carlo'' stuff you were talking about the other
-%  day?}, and to combine multiple models (e.g. high- and low-fidelity
-%models) in a sophisticated way to leverage the benefits of many
-%different models.
+The study of large scale inverse problems has made significant gains in recent years. Given the forward problem of computing $u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$ given a $\mathbf{p}\in\mathcal{P}$ then the inverse problem is to estimate the $\mathbf{p}$ which produce a given (and generally noisy) $u_{\mathbf{p}}(\mathbf{x})$ or $Q(u_{\mathbf{p}}(\mathbf{x}))$.
+Sparse grids have had some impact in this area~\cite{Zabaras2010}, and further, the Bayesian approach to solving inverse problems has some parallels with uncertainty quantification.
+Thus, combined with the fast and highly interactive exploration of the forward model problem, the integration of techiques for solving inverse problems would be a natural extension to this project.
+There are also opportunities to incorporate reduced basis models~\cite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015} into the software framework.
 
 
-There has been much interest in reduced basis methods to make large
-problems more tractible~\cite{LiebermanEtal2010}. %\todo{more refs?}
-
-Reduced basis methods could have several applications to this project.
-The computation of a reduced basis model in an offline phase
-will allow a scientist to quickly explore the parameter space in an online
-phase.
-Further, a reduced basis model may allow a scientist to learn more about the 
-the inverse problem of finding the parameters $\mathbf{p}$ that lead to a 
-given output $Q(u_{\mathbf{p}})$.
-There are several opportunities to continue developing the application 
-of sparse grid methods to reduced basis construction which would be
-fully integrated into the interactive scientific workflow management system.
 
 
-%Recent work on sparse grid techniques is finding new ways to
-%combine results from not only mathematical models computed via
-%different methods \todo{Brendan add refs to sparse grid extrapolation
-%techniques} but also entirely different mathematical
-%models \todo{Brendan add refs to Jouke et.al. work on ship hull with 2
-%models}. It is clear that different methods and models
-%have their own advantages and disadvantages which have the potential
-%to be combined in new and interesting ways. [Point trying to make: a)
-%the usual 'too many methods' dilemma, and b) there is generally no one
-%'best' method and yet it is typical to pick one and stick with it
-%(based on some comparison with others)]
 
-%Of course the difficulty is that such exploration is time consuming
-%and can be difficult to keep track of. By combining all of these
-%methodologies and techniques into a single framework one may more
-%easily test and combine the vast number of different approaches to
-%solving any given problem. Further, by implementing this within an
-%interactive/live programming environment, users can quickly adjust methods
-%and parameters as needed whilst getting near instant feedback and
-%response. Such tools could significantly increase the speed at which
-%research is undertaken and allow us to learn more from our
-%mathematical models than previously envisioned.
+
+
+
+
+
+
+
+
+
 
 This section will also include the offline/online stuff, and the
 flexible cloud infrastructure stuff as well.
