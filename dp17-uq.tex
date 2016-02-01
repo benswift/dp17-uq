@@ -229,20 +229,6 @@ problem domain (e.g. spatial dimensions, sensor readings, economic
 indicators, etc.) while the model parameters $\mathbf{p}$ are ``knobs
 to tweak''\todo{can we think of a better expression?} in the model.
 
-%\missingfigure{concept diagram of model inputs/outputs? not really
-%  necessary at this point, but could be useful for developing a
-%  diagrammatic vocabulary which we then flesh out in subsequent
-%  diagrams}
-\begin{figure}[h!]
-\centering
-\input{model_diagram_fig.tex}
-\caption{concept diagram of model inputs/outputs? not really
-  necessary at this point, but could be useful for developing a
-  diagrammatic vocabulary which we then flesh out in subsequent
-  diagrams. Diagram currently includes the feedback loop as well, 
-  perhaps make two versions.}
-\end{figure}
-
 The goal of the scientist is to better understand the relationship
 between $\mathbf{p}$ and some lower-dimensional quantity of interest
 $Q(u_{\mathbf{p}})$, or to find the parameter choice $\mathbf{p}$
@@ -612,9 +598,38 @@ cheaply using the combination technique over the domain $\mathbf{x}\in\Omega$,
 \item A sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
 and efficient exploration of parameter space. This can be approached in an online/offline approach.
 \end{enumerate}
+
 The latter is particularly important in application to uncertainty quanitfication, which is critical in developing a full understanding of the complex models which are pervasive in modern science.
 Integrals over subsets of parameter space $\mathcal{P}$, e.g. in the estimation of expectations, can be efficiently be computed from the sparse grid sampling (which becomes a surrogate for the model problem).
 This has significant benefits over classical Monte Carlo methods when the integrand is sufficiently smooth~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
+
+\begin{figure}[h!]
+\centering
+\input{figures/sparse_grid_fig.tex}
+\caption{Combination grids on the left (with coefficients, marked with
+  a blue plus for $+1$ and red minus for $-1$), sparse grid in the
+  middle, full grid on the right.}
+\end{figure}
+
+
+Much recent work with sparse grids has shown that the methods and ideas
+from the classical work can be applied in other ways.
+For example, sparse grids and related ideas have been used for
+\begin{itemize}
+\item fault tolerant computing~\cite{HardingHLS2015,AliEtal2015}
+\item development of highly scalable algorithms~\cite{StrazdinsEtal2015}
+\item gradient-enhanced approximation methods~\cite{deBaarHarding2015,Jakeman2015}
+\item multi-fidelity approximation (similar to~\cite{deBaarRDM2015}) 
+\item solution of large scale inverse problems~\cite{Zabaras2010}
+\item uncertainty quantification~\cite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
+\item reduced basis methods~\cite{Peherstorfer2013,ChenSchwab2015}
+\end{itemize}
+We envisage this project making full use of these advances in addition 
+to the classical approaches with the end goal of providing fast, accurate
+and robust approximations of model solutions to scientists whilst 
+incorporating all of the uncertainties in the underlying model and its inputs. 
+Achieving this goal will require further research and development.
+We expand on some of these points in the remainder of the section.
 
 One of the problems often faced by scientists is having too many models 
 to choose from. On top of this, for each model there are typically numerous
