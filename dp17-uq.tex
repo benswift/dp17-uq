@@ -133,52 +133,97 @@ Decision-making in the face of natural disasters is a complex and
 difficult task, and the solution is not to point the finger at poor
 decisions made in the past but to find better ways to incorporate
 uncertainty in modelling~\parencite{thompson_social_2014-1}. More
-generally, uncertainty quantification (UQ)
-is an active research topic. Various frameworks for identifying and
-representing uncertainty in modelling have been
+generally, uncertainty quantification (UQ) is an active research
+topic~\parencite{le_maitre_introduction_2010}. Various frameworks for
+identifying and representing uncertainty in modelling have been
 proposed \parencite[for
 example]{neale_navigating_2015,maceachren_visual_2015,bonneau_overview_2014}\todo{add
   more refs here}, and incorporates challenges from numerical methods,
 scientific simulation, distributed computing, information
-visualisation and human-computer interaction. 
+visualisation and human-computer interaction.
 
 \todo[inline]{The following is an important paragraph, and I think we
   can justify it, but it's potentially a bit shaky as is.  Need to
   beef it up with more evidence.}
 UQ techniques for representing and understanding modelling in the
 presence of uncertainty have been
-employed successfully in\ldots\todo{refs here}. Most approaches
+employed successfully in~\parencite{thompson_uncertainty_2011}. Most approaches
 to this problem rely on \emph{richer models}---incorporating the
 uncertainty information (either as a probability distribution or some
-other fuzzy number representation~\parencite{_hybrid_2003}). These
+other fuzzy number representation~\parencite{guyonnet_hybrid_2003}). These
 approaches sometimes rely on alterations/additions to the models themselves
 \parencite[e.g. adjoint models][]{errico_what_1997}, and sometimes
 through non-invasive techniques such as Monte Carlo
-sampling~\parencite{roy_comprehensive_2011}. While these techniques to
-allow for the representation and progagation of uncertainty
-information through a model, they have the effect of making the model
-more complex/computationally expensive\todo{pick one of these terms},
-allowing fewer model runs, and fewer model alternatives to be
-considered in a given period of time.
+sampling~\parencite{roy_comprehensive_2011,nguyen_non_2015}. While
+these techniques to allow for the representation and progagation of
+uncertainty information through a model, they have the effect of
+making the model more complex/computationally expensive\todo{pick one
+  of these terms}, allowing fewer model runs, and fewer model
+alternatives to be considered in a given period of time.
 
 Our aim in this project is to take the opposite \todo{too
-  strong/stark?} approach: using sparse grid (SG) approximations and some clever
-mathematical front-loading of the computational work required, we will
-make the evaluation of a given scenario under the model
-\emph{cheaper}, with the ability to step up and down through a
-heirarchy of model fidelities as desired.
+  strong/stark?} approach: using sparse grid (SG) approximations and
+some clever mathematical front-loading of the computational work
+required, we will make the evaluation of a given scenario under the
+model \emph{cheaper}, allowing interactive latency parameter-space and
+uncertainty exploration even in complex models. This will allow us to
+build rich audiovisual interfaces for interactively exploring these
+model input/output relationships. Through these interfaces,
+decisionmakers will be able to examine many different scenarios in a
+short space of time, developing an intuitive understanding of the
+uncertainty relationships in the system---from uncertainties in input
+data through to representations of uncertainty in model outputs. The
+importance of this human-in-the-loop workflow is summarised
+by~\textcite{pike_science_2009}: ``it is through the interactive
+manipulation of a visual interface---the analytic discourse---that
+knowledge is constructed, tested, refined and shared.''
 
-Using these techniques, we will build rich audiovisual interfaces for
-interactively exploring these model input/output relationships.
-Through these interfaces, decisionmakers will be able to examine many
-different scenarios in a short space of time, developing an intuitive
-understanding of the uncertainty relationships in the system---from
-uncertainties in input data through to representations of uncertainty
-in model outputs. The importance of this human-in-the-loop workflow is
-summarised by~\textcite{pike_science_2009}: \blockquote{it is through
-  the interactive manipulation of a visual interface---the analytic
-  discourse---that knowledge is constructed, tested, refined and
-  shared.}
+We will do this through a series of case studies and prototype
+interactive interfaces in the following domain areas: storm surge
+modelling, bushfire modelling and flood modelling. By working with
+domain experts in these fields and building new computational tools and
+immersive visualisation environments, we will gather concrete qualitative
+data on the usefulness of an interactive, sparse-grid-powered
+exploratory modelling workflow.
+
+This project will provide the following discoveries and benefits to
+the international research community:
+\begin{enumerate}
+
+\item a suite of interactive, real-time modelling tools which combine
+full simulations with coarse-grid, rough simulations to quantify
+uncertainty, optimised for human use
+
+\item interactive information visualisations of simulation predictions
+together with uncertainty
+
+% Re: the next one, I think we shouldn't push too hard on the "acting
+% in the control room while the disaster is happening" angle, since it
+% does open us up to a lot of "why would you want to do that"
+% sentiment, and the stuff we're building is just as useful in
+% pre-planning or dress-rehearsals
+
+% \item software support for running these simulations in unpredictable
+% and error-prone environments
+
+\item an agile software engineering approach to the further delopment
+and optimisation of these software systems
+
+\end{enumerate}
+
+This research is significant because it aims to unlock the power of
+computational simulation for interactive use. Although we concentrate
+our research on case studies in disaster response and management, the
+ultimate potential of this work is to eventually empower domain
+experts from a broad range of areas to use the high-performance
+computing power which is now available to them. We envision a future
+where performing a complex flood model or disaster simulation is as
+interactive and \emph{alive} as flicking through photos on an iPad,
+rather than a tedious ``queue up the job, come back a week later to
+pore over a dump of the results'' process. This benefits not only
+experts already working in that field, but also allows new stakeholders
+(or even schoolchildren) to understand the behaviour of such systems
+through interactive play rather than dry textbooks.
 
 % here's more stuff about the Brisbane floods if we want it, but I've
 % left it out because the above blockquote really covers it...
@@ -189,7 +234,25 @@ summarised by~\textcite{pike_science_2009}: \blockquote{it is through
 % uncertainty about the preceding rainfall, they may have been able to
 % see the worst-case scenario more clearly and avert the disaster:
 
-\paragraph*{Background}\mbox{}\\
+\subsubsection*{RESEARCH PROJECT}
+% - Describe how the research is significant and how it addresses an important problem
+% - Describe how the Proposal meets the objectives of the Discovery Projects scheme
+% - Describe how the anticipated outcomes will advance the knowledge base of the discipline and
+%   how the Proposal aims and concepts are novel and innovative
+% - Outline the conceptual framework, design and methods and demonstrate that these are
+%   adequately developed, well integrated and appropriate to the aims of the Proposal. Include
+%   research plans and proposed timelines
+% - Detail what new methodologies or technologies will be developed in the course of the research
+%   and how they will advance knowledge
+% - Outline the feasibility of the project, in terms of design, budget and proposed timeline
+% - If the rationale for some of the Proposal rests upon manuscripts that are still in the process of
+%   being published, or on results of work that may not be available to assessors, include a
+%   summary of the relevant work
+% - Describe the expected outcomes and likely impact of the proposed research
+% - Describe how the Proposal might result in national or international economic, commercial,
+%   environmental, social and/or cultural benefits
+% - If the research has been nominated as focussing upon a topic or outcome that falls within one
+%   of the Science and Research Priorities, describe the potential for the project to contribute to the associated Priority Goals.
 
 Computational models are tools for describing and predicting the
 relationship between quantities. The nature and meaning of these
@@ -214,9 +277,13 @@ quantities differs between application domains:
 In such a workflow there are some quantities a scientist or domain
 expert may \emph{know} (including some parameters they can
 \emph{control}) and some quantities they \emph{want} to know---the
-model inputs and outputs respectively. More formally, we suppose there is a mathematical model $M_{\mathbf{p}}$ parametrised by $p\in\mathcal{P}$, with compact $\mathcal{P}\subset\mathbb{R}^{P}$ for example.
-For example, $M_{\mathbf{p}}$ may be an operator for a parametrised partial differential equation (PPDE).
-For each $\mathbf{p}$ we suppose the model is well-defined and there exists a function 
+model inputs and outputs respectively. More formally, we suppose there
+is a mathematical model $M_{\mathbf{p}}$ parametrised by
+$p\in\mathcal{P}$, with compact $\mathcal{P}\subset\mathbb{R}^{P}$ for
+example. For example, $M_{\mathbf{p}}$ may be an operator for a
+parametrised partial differential equation (PPDE). For each
+$\mathbf{p}$ we suppose the model is well-defined and there exists a
+function
 \begin{equation}
   \label{eq:1}
   u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
@@ -265,42 +332,44 @@ Figure~\ref{fig:unrolled-fb-loop}).
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{figures/unrolled-fb-loop.pdf}
-  \caption{This process may require many iterations.}
+  \caption{If the modelling \& post-processing/visualisation steps can
+    be performed sufficiently quickly, then the scientist can explore
+    the $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship
+    \emph{interactively}, with the associated benefits for exploratory
+    analysis.}
   \label{fig:unrolled-fb-loop}
 \end{figure}
 
-For a given $\mathbf{p}$, the
-scientist applies the model, updates their understanding of the system
-based on the computed $Q(u_{\mathbf{p}})$, and potentially adjusts
-$\mathbf{p}$ and continues the process. This process of ``twiddling
-the knobs to find the parameters which give the desired outcome''
-occupy a large part of the scientists and/or domain experts time.
+For a given $\mathbf{p}$, the scientist applies the model, updates
+their understanding of the system based on the computed
+$Q(u_{\mathbf{p}})$, and potentially adjusts $\mathbf{p}$ and
+continues the process. This process of ``twiddling the knobs to find
+the parameters which give the desired outcome'' occupy a large part of
+the scientists and/or domain experts time.
 
 From a workflow perspective, the productivity of the scientist is
 proportional to the rate at which they can explore the
 $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship. Any latency
-improvements in this feedback loop will translate into
-productivity gains\todo{ref}.
+improvements in this feedback loop will translate into productivity
+gains~\parencite{liu_effects_2014}.
 % With a tight feedback loop a natural extension would be providing tools for exploring the $Q(u_{\mathbf{p}}) \rightarrow \mathbf{p}$ relationship.
 
 If the model parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known
 precisely and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate
 and easy to interpret, then the task is simple: provide the scientist
 with an interface for manipulating $\mathbf{p}$ and set them loose.
-However, for real-world models (such as those used in flood scenario
-modelling?) this is often not the case, for the following reasons.
-\todo[inline]{rather than the generic appeal to ``in the real
-  world\ldots'', we could say ``we limit our analysis to situations
-  where''\ldots}
+However, for real-world models (such as those used in flood/storm
+surge/bushfire modelling) this is often not the case, there are \textbf{three
+primary challenges}:
 \begin{enumerate}
 \item \emph{The model may not provide a way to express uncertainty in
     the inputs}. Many models do not provide methods for including
   uncertainty information in their inputs, as was the case in the
-  Lockyer valley example.@
+  Lockyer valley example.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
     calculate} (as shown in Figure~\ref{fig:long-fb-loop.pdf}). Many
-  sophisticated models require non-trivial computing resources to
-  evaluate, such as supercomputers. These compute resources may be
+  sophisticated models require non-trivial computing resources (e.g.
+  supercomputers) to evaluate. These compute resources may be
   difficult to secure, with jobs having to wait in a queue, and may
   take a long time to compute even when the resources are available.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
@@ -331,16 +400,17 @@ connection (and the associated uncertainty) between the different
 dimensions of $\mathbf{p}$ and the overall response of the
 system.
 
-Ultimately, the scientist needs \textbf{interactive interface} for
+Ultimately, the scientist needs an \textbf{interactive interface} for
 gleaning insights from their models in the presence of these
 challenges. Designing such a tool breaks down into two subtasks:
 \begin{enumerate}
 \item performing the modelling step
   $\mathbf{p} \rightarrow u_{\mathbf{p}}(\mathbf{x}) \rightarrow
   Q(u_{\mathbf{p}})$ sufficiently quickly for interactive exploration,
-  while still providing adequate fidelity (including uncertainty). In this project, we will
-  achieve this using \textbf{sparse grids} and \textbf{reduced basis
-    models}.\todo{to what extent should we mention both SGs and RBMs?} %Probably SGs more than RBMs?
+  while still providing adequate fidelity (including uncertainty). In
+  this project, we will achieve this using \textbf{sparse grids}, as
+  shown in Figure~\ref{fig:sparse_grids} and described in the next
+  section.
 \item Presenting the quantities $\mathbf{p}$,
   $u_{\mathbf{p}}(\mathbf{x})$ and $Q(u_{\mathbf{p}})$ to the
   scientist, and take interactive input/parameter updates, in a way
@@ -355,13 +425,11 @@ challenges. Designing such a tool breaks down into two subtasks:
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{figures/sg-surrogate-model-fb-loop.pdf}
-  \caption{If the model is computationally expensive to run, then the
-    workflow is dominated by waiting for the model to finish. This
-    results in lower productivity---not only due to the time spent
-    waiting for the model, but also because of the temporal separation
-  between the selection of a new parameter $\mathbf{p}$, and seeing
-  its impact on the results of the model.}
-  \label{fig:sg-surrogate-model-fb-loop.pdf}
+  \caption{Using the sparse grids technique, the computationally
+    expensive model calculations can be done ahead-of-time and used to
+    construct a surrogate model which can be used to re-claim the
+    interactive workflow of Figure~\ref{fig:unrolled-fb-loop}}.
+  \label{fig:sg-surrogate-model-fb-loop}
 \end{figure}
 \todo[inline]{if we're going to say that interactivity is necessary
   (or at least extremely beneficial) then we need to make a case for
@@ -371,45 +439,24 @@ challenges. Designing such a tool breaks down into two subtasks:
   necessary(ish). But if we decide that we don't want to make such a
   strong claim, we don't have to put this stuff in here.}
 
-\missingfigure{full diagram of the scientist, the modelling steps and
-  the relevant IO in an interactive feedback loop}
+\todo[inline]{Ben and Henry: find some stuff from other grant
+  applications about building interactive/immersive environments. Ben:
+  do an updated diagram, including dynamic provisioning/deployment of
+  cloud infrastructure.}
 
-\subsubsection*{RESEARCH PROJECT}
-% - Describe how the research is significant and how it addresses an important problem
-% - Describe how the Proposal meets the objectives of the Discovery Projects scheme
-% - Describe how the anticipated outcomes will advance the knowledge base of the discipline and
-%   how the Proposal aims and concepts are novel and innovative
-% - Outline the conceptual framework, design and methods and demonstrate that these are
-%   adequately developed, well integrated and appropriate to the aims of the Proposal. Include
-%   research plans and proposed timelines
-% - Detail what new methodologies or technologies will be developed in the course of the research
-%   and how they will advance knowledge
-% - Outline the feasibility of the project, in terms of design, budget and proposed timeline
-% - If the rationale for some of the Proposal rests upon manuscripts that are still in the process of
-%   being published, or on results of work that may not be available to assessors, include a
-%   summary of the relevant work
-% - Describe the expected outcomes and likely impact of the proposed research
-% - Describe how the Proposal might result in national or international economic, commercial,
-%   environmental, social and/or cultural benefits
-% - If the research has been nominated as focussing upon a topic or outcome that falls within one
-%   of the Science and Research Priorities, describe the potential for the project to contribute to the associated Priority Goals.
+% There are two opposite, and equally unhelpful, ways of dealing with
+% uncertainty in modelling. The first is to ignore it, and assume that
+% the inputs to our models are known exactly. While this approach can be
+% (and indeed is) used when the uncertainties involved are small,
+% increasingly complex models means increasingly complex interactions
+% between the different parameters, and so it very difficult to say
+% which uncertainties are ``small enough'' to ignore. The opposite
+% approach is to \emph{ignore} input data about which there is too much
+% uncertainty. While this is a more conservative approach, it too can
+% lead to real problems, as in the 2011 Brisbane floods.
 
-There are two opposite, and equally unhelpful, ways of dealing with
-uncertainty in modelling. The first is to ignore it, and assume that
-the inputs to our models are known exactly. While this approach can be
-(and indeed is) used when the uncertainties involved are small,
-increasingly complex models means increasingly complex interactions
-between the different parameters, and so it very difficult to say
-which uncertainties are ``small enough'' to ignore. The opposite
-approach is to \emph{ignore} input data about which there is too much
-uncertainty. While this is a more conservative approach, it too can
-lead to real problems, as in the 2011 Brisbane floods.
 
-\paragraph{Sparse grids (and reduced basis models as well?)}
-
-\todo[inline]{Brendan will beef up this section with lots of tricky
-  maths which makes us sound smart. But it's very much a
-  work-in-progress at the moment.}
+% TODO all this next stuff left by Brendan - some of it may be used soon.
 
 %In this project we will use sparse grid 
 %techniques~\parencite{BungartzGriebel2004} \todo{more refs?}
@@ -562,26 +609,32 @@ lead to real problems, as in the 2011 Brisbane floods.
 
 
 
+The mathematical component of this project will be based on new
+mathematical developments combining sparse grids and uncertainty
+quantification. One of the main difficulties in current models is the
+high dimensional spaces involved, often both in the parameter and
+domain spaces. Sparse grids~\parencite{BungartzGriebel2004} are
+well-known to reduce the effects of the so called `curse of
+dimensionality', whereby the cost of computation increases
+exponentially with the dimension of the model. For example,
+discretising $[0,1]^{d}$ such that there are $m$ points in each
+dimension leads to $m^{d}$ points whereas a sparse grid approximation
+uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing
+error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
 
-
-
-
-
-
-
-
-The mathematical component of this project will be based on new mathematical developments combining sparse grids and uncertainty quantification.
-One of the main difficulties in current models is the high dimensional spaces involved, often both in the parameter and domain spaces.
-Sparse grids~\parencite{BungartzGriebel2004} are well-known to reduce the effects of the so called 
-`curse of dimensionality', whereby the cost of computation increases 
-exponentially with the dimension of the model. 
-For example, discretising $[0,1]^{d}$ such that there are $m$ points in each dimension leads to $m^{d}$ points whereas a sparse grid approximation uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
-%This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
-A popular way of estimating sparse grid solutions is via the combination technique~\parencite{Griebel1990}. 
-This technique is un-intrusive as it allows one to avoid working with directly with the hierarchical basis.
-Instead, approximations are computed on several aniotropic grids and then combined additively.
-Figure~\ref{fig:sparse_grids} depicts the combination technique, the equivalent sparse grid and the corresponding full grid.
-When we refer to computing with sparse grids in what follows we typically mean via the combination technique.
+% This is achieved by representing the discrete approximation of
+% functions in a hierachical manner and throwing away the
+% contributions which are small relative to the amount of computation
+% involved.
+A popular way of estimating sparse grid solutions is via the
+``combination technique''~\parencite{Griebel1990}. This technique is
+unintrusive as it allows one to avoid working directly with the
+hierarchical basis. Instead, approximations are computed on several
+anisotropic grids and then combined additively.
+Figure~\ref{fig:sparse_grids} depicts the combination technique, the
+equivalent sparse grid and the corresponding full grid. When we refer
+to computing with sparse grids in what follows we typically mean via
+the combination technique.
 
 \begin{figure}
   \centering
@@ -589,30 +642,36 @@ When we refer to computing with sparse grids in what follows we typically mean v
   \caption{Combination grids on the left (with coefficients, marked with
     a blue plus for $+1$ and red minus for $-1$), sparse grid in the
     middle, full grid on the right.}
-  \label{fig:sparse_grid_fig}
+  \label{fig:sparse_grids}
 \end{figure}
 
-There are two ways in which classical sparse grid methods can benefit this 
-project:
+By using a sparse grids approach combined with a interactive
+visualisation and parameter control interface, we can address the
+three challenges of modelling in the presence of uncertainty described
+above:
 \begin{enumerate}
-\item For many problems the computation of solutions 
-$u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
-cheaply using the combination technique over the domain $\mathbf{x}\in\Omega$,
-\item A sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
-and efficient exploration of parameter space. This can be approached in an online/offline approach.
+\item \emph{The model may not provide a way to express uncertainty in
+    the inputs}. Using sparse grids, existing models (which may not
+  provide a way to encode uncertainty information) can be used as
+  ``black boxes'', and expectation integrals over subsets of the
+  parameter space $\mathcal{P}$ (which are important for quantifying
+  uncertainty) can be efficiently be computed from the sparse grid
+  surrogate model $\tilde{u}_{\mathbf{p}}(\mathbf{x})$. This has
+  significant benefits over classical Monte Carlo methods when the
+  integrand is sufficiently
+  smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
+    calculate}. For many problems the computation of solutions 
+  $u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
+  cheaply using the combination technique over the domain
+  $\mathbf{x}\in\Omega$, as shown in Figure~\ref{fig:sg-surrogate-model-fb-loop}.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
+    interpret}. Since a sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
+  and efficient exploration of parameter space, there is more time for
+  visualisation and post-processing in an interactive interface, which
+  allowing richer ensembles of visualisation techniques to assist the
+  scientist in interpreting the results of the model.
 \end{enumerate}
-
-The latter is particularly important in application to uncertainty
-quanitfication, which is critical in developing a full understanding
-of the complex models which are pervasive in modern science. Integrals
-over subsets of parameter space $\mathcal{P}$, e.g. in the estimation
-of expectations, can be efficiently be computed from the sparse grid
-sampling (which becomes a surrogate for the model problem). This has
-significant benefits over classical Monte Carlo methods when the
-integrand is sufficiently
-smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
-
-
 
 Much recent work with sparse grids has shown that the methods and ideas
 from the classical work can be applied in other ways.
@@ -633,52 +692,59 @@ incorporating all of the uncertainties in the underlying model and its inputs.
 Achieving this goal will require further research and development.
 We expand on some of these points in the remainder of the section.
 
-One of the problems often faced by scientists is having too many models 
-to choose from. On top of this, for each model there are typically numerous
-numerical methods for approximating solutions of the model.
-This leads to the all too common question: what is the `best' model and alorithm?
-Naturally `best' depends on the criteria but typically no one model/algorithm is
-the `best' for all selection criteria.
-Recent work is finding new ways to incorporate gradient information and multi-fidelity models into sparse grid approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}. 
-This has many potential benefits to uncertainty quantification of large scale problems which will be explored as part of this project.
-These methods will be developed to provide faster and more accurate approximations of not only model solutions but also the uncertainties involved.
-Integrating the results into a highly interactive online stage will also significantly improve the accessibility of information which is computed.
+\todo[inline]{Brendan and Steve are going to improve this stuff when
+  they get a chance.}
+One of the problems often faced by scientists is having too many
+models to choose from. On top of this, for each model there are
+typically numerous numerical methods for approximating solutions of
+the model. This leads to the question of what is the `best' model and
+alorithm, which naturally depends on the context. Recently, we have
+found new ways to incorporate gradient information and multi-fidelity
+models into sparse grid
+approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}.
+This has many potential benefits for uncertainty quantification in
+large scale problems which will be explored as part of this project.
+These methods will be developed to provide faster and more accurate
+approximations of not only model solutions but also the uncertainties
+involved. Integrating the results into a highly interactive online
+stage will also significantly improve the accessibility of information
+which is computed.
 
-Another challenge faced by computational science is the sheer size of the computations required to be carried out to evaluate models. 
-This poses two problems in general, the first being the even distribution of workload across a large parallel machine, and the second being resilience to failures that may occur.
-Having highly scalable software for the offline phase that is resilient to errors is crucial in matinaining confidence in the discoveries and decisions that are established from the model output.
-Much work has been carried out on the development of highly scalable algorithms for the combination technique~\parencite{StrazdinsEtal2015} which we will utilise and continue to develop.
-Further, there are known techniques that we will employ to ensure the computations are robust to hard faults~\parencite{HardingHLS2015,AliEtal2015}.
-Research on the resilience to soft faults is currently underway~[cite Alfredo et.al.] and is also something we intend to integrate into the software framework as it develops. 
-Through the usage and evaluation of these techniques we hope to continue to stimulate research in these areas.
+Another challenge faced by computational science is the sheer size of
+the computations required to be carried out to evaluate models. This
+poses two problems in general, the first being the even distribution
+of workload across a large parallel machine, and the second being
+resilience to failures that may occur. Having highly scalable software
+for the offline phase that is resilient to errors is crucial in
+matinaining confidence in the discoveries and decisions that are
+established from the model output. Much work has been carried out on
+the development of highly scalable algorithms for the combination
+technique~\parencite{StrazdinsEtal2015} which we will utilise and
+continue to develop. Further, there are known techniques that we will
+employ to ensure the computations are robust to hard
+faults~\parencite{HardingHLS2015,AliEtal2015}. Research on the
+resilience to soft faults is currently underway~[cite Alfredo et.al.]
+and is also something we intend to integrate into the software
+framework as it develops. Through the usage and evaluation of these
+techniques we hope to continue to stimulate research in these areas.
 
-The study of large scale inverse problems has made significant gains in recent years. Given the forward problem of computing $u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$ given a $\mathbf{p}\in\mathcal{P}$ then the inverse problem is to estimate the $\mathbf{p}$ which produce a given (and generally noisy) $u_{\mathbf{p}}(\mathbf{x})$ or $Q(u_{\mathbf{p}}(\mathbf{x}))$.
-Sparse grids have had some impact in this area~\parencite{Zabaras2010}, and further, the Bayesian approach to solving inverse problems has some parallels with uncertainty quantification.
-Thus, combined with the fast and highly interactive exploration of the forward model problem, the integration of techiques for solving inverse problems would be a natural extension to this project.
-There are also opportunities to incorporate reduced basis models~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015} into the software framework.
+The study of large scale inverse problems has made significant gains
+in recent years. Given the forward problem of computing
+$u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$
+given a $\mathbf{p}\in\mathcal{P}$ then the inverse problem is to
+estimate the $\mathbf{p}$ which produce a given (and generally noisy)
+$u_{\mathbf{p}}(\mathbf{x})$ or $Q(u_{\mathbf{p}}(\mathbf{x}))$.
+Sparse grids have had some impact in this
+area~\parencite{Zabaras2010}, and further, the Bayesian approach to
+solving inverse problems has some parallels with uncertainty
+quantification. Thus, combined with the fast and highly interactive
+exploration of the forward model problem, the integration of techiques
+for solving inverse problems would be a natural extension to this
+project. There are also opportunities to incorporate reduced basis
+models~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015}
+into the software framework.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This section will also include the offline/online stuff, and the
-flexible cloud infrastructure stuff as well.
-
-\paragraph*{Building interactive systems for exploring uncertainty relationships}\mbox{}\\
-
-\todo[inline]{We have some stuff to use here (see content on page
-  \pageref{SWfMS-grant}), but it needs some work to be successfully
-  integrated.}
+\todo[inline]{Need to say something about the exemplar/case studies here.}
 
 % Why is interactivity important? Because it takes the abstract
 % connection between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$ and makes it a malleable,
@@ -793,22 +859,7 @@ human in the loop (or something similar) is generally accepted
 but all the papers making a big deal of that gloss over the technical
 challenges of this + complex models
 
-\textbf{Notes from Henry}: important in the project proposal is to identify the
-potential ``discoveries''. What are they and how to they motive
-funding?
-
-\begin{enumerate}
-\item a suite of interactive, real-time modelling tools which combine
-full simulations with coarse-grid, rough simulations to quantify
-uncertainty, optimised for human use
-\item software support for running these simulations in unpredictable
-and error-prone environments
-\item interactive information visualisations of simulation predictions
-together with uncertainty
-\item an agile software engineering approach to the further delopment
-and optimisation of these software systems
-\end{enumerate}
-
+\textbf{Notes from Henry}:
 The proposal needs to document the methodology to be followed. I think
 that this could include:
 
@@ -1169,19 +1220,6 @@ only to a HPC-literate elite, and to those rare experts who assimilate
 both the domain knowledge and computing skills to access it, and to
 interpret it's results.
 
-This research is significant because it aims to unlock the power of
-computational simulation for interactive use. Although we concentrate
-our research on case studies from extant computational science, the
-ultimate potential of this work is to eventually empower domain
-experts from a broad range of areas to use the high-performance
-computing power which is now available to them. We envision a future
-where performing a complex particle physics simulation is as
-interactive and \emph{alive} as flicking through photos on an iPad,
-rather than a tedious ``queue up the job, come back a week later to
-pore over a dump of the results'' process. This benefits not only
-experts already working in that field, but also allows new researchers
-(or even schoolchildren) to understand the behaviour of such systems
-through interactive play rather than dry textbooks.
 
 % Big data software, HPC software becoming massively important
 % Development of both still rudimentary, limited use of ``liveness''
