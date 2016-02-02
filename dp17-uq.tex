@@ -127,7 +127,7 @@ causes, impacts and implications of the floods,
   for decision making under uncertainty would have resulted in a
   different water release strategy.}
 At the other end of the environmental spectrum, bushfire model
-predictions are similarly \textquote[\parencite{alexander_limitations_2013}
+predictions are similarly \textquote[\cite{alexander_limitations_2013}
 p375]{fraught with uncertainty}.
 
 Decision-making in the face of natural disasters is a complex and
@@ -148,25 +148,24 @@ visualisation and human-computer interaction.
   beef it up with more evidence.}
 UQ techniques for representing and understanding modelling in the
 presence of uncertainty have been
-employed successfully in~\parencite{thompson_uncertainty_2011}. Most approaches
+employed successfully~\parencite{thompson_uncertainty_2011}. Most approaches
 to this problem rely on \emph{richer models}---incorporating the
-uncertainty information (either as a probability distribution or some
-other fuzzy number representation~\parencite{guyonnet_hybrid_2003}). These
+uncertainty information into the model, either as a probability distribution or some
+other fuzzy number representation~\parencite{guyonnet_hybrid_2003}. These
 approaches sometimes rely on alterations/additions to the models themselves
-\parencite[e.g. adjoint models][]{errico_what_1997}, and sometimes
+\parencite[e.g. adjoint models in][]{errico_what_1997}, and sometimes
 through non-invasive techniques such as Monte Carlo
 sampling~\parencite{roy_comprehensive_2011,nguyen_non_2015}. While
 these techniques to allow for the representation and progagation of
 uncertainty information through a model, they have the effect of
-making the model more complex/computationally expensive\todo{pick one
-  of these terms}, allowing fewer model runs, and fewer model
+making the model more allowing fewer model runs, and fewer model
 alternatives to be considered in a given period of time.
 
 Our aim in this project is to take the opposite \todo{too
   strong/stark?} approach: using sparse grid (SG) approximations and
 some clever mathematical front-loading of the computational work
 required, we will make the evaluation of a given scenario under the
-model \emph{cheaper}, allowing interactive latency parameter-space and
+model \emph{cheaper}, allowing interactive parameter-space and
 uncertainty exploration even in complex models. This will allow us to
 build rich audiovisual interfaces for interactively exploring these
 model input/output relationships. Through these interfaces,
@@ -259,19 +258,18 @@ Computational models are tools for describing and predicting the
 relationship between quantities. The nature and meaning of these
 quantities differs between application domains:
 \begin{itemize}
-\item in a manufacturing process we may be interested in the
+\item in a manufacturing process, the
   relationship between the quality of the input materials and the
   defect rate in the finished products
-\item in design/engineering, we might be interested in the
-  relationship between an airfoil's shape (at both micro and macro
-  scales) and its aerodynamic properties
+\item in engineering and design, the relationship between an airfoil's
+  shape (at both micro and macro scales) and its aerodynamic
+  properties
 \item in urban planning, the relationship between road and rail
   topologies and traffic congestion
 \item in climate science, the relationship between atmospheric CO2
   levels and global temperatures and weather
-\item in disaster response scenarios, predicting future impacts of
-  fire/flood threats based on current sensor readings and reports from
-  the field
+\item in disaster response scenarios, the impact of fire/flood threats
+  based on current sensor readings and reports from the field
 \item in economic policy, the relationship between fiscal policy
   settings and other features of the macroeconomy
 \end{itemize}
@@ -282,9 +280,9 @@ model inputs and outputs respectively. More formally, we suppose there
 is a mathematical model $M_{\mathbf{p}}$ parametrised by
 $p\in\mathcal{P}$, with compact $\mathcal{P}\subset\mathbb{R}^{P}$ for
 example. For example, $M_{\mathbf{p}}$ may be an operator for a
-parametrised partial differential equation (PPDE). For each
-$\mathbf{p}$ we suppose the model is well-defined and there exists a
-function
+parameterised partial differential equation (PPDE), such as in a storm
+surge model. For each $\mathbf{p}$ we suppose the model is
+well-defined and there exists a function
 \begin{equation}
   \label{eq:1}
   u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
@@ -302,13 +300,13 @@ between $\mathbf{p}$ and some lower-dimensional quantity of interest
 $Q(u_{\mathbf{p}})$, or to find the parameter choice $\mathbf{p}$
 which optimises $Q$. %over all $\mathbf{x}$.
 This high-level description of the ``model selection/optimisation''
-problem glosses over many nuances, but this general workflow (shown
+problem glosses over some nuances, but this general workflow (shown
 graphically in Figure~\ref{fig:general-fb-loop}) lies at the heart of
 a great deal of modern science.\todo{ref}
 
 \begin{figure}
   \centering
-  \includegraphics[width=.75\textwidth]{figures/general-fb-loop.pdf}
+  \includegraphics[width=.6\textwidth]{figures/general-fb-loop.pdf}
   \caption{The modelling workflow. A scientist selects an initial
     parameter $\mathbf{p}$ for their model, examines the model output
     $Q(u_{\mathbf{p}})$, and either accepts the output of the model
@@ -336,8 +334,8 @@ Figure~\ref{fig:unrolled-fb-loop}).
   \caption{If the modelling \& post-processing/visualisation steps can
     be performed sufficiently quickly, then the scientist can explore
     the $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship
-    \emph{interactively}, with the associated benefits for exploratory
-    analysis.}
+    \emph{interactively}, with the all the associated benefits for
+    exploratory analysis.}
   \label{fig:unrolled-fb-loop}
 \end{figure}
 
@@ -813,6 +811,71 @@ fire and flood stuff
 \vskip -3em
 \printbibliography[title=\ ]
 
+\newpage
+\setcounter{section}{5} % E1.
+\setcounter{subsection}{0}
+\subsection{Justification of funding requested from the ARC for the
+  duration of the Project}
+\label{sec:funding-justification}
+% (In no more than 5 A4 pages and within the required format fully
+% justify, in terms of need and cost, each budget item requested from
+% the ARC. Use the same headings as in the Description column in the
+% budget at Part D of this Proposal. )
+
+
+
+\newpage
+% E2.
+\subsection{Details of non-ARC contributions}
+\label{sec:non-arc-contributions}
+% (In no more than 2 A4 pages and within the required format, provide
+% an explanation of how non-ARC contributions will support the
+% proposed Project. Use the same headings as in the Description column
+% in the budget at Part D of this Proposal. )
+
+
+\newpage
+\setcounter{section}{6}
+\setcounter{subsection}{11} % F12. 
+\subsection{Research Opportunity and Performance Evidence (ROPE)\\
+  Recent significant research outputs and ARC grants (since 2005)}
+\label{sec:recent-significant-outputs}
+% (Please attach a PDF with a list of your recent significant research
+% outputs and ARC grants most relevant to this Proposal (20 pages
+% maximum). Please refer to the Instructions to Applicants for the
+% required content and formatting.)
+
+
+
+\newpage
+% F13. 
+\subsection{Research Opportunity and Performance Evidence (ROPE)\\
+  Ten career-best research outputs}
+\label{sec:ten-best-outputs}
+% (Please attach a PDF with a list of your 10 career-best research
+% outputs, with a brief paragraph for each output explaining its
+% significance (5 pages maximum). Please refer to the Instructions to
+% Applicants for the required content and formatting.)
+
+
+
+\newpage
+\setcounter{section}{7} % G1. 
+\setcounter{subsection}{0}
+\subsection{Research support from sources other than the ARC}
+\label{sec:other-research-support}
+% (For all participants on this Proposal, please provide details of
+% research funding from sources other than the ARC (in Australia and
+% overseas) for the years 2014 to 2018 inclusive. That is, list all
+% Projects/Proposals/Fellowships awarded or requests submitted for
+% funding involving the Proposal participants. Please refer to the
+% Instructions to Applicants for submission requirements.)
+
+% \section{Conclusion}
+% \label{sec:conclusion}
+
+% Please give us all the money, and we'll do amazing science.
+
 \appendix
 \newpage
 
@@ -1221,12 +1284,6 @@ only to a HPC-literate elite, and to those rare experts who assimilate
 both the domain knowledge and computing skills to access it, and to
 interpret it's results.
 
-
-% Big data software, HPC software becoming massively important
-% Development of both still rudimentary, limited use of ``liveness''
-% concept in HPC/DSVLs to date (some in InfoVis). Many applications of
-% our approach; a very enabling technology. Examples might include\ldots
-
 \paragraph*{Advancing the knowledge base with innovation}\mbox{}\\
 
 As highlighted by Mattoso et~al.\parencite{Mattoso}, there is a desire for
@@ -1244,98 +1301,6 @@ answer open questions such as:
   as data provenance, reproducibility, etc.~impact the interactive
   workflow?
 \end{itemize}
-
-% \begin{itemize}
-% \item very limited use of ``liveness'' concept to date in BI, HPC, etc;
-%   adding into these very novel
-% \item limited DSVLs leveraged to date in these domains; enables end
-%   users
-% \item InfoVis well studied but specification low-level, limited;
-%   enables greater generality
-% \item running the concept of ``liveness'' through these: DSVLs <->
-%   HPC/Big Data code <-> InfoVis
-% \end{itemize}
-
-\paragraph*{Conceptual}\mbox{}\\
-
-Series of research problems to be solved:
-
-\begin{enumerate}
-\item Add ability to modify HPC/Big Data code while
-  running---``liveness''
-\item Invent set of DSVLs for specifying such applications
-\item Use DSVLs to generate code / modify code (via 2, 1 above)
-\item Specifying rich, live InfoVis solution for data processed (by 1
-  above)
-\item Evaluate effectivess on set of exemplars
-\end{enumerate}
-
-\newpage
-\setcounter{section}{5} % E1.
-\setcounter{subsection}{0}
-\subsection{Justification of funding requested from the ARC for the
-  duration of the Project}
-\label{sec:funding-justification}
-% (In no more than 5 A4 pages and within the required format fully
-% justify, in terms of need and cost, each budget item requested from
-% the ARC. Use the same headings as in the Description column in the
-% budget at Part D of this Proposal. )
-
-
-
-\newpage
-% E2.
-\subsection{Details of non-ARC contributions}
-\label{sec:non-arc-contributions}
-% (In no more than 2 A4 pages and within the required format, provide
-% an explanation of how non-ARC contributions will support the
-% proposed Project. Use the same headings as in the Description column
-% in the budget at Part D of this Proposal. )
-
-
-\newpage
-\setcounter{section}{6}
-\setcounter{subsection}{11} % F12. 
-\subsection{Research Opportunity and Performance Evidence (ROPE)\\
-  Recent significant research outputs and ARC grants (since 2005)}
-\label{sec:recent-significant-outputs}
-% (Please attach a PDF with a list of your recent significant research
-% outputs and ARC grants most relevant to this Proposal (20 pages
-% maximum). Please refer to the Instructions to Applicants for the
-% required content and formatting.)
-
-
-
-\newpage
-% F13. 
-\subsection{Research Opportunity and Performance Evidence (ROPE)\\
-  Ten career-best research outputs}
-\label{sec:ten-best-outputs}
-% (Please attach a PDF with a list of your 10 career-best research
-% outputs, with a brief paragraph for each output explaining its
-% significance (5 pages maximum). Please refer to the Instructions to
-% Applicants for the required content and formatting.)
-
-
-
-\newpage
-\setcounter{section}{7} % G1. 
-\setcounter{subsection}{0}
-\subsection{Research support from sources other than the ARC}
-\label{sec:other-research-support}
-% (For all participants on this Proposal, please provide details of
-% research funding from sources other than the ARC (in Australia and
-% overseas) for the years 2014 to 2018 inclusive. That is, list all
-% Projects/Proposals/Fellowships awarded or requests submitted for
-% funding involving the Proposal participants. Please refer to the
-% Instructions to Applicants for submission requirements.)
-
-% \section{Conclusion}
-% \label{sec:conclusion}
-
-% Please give us all the money, and we'll do amazing science.
-
-\printbibliography[title=References]
 
 \end{document}
 
