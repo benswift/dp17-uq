@@ -55,10 +55,6 @@ hyperfootnotes=true]{hyperref}
 
 \begin{document}
 
-\noindent
-\textbf{Note to readers:} comments/edits very welcome, and feel free to correct any funny maths notation, I'm not
-  necessarily up on what the Greek letters \emph{du jour} are.
-
 \renewcommand{\thesection}{\Alph{section}}
 
 \setcounter{section}{3} % C1.
@@ -72,23 +68,25 @@ hyperfootnotes=true]{hyperref}
 
 \subsubsection*{PROJECT TITLE}
 
-\noindent Here are a few alternatives\ldots
+\textbf{Live parameter-space exploration of simulations with uncertainty}
 
-\begin{enumerate}
-  \item \textbf{Interactive interfaces/workflows/systems for exploring uncertainty relationships using sparse grids}
-\item \textbf{Interfaces for exploring risk in the presence of uncertainty}
-\item \textbf{Exploratory interactive fire and flood modelling and
-  uncertainty quantification using sparse grids}
-\item \textbf{Interactive parameter space exploration with uncertainty
-  quantification}
-\end{enumerate}
+% \noindent Here are a few alternatives\ldots
 
-\noindent additionally, we could include a subtitle discussing the
-application domains we're planning to use as exemplars, e.g.
+% \begin{enumerate}
+%   \item \textbf{Interactive interfaces/workflows/systems for exploring uncertainty relationships using sparse grids}
+% \item \textbf{Interfaces for exploring risk in the presence of uncertainty}
+% \item \textbf{Exploratory interactive fire and flood modelling and
+%   uncertainty quantification using sparse grids}
+% \item \textbf{Interactive parameter space exploration with uncertainty
+%   quantification}
+% \end{enumerate}
 
-\begin{enumerate}
-\item \emph{with applications in fire \& flood risk analysis}
-\end{enumerate}
+% \noindent additionally, we could include a subtitle discussing the
+% application domains we're planning to use as exemplars, e.g.
+
+% \begin{enumerate}
+% \item \emph{with applications in fire \& flood risk analysis}
+% \end{enumerate}
 
 \subsubsection*{AIMS AND BACKGROUND}
 % - Describe the aims and background of the Proposal
@@ -96,95 +94,101 @@ application domains we're planning to use as exemplars, e.g.
 %   field of research and its relationship to this Proposal
 % - Refer only to outputs that are accessible to the national and international research communities.
 
-\begin{itemize}
-\item \textbf{Goal:} understanding uncertainty/risk relationships in models
-\item \textbf{Context/domain:} fire \& flood
-\item \textbf{Method:} interactive audiovisual interfaces for
-  manipulating model parameters in real-time
-\item \textbf{``Secret sauce'':} smart \& cheap approximations to expensive
-  models using sparse grids and reduced basis models
-\end{itemize}
+% \begin{itemize}
+% \item \textbf{Goal:} understanding uncertainty/risk relationships in models
+% \item \textbf{Context/domain:} fire \& flood
+% \item \textbf{Method:} interactive audiovisual interfaces for
+%   manipulating model parameters in real-time
+% \item \textbf{``Secret sauce'':} smart \& cheap approximations to expensive
+%   models using sparse grids and reduced basis models
+% \end{itemize}
 
-\todo[inline]{\textbf{One idea:} we open with a brief vignette about
-  the 2011 Brisbane floods. Steve, can we check that we've got the
-  story straight and get some references for this?
-  (\parencite{vandenhonert_2011_2011} looks like a good start). Do we
-  know any folks who were involved? If we do end up leading with this
-  story, we'll add more context/backgroud and make it much punchier.}
+When environmental systems collapse during disasters, for example
+flood, fire, wind, earthquake and warfare, information from
+computational simulation is typically needed urgently and in an
+acceptable format to help decision makers. Meeting such a modelling
+challenge is not simply a matter of compute power but the application
+of ideas from software engineering, computational mathematics,
+optimised distributed systems and data visualisation. Furthermore, all
+of these disciplines need to be tightly coupled and benchmarked to
+realistic human-in-the-loop scenarios. This project addresses this
+challenge through a live-programming approach to system development
+and usability, with a focus on understanding and quantifying
+uncertainty at all stages of the simulation.
 
-The January 2011 Brisbane River floods in south-east Queensland cost
-32 lives and caused 2.5~billion dollars worth of
-damage~\parencite{vandenhonert_2011_2011}. In the days leading up to
-these events, a key issue facing authorities was their
-\textbf{uncertainty} about the amount of rainfall in the Wivenhoe Dam
-catchment area in the preceding fortnight. In their report on the
-causes, impacts and implications of the floods,
-\textcite[p1170]{vandenhonert_2011_2011} conclude: \blockquote{whilst
-  the dam operators were acting in accordance with the operations
-  manual for the dam, their modelling did not take account of forecast
-  rainfall in determining the predicted dam water level, and this
-  resulted in a sub-optimal water release strategy. Employing tools
-  for decision making under uncertainty would have resulted in a
-  different water release strategy.}
-At the other end of the environmental spectrum, bushfire model
-predictions are similarly \textquote[\cite{alexander_limitations_2013}
-p375]{fraught with uncertainty}.
-
-Decision-making in the face of natural disasters is a complex and
-difficult task, and the solution is not to point the finger at poor
-decisions made in the past but to find better ways to incorporate
-uncertainty in modelling~\parencite{thompson_social_2014-1}. More
-generally, uncertainty quantification (UQ) is an active research
-topic~\parencite{le_maitre_introduction_2010}. Various frameworks for
-identifying and representing uncertainty in modelling have been
-proposed \parencite[for
-example]{neale_navigating_2015,maceachren_visual_2015,bonneau_overview_2014}\todo{add
-  more refs here}, and incorporates challenges from numerical methods,
-scientific simulation, distributed computing, information
-visualisation and human-computer interaction.
-
-\todo[inline]{The following is an important paragraph, and I think we
-  can justify it, but it's potentially a bit shaky as is.  Need to
-  beef it up with more evidence.}
-UQ techniques for representing and understanding modelling in the
-presence of uncertainty have been
-employed successfully~\parencite{thompson_uncertainty_2011}. Most approaches
-to this problem rely on \emph{richer models}---incorporating the
-uncertainty information into the model, either as a probability distribution or some
-other fuzzy number representation~\parencite{guyonnet_hybrid_2003}. These
-approaches sometimes rely on alterations/additions to the models themselves
-\parencite[e.g. adjoint models in][]{errico_what_1997}, and sometimes
-through non-invasive techniques such as Monte Carlo
-sampling~\parencite{roy_comprehensive_2011,nguyen_non_2015}. While
-these techniques to allow for the representation and progagation of
-uncertainty information through a model, they have the effect of
-making the model more allowing fewer model runs, and fewer model
-alternatives to be considered in a given period of time.
-
-Our aim in this project is to take the opposite \todo{too
-  strong/stark?} approach: using sparse grid (SG) approximations and
-some clever mathematical front-loading of the computational work
-required, we will make the evaluation of a given scenario under the
-model \emph{cheaper}, allowing interactive parameter-space and
-uncertainty exploration even in complex models. This will allow us to
-build rich audiovisual interfaces for interactively exploring these
-model input/output relationships. Through these interfaces,
-decisionmakers will be able to examine many different scenarios in a
-short space of time, developing an intuitive understanding of the
-uncertainty relationships in the system---from uncertainties in input
-data through to representations of uncertainty in model outputs. The
-importance of this human-in-the-loop workflow is summarised
+To do this, we will build immersive virtual ``control room''
+environments backed by live (run-time modifiable) distributed
+computing infrastructure for \emph{interactively} exploring model
+input-output relationships. Using these environments, decisionmakers
+will be able to examine many different scenarios in a short space of
+time, even with computationally expensive models. This will enable
+them to develop an intuitive understanding of the uncertainty
+relationships in the system---from uncertainties in input data through
+to representations of uncertainty in model outputs. The importance of
+this human-in-the-loop workflow is summarised
 by~\textcite{pike_science_2009}: ``it is through the interactive
 manipulation of a visual interface---the analytic discourse---that
 knowledge is constructed, tested, refined and shared.''
 
-We will do this through a series of case studies and prototype
-interactive interfaces in the following domain areas: storm surge
-modelling, bushfire modelling and flood modelling. By working with
-domain experts in these fields and building new computational tools and
-immersive visualisation environments, we will gather concrete qualitative
-data on the usefulness of an interactive, sparse-grid-powered
-exploratory modelling workflow.
+Although the mathematical and computational tools we will employ in
+this project are generalisable to any modelling workflow, we will
+focus on application domains where (a) the model is (computationally)
+complex, (b) uncertainty is significant and (c) decisions are
+time-sensitive. Specifically, we will build interactive interfaces for
+the following scenarios: storm surge modelling, bushfire modelling and
+flood modelling. By working with domain experts in these fields and
+building new computational tools and immersive visualisation
+environments, we will gather concrete qualitative data on the
+usefulness of a dynamic, interactive, exploratory modelling workflow.
+
+Computational decision support systems (DSS) for disaster management
+have existed for many decades~\parencite{wallace_decision_1985}, and
+recent advances have been made both in incorporating
+uncertainty~\parencite{thompson_social_2014-1,neale_navigating_2015}
+and providing real-time output~\parencite{yu_support_2006}. In these
+(and other) contexts, immersive environments, with multiple large
+screens, rich audiovisual feedback and multi-modal interaction, have
+been used to aid exploration and understanding of simulation
+results~\parencite{colella_participatory_2000,lui_supporting_2014}\todo{there
+  are heaps more refs we could put in here if we needed to}.
+
+However, existing systems generally only handle ``known unknowns'',
+relying on specific apriori knowledge of the nature and
+characteristics of the uncertainty, and a way to encode and propagate
+this uncertainty through the model. This approach has some merit, but
+often falls short in the real world, where the occurrence of ``unknown
+unknowns'' may require unforeseen constraints or new knowledge to be
+incorporated into the model in real-time.
+
+We contend that this challenge can be effectively tackled by deploying
+recent developments in programming language systems, known as ``live
+programming'' (LP), into the context of scientific modelling and
+simulation. Live programming is a term which has been used to denote
+systems which support the direct intervention of the programmer in a
+program's runtime state. It can be thought of as an extreme version of
+just-in-time (JIT) programming where there is a direct correlation
+between a program's representation and its execution. An example of
+this is the visual language Self~\parencite{ungar_self_1987} where
+each visual element in the language is a directly programmable object.
+As the ambition of LP systems has grown, these systems and languages
+themselves have evolved to have access to clock-time and other
+computer-system properties at a language level in order to, for
+example, create, modify and interact with computer music and devices
+in real time. Examples of the latter include the
+Impromptu~\parencite{sorensen_impromptu_2005} and
+Extempore~\parencite{sorensen_extempore} languages which one of the
+authors of this proposal has been working on and with over several
+years.
+
+In addition to this live programming approach, we will use sparse grid
+methods to allow sophisticated approximations to complex models with
+high-dimensional parameter spaces. The use of sparse grids will allow
+us to perform parameter space exploration more efficiently, resulting
+in an interactive feedback loop even with complex and computationally
+expensive models. The live programming tools provide the
+\emph{capability} to modify the simulation on-the-fly, the sparse grid
+techniques shorten the feedback latency to make this capability
+\emph{useful}.
 
 This project will provide the following discoveries and benefits to
 the international research community:
@@ -213,7 +217,7 @@ and optimisation of these software systems
 
 This research is significant because it aims to unlock the power of
 computational simulation for interactive use. Although we concentrate
-our research on case studies in disaster response and management, the
+our research on case studies in disaster response, the
 ultimate potential of this work is to eventually empower domain
 experts from a broad range of areas to use the high-performance
 computing power which is now available to them. We envision a future
@@ -225,14 +229,7 @@ experts already working in that field, but also allows new stakeholders
 (or even schoolchildren) to understand the behaviour of such systems
 through interactive play rather than dry textbooks.
 
-% here's more stuff about the Brisbane floods if we want it, but I've
-% left it out because the above blockquote really covers it...
-
-% As a result, they chose not to include this information in their
-% modelling, which resulted in a decision to delay opening the dam
-% until it was too late. Had they been able to incorporate their
-% uncertainty about the preceding rainfall, they may have been able to
-% see the worst-case scenario more clearly and avert the disaster:
+\todo[inline]{mention FOR}
 
 \subsubsection*{RESEARCH PROJECT}
 % - Describe how the research is significant and how it addresses an important problem
@@ -253,6 +250,94 @@ through interactive play rather than dry textbooks.
 %   environmental, social and/or cultural benefits
 % - If the research has been nominated as focussing upon a topic or outcome that falls within one
 %   of the Science and Research Priorities, describe the potential for the project to contribute to the associated Priority Goals.
+
+The January 2011 Brisbane River floods in south-east Queensland cost
+32 lives and caused 2.5~billion dollars worth of
+damage~\parencite{vandenhonert_2011_2011}. In the days leading up to
+these events, a key issue facing authorities was incorporating their
+\textbf{uncertainty} about the preceding fortnight's rainfall into the
+modelling. In their report on the causes, impacts and implications of
+the floods, \textcite[p1170]{vandenhonert_2011_2011} conclude:
+\blockquote{whilst the dam operators were acting in accordance with
+  the operations manual for the dam, their modelling did not take
+  account of forecast rainfall in determining the predicted dam water
+  level, and this resulted in a sub-optimal water release strategy.
+  Employing tools for decision making under uncertainty would have
+  resulted in a different water release strategy.} At the other end of
+the environmental spectrum, bushfire model predictions are similarly
+\textquote[\cite{alexander_limitations_2013} p375]{fraught with
+  uncertainty}. As Australia's climate changes and extreme weather
+events more common, there is a significant need for better ways to
+glean timely insights from modelling in the presence of uncertainty.
+
+meets objectives of DP
+
+
+
+advances knowledge base
+
+conceptual framework, design and methods (include timelines)
+
+new methodologies/technologies (how will they advance knowledge?)
+
+outcomes/impact
+
+benefits
+
+national research priority: environmental change, advanced manufacturing?
+
+
+% here's more stuff about the Brisbane floods if we want it, but I've
+% left it out because the above blockquote really covers it...
+
+% As a result, they chose not to include this information in their
+% modelling, which resulted in a decision to delay opening the dam
+% until it was too late. Had they been able to incorporate their
+% uncertainty about the preceding rainfall, they may have been able to
+% see the worst-case scenario more clearly and avert the disaster:
+
+
+Decision-making in the face of natural disasters is a complex and
+difficult task, and the solution is not to point the finger at poor
+decisions made in the past but to find better ways to incorporate
+. More
+generally, uncertainty quantification (UQ) is an active research
+topic~\parencite{le_maitre_introduction_2010}. Various frameworks for
+identifying and representing uncertainty in modelling have been
+proposed \parencite[for
+example]{neale_navigating_2015,maceachren_visual_2015,bonneau_overview_2014}\todo{add
+  more refs here}, and incorporates challenges from numerical methods,
+scientific simulation, distributed computing, information
+visualisation and human-computer interaction.
+
+\todo[inline]{The following is an important paragraph, and I think we
+  can justify it, but it's potentially a bit shaky as is.  Need to
+  beef it up with more evidence.}
+UQ techniques for representing and understanding modelling in the
+presence of uncertainty have been
+employed successfully~\parencite{thompson_uncertainty_2011}. Most approaches
+to this problem rely on \emph{richer models}---incorporating the
+uncertainty information into the model, either as a probability distribution or some
+other fuzzy number representation~\parencite{guyonnet_hybrid_2003}. These
+approaches sometimes rely on alterations/additions to the models themselves
+\parencite[e.g. adjoint models in][]{errico_what_1997}, and sometimes
+through non-invasive techniques such as Monte Carlo
+sampling~\parencite{roy_comprehensive_2011,nguyen_non_2015}. While
+these techniques to allow for the representation and progagation of
+uncertainty information through a model, they often have the effect of
+making the model more computationally expensive allowing fewer model
+runs, and fewer model alternatives to be considered in a given period
+of time.
+
+Our aim in this project is to take the opposite \todo{too
+  strong/stark?} approach: using sparse grid (SG) approximations and
+some clever mathematical front-loading of the computational work
+required, we will make the evaluation of a given scenario under the
+model \emph{cheaper}, allowing interactive parameter-space and
+uncertainty exploration even in complex models.
+
+
+TODO up to here...
 
 Computational models are tools for describing and predicting the
 relationship between quantities. The nature and meaning of these
@@ -1186,26 +1271,6 @@ In the area of \emph{adaptation} the open challenges are:
   appropriate algorithmic and parameter adaptations to avoid the
   problem.
 \end{itemize}
-
-The authors of this project proposal contend that all of these
-challenges can now be effectively investigated by deploying recent
-developments in programming language systems, known as ``live
-programming'' (LP), into the context of high performance scientific
-simulation. Live programming is a term which has been used to denote
-systems which support the direct intervention of the programmer in a
-program's runtime state. It can be thought of as an extreme version of
-just-in-time (JIT) programming where there is a direct correlation
-between a program's representation and its execution. An example of
-this is the visual language Self\parencite{Ungar1987} where each visual
-element in the language is a directly programmable object. As the
-ambition of LP systems has grown, these systems and languages
-themselves have evolved to have access to clock-time and other
-computer-system properties at a language level in order to, for
-example, create, modify and interact with computer music and devices
-in real time. Examples of the latter include the
-Impromptu\parencite{Sorensen2005} and Extempore\parencite{Sorensen} languages
-which one of the authors of this proposal has been working on and with
-over several years.
 
 
 \subsubsection*{RESEARCH PROJECT}
