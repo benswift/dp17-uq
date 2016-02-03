@@ -270,102 +270,16 @@ the environmental spectrum, bushfire model predictions are similarly
 events more common, there is a significant need for better ways to
 glean timely insights from modelling in the presence of uncertainty.
 
-meets objectives of DP
+Computational modelling/simulation is an invaluable tool in these
+scenarios, allowing both domain scientists and other domain experts
+such as emergency services personnel to explore what might happen
+under various scenarios. Some of the inputs to the model may be well
+known, while others are known only approximately, and others still may
+only be guessed at.
 
-
-
-advances knowledge base
-
-conceptual framework, design and methods (include timelines)
-
-new methodologies/technologies (how will they advance knowledge?)
-
-outcomes/impact
-
-benefits
-
-national research priority: environmental change, advanced manufacturing?
-
-
-% here's more stuff about the Brisbane floods if we want it, but I've
-% left it out because the above blockquote really covers it...
-
-% As a result, they chose not to include this information in their
-% modelling, which resulted in a decision to delay opening the dam
-% until it was too late. Had they been able to incorporate their
-% uncertainty about the preceding rainfall, they may have been able to
-% see the worst-case scenario more clearly and avert the disaster:
-
-
-Decision-making in the face of natural disasters is a complex and
-difficult task, and the solution is not to point the finger at poor
-decisions made in the past but to find better ways to incorporate
-. More
-generally, uncertainty quantification (UQ) is an active research
-topic~\parencite{le_maitre_introduction_2010}. Various frameworks for
-identifying and representing uncertainty in modelling have been
-proposed \parencite[for
-example]{neale_navigating_2015,maceachren_visual_2015,bonneau_overview_2014}\todo{add
-  more refs here}, and incorporates challenges from numerical methods,
-scientific simulation, distributed computing, information
-visualisation and human-computer interaction.
-
-\todo[inline]{The following is an important paragraph, and I think we
-  can justify it, but it's potentially a bit shaky as is.  Need to
-  beef it up with more evidence.}
-UQ techniques for representing and understanding modelling in the
-presence of uncertainty have been
-employed successfully~\parencite{thompson_uncertainty_2011}. Most approaches
-to this problem rely on \emph{richer models}---incorporating the
-uncertainty information into the model, either as a probability distribution or some
-other fuzzy number representation~\parencite{guyonnet_hybrid_2003}. These
-approaches sometimes rely on alterations/additions to the models themselves
-\parencite[e.g. adjoint models in][]{errico_what_1997}, and sometimes
-through non-invasive techniques such as Monte Carlo
-sampling~\parencite{roy_comprehensive_2011,nguyen_non_2015}. While
-these techniques to allow for the representation and progagation of
-uncertainty information through a model, they often have the effect of
-making the model more computationally expensive allowing fewer model
-runs, and fewer model alternatives to be considered in a given period
-of time.
-
-Our aim in this project is to take the opposite \todo{too
-  strong/stark?} approach: using sparse grid (SG) approximations and
-some clever mathematical front-loading of the computational work
-required, we will make the evaluation of a given scenario under the
-model \emph{cheaper}, allowing interactive parameter-space and
-uncertainty exploration even in complex models.
-
-
-TODO up to here...
-
-Computational models are tools for describing and predicting the
-relationship between quantities. The nature and meaning of these
-quantities differs between application domains:
-\begin{itemize}
-\item in a manufacturing process, the
-  relationship between the quality of the input materials and the
-  defect rate in the finished products
-\item in engineering and design, the relationship between an airfoil's
-  shape (at both micro and macro scales) and its aerodynamic
-  properties
-\item in urban planning, the relationship between road and rail
-  topologies and traffic congestion
-\item in climate science, the relationship between atmospheric CO2
-  levels and global temperatures and weather
-\item in disaster response scenarios, the impact of fire/flood threats
-  based on current sensor readings and reports from the field
-\item in economic policy, the relationship between fiscal policy
-  settings and other features of the macroeconomy
-\end{itemize}
-In such a workflow there are some quantities a scientist or domain
-expert may \emph{know} (including some parameters they can
-\emph{control}) and some quantities they \emph{want} to know---the
-model inputs and outputs respectively. More formally, we suppose there
-is a mathematical model $M_{\mathbf{p}}$ parametrised by
-$p\in\mathcal{P}$, with compact $\mathcal{P}\subset\mathbb{R}^{P}$ for
-example. For example, $M_{\mathbf{p}}$ may be an operator for a
-parameterised partial differential equation (PPDE), such as in a storm
+More formally, we have a mathematical model $M_{\mathbf{p}}$
+parameterised by $p\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may
+be a parameterised partial differential equation (PPDE) in a storm
 surge model. For each $\mathbf{p}$ we suppose the model is
 well-defined and there exists a function
 \begin{equation}
@@ -373,12 +287,6 @@ well-defined and there exists a function
   u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
 \end{equation}
 which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
-Here we suppose the domain $\Omega$ is a compact subset of $\mathbb{R}^{d}$ or $\mathbb{C}^{d}$. 
-% Perhaps we could provide an example, e.g. using the shallow water wave equations?
-One can think of $\mathbf{x}$ as the input parameters intrinsic to the
-problem domain (e.g. spatial dimensions, sensor readings, economic
-indicators, etc.) while the model parameters $\mathbf{p}$ are ``knobs
-to tweak''\todo{can we think of a better expression?} in the model.
 
 The goal of the scientist is to better understand the relationship
 between $\mathbf{p}$ and some lower-dimensional quantity of interest
@@ -392,26 +300,35 @@ a great deal of modern science.\todo{ref}
 \begin{figure}
   \centering
   \includegraphics[width=.6\textwidth]{figures/general-fb-loop.pdf}
-  \caption{The modelling workflow. A scientist selects an initial
-    parameter $\mathbf{p}$ for their model, examines the model output
-    $Q(u_{\mathbf{p}})$, and either accepts the output of the model
-    or re-runs the model with a different choice of the parameter
-    $\mathbf{p}$.}
+  \caption{The human-in-the-loop modelling workflow. A scientist
+    selects an initial parameter $\mathbf{p_0}$ for their model,
+    examines the model output $Q(u_{\mathbf{p}})$, and either accepts
+    the output of the model or re-runs the model with a different
+    choice of the parameter $\mathbf{p_1}$.}
   \label{fig:general-fb-loop}
 \end{figure}
 
 There are many ways of finding the optimal $\mathbf{p}$, from trial
 and error or expert judgements through to fully automated algorithmic
-optimization procedures (providing both $Q(u_{\mathbf{p}})$ and
-$Q(u_{\mathbf{p}})$ are sufficiently nice, although this is often not
-the case in real-world problems). Often there are some parameters
-which may be optimised algorithmically, although this often introduces
-new parameters (the inputs to the optimisation algorithm) which must
-be selected by the scientist. As a result, this feedback loop will
-often require many iterations, with a human scientist evaluating the
-results of the model (possibly through visualising the model output)
-and choosing a parameter update $\delta p$ at each step (see
-Figure~\ref{fig:unrolled-fb-loop}).
+optimization procedures. Often there are ways to optimise $\mathbf{p}$
+algorithmically, although this usually introduces new parameters (the
+inputs to the optimisation algorithm) which must be selected by the
+scientist. As a result, this feedback loop will often require many
+iterations, with a human scientist in-the-loop, evaluating the results
+of the model (possibly through visualising the model output) and
+choosing a parameter update $\delta p$ at each step (see
+Figure~\ref{fig:unrolled-fb-loop}). Each step through this loop
+provides feedback to the scientist about the response of the system to
+a particular value of $\mathbf{p}$, for example the maximum storm
+surge level under a particular rainfall scenario. Through the process
+of trying different model parameterisations, the scientist is able to
+build up an understanding of the \emph{general} relationship between
+$\mathbf{p}$ and $Q(u_{\mathbf{p}})$, including the areas of the
+parameter space $\mathcal{P}$ which have the greatest influence on the
+result. This is especially important if the model inputs are not known
+with certainty---since the scientist is better able to know which
+types of uncertainty have the greatest impact on the certainty of the
+results.
 
 \begin{figure}
   \centering
@@ -424,19 +341,11 @@ Figure~\ref{fig:unrolled-fb-loop}).
   \label{fig:unrolled-fb-loop}
 \end{figure}
 
-For a given $\mathbf{p}$, the scientist applies the model, updates
-their understanding of the system based on the computed
-$Q(u_{\mathbf{p}})$, and potentially adjusts $\mathbf{p}$ and
-continues the process. This process of ``twiddling the knobs to find
-the parameters which give the desired outcome'' occupy a large part of
-the scientists and/or domain experts time.
-
 From a workflow perspective, the productivity of the scientist is
 proportional to the rate at which they can explore the
 $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship. Any latency
 improvements in this feedback loop will translate into productivity
 gains~\parencite{liu_effects_2014}.
-% With a tight feedback loop a natural extension would be providing tools for exploring the $Q(u_{\mathbf{p}}) \rightarrow \mathbf{p}$ relationship.
 
 If the model parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known
 precisely and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate
@@ -456,6 +365,10 @@ primary challenges}:
   supercomputers) to evaluate. These compute resources may be
   difficult to secure, with jobs having to wait in a queue, and may
   take a long time to compute even when the resources are available.
+  This is especially problematic in a disaster response scenario,
+  where an approximately correct answer provided in a short time is
+  significantly more useful than a perfect answer provided after it is
+  too late to do anything about.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
     interpret}. This may be because of technical reasons, such as a
   complex problem domain where coming up with a meaningful loss
@@ -481,12 +394,45 @@ By accelerating the feedback loop between $\mathbf{p}$ and
 $Q(u_{\mathbf{p}})$, including estimates of uncertainty, we will give
 the scientist the ability to interactively \emph{explore} the
 connection (and the associated uncertainty) between the different
-dimensions of $\mathbf{p}$ and the overall response of the
-system.
-
+dimensions of $\mathbf{p}$ and the overall response of the system.
 Ultimately, the scientist needs an \textbf{interactive interface} for
 gleaning insights from their models in the presence of these
-challenges. Designing such a tool breaks down into two subtasks:
+challenges.
+
+Our conceptual framework for dealing with these three challenges
+involves using a sparse grids approach combined with live modification
+of simulation parameters, dynamic computational resources and
+visualisation. This approach allows us to deal with the three primary
+challenges mentioned above.
+\begin{enumerate}
+\item \emph{The model may not provide a way to express uncertainty in
+    the inputs}. Using sparse grids, existing models (which may not
+  provide a way to encode uncertainty information) can be used as
+  ``black boxes'', and expectation integrals over subsets of the
+  parameter space $\mathcal{P}$ (which are important for quantifying
+  uncertainty) can be efficiently be computed from the sparse grid
+  surrogate model $\tilde{u}_{\mathbf{p}}(\mathbf{x})$. This has
+  significant benefits over classical Monte Carlo methods when the
+  integrand is sufficiently
+  smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
+    calculate}. For many problems the computation of solutions 
+  $u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
+  cheaply using the combination technique over the domain
+  $\mathbf{x}\in\Omega$, as shown in Figure~\ref{fig:sg-surrogate-model-fb-loop}.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
+    interpret}. Since a sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
+  and efficient exploration of parameter space, there is more time for
+  visualisation and post-processing in an interactive interface, which
+  allowing richer ensembles of visualisation techniques to assist the
+  scientist in interpreting the results of the model.
+\end{enumerate}
+
+
+
+
+
+Designing such a tool breaks down into two subtasks:
 \begin{enumerate}
 \item performing the modelling step
   $\mathbf{p} \rightarrow u_{\mathbf{p}}(\mathbf{x}) \rightarrow
@@ -515,18 +461,72 @@ challenges. Designing such a tool breaks down into two subtasks:
     interactive workflow of Figure~\ref{fig:unrolled-fb-loop}}.
   \label{fig:sg-surrogate-model-fb-loop}
 \end{figure}
-\todo[inline]{if we're going to say that interactivity is necessary
-  (or at least extremely beneficial) then we need to make a case for
-  it. I think we can, and it goes like: dealing with uncertainty
-  requires the ability to explore, and exploration is \emph{heaps}
-  better with a fast feedback loop, so interactive IO is
-  necessary(ish). But if we decide that we don't want to make such a
-  strong claim, we don't have to put this stuff in here.}
 
-\todo[inline]{Ben and Henry: find some stuff from other grant
-  applications about building interactive/immersive environments. Ben:
-  do an updated diagram, including dynamic provisioning/deployment of
-  cloud infrastructure.}
+
+
+
+% meets objectives of DP
+
+% advances knowledge base
+
+% conceptual framework, design and methods (include timelines)
+
+% new methodologies/technologies (how will they advance knowledge?)
+
+% outcomes/impact
+
+% benefits
+
+% national research priority: environmental change, advanced manufacturing?
+
+
+% here's more stuff about the Brisbane floods if we want it, but I've
+% left it out because the above blockquote really covers it...
+
+% As a result, they chose not to include this information in their
+% modelling, which resulted in a decision to delay opening the dam
+% until it was too late. Had they been able to incorporate their
+% uncertainty about the preceding rainfall, they may have been able to
+% see the worst-case scenario more clearly and avert the disaster:
+
+\todo[inline]{this should be a ``what is UQ'' section}
+
+% Decision-making in the face of natural disasters is a complex and
+% difficult task, and the solution is not to point the finger at poor
+% decisions made in the past but to find better ways to incorporate .
+% More generally, uncertainty quantification (UQ) is an active research
+% topic~\parencite{le_maitre_introduction_2010}. Various frameworks for
+% identifying and representing uncertainty in modelling have been
+% proposed \parencite[for
+% example]{neale_navigating_2015,maceachren_visual_2015,bonneau_overview_2014}\todo{add
+%   more refs here}, and incorporates challenges from numerical methods,
+% scientific simulation, distributed computing, information
+% visualisation and human-computer interaction.
+
+% UQ techniques for representing and understanding modelling in the
+% presence of uncertainty have been
+% employed successfully~\parencite{thompson_uncertainty_2011}. Most approaches
+% to this problem rely on \emph{richer models}---incorporating the
+% uncertainty information into the model, either as a probability distribution or some
+% other fuzzy number representation~\parencite{guyonnet_hybrid_2003}. These
+% approaches sometimes rely on alterations/additions to the models themselves
+% \parencite[e.g. adjoint models in][]{errico_what_1997}, and sometimes
+% through non-invasive techniques such as Monte Carlo
+% sampling~\parencite{roy_comprehensive_2011,nguyen_non_2015}. While
+% these techniques to allow for the representation and progagation of
+% uncertainty information through a model, they often have the effect of
+% making the model more computationally expensive allowing fewer model
+% runs, and fewer model alternatives to be considered in a given period
+% of time.
+
+% Our aim in this project is to take the opposite \todo{too
+%   strong/stark?} approach: using sparse grid (SG) approximations and
+% some clever mathematical front-loading of the computational work
+% required, we will make the evaluation of a given scenario under the
+% model \emph{cheaper}, allowing interactive parameter-space and
+% uncertainty exploration even in complex models.
+
+
 
 % There are two opposite, and equally unhelpful, ways of dealing with
 % uncertainty in modelling. The first is to ignore it, and assume that
@@ -729,33 +729,6 @@ the combination technique.
   \label{fig:sparse_grids}
 \end{figure}
 
-By using a sparse grids approach combined with a interactive
-visualisation and parameter control interface, we can address the
-three challenges of modelling in the presence of uncertainty described
-above:
-\begin{enumerate}
-\item \emph{The model may not provide a way to express uncertainty in
-    the inputs}. Using sparse grids, existing models (which may not
-  provide a way to encode uncertainty information) can be used as
-  ``black boxes'', and expectation integrals over subsets of the
-  parameter space $\mathcal{P}$ (which are important for quantifying
-  uncertainty) can be efficiently be computed from the sparse grid
-  surrogate model $\tilde{u}_{\mathbf{p}}(\mathbf{x})$. This has
-  significant benefits over classical Monte Carlo methods when the
-  integrand is sufficiently
-  smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
-    calculate}. For many problems the computation of solutions 
-  $u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
-  cheaply using the combination technique over the domain
-  $\mathbf{x}\in\Omega$, as shown in Figure~\ref{fig:sg-surrogate-model-fb-loop}.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
-    interpret}. Since a sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
-  and efficient exploration of parameter space, there is more time for
-  visualisation and post-processing in an interactive interface, which
-  allowing richer ensembles of visualisation techniques to assist the
-  scientist in interpreting the results of the model.
-\end{enumerate}
 
 Much recent work with sparse grids has shown that the methods and ideas
 from the classical work can be applied in other ways.
@@ -812,6 +785,9 @@ and is also something we intend to integrate into the software
 framework as it develops. Through the usage and evaluation of these
 techniques we hope to continue to stimulate research in these areas.
 
+\todo[inline]{I'm not sure it's worth mentioning inverse problems in
+  such detail. Given that we're not really that clear on how the
+  forward problem fits in.}
 The study of large scale inverse problems has made significant gains
 in recent years. Given the forward problem of computing
 $u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$
