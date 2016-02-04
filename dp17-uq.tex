@@ -177,18 +177,19 @@ example, create, modify and interact with computer music and devices
 in real time. Examples of the latter include the
 Impromptu~\parencite{sorensen_impromptu_2005} and
 Extempore~\parencite{sorensen_extempore} languages which one of the
-authors of this proposal has been working on and with over several
+authors of this proposal has been working on and off with over several
 years.
 
 In addition to this live programming approach, we will use sparse grid
+and reduced basis 
 methods to allow sophisticated approximations to complex models with
-high-dimensional parameter spaces. The use of sparse grids will allow
+high-dimensional parameter spaces. The use of such methods will allow
 us to perform parameter space exploration more efficiently, resulting
 in an interactive feedback loop even with complex and computationally
 expensive models. The live programming tools provide the
-\emph{capability} to modify the simulation on-the-fly, the sparse grid
-techniques shorten the feedback latency to make this capability
-\emph{useful}.
+\emph{capability} to modify the simulation on-the-fly, whilst sparse grids
+and reduced basis models shorten the feedback latency to make this 
+capability \emph{useful}.
 
 This project will provide the following discoveries and benefits to
 the international research community:
@@ -196,26 +197,29 @@ the international research community:
 
 \item a suite of interactive, real-time modelling tools which combine
 full simulations with coarse-grid, rough simulations to quantify
-uncertainty, optimised for human use
+uncertainty, optimised for human exploration
 
 \item interactive information visualisations of simulation predictions
-together with uncertainty
+together with uncertainties
 
 % Re: the next one, I think we shouldn't push too hard on the "acting
 % in the control room while the disaster is happening" angle, since it
 % does open us up to a lot of "why would you want to do that"
 % sentiment, and the stuff we're building is just as useful in
 % pre-planning or dress-rehearsals
+% Brendan: I think saying something about robustness would be nice 
+% though, especially as we have some ecperience in this area.
 
 % \item software support for running these simulations in unpredictable
 % and error-prone environments
 
-\item an agile software engineering approach to the further delopment
+\item an agile software engineering approach to the further development
 and optimisation of these software systems
 
 \end{enumerate}
 
 This research is significant because it aims to unlock the power of
+large scale 
 computational simulation for interactive use. Although we concentrate
 our research on case studies in disaster response, the
 ultimate potential of this work is to eventually empower domain
@@ -817,16 +821,21 @@ into the software framework.
 % - Summarise the roles and levels of involvement of other Participants, for example, technical staff, Research Associates and other personnel
 % - Describe how each Participant will ensure they have the ‘time and capacity’ to undertake the proposed research, taking into account any other grants or roles that they hold.
 
-The personnel on this grant cover the key research areas discussed in
-the \emph{Research Project} section of this application:
+%The personnel on this grant cover the key research areas discussed in
+%the \emph{Research Project} section of this application:
+%
+%\begin{itemize}
+%\item \textbf{Steve Roberts}: uncertainty quantification, sparse grids, flood
+%  modelling
+%\item \textbf{Markus Hegland}: sparse grids
+%\item \textbf{Peter Strazdins}: sparse grids, distributed computing
+%\item \textbf{Henry Gardner}: HCI, interfaces
+%\end{itemize}
 
-\begin{itemize}
-\item \textbf{Steve Roberts}: uncertainty quantification, sparse grids, flood
-  modelling
-\item \textbf{Markus Hegland}: sparse grids
-\item \textbf{Peter Strazdins}: sparse grids, distributed computing
-\item \textbf{Henry Gardner}: HCI, interfaces
-\end{itemize}
+% Brendan: to some extent I have copied/reworked this section from the linkage project with Fujitsu
+
+The personnel involved in this project will be the CIs from the two ANU colleges, two post-doctoral fellows and several (four?) PhD students. % I have excluded Markus here
+CI Gardner is responsible for the overall project and will lead the interactive and visual interface components. The distributed computing component is lead by CI Strazdins and the mathematical component is lead by CI Roberts. One post-doctoral fellow, to be situated in the RSCS, will develop large portions of the live programming tools and software interface which will interact with the scientific models. The second post-doctoral fellow, to be situated in the MSI, will develop the numerical methods for computing sparse grid surrogates and reduced basis models which are able to efficiently propogate uncertainties. The PhD students will be split between the two departments to focus on specific aspects of the project including performance and scalability studies, studies of uncertainty, development of live programming.
 
 \subsubsection*{RESEARCH ENVIRONMENT}
 % - Outline the adequacy and opportunities within the Research Environment in your relevant department, school or research group, and the extent to which it will provide for knowledge growth, innovation, collaboration, mentoring and student training
@@ -859,11 +868,22 @@ fire and flood stuff
 \subsubsection*{COMMUNICATION OF RESULTS}
 % - Outline plans for communicating the research results to other researchers and the broader community, including but not limited to scholarly and public communication and dissemination.
 
+% Brendan: to some extent I have copied/reworked this section from the linkage project with Fujitsu, perhaps someone from computer science could add some good comp-sci journals to this list that would be relevant to the live-programming and interactive visualisation sides of the project. Possibly also mention something about making software available, open-source???
+
+Something about computer science journals???
+
+Advances in numerical methods will be communicated in scholarly journals in numerical analysis and high-performance computing including the journals “SIAM Journal of Scientific Computing” and “Parallel Computing”, and national and international conferences like the “SIAM Conference on Computational Science and Engineering”, the “Computational Techniques and Applications Conference (CTAC)”, “Supercomputing” and various international workshops. 
+
+Software developed will be made available as open source??? Surrogate/reduced basis models to be made available online?
+
+While communication in international media is essential for the project, we will also focus on Australian conferences and journals to further convince Australian researchers and organisations of the benefits and importance of live parameter space exploration for large scale scientific models.
 
 
 \subsubsection*{MANAGEMENT OF DATA}
 % - Outline plans for the management of data produced as a result of the proposed research, including but not limited to storage, access and re-use arrangements.
 % - It is not sufficient to state that the organisation has a data management policy. Researchers are encouraged to highlight specific plans for the management of their research data.
+
+% Brendan: does this include distribution of software? or mainly about raw data? Perhaps mention use of the NCI facility and reliance on their backup procedures?
 
 
 
