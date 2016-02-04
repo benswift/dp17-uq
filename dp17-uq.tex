@@ -68,27 +68,12 @@ hyperfootnotes=true]{hyperref}
 
 \subsubsection*{PROJECT TITLE}
 
-\textbf{Live parameter-space exploration of simulations with uncertainty} 
+\textbf{Live and interactive parameter-space exploration of environmental simulations with uncertainty quantification} %can differ from grant title and be longer 
 
-% \noindent Here are a few alternatives\ldots
 
-% \begin{enumerate}
-%   \item \textbf{Interactive interfaces/workflows/systems for exploring uncertainty relationships using sparse grids}
-% \item \textbf{Interfaces for exploring risk in the presence of uncertainty}
-% \item \textbf{Exploratory interactive fire and flood modelling and
-%   uncertainty quantification using sparse grids}
-% \item \textbf{Interactive parameter space exploration with uncertainty
-%   quantification}
-% \end{enumerate}
-
-% \noindent additionally, we could include a subtitle discussing the
-% application domains we're planning to use as exemplars, e.g.
-
-% \begin{enumerate}
-% \item \emph{with applications in fire \& flood risk analysis}
-% \end{enumerate}
 
 \subsubsection*{AIMS AND BACKGROUND}
+
 % - Describe the aims and background of the Proposal
 % - Include information about national/international progress in this
 %   field of research and its relationship to this Proposal
@@ -103,98 +88,132 @@ hyperfootnotes=true]{hyperref}
 %   models using sparse grids and reduced basis models
 % \end{itemize}
 
-When environmental systems collapse during disasters, for example
-flood, fire, wind, earthquake and warfare, information from
-computational simulation is typically needed urgently and in an
-acceptable format to help decision makers. Meeting such a modelling
-challenge is not simply a matter of compute power but the application
-of ideas from software engineering, computational mathematics,
-optimised distributed systems and data visualisation. Furthermore, all
+When systems are disrupted during environmental disasters (for example,
+flood, fire, wind, earthquakes) information from
+computational simulation can be needed urgently and in an
+acceptable format to aid  decision-making by emergency services. 
+Meeting such a modelling and simulation 
+challenge is not simply a matter of compute power but involves
+ideas from software engineering, computational mathematics,
+human computer interaction, high performance computing, and data visualisation. Furthermore, all
 of these disciplines need to be tightly coupled and benchmarked to
-realistic human-in-the-loop scenarios. This project addresses this
-challenge through a live-programming approach to system development
-and usability, with a focus on understanding and quantifying
-uncertainty at all stages of the simulation.
+realistic human-in-the-loop scenarios involving emergency services personal in collaboration with modelling experts. 
+In particular, 
+a crucial aspect of advice provided from modellers to decision makers is to properly quantify and communicate 
+the {\em uncertainty} in predictions obtained
+by computer simulations.
 
-To do this, we will build immersive virtual ``control room''
-environments backed by live (run-time modifiable) distributed
-computing infrastructure for \emph{interactively} exploring model
-input-output relationships. Using these environments, decisionmakers
-will be able to examine many different scenarios in a short space of
-time, even with computationally expensive models. This will enable
+We address this
+challenge through a {\em live-programming} approach to software system development
+and deployment of {\em live and interactive} environmental simulations. A particular focus will be on 
+ {\em  quantifying the 
+uncertainty} of the core environmental simulations being used and in presenting this uncertainty to decision makers.
+We will deploy  ``live"  distributed
+computing infrastructure to {\em rapidly prototype} modelling software and to build systems which effectively transform the
+traditional, batch-oriented modality of environmental simulation into a highly-interactive and run-time modifiable one.
+Our vision is that decisionmakers
+will be able to examine many different environmental disaster scenarios in a short space of
+time, even with computationally-expensive models. This will enable
 them to develop an intuitive understanding of the uncertainty
 relationships in the system---from uncertainties in input data through
 to representations of uncertainty in model outputs. The importance of
-this human-in-the-loop workflow is summarised
-by~\textcite{pike_science_2009}: ``it is through the interactive
+such a human-in-the-loop workflow has been expressed
+by~\textcite{pike_science_2009} in the following quote: ``it is through the interactive
 manipulation of a visual interface---the analytic discourse---that
 knowledge is constructed, tested, refined and shared.''
 
 Although the mathematical and computational tools we will employ in
 this project are generalisable to any modelling workflow, we will
-focus on application domains where (a) the model is (computationally)
+focus on specific application domains where (a) the model is (computationally)
 complex, (b) uncertainty is significant and (c) decisions are
 time-sensitive. Specifically, we will build interactive interfaces for
-the following scenarios: storm surge modelling, bushfire modelling and
-flood modelling. By working with domain experts in these fields and
+ storm-surge and tsunami flood modelling. By working with domain experts in these fields and
 building new computational tools and immersive visualisation
 environments, we will gather concrete qualitative data on the
-usefulness of a dynamic, interactive, exploratory modelling workflow.
+usefulness of a dynamic, interactive, exploratory modelling workflows.
 
-Computational decision support systems (DSS) for disaster management
+The mathematical component of this project will be based on new
+mathematical developments combining sparse grids and uncertainty
+quantification. One of the main difficulties in current models is the
+high dimensional spaces involved, both in the parameter and
+domain spaces. Sparse grids~\parencite{BungartzGriebel2004} are
+well-known to reduce the effects of the so called ``curse of
+dimensionality", whereby the cost of computation increases
+exponentially with the dimension of the model.
+We have recently found new ways to incorporate gradient
+information and multi-fidelity models into sparse grid
+approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015} and we will be
+deploying this knowledge in our construction of a suite of surge-tsunami models to simulate
+environmental disasters with uncertainty quantification.
+
+
+Computational decision support systems for disaster management
 have existed for many decades~\parencite{wallace_decision_1985}, and
 recent advances have been made both in incorporating
 uncertainty~\parencite{thompson_social_2014-1,neale_navigating_2015}
-and providing real-time output~\parencite{yu_support_2006}. In these
-(and other) contexts, immersive environments, with multiple large
-screens, rich audiovisual feedback and multi-modal interaction, have
-been used to aid exploration and understanding of simulation
-results~\parencite{colella_participatory_2000,lui_supporting_2014}.
-
-However, existing systems generally only handle ``known unknowns'',
-relying on specific apriori knowledge of the nature and
-characteristics of the uncertainty, and a way to encode and propagate
-this uncertainty through the model. This approach has some merit, but
-often falls short in the real world, where the occurrence of ``unknown
+and providing real-time output~\parencite{yu_support_2006}.
+% In these
+%(and other) contexts, immersive environments, with multiple large
+%screens, rich audiovisual feedback and multi-modal interaction, have
+%been used to aid exploration and understanding of simulation
+%results~\parencite{colella_participatory_2000,lui_supporting_2014}.
+However, existing systems generally only deal with ``known unknowns''
+from simulation forecasts. That is, they
+rely on specific, apriori knowledge of the nature and
+characteristics of the uncertainties involved, and a way to encode and propagate
+these uncertainty through the model. This sometimes
+falls short in the real world, where the occurrence of ``unknown
 unknowns'' may require unforeseen constraints or new knowledge to be
-incorporated into the model in real-time.
+incorporated into a model, or its estimates of uncertainty, in real-time and its results communicated rapidly to decision makers.
+We deal with this challenge by 1) building modelling suites which provide rapid and {\em time-bound} feedback of results and/or 
+uncertainty, 2) understanding  specific interaction scenarios involved in decision making with expert modelling support and the 
+time constraints that such scenarios place on software systems, and 3) deploying
+recent developments in programming-language systems, known as ``live
+programming'', into the context of software development, scientific modelling and
+simulation. 
 
-We contend that this challenge can be effectively tackled by deploying
-recent developments in programming language systems, known as ``live
-programming'' (LP), into the context of scientific modelling and
-simulation. Live programming is a term which has been used to denote
-systems which support the direct intervention of the programmer in a
-program's runtime state. It can be thought of as an extreme version of
-just-in-time (JIT) programming where there is a direct correlation
-between a program's representation and its execution. An example of
-this is the visual language Self~\parencite{ungar_self_1987} where
-each visual element in the language is a directly programmable object.
-As the ambition of LP systems has grown, these systems and languages
-themselves have evolved to have access to clock-time and other
-computer-system properties at a language level in order to, for
-example, create, modify and interact with computer music and devices
-in real time. Examples of the latter include the
-Impromptu~\parencite{sorensen_impromptu_2005} and
-Extempore~\parencite{sorensen_extempore} languages which one of the
-authors of this proposal has been working on and off with over several
-years.
 
-In addition to this live programming approach, we will use sparse grid
-and reduced basis 
-methods to allow sophisticated approximations to complex models with
-high-dimensional parameter spaces. The use of such methods will allow
-us to perform parameter space exploration more efficiently, resulting
-in an interactive feedback loop even with complex and computationally
-expensive models. The live programming tools provide the
-\emph{capability} to modify the simulation on-the-fly, whilst sparse grids
-and reduced basis models shorten the feedback latency to make this 
-capability \emph{useful}.
 
-This project will provide the following discoveries and benefits to
-the international research community:
+
+%hjg
+%Live programming is a term which has been used to denote
+%systems which support the direct intervention of the programmer in a
+%program's run-time state. It can be thought of as an extreme version of
+%just-in-time (JIT) programming where there is a direct correlation
+%between a program's representation and its execution. An example of
+%this is the visual language Self~\parencite{ungar_self_1987} where
+%each visual element in the language is a directly programmable object.
+%As the ambition of LP systems has grown, these systems and languages
+%themselves have evolved to have access to clock-time and other
+%computer-system properties at a language level in order to, for
+%example, create, modify and interact with music and cyberphysical devices
+%in real time. 
+%Such an approach has been 
+%termed ``Programming with Time"~\parencite{GARDNER AND SORENSEN, 2010}
+
+
+
+%HJG
+%Examples of the latter include the
+%Impromptu~\parencite{sorensen_impromptu_2005} and
+%Extempore~\parencite{sorensen_extempore} languages which one of the
+%authors of this proposal has been working on and off with over several
+%years.
+%In addition to this live programming approach, we will use sparse grid
+%and reduced basis 
+%methods to allow sophisticated approximations to complex models with
+%high-dimensional parameter spaces. The use of such methods will allow
+%us to perform parameter space exploration more efficiently, resulting
+%in an interactive feedback loop even with complex and computationally
+%expensive models. The live programming tools provide the
+%\emph{capability} to modify the simulation on-the-fly, whilst sparse grids
+%and reduced basis models shorten the feedback latency to make this 
+%capability \emph{useful}.
+
+This project will provide the following discoveries and benefits:
 \begin{enumerate}
 
-\item a suite of interactive, real-time modelling tools which combine
+\item a suite of interactive, real-time modelling tools for surge-tsunami flood disasters which combine
 full simulations with coarse-grid, rough simulations to quantify
 uncertainty, optimised for human exploration
 
@@ -212,27 +231,32 @@ together with uncertainties
 % \item software support for running these simulations in unpredictable
 % and error-prone environments
 
-\item an agile software engineering approach to the further development
-and optimisation of these software systems
+\item a live software engineering approach to the development, deployment 
+and optimisation of these interactive software systems
+
+\item fundamental understanding of the nature of group interaction scenarios involved in decision making 
+for environmental disasters with expert modelling support, and the 
+time constraints that such scenarios place impose software systems.
 
 \end{enumerate}
 
 This research is significant because it aims to unlock the power of
-large scale 
+sophisticated
 computational simulation for interactive use. Although we concentrate
 our research on case studies in disaster response, the
 ultimate potential of this work is to eventually empower domain
 experts from a broad range of areas to use the high-performance
 computing power which is now available to them. We envision a future
 where performing a complex flood model or disaster simulation is as
-interactive and \emph{alive} as flicking through photos on an iPad,
-rather than a tedious ``queue up the job, come back a week later to
-pore over a dump of the results'' process. This benefits not only
-experts already working in that field, but also allows new stakeholders
-(or even schoolchildren) to understand the behaviour of such systems
-through interactive play rather than dry textbooks.
+interactive and \emph{alive} as flicking through photos on an iPad.
 
-TODO mention FOR
+%rather than a tedious ``queue up the job, come back a week later to
+%pore over a dump of the results'' process. This benefits not only
+%experts already working in that field, but also allows new stakeholders
+%(or even schoolchildren) to understand the behaviour of such systems
+%through interactive play rather than dry textbooks.
+
+%TODO mention FOR
 
 \subsubsection*{RESEARCH PROJECT}
 % - Describe how the research is significant and how it addresses an important problem
@@ -274,8 +298,8 @@ events become more common, there is a significant need for better ways to
 glean timely insights from modelling in the presence of uncertainty.
 
 Computational modelling/simulation is an invaluable tool in these
-scenarios, allowing both domain scientists and other domain experts
-such as emergency services personnel to explore what might happen
+scenarios, allowing both domain scientists and  emergency services personnel to explore 
+what might happen
 under various scenarios. Some of the inputs to the model may be well
 known, while others are known only approximately, and others still may
 only be guessed at.
