@@ -433,7 +433,15 @@ challenges mentioned above.
   allowing richer ensembles of visualisation techniques to assist the
   scientist in interpreting the results of the model.
 \end{enumerate}
-
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figures/sg-surrogate-model-fb-loop.pdf}
+  \caption{Using the sparse grids and reduced basis models, the computationally
+    expensive model calculations can be done ahead-of-time and used to
+    construct a surrogate model which can be used to re-claim the
+    interactive workflow of Figure~\ref{fig:unrolled-fb-loop}}.
+  \label{fig:sg-surrogate-model-fb-loop}
+\end{figure}
 
 Impact: new algorithms, software, high performance computer systems
 and visualisation techniques for time-bound environmental simulation
@@ -449,40 +457,6 @@ methodologies for rapid and agile software development and usability
 using live programming. New knowledge of human-in-the-loop
 requirements for support systems in the context of environmental
 disaster management.
-
-
-
-Designing such a tool breaks down into two subtasks:
-\begin{enumerate}
-\item performing the modelling step
-  $\mathbf{p} \rightarrow u_{\mathbf{p}}(\mathbf{x}) \rightarrow
-  Q(u_{\mathbf{p}})$ sufficiently quickly for interactive exploration,
-  while still providing adequate fidelity (including uncertainty). In
-  this project, we will achieve this using \textbf{sparse grids} 
-  and \textbf{reduced basis models}, as
-  shown in Figure~\ref{fig:sparse_grids} and described in the next
-  section.
-\item Presenting the quantities $\mathbf{p}$,
-  $u_{\mathbf{p}}(\mathbf{x})$ and $Q(u_{\mathbf{p}})$ to the
-  scientist, and take interactive input/parameter updates, in a way
-  which provides meaningful insight. In this project, we will achieve
-  this with \textbf{interactive scientific workflow management systems
-    (SWfMS)}.\todo[inline]{we don't have to go the whole hog and talk
-    about SWfMS, we could just call them interfaces, or interactive
-    environments. Pros and cons to each. I guess the idea of using the
-    SWfMS moniker is to tie it into existing research, and the call
-    for full-stack SWfMS is loud in SoftEng at least.}
-\end{enumerate}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{figures/sg-surrogate-model-fb-loop.pdf}
-  \caption{Using the sparse grids and reduced basis models, the computationally
-    expensive model calculations can be done ahead-of-time and used to
-    construct a surrogate model which can be used to re-claim the
-    interactive workflow of Figure~\ref{fig:unrolled-fb-loop}}.
-  \label{fig:sg-surrogate-model-fb-loop}
-\end{figure}
-
 
 
 
@@ -773,24 +747,9 @@ incorporating all of the uncertainties in the underlying model and its inputs.
 Achieving this goal will require further research and development.
 We expand on some of these points in the remainder of the section.
 
-
-
-
-One of the problems often faced by scientists is having too many
-models to choose from. On top of this, for each model there are
-typically numerous numerical methods for approximating solutions of
-the model. This leads to the question of what is the `best' model and
-alorithm, which naturally depends on the context. Recently, we have
-found new ways to incorporate gradient information and multi-fidelity
-models into sparse grid
+We have also recently found new ways to incorporate gradient
+information and multi-fidelity models into sparse grid
 approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}.
-This has many potential benefits for uncertainty quantification in
-large scale problems which will be explored as part of this project.
-These methods will be developed to provide faster and more accurate
-approximations of not only model solutions but also the uncertainties
-involved. Integrating the results into a highly interactive online
-stage will also significantly improve the accessibility of information
-which is computed.
 
 Another challenge faced by computational science is the sheer size of
 the computations required to be carried out to evaluate models. This
@@ -810,40 +769,46 @@ and is also something we intend to integrate into the software
 framework as it develops. Through the usage and evaluation of these
 techniques we hope to continue to stimulate research in these areas.
 
-\todo[inline]{I'm not sure it's worth mentioning inverse problems in
-  such detail. Given that we're not really that clear on how the
-  forward problem fits in.}
-The study of large scale inverse problems has made significant gains
-in recent years. Given the forward problem of computing
-$u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$
-given a $\mathbf{p}\in\mathcal{P}$ then the inverse problem is to
-estimate the $\mathbf{p}$ which produce a given (and generally noisy)
-$u_{\mathbf{p}}(\mathbf{x})$ or $Q(u_{\mathbf{p}}(\mathbf{x}))$.
-Sparse grids have had some impact in this
-area~\parencite{Zabaras2010}, and further, the Bayesian approach to
-solving inverse problems has some parallels with uncertainty
-quantification. Thus, combined with the fast and highly interactive
-exploration of the forward model problem, the integration of techiques
-for solving inverse problems would be a natural extension to this
-project. There are also opportunities to incorporate reduced basis
-models~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015}
-into the software framework.
+In this project we will leverage on-demand compute resources, such as
+the Amazon AWS cloud~\parencite{amazon_aws} and the National Compute
+Infrastructure NCI Cloud~\parencite{nci_cloud}. Using these cloud
+services will further improve the project's ability to deliver timely
+results in high-pressure and time-critical decisionmaking scenarios.
 
-TODO Need to say something about the exemplar/case studies here.
+% \todo[inline]{I'm not sure it's worth mentioning inverse problems in
+%   such detail. Given that we're not really that clear on how the
+%   forward problem fits in.}
+% The study of large scale inverse problems has made significant gains
+% in recent years. Given the forward problem of computing
+% $u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$
+% given a $\mathbf{p}\in\mathcal{P}$ then the inverse problem is to
+% estimate the $\mathbf{p}$ which produce a given (and generally noisy)
+% $u_{\mathbf{p}}(\mathbf{x})$ or $Q(u_{\mathbf{p}}(\mathbf{x}))$.
+% Sparse grids have had some impact in this
+% area~\parencite{Zabaras2010}, and further, the Bayesian approach to
+% solving inverse problems has some parallels with uncertainty
+% quantification. Thus, combined with the fast and highly interactive
+% exploration of the forward model problem, the integration of techiques
+% for solving inverse problems would be a natural extension to this
+% project. There are also opportunities to incorporate reduced basis
+% models~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015}
+% into the software framework.
 
-try to chunk the interactions and thought processes involved in
-real-time decisionmaking
+% TODO Need to say something about the exemplar/case studies here.
 
-GOMS model for co-operative scenarios where someone wants
-information, and someone is trying to present it to them
+% try to chunk the interactions and thought processes involved in
+% real-time decisionmaking
 
-it's about chunking complex tasks c.f. beginning-middle-end
+% GOMS model for co-operative scenarios where someone wants
+% information, and someone is trying to present it to them
 
-the goal: quantitative requirements on the time bounds, which has
-implications for the design of the systems
+% it's about chunking complex tasks c.f. beginning-middle-end
 
-interface should be aware of time, just like Extempore. so it's a
-contribution to human-in-the-loop programming
+% the goal: quantitative requirements on the time bounds, which has
+% implications for the design of the systems
+
+% interface should be aware of time, just like Extempore. so it's a
+% contribution to human-in-the-loop programming
 
 % Why is interactivity important? Because it takes the abstract
 % connection between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$ and makes it a malleable,
@@ -869,13 +834,36 @@ contribution to human-in-the-loop programming
 
 % Brendan: to some extent I have copied/reworked this section from the linkage project with Fujitsu
 
-The personnel involved in this project will be the CIs from the two ANU colleges, two post-doctoral fellows and several (four?) PhD students. % I have excluded Markus here
-CI Gardner is responsible for the overall project and will lead the interactive and visual interface components. The distributed computing component is lead by CI Strazdins and the mathematical component is lead by CI Roberts. One post-doctoral fellow, to be situated in the RSCS, will develop large portions of the live programming tools and software interface which will interact with the scientific models. The second post-doctoral fellow, to be situated in the MSI, will develop the numerical methods for computing sparse grid surrogates and reduced basis models which are able to efficiently propogate uncertainties. The PhD students will be split between the two departments to focus on specific aspects of the project including performance and scalability studies, studies of uncertainty, development of live programming.
+The personnel involved in this project will be the CIs from the two
+ANU colleges, two post-doctoral fellows and four PhD
+students.
+
+CI Gardner is responsible for the overall project and will lead the
+interactive and visual interface components. The distributed computing
+and mathematical component is lead by CI Roberts. One post-doctoral
+fellow, to be situated in the Research School of Computer Science
+(RSCS), will develop large portions of the live programming tools and
+software interface which will interact with the scientific models. The
+second post-doctoral fellow, to be situated in the Mathematical
+Sciences Institute (MSI), will develop the numerical methods for
+computing sparse grid surrogates and reduced basis models which are
+able to efficiently propagate uncertainties. 
+
+The four PhD students will be split between the two departments---two
+in RSCS and two in MSI, focusing on specific aspects of the project.
+In RSCS, these will be the dynamic distributed computing
+infrastructure and the development of live interfaces for data
+visualisation. In the MSI, these will be the uncertainty
+quantification and the development of numerical methods for the sparse
+grid technique.
 
 \subsubsection*{RESEARCH ENVIRONMENT}
 % - Outline the adequacy and opportunities within the Research Environment in your relevant department, school or research group, and the extent to which it will provide for knowledge growth, innovation, collaboration, mentoring and student training
 % - Describe the existing, or developing, research environment within the Administering Organisation and collaborating Organisation(s) which will enable this Project
 % - Describe how the Project aligns with the Administering Organisation’s research plans and strategies.
+
+As the home institution of the Extempore live programming environment, 
+
 
 It seems we need to address three issues: 
 
