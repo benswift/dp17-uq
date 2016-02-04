@@ -149,8 +149,7 @@ and providing real-time output~\parencite{yu_support_2006}. In these
 (and other) contexts, immersive environments, with multiple large
 screens, rich audiovisual feedback and multi-modal interaction, have
 been used to aid exploration and understanding of simulation
-results~\parencite{colella_participatory_2000,lui_supporting_2014}\todo{there
-  are heaps more refs we could put in here if we needed to}.
+results~\parencite{colella_participatory_2000,lui_supporting_2014}.
 
 However, existing systems generally only handle ``known unknowns'',
 relying on specific apriori knowledge of the nature and
@@ -233,7 +232,7 @@ experts already working in that field, but also allows new stakeholders
 (or even schoolchildren) to understand the behaviour of such systems
 through interactive play rather than dry textbooks.
 
-\todo[inline]{mention FOR}
+TODO mention FOR
 
 \subsubsection*{RESEARCH PROJECT}
 % - Describe how the research is significant and how it addresses an important problem
@@ -299,7 +298,7 @@ which optimises $Q$. %over all $\mathbf{x}$.
 This high-level description of the ``model selection/optimisation''
 problem glosses over some nuances, but this general workflow (shown
 graphically in Figure~\ref{fig:general-fb-loop}) lies at the heart of
-a great deal of modern science.\todo{ref}
+a great deal of modern science.
 
 \begin{figure}
   \centering
@@ -436,6 +435,20 @@ challenges mentioned above.
 \end{enumerate}
 
 
+Impact: new algorithms, software, high performance computer systems
+and visualisation techniques for time-bound environmental simulation
+with uncertainty. New software tools for the simulation of flood
+surges and tsunami. New methodologies for rapid and agile software
+development and usability using live programming. New knowledge of
+human-in-the-loop requirements for support systems in the context of
+environmental disaster management. New algorithms, software, high
+performance computer systems and visualisation techniques for
+time-bound environmental simulation with uncertainty. New software
+tools for the simulation of flood surges and tsunami. New
+methodologies for rapid and agile software development and usability
+using live programming. New knowledge of human-in-the-loop
+requirements for support systems in the context of environmental
+disaster management.
 
 
 
@@ -497,7 +510,10 @@ Designing such a tool breaks down into two subtasks:
 % uncertainty about the preceding rainfall, they may have been able to
 % see the worst-case scenario more clearly and avert the disaster:
 
-\todo[inline]{this should be a ``what is UQ'' section}
+
+
+
+
 
 % Decision-making in the face of natural disasters is a complex and
 % difficult task, and the solution is not to point the finger at poor
@@ -757,8 +773,9 @@ incorporating all of the uncertainties in the underlying model and its inputs.
 Achieving this goal will require further research and development.
 We expand on some of these points in the remainder of the section.
 
-\todo[inline]{Brendan and Steve are going to improve this stuff when
-  they get a chance.}
+
+
+
 One of the problems often faced by scientists is having too many
 models to choose from. On top of this, for each model there are
 typically numerous numerical methods for approximating solutions of
@@ -812,7 +829,21 @@ project. There are also opportunities to incorporate reduced basis
 models~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015}
 into the software framework.
 
-\todo[inline]{Need to say something about the exemplar/case studies here.}
+TODO Need to say something about the exemplar/case studies here.
+
+try to chunk the interactions and thought processes involved in
+real-time decisionmaking
+
+GOMS model for co-operative scenarios where someone wants
+information, and someone is trying to present it to them
+
+it's about chunking complex tasks c.f. beginning-middle-end
+
+the goal: quantitative requirements on the time bounds, which has
+implications for the design of the systems
+
+interface should be aware of time, just like Extempore. so it's a
+contribution to human-in-the-loop programming
 
 % Why is interactivity important? Because it takes the abstract
 % connection between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$ and makes it a malleable,
@@ -846,10 +877,6 @@ CI Gardner is responsible for the overall project and will lead the interactive 
 % - Describe the existing, or developing, research environment within the Administering Organisation and collaborating Organisation(s) which will enable this Project
 % - Describe how the Project aligns with the Administering Organisation’s research plans and strategies.
 
-\todo[inline]{I'm open to suggestions on how to pitch the ``research
-  environment'' section from those more experienced at getting money
-  out of the ARC than I}
-
 It seems we need to address three issues: 
 
 \begin{enumerate}
@@ -872,16 +899,37 @@ fire and flood stuff
 \subsubsection*{COMMUNICATION OF RESULTS}
 % - Outline plans for communicating the research results to other researchers and the broader community, including but not limited to scholarly and public communication and dissemination.
 
-% Brendan: to some extent I have copied/reworked this section from the linkage project with Fujitsu, perhaps someone from computer science could add some good comp-sci journals to this list that would be relevant to the live-programming and interactive visualisation sides of the project. Possibly also mention something about making software available, open-source???
+% Brendan: to some extent I have copied/reworked this section from the
+% linkage project with Fujitsu, perhaps someone from computer science
+% could add some good comp-sci journals to this list that would be
+% relevant to the live-programming and interactive visualisation sides
+% of the project. Possibly also mention something about making
+% software available, open-source???
 
-Something about computer science journals???
+% TODO brendan can you maybe put a couple of journals in here?
+We will communicate the results of this project by publishing in
+top-ranked journals and conferences. Advances in numerical methods
+will be communicated in scholarly journals in numerical analysis and
+high-performance computing including the journals “SIAM Journal of
+Scientific Computing” and “Parallel Computing”, and national and
+international conferences like the “SIAM Conference on Computational
+Science and Engineering”, the “Computational Techniques and
+Applications Conference (CTAC)”, “Supercomputing” and various
+international workshops. We will share our results on the
+human-in-the-loop workflow in the context of simulations with
+uncertainty in human factors conferences and journals and conferences
+such as CHI and VL/HCC.
 
-Advances in numerical methods will be communicated in scholarly journals in numerical analysis and high-performance computing including the journals “SIAM Journal of Scientific Computing” and “Parallel Computing”, and national and international conferences like the “SIAM Conference on Computational Science and Engineering”, the “Computational Techniques and Applications Conference (CTAC)”, “Supercomputing” and various international workshops. 
-
-Software developed will be made available as open source??? Surrogate/reduced basis models to be made available online?
-
-While communication in international media is essential for the project, we will also focus on Australian conferences and journals to further convince Australian researchers and organisations of the benefits and importance of live parameter space exploration for large scale scientific models.
-
+% TODO Steve, Brendan: check that this is ok re: anuga
+In addition, the source code contributions of this project will be
+released to the public. Both the Extempore live programming system
+(\url{https://github.com/digego/extempore}) and the AnuGA shallow
+water simulation package
+(\url{https://github.com/GeoscienceAustralia/anuga_core}) are
+available on GitHub under MIT and GPLv2 licences respectively. We are
+committed to accessible and reproducible computational science, and
+support these goals by using free software licences and developing our
+code in the open on GitHub.
 
 \subsubsection*{MANAGEMENT OF DATA}
 % - Outline plans for the management of data produced as a result of the proposed research, including but not limited to storage, access and re-use arrangements.
