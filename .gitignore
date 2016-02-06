@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-dp17-uq.aux
-dp17-uq.log
 *.gz
-dp17-uq.run.xml
 *.bcf
-=======
-
+dp17-uq.tex.bak
 dp17-uq.aux
 dp17-uq.bbl
 dp17-uq.bcf
@@ -17,7 +12,3 @@ dp17-uq.run.xml
 dp17-uq.synctex.gz
 plan.md~
 plan.pdf
-
-
-
->>>>>>> origin/master

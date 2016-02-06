@@ -1,8 +1,8 @@
 \documentclass[a4paper,fontsize=12pt]{scrartcl}
 \usepackage{geometry}
-\geometry{total={200mm,287mm},
-left=5mm,
-top=5mm}
+\geometry{total={190mm,277mm},
+left=10mm,
+top=10mm}
 \usepackage{Alegreya}
 \usepackage{AlegreyaSans}
 
@@ -98,7 +98,7 @@ by computer simulations. This advice will need to be provided in a time-bound ma
 We address this grand
 challenge through a {\em live-programming} approach to the software-system development
 and deployment of  environmental simulations including uncertainty. 
-We will develop new environmental simulations of flood surge and tsunamis which combine sparse grids and uncertainty quantifiction to dramatically increase the speed of delivery of useful predictions and the uncertainty associated with those predictions.
+We will develop new environmental simulations of flood surge and tsunamis which combine sparse grids and uncertainty quantification to dramatically increase the speed of delivery of useful predictions and the uncertainty associated with those predictions.
 We will deploy  ``live"  distributed
 computing infrastructure to {\em rapidly prototype} the human interface to these new environmental simulations and to effectively transform the
 traditional, batch-oriented modality of environmental simulation into a highly-interactive one. We will 
@@ -222,7 +222,7 @@ events become more common, there is a significant need for better ways to
 gather timely insights from modelling in the presence of uncertainty and to communicate those insights to 
 decision makers and emergency services.
 
-Computational modelling and simulation is an invaluable support tool for disaster respon\-se,
+Computational modelling and simulation is an invaluable support tool for disaster response,
  allowing  emergency services personnel to explore 
 what might happen in the immediate future 
 under various scenarios. But these model simulations can be fraught with uncertainty: 
@@ -243,7 +243,7 @@ well-defined and there exists a unique function
 which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
 Sometimes the goal of the modeller is to better understand the relationship
 between $\mathbf{p}$ and some lower-dimensional quantity of interest
-$Q(u_{\mathbf{p}})$, such as the relationship between a particular rainfall scenario and the maximum storm surge levels at particular geographical locations. In order to achieve such understanding, repeated executions of the model are often required with an expert analysis of the outputs of each stage and selection of the next parameter set based on an assessment of those outpus. Such repeated model executions can also be used to estimate the {\em uncertainty} in any given set of predictions of 
+$Q(u_{\mathbf{p}})$, such as the relationship between a particular rainfall scenario and the maximum storm surge levels at particular geographical locations. In order to achieve such understanding, repeated executions of the model are often required with an expert analysis of the outputs of each stage and selection of the next parameter set based on an assessment of those outputs. Such repeated model executions can also be used to estimate the {\em uncertainty} in any given set of predictions of 
 $Q(u_{\mathbf{p}})$. Through the process
 of trying different model parameterisations, the scientist is able to
 build up an understanding of the \emph{general} relationship between
@@ -327,7 +327,7 @@ primary challenges}:
   too late to act on.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ together with estimates of its uncertainty may not be easy to
     interpret}. Oftentimes this is a visualisation problem---
-  the mapping $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimension\-al,
+  the mapping $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimensional,
   and presenting that to a decision-maker, particularly when combining it with its uncertainty estimates, may not be straightforward.
 \end{enumerate}
 %\begin{figure}
@@ -423,7 +423,7 @@ reduced basis methods~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab20
 and uncertainty quantification. 
 One of the main difficulties in the study of current scientific models is
 the high dimensional spaces involved, often both in the parameter and
-domain spaces, $\mathcal{P}$ and $\Omega$ respecitvely. 
+domain spaces, $\mathcal{P}$ and $\Omega$ respectively. 
 This is a significant barrier for the timely evaluation of models due to the 
 ``curse of dimensionality'' in which the cost scales exponentially with dimension.
 By using sparse grids and reduced basis models we will be able to compute
@@ -456,20 +456,20 @@ Propagating uncertainty in scientific models which are high dimensional
 and/or expensive to compute is a significant challenge.
 For models which are not stochastic in nature, and thus have no means
 of directly quantifying uncertainty, one must typically estimate statistical 
-moments via quadrature rules. Fo high dimensional problems 
+moments via quadrature rules. For high dimensional problems 
 it has been shown that sparse grids can estimate these moments faster 
 and more accurately than traditional Monte Carlo methods when the 
 probability density functions are sufficiently smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 Despite the advantages of reduced basis methods, the manifold $\mathcal{Q}$
 is still sufficiently high dimensional that the quantification of uncertainty
 is a challenge. As such we will continue to develop numerical methods for 
-uncertainty quantification through the study of highdimensional approximations.
+uncertainty quantification through the study of high dimensional approximations.
 Replacing the full model with a reduced basis model also adds additional 
 uncertainties. One needs to have some idea what the model outcomes may be 
 for parameters not lying on the lower dimensional manifold $\mathcal{Q}$.
 By using ensemble methods and gradient enhanced 
 approximation~\parencite{deBaarHarding2015,Jakeman2015} we will
-propogate these uncertainties through the reduced basis model 
+propagate these uncertainties through the reduced basis model 
 to provide a complete picture of uncertainties in the full model problem.
 Incorporating ideas from ``Kriging" (Gaussian process regression), a feature of which is having 
 confidence intervals over an interpolant, together with sparse-grid interpolation,
@@ -508,7 +508,7 @@ termed ``Programming with Time"~\parencite{sorensen2010programming}. This projec
 
 Similar to ~\parencite{ramchurn2016human} we will employ game scenarios to understand and optimise 
 collaboration for disaster response~\parencite{ramchurn2016human}.
-However, our focus will be on  decision-maker/modeller communication rather than human/agent communication and our game scenarios will take place while software and systems parameters, particularly the human-computer interface, visualistaions and system configuration, are being tuned in real time by a live coder.  
+However, our focus will be on  decision-maker/modeller communication rather than human/agent communication and our game scenarios will take place while software and systems parameters, particularly the human-computer interface, visualisations and system configuration, are being tuned in real time by a live coder.  
 In a novel approach, the protocols obtained from this live coding will then be analyse to determine macro, ``chunking" states, of human action and transitions between those states. 
 We have recently used similar approaches to understand the real-time actions of single live-coders in computer music performance~\parencite{swift2014coding} and the macro-gesture states of group computer musicians using iPads~\parencite{martin2015tracking}. 
 In both of these studies, transition matrices derived from interaction protocols were able to yield insights into the artistic process. 
@@ -533,14 +533,14 @@ In this project we will leverage on-demand compute resources, such as
 the Amazon AWS cloud~\parencite{amazon_aws} and the National Compute
 Infrastructure NCI Cloud~\parencite{nci_cloud}. Using these cloud
 services will further improve the project's ability to deliver timely
-results in high-pressure and time-critical decisionmaking scenarios.
+results in high-pressure and time-critical decision making scenarios.
 
 Once again, we emphasise that our approach to live-coding of test software is a novel aspect of our methodology. The {\em Extempore} tool that we have developed has been shown to be able to harness and steer scientific simulation in real time. In this part of the project, we will apply this tool to the real-time steering of the computer systems layer itself.\\
 
 
 \noindent{\bf Interactive visualisation of environmental forecasts with uncertainty}\\
 
-Similar to the impact of visualy presented geodata on decision making~\parencite{kinkeldey2015evaluating}, the particular visualisations of 
+Similar to the impact of visually presented geodata on decision making~\parencite{kinkeldey2015evaluating}, the particular visualisations of 
 uncertainty in our environmental models will need to be systematically evaluated with 
 human participants. Here we will adopt traditional human-factors trials with non-expert participants together with qualitative feedback from emergency services experts. We will solicit qualitative feedback from expert participants from emergency authorities in our local area including ACT Emergency Service, Geosciences Australia, the Australian Maritime and Safety Authority and the Australian Federal Police. Perspectives offered by this participant pool will be important in extrapolating our study results to real world disaster-management. 
 
@@ -577,7 +577,7 @@ software interface which will interact with the scientific models and will condu
 second post-doctoral fellow, to be situated in the Mathematical
 Sciences Institute (MSI), will develop the numerical methods for
 computing sparse grid surrogates and reduced basis models which are
-able to efficiently propagate uncertainties in model applications of tusami and flood surge events. Because of the larger skill set and responsibilities of the computer science PDRA, this position has been factored into the budget at a higher academic level (B3) than the mathematics PDRA (B1). Without prejudicing a competitive selection process, suitable candidates are known to be available for both positions. 
+able to efficiently propagate uncertainties in model applications of tsunami and flood surge events. Because of the larger skill set and responsibilities of the computer science PDRA, this position has been factored into the budget at a higher academic level (B3) than the mathematics PDRA (B1). Without prejudicing a competitive selection process, suitable candidates are known to be available for both positions. 
 
 The two  PhD students will be split between the two departments---two
 in RSCS and two in MSI, focusing on specific aspects of the project.
@@ -635,9 +635,9 @@ code in the open on GitHub.
 
 All research output will be stored on the ANU Data Commons and ANU Digital Collections. 
 
-Data Commons is a central data repository for ANU research data which has been designed to securley store data and ensure that data are immune to format and media changes. This repository enables data to be accessed and reused with full open-access functionality to the public.
+Data Commons is a central data repository for ANU research data which has been designed to securely store data and ensure that data are immune to format and media changes. This repository enables data to be accessed and reused with full open-access functionality to the public.
 
-Digital Collections accepts journal articles, conference papers, book chapters, working or technical papers and other forms of scholarly commuication. It is also a respository for digital images of manuscripts and photographs in other university research collections. 
+Digital Collections accepts journal articles, conference papers, book chapters, working or technical papers and other forms of scholarly communication. It is also a repository for digital images of manuscripts and photographs in other university research collections. 
 
 \subsubsection*{REFERENCES}
 
