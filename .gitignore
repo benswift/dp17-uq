@@ -1,5 +1,14 @@
+*.gz
+*.bcf
+dp17-uq.tex.bak
 dp17-uq.aux
+dp17-uq.bbl
 dp17-uq.bcf
+dp17-uq.blg
 dp17-uq.log
+dp17-uq.out
+dp17-uq.pdf
+dp17-uq.run.xml
 dp17-uq.synctex.gz
-
+plan.md~
+plan.pdf

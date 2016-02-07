@@ -1,4 +1,8 @@
 \documentclass[a4paper,fontsize=12pt]{scrartcl}
+\usepackage{geometry}
+\geometry{total={170mm,257mm},
+left=20mm,
+top=20mm}
 \usepackage{Alegreya}
 \usepackage{AlegreyaSans}
 
@@ -74,19 +78,7 @@ hyperfootnotes=true]{hyperref}
 
 \subsubsection*{AIMS AND BACKGROUND}
 
-% - Describe the aims and background of the Proposal
-% - Include information about national/international progress in this
-%   field of research and its relationship to this Proposal
-% - Refer only to outputs that are accessible to the national and international research communities.
 
-% \begin{itemize}
-% \item \textbf{Goal:} understanding uncertainty/risk relationships in models
-% \item \textbf{Context/domain:} fire \& flood
-% \item \textbf{Method:} interactive audiovisual interfaces for
-%   manipulating model parameters in real-time
-% \item \textbf{``Secret sauce'':} smart \& cheap approximations to expensive
-%   models using sparse grids and reduced basis models
-% \end{itemize}
 
 When systems are disrupted during environmental disasters (for example,
 flood, fire, wind, earthquakes) information from
@@ -97,21 +89,22 @@ challenge is not simply a matter of compute power but involves
 ideas from software engineering, computational mathematics,
 human computer interaction, high performance computing, and data visualisation. Furthermore, all
 of these disciplines need to be tightly coupled and benchmarked to
-realistic human-in-the-loop scenarios involving emergency services personal in collaboration with modelling experts. 
+realistic  team-coordination and decision-making scenarios where decision-makers collaborate with modelling experts. 
 In particular, 
 a crucial aspect of advice provided from modellers to decision makers is to properly quantify and communicate 
 the {\em uncertainty} in predictions obtained
-by computer simulations.
+by computer simulations. This advice will need to be provided in a time-bound manner and in a context where the computer support may vary dramatically over time due to system outages.
 
-We address this
-challenge through a {\em live-programming} approach to software system development
-and deployment of {\em live and interactive} environmental simulations. A particular focus will be on 
- {\em  quantifying the 
-uncertainty} of the core environmental simulations being used and in presenting this uncertainty to decision makers.
+We address this grand
+challenge through a {\em live-programming} approach to the software-system development
+and deployment of  environmental simulations including uncertainty. 
+We will develop new environmental simulations of flood surge and tsunamis which combine sparse grids and uncertainty quantification to dramatically increase the speed of delivery of useful predictions and the uncertainty associated with those predictions.
 We will deploy  ``live"  distributed
-computing infrastructure to {\em rapidly prototype} modelling software and to build systems which effectively transform the
-traditional, batch-oriented modality of environmental simulation into a highly-interactive and run-time modifiable one.
-Our vision is that decisionmakers
+computing infrastructure to {\em rapidly prototype} the human interface to these new environmental simulations and to effectively transform the
+traditional, batch-oriented modality of environmental simulation into a highly-interactive one. We will 
+evaluate team coordination and decision-making under uncertainty by field trials of our prototype systems in the setting of a mock-reality game and by analysing the protocols of live-coding optimisation of the software system during those field trials. From these protocols, identifiable states and transitions between those states will be used to iterate our software-system development. 
+
+Our vision is that decision makers
 will be able to examine many different environmental disaster scenarios in a short space of
 time, even with computationally-expensive models. This will enable
 them to develop an intuitive understanding of the uncertainty
@@ -127,10 +120,7 @@ this project are generalisable to any modelling workflow, we will
 focus on specific application domains where (a) the model is (computationally)
 complex, (b) uncertainty is significant and (c) decisions are
 time-sensitive. Specifically, we will build interactive interfaces for
- storm-surge and tsunami flood modelling. By working with domain experts in these fields and
-building new computational tools and immersive visualisation
-environments, we will gather concrete qualitative data on the
-usefulness of a dynamic, interactive, exploratory modelling workflows.
+ storm-surge and tsunami flood modelling. 
 
 The mathematical component of this project will be based on new
 mathematical developments combining sparse grids and uncertainty
@@ -149,66 +139,13 @@ environmental disasters with uncertainty quantification.
 
 Computational decision support systems for disaster management
 have existed for many decades~\parencite{wallace_decision_1985}, and
-recent advances have been made both in incorporating
+advances have been made both in incorporating
 uncertainty~\parencite{thompson_social_2014-1,neale_navigating_2015}
-and providing real-time output~\parencite{yu_support_2006}.
-% In these
-%(and other) contexts, immersive environments, with multiple large
-%screens, rich audiovisual feedback and multi-modal interaction, have
-%been used to aid exploration and understanding of simulation
-%results~\parencite{colella_participatory_2000,lui_supporting_2014}.
-However, existing systems generally only deal with ``known unknowns''
-from simulation forecasts. That is, they
-rely on specific, apriori knowledge of the nature and
-characteristics of the uncertainties involved, and a way to encode and propagate
-these uncertainty through the model. This sometimes
-falls short in the real world, where the occurrence of ``unknown
-unknowns'' may require unforeseen constraints or new knowledge to be
-incorporated into a model, or its estimates of uncertainty, in real-time and its results communicated rapidly to decision makers.
-We deal with this challenge by 1) building modelling suites which provide rapid and {\em time-bound} feedback of results and/or 
-uncertainty, 2) understanding  specific interaction scenarios involved in decision making with expert modelling support and the 
-time constraints that such scenarios place on software systems, and 3) deploying
-recent developments in programming-language systems, known as ``live
-programming'', into the context of software development, scientific modelling and
-simulation. 
+and providing real-time output~\parencite{yu_support_2006}. More recently, 
+mixed-reality game scenarios have been used to understand and optimise human-agent 
+collaboration for disaster response~\parencite{ramchurn2016human}.
+In our project plan we will follow a similar approach and will employ mock-game scenarios to examine and understand the nature of decision making with expert modelling support. In a novel twist, we will run these games together with live-coding optimisation and tuning of the software system and the underlying computational platform. By analysing the protocols of these live optimisations, we will accumulate data to feed into redesign of the software interface and to understand the time requirements and controls needed for the computational platform.
 
-
-
-
-%hjg
-%Live programming is a term which has been used to denote
-%systems which support the direct intervention of the programmer in a
-%program's run-time state. It can be thought of as an extreme version of
-%just-in-time (JIT) programming where there is a direct correlation
-%between a program's representation and its execution. An example of
-%this is the visual language Self~\parencite{ungar_self_1987} where
-%each visual element in the language is a directly programmable object.
-%As the ambition of LP systems has grown, these systems and languages
-%themselves have evolved to have access to clock-time and other
-%computer-system properties at a language level in order to, for
-%example, create, modify and interact with music and cyberphysical devices
-%in real time. 
-%Such an approach has been 
-%termed ``Programming with Time"~\parencite{GARDNER AND SORENSEN, 2010}
-
-
-
-%HJG
-%Examples of the latter include the
-%Impromptu~\parencite{sorensen_impromptu_2005} and
-%Extempore~\parencite{sorensen_extempore} languages which one of the
-%authors of this proposal has been working on and off with over several
-%years.
-%In addition to this live programming approach, we will use sparse grid
-%and reduced basis 
-%methods to allow sophisticated approximations to complex models with
-%high-dimensional parameter spaces. The use of such methods will allow
-%us to perform parameter space exploration more efficiently, resulting
-%in an interactive feedback loop even with complex and computationally
-%expensive models. The live programming tools provide the
-%\emph{capability} to modify the simulation on-the-fly, whilst sparse grids
-%and reduced basis models shorten the feedback latency to make this 
-%capability \emph{useful}.
 
 This project will provide the following discoveries and benefits:
 \begin{enumerate}
@@ -217,46 +154,32 @@ This project will provide the following discoveries and benefits:
 full simulations with coarse-grid, rough simulations to quantify
 uncertainty, optimised for human exploration
 
+
+\item a ``live software engineering" approach to the development, deployment 
+and optimisation of these interactive software systems; 
+
+\item models of group interaction scenarios for decision-making 
+ with expert modelling support; from these models, empirical estimates of  the 
+time constraints that such scenarios place impose on software and computer system requirements and the live controls needed to run them effectively in volatile contexts
+
 \item interactive information visualisations of simulation predictions
 together with uncertainties
-
-% Re: the next one, I think we shouldn't push too hard on the "acting
-% in the control room while the disaster is happening" angle, since it
-% does open us up to a lot of "why would you want to do that"
-% sentiment, and the stuff we're building is just as useful in
-% pre-planning or dress-rehearsals
-% Brendan: I think saying something about robustness would be nice 
-% though, especially as we have some ecperience in this area.
-
-% \item software support for running these simulations in unpredictable
-% and error-prone environments
-
-\item a live software engineering approach to the development, deployment 
-and optimisation of these interactive software systems
-
-\item fundamental understanding of the nature of group interaction scenarios involved in decision making 
-for environmental disasters with expert modelling support, and the 
-time constraints that such scenarios place impose software systems.
+ 
 
 \end{enumerate}
 
-This research is significant because it aims to unlock the power of
+In the wider picture, this research is significant because it aims to unlock the power of
 sophisticated
 computational simulation for interactive use. Although we concentrate
-our research on case studies in disaster response, the
+our research on simulation support for disaster response, the
 ultimate potential of this work is to eventually empower domain
-experts from a broad range of areas to use the high-performance
+experts from a broad range of areas to better use the high-performance
 computing power which is now available to them. We envision a future
 where performing a complex flood model or disaster simulation is as
 interactive and \emph{alive} as flicking through photos on an iPad.
 
-%rather than a tedious ``queue up the job, come back a week later to
-%pore over a dump of the results'' process. This benefits not only
-%experts already working in that field, but also allows new stakeholders
-%(or even schoolchildren) to understand the behaviour of such systems
-%through interactive play rather than dry textbooks.
 
-%TODO mention FOR
+
 
 \subsubsection*{RESEARCH PROJECT}
 % - Describe how the research is significant and how it addresses an important problem
@@ -284,29 +207,33 @@ damage~\parencite{vandenhonert_2011_2011}. In the days leading up to
 these events, a key issue facing authorities was incorporating their
 \textbf{uncertainty} about the preceding fortnight's rainfall into the
 modelling. In their report on the causes, impacts and implications of
-the floods, \textcite[p1170]{vandenhonert_2011_2011} conclude:
+the floods, \textcite[p1170]{vandenhonert_2011_2011} concluded:
 \blockquote{whilst the dam operators were acting in accordance with
   the operations manual for the dam, their modelling did not take
   account of forecast rainfall in determining the predicted dam water
   level, and this resulted in a sub-optimal water release strategy.
   Employing tools for decision making under uncertainty would have
-  resulted in a different water release strategy.} At the other end of
+  resulted in a different water release strategy.} 
+At the other end of
 the environmental spectrum, bushfire model predictions are similarly
 \textquote[\cite{alexander_limitations_2013} p375]{fraught with
   uncertainty}. As Australia's climate changes and extreme weather
 events become more common, there is a significant need for better ways to
-glean timely insights from modelling in the presence of uncertainty.
+gather timely insights from modelling in the presence of uncertainty and to communicate those insights to 
+decision makers and emergency services.
 
-Computational modelling/simulation is an invaluable tool in these
-scenarios, allowing both domain scientists and  emergency services personnel to explore 
-what might happen
-under various scenarios. Some of the inputs to the model may be well
-known, while others are known only approximately, and others still may
-only be guessed at.
+Computational modelling and simulation is an invaluable support tool for disaster response,
+ allowing  emergency services personnel to explore 
+what might happen in the immediate future 
+under various scenarios. But these model simulations can be fraught with uncertainty: 
+some of their {\em input parameters}  may be well
+known (possibly from reliable sensor data), while others are known only approximately, and others still may
+only be guessed at. Even given perfect input data, the models themselves entail assumptions and numerical approximations which bound the reliability of their predictions. 
 
-More formally, we have a mathematical model $M_{\mathbf{p}}$
-parameterised by $\mathbf{p}\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may
-be a parameterised partial differential equation (PPDE) in a storm
+Slightly more formally, suppose that we have a mathematical model $M_{\mathbf{p}}$
+parameterised by the vector $\mathbf{p}\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may
+be a parameterised partial differential equation %(PPDE) 
+in a storm
 surge model. For each $\mathbf{p}$ we suppose the model is
 well-defined and there exists a unique function
 \begin{equation}
@@ -314,72 +241,75 @@ well-defined and there exists a unique function
   u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
 \end{equation}
 which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
-
-The goal of the scientist is to better understand the relationship
+Sometimes the goal of the modeller is to better understand the relationship
 between $\mathbf{p}$ and some lower-dimensional quantity of interest
-$Q(u_{\mathbf{p}})$, or to find the parameter choice $\mathbf{p}$
-which optimises $Q$. %over all $\mathbf{x}$.
-This high-level description of the ``model selection/optimisation''
-problem glosses over some nuances, but this general workflow (shown
-graphically in Figure~\ref{fig:general-fb-loop}) lies at the heart of
-a great deal of modern science.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=.6\textwidth]{figures/general-fb-loop.pdf}
-  \caption{The human-in-the-loop modelling workflow. A scientist
-    selects an initial parameter $\mathbf{p_0}$ for their model,
-    examines the model output $Q(u_{\mathbf{p}})$, and either accepts
-    the output of the model or re-runs the model with a different
-    choice of the parameter $\mathbf{p_1}$.}
-  \label{fig:general-fb-loop}
-\end{figure}
-
-There are many ways of finding the optimal $\mathbf{p}$, from trial
-and error or expert judgements through to fully automated algorithmic
-optimization procedures. Often there are ways to optimise $\mathbf{p}$
-algorithmically, although this usually introduces new parameters (the
-arguments of the function being optimised) which must be selected by the
-scientist. As a result, this feedback loop will often require many
-iterations, with a human scientist in-the-loop, evaluating the results
-of the model (possibly through visualising the model output) and
-choosing a parameter update $\Delta\mathbf{p}$ at each step (see
-Figure~\ref{fig:unrolled-fb-loop}). Each step through this loop
-provides feedback to the scientist about the response of the system to
-a particular value of $\mathbf{p}$, for example the maximum storm
-surge level under a particular rainfall scenario. Through the process
+$Q(u_{\mathbf{p}})$, such as the relationship between a particular rainfall scenario and the maximum storm surge levels at particular geographical locations. In order to achieve such understanding, repeated executions of the model are often required with an expert analysis of the outputs of each stage and selection of the next parameter set based on an assessment of those outputs. Such repeated model executions can also be used to estimate the {\em uncertainty} in any given set of predictions of 
+$Q(u_{\mathbf{p}})$. Through the process
 of trying different model parameterisations, the scientist is able to
 build up an understanding of the \emph{general} relationship between
 $\mathbf{p}$ and $Q(u_{\mathbf{p}})$, including the areas of the
 parameter space $\mathcal{P}$ which have the greatest influence on the
-result. This is especially important if the model inputs are not known
-with certainty---since the scientist is better able to know which
+result and which
 types of uncertainty have the greatest impact on the certainty of the
 results.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{figures/unrolled-fb-loop.pdf}
-  \caption{If the modelling \& post-processing/visualisation steps can
-    be performed sufficiently quickly, then the scientist can explore
-    the $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship
-    \emph{interactively}, with the all the associated benefits for
-    exploratory analysis.}
-  \label{fig:unrolled-fb-loop}
-\end{figure}
+%or to find the parameter choice $\mathbf{p}$
+%which optimises $Q$. %over all $\mathbf{x}$.
+%This high-level description of the ``model selection/optimisation''
+% workflow 
+%(shown
+%graphically in Figure~\ref{fig:general-fb-loop})
+ %lies at the heart of
+%a great deal of modern science.
+%\begin{figure}
+ % \centering
+  %\includegraphics[width=.6\textwidth]{figures/general-fb-loop.pdf}
+  %\caption{The human-in-the-loop modelling workflow. A scientist
+    %selects an initial parameter $\mathbf{p_0}$ for their model,
+    %examines the model output $Q(u_{\mathbf{p}})$, and either accepts
+    %the output of the model or re-runs the model with a different
+    %choice of the parameter $\mathbf{p_1}$.}
+  %\label{fig:general-fb-loop}
+%\end{figure}
+%There are many ways of finding an optimal $\mathbf{p}$, from 
+%trial-and-error experimentation to expert judgement through to fully-automated algorithmic
+%optimization procedures. Often there are ways to optimise $\mathbf{p}$
+%algorithmically, although these methods often introduce new parameters (the
+%arguments of the function being optimised) which must be selected by the
+%scientist. 
+%As a result, this feedback loop will often require many
+%iterations, with a scientist-in-the-loop, evaluating the results
+%of the model (possibly through visualising the model output) and
+%choosing a parameter update $\Delta\mathbf{p}$ at each step.
+% (see
+%Figure~\ref{fig:unrolled-fb-loop}). 
+%Each step through this loop
+%provides feedback to the scientist about the response of the system to
+%a particular value of $\mathbf{p}$ --  for example, the maximum storm
+%surge level under a particular rainfall scenario. 
 
-From a workflow perspective, the productivity of the scientist is
+%\begin{figure}
+% \centering
+%  \includegraphics[width=\textwidth]{figures/unrolled-fb-loop.pdf}
+%  \caption{If the modelling \& post-processing/visualisation steps can
+%    be performed sufficiently quickly, then the scientist can explore
+%    the $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship
+%    \emph{interactively}, with the all the associated benefits for
+%    exploratory analysis.}
+%  \label{fig:unrolled-fb-loop}
+%\end{figure}
+
+From a workflow perspective, the productivity of the modeller/scientist can be 
 proportional to the rate at which they can explore the
 $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship. Any latency
 improvements in this feedback loop will translate into productivity
 gains~\parencite{liu_effects_2014}.
-
 If the model parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known
 precisely and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate
 and easy to interpret, then the task is simple: provide the scientist
 with an interface for manipulating $\mathbf{p}$ and set them loose.
 However, for real-world models (such as those used in flood/storm
-surge/bushfire modelling) this is often not the case, there are \textbf{three
+surge/bushfire modelling) this is often not the case. There are \textbf{three
 primary challenges}:
 \begin{enumerate}
 \item \emph{The model may not provide a way to express uncertainty in
@@ -387,360 +317,131 @@ primary challenges}:
   uncertainty information in their inputs, as was the case in the
   Lockyer valley example.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
-    calculate} (as shown in Figure~\ref{fig:long-fb-loop.pdf}). Many
-  sophisticated models require non-trivial computing resources (e.g.
-  supercomputers) to evaluate. These compute resources may be
-  difficult to secure, with jobs having to wait in a queue, and may
+    calculate}. Many
+  sophisticated models require non-trivial computing resources to evaluate. These compute resources may be
+  difficult to secure, with submitted jobs having to wait in a queue, and may
   take a long time to compute even when the resources are available.
-  This is especially problematic in a disaster response scenario,
+  This is especially problematic in a disaster-response scenario,
   where an approximately correct answer provided in a short time is
   significantly more useful than a perfect answer provided after it is
   too late to act on.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
-    interpret}. This may be because of technical reasons, such as a
-  complex problem domain where coming up with a meaningful loss
-  function is difficult, or may be due to ethical reasons---how to
-  balance the predicted cost to private property vs damage to the
-  natural environment. Finally, this is a visualisation problem---
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ together with estimates of its uncertainty may not be easy to
+    interpret}. Oftentimes this is a visualisation problem---
   the mapping $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimensional,
-  and presenting that to the scientist (especially with uncertainty
-  information) may not be straightforward.
+  and presenting that to a decision-maker, particularly when combining it with its uncertainty estimates, may not be straightforward.
 \end{enumerate}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{figures/long-fb-loop.pdf}
-  \caption{If the model is computationally expensive to run, then the
-    workflow is dominated by waiting for the model to finish. This
-    results in lower productivity---not only due to the time spent
-    waiting for the model, but also because of the temporal separation
-  between the selection of a new parameter $\mathbf{p}$, and seeing
-  its impact on the results of the model.}
-  \label{fig:long-fb-loop.pdf}
-\end{figure}
-By accelerating the feedback loop between $\mathbf{p}$ and
-$Q(u_{\mathbf{p}})$, including estimates of uncertainty, we will give
+%\begin{figure}
+ % \centering
+  %\includegraphics[width=\textwidth]{figures/long-fb-loop.pdf}
+  %\caption{If the model is computationally expensive to run, then the
+   % workflow is dominated by waiting for the model to finish. This
+    %results in lower productivity---not only due to the time spent
+    %waiting for the model, but also because of the temporal separation
+  %between the selection of a new parameter $\mathbf{p}$, and seeing
+ % its impact on the results of the model.}
+ % \label{fig:long-fb-loop.pdf}
+%\end{figure}
+
+In this project, by accelerating the feedback loop between $\mathbf{p}$ and
+$Q(u_{\mathbf{p}})$, together with estimates of its uncertainty, we will give
 the scientist the ability to interactively \emph{explore} the
 connection (and the associated uncertainty) between the different
 dimensions of $\mathbf{p}$ and the overall response of the system.
-Ultimately, the scientist needs an \textbf{interactive interface} for
-gleaning insights from their models in the presence of these
-challenges.
+By understanding the human-factors and systems-level time constraints on the delivery of useful information in
+disaster-response settings, we will be able to specify timing requirements on our model simulations.
+By developing software that is time-constrained and time-aware, we will be able to provide decision makers
+with information when it is needed and with an estimate on the uncertainty of that information. 
 
-Our conceptual framework for dealing with these three challenges
+%Ultimately, the scientist needs an \textbf{interactive interface} for
+%gleaning insights from their models in the presence of these
+%challenges.
+
+Our vision for dealing with the above challenges
 involves using sparse grids and reduced basis models 
 combined with live modification
-of simulation parameters, dynamic computational resources and
-visualisation. This approach allows us to deal with the three primary
-challenges mentioned above.
+of simulation parameters, dynamic steering of computational resources and
+interactive visualisation. Specifically:
 \begin{enumerate}
-\item \emph{The model may not provide a way to express uncertainty in
-    the inputs}. Using sparse grids and reduced basis models to precompute
+\item \emph{(Uncertainty in inputs):} By using sparse grids and reduced basis models to precompute
   a surrogate model, existing models (which may not
   provide a way to encode uncertainty information) can be used as
   ``black boxes'', and expectation integrals over subsets of the
   parameter space $\mathcal{P}$ (which are important for quantifying
-  uncertainty) can be efficiently be estimated from the
+  uncertainty) can be efficiently estimated from the
   surrogate model $\tilde{u}_{\mathbf{p}}(\mathbf{x})$. This has
   significant benefits over classical Monte Carlo methods when the
   integrand is sufficiently
   smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
-    calculate}. For many problems the computation of solutions 
+
+\item \emph{(Cheap to calculate):} For many problems the computation of solutions 
   $u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
   cheaply using the combination technique over the domain
-  $\mathbf{x}\in\Omega$, as shown in Figure~\ref{fig:sg-surrogate-model-fb-loop}.
-  One may also develop reduced basis models to achieve the same outcome.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be easy to
-    interpret}. Since a sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
+  $\mathbf{x}\in\Omega$.
+  One may also develop reduced basis models to achieve the same outcome. For our disaster response scenarios, the concept of ``cheapness" will be reframed as one of ``timeliness": we will build systems which guarantee modelling results within particular timeframes of relevance to human factor processes in group decision making.
+
+\item \emph{(Easy to interpret):} Since a sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
   and efficient exploration of parameter space, there is more time for
   visualisation and post-processing in an interactive interface, which
   allowing richer ensembles of visualisation techniques to assist the
-  scientist in interpreting the results of the model.
+  decision-maker in interpreting the results of the model.
 \end{enumerate}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{figures/sg-surrogate-model-fb-loop.pdf}
-  \caption{Using the sparse grids and reduced basis models, the computationally
-    expensive model calculations can be done ahead-of-time and used to
-    construct a surrogate model which can be used to re-claim the
-    interactive workflow of Figure~\ref{fig:unrolled-fb-loop}}.
-  \label{fig:sg-surrogate-model-fb-loop}
-\end{figure}
 
-Impact: new algorithms, software, high performance computer systems
-and visualisation techniques for time-bound environmental simulation
-with uncertainty. New software tools for the simulation of flood
-surges and tsunami. New methodologies for rapid and agile software
-development and usability using live programming. New knowledge of
-human-in-the-loop requirements for support systems in the context of
-environmental disaster management. New algorithms, software, high
-performance computer systems and visualisation techniques for
-time-bound environmental simulation with uncertainty. New software
-tools for the simulation of flood surges and tsunami. New
-methodologies for rapid and agile software development and usability
-using live programming. New knowledge of human-in-the-loop
-requirements for support systems in the context of environmental
-disaster management.
-
-
-
-% meets objectives of DP
-
-% advances knowledge base
-
-% conceptual framework, design and methods (include timelines)
-
-% new methodologies/technologies (how will they advance knowledge?)
-
-% outcomes/impact
-
-% benefits
-
-% national research priority: environmental change, advanced manufacturing?
-
-
-% here's more stuff about the Brisbane floods if we want it, but I've
-% left it out because the above blockquote really covers it...
-
-% As a result, they chose not to include this information in their
-% modelling, which resulted in a decision to delay opening the dam
-% until it was too late. Had they been able to incorporate their
-% uncertainty about the preceding rainfall, they may have been able to
-% see the worst-case scenario more clearly and avert the disaster:
-
-
-
-
-
-
-% Decision-making in the face of natural disasters is a complex and
-% difficult task, and the solution is not to point the finger at poor
-% decisions made in the past but to find better ways to incorporate .
-% More generally, uncertainty quantification (UQ) is an active research
-% topic~\parencite{le_maitre_introduction_2010}. Various frameworks for
-% identifying and representing uncertainty in modelling have been
-% proposed \parencite[for
-% example]{neale_navigating_2015,maceachren_visual_2015,bonneau_overview_2014}\todo{add
-%   more refs here}, and incorporates challenges from numerical methods,
-% scientific simulation, distributed computing, information
-% visualisation and human-computer interaction.
-
-% UQ techniques for representing and understanding modelling in the
-% presence of uncertainty have been
-% employed successfully~\parencite{thompson_uncertainty_2011}. Most approaches
-% to this problem rely on \emph{richer models}---incorporating the
-% uncertainty information into the model, either as a probability distribution or some
-% other fuzzy number representation~\parencite{guyonnet_hybrid_2003}. These
-% approaches sometimes rely on alterations/additions to the models themselves
-% \parencite[e.g. adjoint models in][]{errico_what_1997}, and sometimes
-% through non-invasive techniques such as Monte Carlo
-% sampling~\parencite{roy_comprehensive_2011,nguyen_non_2015}. While
-% these techniques to allow for the representation and progagation of
-% uncertainty information through a model, they often have the effect of
-% making the model more computationally expensive allowing fewer model
-% runs, and fewer model alternatives to be considered in a given period
-% of time.
-
-% Our aim in this project is to take the opposite \todo{too
-%   strong/stark?} approach: using sparse grid (SG) approximations and
-% some clever mathematical front-loading of the computational work
-% required, we will make the evaluation of a given scenario under the
-% model \emph{cheaper}, allowing interactive parameter-space and
-% uncertainty exploration even in complex models.
-
-
-
-% There are two opposite, and equally unhelpful, ways of dealing with
-% uncertainty in modelling. The first is to ignore it, and assume that
-% the inputs to our models are known exactly. While this approach can be
-% (and indeed is) used when the uncertainties involved are small,
-% increasingly complex models means increasingly complex interactions
-% between the different parameters, and so it very difficult to say
-% which uncertainties are ``small enough'' to ignore. The opposite
-% approach is to \emph{ignore} input data about which there is too much
-% uncertainty. While this is a more conservative approach, it too can
-% lead to real problems, as in the 2011 Brisbane floods.
-
-
-% TODO all this next stuff left by Brendan - some of it may be used soon.
-
-%In this project we will use sparse grid 
-%techniques~\parencite{BungartzGriebel2004} \todo{more refs?}
-%to approximate the model solutions $\tilde{u}_{\mathbf{p}}(\mathbf{x})$.
-%Sparse grids are well-known to reduce the effects of the so called 
-%`curse of dimensionality', whereby the cost of computation increases 
-%exponentially with the dimension of the model. 
-%For example, discretising $[0,1]^{d}$ such that there are $m$ points in each dimension leads to $m^{d}$ points whereas a sparse grid approximation uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
-%This is achieved by representing the discrete approximation of functions in a hierachical manner and throwing away the contributions which are small relative to the amount of computation involved.
-%The combination technique~\parencite{Griebel1990} is a method of computing sparse grid solutions without the need of working with directly with the hierarchical basis.
-%When we refer to computing with sparse grids in what follows we typically mean via the combination technique.
-%
-%There are two ways in which classical sparse grid methods can benefit this 
-%project:
-%\begin{enumerate}
-%\item For many problems the computation of solutions 
-%$u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
-%cheaply using the combination technique over the domain $\mathbf{x}\in\Omega$,
-%\item A sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
-%and efficient exploration of parameter space. This can be approached in an online/offline approach.
-%\end{enumerate}
-%
-%\begin{figure}[h!]
-%\centering
-%\input{sparse_grid_fig.tex}
-%\caption{Combination grids on the left (with coefficients, blue plus for $+1$ and red minus for $-1$), sparse grid in the middle, full grid on the right.}
+%\begin{figure}
+ % \centering
+  %\includegraphics[width=\textwidth]{figures/sg-surrogate-model-fb-loop.pdf}
+  %\caption{Using the sparse grids and reduced basis models, the computationally
+   % expensive model calculations can be done ahead-of-time and used to
+    %construct a surrogate model which can be used to re-claim the
+    %interactive workflow of Figure~\ref{fig:unrolled-fb-loop}}.
+  %\label{fig:sg-surrogate-model-fb-loop}
 %\end{figure}
-%
-%
-%Much recent work with sparse grids has shown that the methods and ideas
-%from the classical work can be applied in other ways.
-%For example, sparse grids and related ideas have been used for
-%\begin{itemize}
-%\item fault tolerant computing~\parencite{HardingHLS2015,AliEtal2015}
-%\item development of highly scalable algorithms~\parencite{StrazdinsEtal2015}
-%\item gradient-enhanced approximation methods~\parencite{deBaarHarding2015,Jakeman2015}
-%\item multi-fidelity approximation (similar to~\parencite{deBaarRDM2015}) 
-%\item solution of large scale inverse problems~\parencite{Zabaras2010}
-%\item uncertainty quantification~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
-%\item reduced basis methods~\parencite{Peherstorfer2013,ChenSchwab2015}
-%\end{itemize}
-%We envisage this project making full use of these advances in addition 
-%to the classical approaches with the end goal of providing fast, accurate
-%and robust approximations of model solutions to scientists whilst 
-%incorporating all of the uncertainties in the underlying model and its inputs. 
-%Achieving this goal will require further research and development.
-%We expand on some of these points in the remainder of the section.
-%
-%One of the problems often faced by scientists is having too many models 
-%to choose from. On top of this, for each model there are typically numerous
-%numerical methods for approximating solutions of the model.
-%This leads to the all too common question `what is the `best' model and alorithm?'.
-%Naturally `best' depends on the criteria but typically no one model/algorithm is
-%the `best' for all selection criteria.
-%Gradient-enhanced and multi-fidelity approximation and similar ideas give one
-%the ability to combine some of the `best' attributes from several methods into one approximation.
-%This potentially leads to a more accurate result and more generally a much better
-%understanding of the models and their relation to the physical problem under investigation.
-%Of course the problem is that managing and evaluating several methods is time
-%consuming. By making such tools available in a highly interactive environment
-%such exploration will become more accessible. With accessibility comes higher 
-%uptake leading to significant gains in understanding for a variety of problems.
-%
-%Many of the models used in modern science require high performance computing
-%to approximate solutions. Much work has gone into the development 
-%of highly scalable sparse grid algorithms, specifically using the combination 
-%technique, which this project will utilise and continue to develop. 
-%One challenge is that faults become more frequent with increasing 
-%complexities in computing hardware and ever more components essential 
-%for a HPC system to function correctly. Fortunately, there has been much interest in 
-%fault-tolerance recently and, in particular, the development of fault tolerant 
-%sparse grid methods. By leveraging this work into our framework we can ensure
-%accurate results even in the event of some data being lost during the computation.
-%Prior reseach has focused on recovery from hard faults. Whilst some studies are
-%being conducted into recovery from silent errors there is more research to be done in this area.
-%More generally, having a framework which is robust to errors increases the confidence 
-%in the results and therefore also the decisions which are based on those results.
-%
-%Sparse grids are typically applied to uncertainty quantification in the
-%estimation of high dimensional integrals (to estimate expectations for example). 
-%For sufficiently smooth probability density functions sparse grids provide
-%an accurate estimate using far fewer function evaluations then the Monte Carlo 
-%method.
-%This approach also suits an offline-online model of computation.
-%Given a sparse grid sampling/surrogate computed in an offline phase, high 
-%dimensional integrals, including the estimation of moments of a probability distribution,
-%can be quickly and accurately estimated in an offline phase.
-%Additionally, there is potential to extend existing work in this area. 
-%In particular, the addition of gradient estimates and multi-fidelity models 
-%to the sparse grid surrogate, 
-%the extension to a more probablistic sparse grid model (akin to kriging) and
-%and how each of these enhance the quantification of uncertainty will be investigated.
-%% Examples? Any snappy quotes from the refernces I can use?
-%
-%%in ways which are:
-%%\begin{enumerate}
-%%\item able to express and propagate uncertainty in both input
-%%  parameters and outputs
-%%\item cheap to calculate, so that these approximations can be explored
-%%  in a real-time human-in-the-loop exploratory workflow
-%%\end{enumerate}
-%%As an added bonus, these general techniques can be used to quantify
-%%the uncertainty in models (or ensembles of models) even when the
-%%models themselves were not designed with uncertainty quantification
-%%(UQ) in mind \todo{in the parameter space, anyway---Brendan, is this
-%%  the ``smarter monte carlo'' stuff you were talking about the other
-%%  day?}, and to combine multiple models (e.g. high- and low-fidelity
-%%models) in a sophisticated way to leverage the benefits of many
-%%different models.
-%
-%
-%There has been much interest in reduced basis methods to make large
-%problems more tractible~\parencite{LiebermanEtal2010}. %\todo{more refs?}
-%
-%Reduced basis methods could have several applications to this project.
-%The computation of a reduced basis model in an offline phase
-%will allow a scientist to quickly explore the parameter space in an online
-%phase.
-%Further, a reduced basis model may allow a scientist to learn more about the 
-%the inverse problem of finding the parameters $\mathbf{p}$ that lead to a 
-%given output $Q(u_{\mathbf{p}})$.
-%There are several opportunities to continue developing the application 
-%of sparse grid methods to reduced basis construction which would be
-%fully integrated into the interactive scientific workflow management system.
-%
-%
-%%Recent work on sparse grid techniques is finding new ways to
-%%combine results from not only mathematical models computed via
-%%different methods \todo{Brendan add refs to sparse grid extrapolation
-%%techniques} but also entirely different mathematical
-%%models \todo{Brendan add refs to Jouke et.al. work on ship hull with 2
-%%models}. It is clear that different methods and models
-%%have their own advantages and disadvantages which have the potential
-%%to be combined in new and interesting ways. [Point trying to make: a)
-%%the usual 'too many methods' dilemma, and b) there is generally no one
-%%'best' method and yet it is typical to pick one and stick with it
-%%(based on some comparison with others)]
-%
-%%Of course the difficulty is that such exploration is time consuming
-%%and can be difficult to keep track of. By combining all of these
-%%methodologies and techniques into a single framework one may more
-%%easily test and combine the vast number of different approaches to
-%%solving any given problem. Further, by implementing this within an
-%%interactive/live programming environment, users can quickly adjust methods
-%%and parameters as needed whilst getting near instant feedback and
-%%response. Such tools could significantly increase the speed at which
-%%research is undertaken and allow us to learn more from our
-%%mathematical models than previously envisioned.
+
+%Impact: new algorithms, software, high performance computer systems
+%and visualisation techniques for time-bound environmental simulation
+%with uncertainty. New software tools for the simulation of flood
+%surges and tsunami. New methodologies for rapid and agile software
+%development and usability using live programming. New knowledge of
+%human-in-the-loop requirements for support systems in the context of
+%environmental disaster management. New algorithms, software, high
+%performance computer systems and visualisation techniques for
+%time-bound environmental simulation with uncertainty. New software
+%tools for the simulation of flood surges and tsunami. New
+%methodologies for rapid and agile software development and usability
+%using live programming. New knowledge of human-in-the-loop
+%requirements for support systems in the context of environmental
+%disaster management.
 
 
 
+
+
+\noindent{\bf Sparse-Grids and Uncertainty Quantification}\\
 
 The mathematical component of this project will be based on new
-mathematical developments combining sparse grids and uncertainty
-quantification. One of the main difficulties in current models is the
-high dimensional spaces involved, often both in the parameter and
-domain spaces. Sparse grids~\parencite{BungartzGriebel2004} are
-well-known to reduce the effects of the so called `curse of
-dimensionality', whereby the cost of computation increases
-exponentially with the dimension of the model. For example,
-discretising $[0,1]^{d}$ such that there are $m$ points in each
-dimension leads to $m^{d}$ points whereas a sparse grid approximation
-uses only $\mathcal{O}(m\log(m)^{d-1})$ points whilst only increasing
-error by a factor $\mathcal{O}(\log(m^{-1})^{d-1})$.
-
-% This is achieved by representing the discrete approximation of
-% functions in a hierachical manner and throwing away the
-% contributions which are small relative to the amount of computation
-% involved.
-A popular way of estimating sparse grid solutions is via the
-``combination technique''~\parencite{Griebel1990}. This technique is
-unintrusive as it allows one to avoid working directly with the
-hierarchical basis. Instead, approximations are computed on several
-anisotropic grids and then combined additively.
+mathematical developments combining sparse grids~\parencite{BungartzGriebel2004}, 
+reduced basis methods~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015}
+and uncertainty quantification. 
+One of the main difficulties in the study of current scientific models is
+the high dimensional spaces involved, often both in the parameter and
+domain spaces, $\mathcal{P}$ and $\Omega$ respectively. 
+This is a significant barrier for the timely evaluation of models due to the 
+``curse of dimensionality'' in which the cost scales exponentially with dimension.
+By using sparse grids and reduced basis models we will be able to compute
+{\em surrogates of the full problem} which have lower dimensionality and are thus cheaper  
+to compute whilst maintaining a high order of accuracy.
+For example, a general approach would be to find a lower dimensional manifold 
+of the parameter space $\mathcal{Q}\subset\mathcal{P}$ over which the 
+model is most sensitive using reduced basis methods.
+A sparse grid surrogate of the model over $\mathcal{Q}$ can then be 
+computed in an offline phase, so that in an online phase model solutions
+can be efficiently estimated using the surrogate model.
+For many problems sparse grids can also be used over $\Omega$ when  
+computing solutions to the full model. 
+This will significantly speed up the computation of a reduced basis.
+We will compute sparse grid solutions via the
+``combination technique''~\parencite{Griebel1990}. 
 Figure~\ref{fig:sparse_grids} depicts the combination technique, the
-equivalent sparse grid and the corresponding full grid. When we refer
-to computing with sparse grids in what follows we typically mean via
-the combination technique.
+equivalent sparse grid and the corresponding full grid. 
 
 \begin{figure}
   \centering
@@ -751,77 +452,51 @@ the combination technique.
   \label{fig:sparse_grids}
 \end{figure}
 
+Propagating uncertainty in scientific models which are high dimensional 
+and/or expensive to compute is a significant challenge.
+For models which are not stochastic in nature, and thus have no means
+of directly quantifying uncertainty, one must typically estimate statistical 
+moments via quadrature rules. For high dimensional problems 
+it has been shown that sparse grids can estimate these moments faster 
+and more accurately than traditional Monte Carlo methods when the 
+probability density functions are sufficiently smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
+Despite the advantages of reduced basis methods, the manifold $\mathcal{Q}$
+is still sufficiently high dimensional that the quantification of uncertainty
+is a challenge. As such we will continue to develop numerical methods for 
+uncertainty quantification through the study of high dimensional approximations.
+Replacing the full model with a reduced basis model also adds additional 
+uncertainties. One needs to have some idea what the model outcomes may be 
+for parameters not lying on the lower dimensional manifold $\mathcal{Q}$.
+By using ensemble methods and gradient enhanced 
+approximation~\parencite{deBaarHarding2015,Jakeman2015} we will
+propagate these uncertainties through the reduced basis model 
+to provide a complete picture of uncertainties in the full model problem.
+Incorporating ideas from ``Kriging" (Gaussian process regression), a feature of which is having 
+confidence intervals over an interpolant, together with sparse-grid interpolation,
+we will be able to express uncertainties explicitly in the surrogate model.\\
 
-Much recent work with sparse grids has shown that the methods and ideas
-from the classical work can be applied in other ways.
-For example, sparse grids and related ideas have been used for
-\begin{itemize}
-\item fault tolerant computing~\parencite{HardingHLS2015,AliEtal2015}
-\item development of highly scalable algorithms~\parencite{StrazdinsEtal2015}
-\item gradient-enhanced approximation methods~\parencite{deBaarHarding2015,Jakeman2015}
-\item multi-fidelity approximation (similar to~\parencite{deBaarRDM2015}) 
-\item solution of large scale inverse problems~\parencite{Zabaras2010}
-\item uncertainty quantification~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}
-\item reduced basis methods~\parencite{Peherstorfer2013,ChenSchwab2015}
-\end{itemize}
-We envisage this project making full use of these advances in addition 
-to the classical approaches with the end goal of providing fast, accurate
-and robust approximations of model solutions to scientists whilst 
-incorporating all of the uncertainties in the underlying model and its inputs. 
-Achieving this goal will require further research and development.
-We expand on some of these points in the remainder of the section.
 
-We have also recently found new ways to incorporate gradient
-information and multi-fidelity models into sparse grid
-approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}.
+\noindent{\bf Live-Coding of Scientific Simulation}\\
 
-Another challenge faced by computational science is the sheer size of
-the computations required to be carried out to evaluate models. This
-poses two problems in general, the first being the even distribution
-of workload across a large parallel machine, and the second being
-resilience to failures that may occur. Having highly scalable software
-for the offline phase that is resilient to errors is crucial in
-matinaining confidence in the discoveries and decisions that are
-established from the model output. Much work has been carried out on
-the development of highly scalable algorithms for the combination
-technique~\parencite{StrazdinsEtal2015} which we will utilise and
-continue to develop. Further, there are known techniques that we will
-employ to ensure the computations are robust to hard
-faults~\parencite{HardingHLS2015,AliEtal2015}. Research on the
-resilience to soft faults is currently underway~[cite Alfredo et.al.]
-and is also something we intend to integrate into the software
-framework as it develops. Through the usage and evaluation of these
-techniques we hope to continue to stimulate research in these areas.
 
-In this project we will leverage on-demand compute resources, such as
-the Amazon AWS cloud~\parencite{amazon_aws} and the National Compute
-Infrastructure NCI Cloud~\parencite{nci_cloud}. Using these cloud
-services will further improve the project's ability to deliver timely
-results in high-pressure and time-critical decisionmaking scenarios.
+Live coding is a term which has been used to denote
+systems which support the direct intervention of the programmer in a
+program's run-time state. It can be thought of as an extreme version of
+just-in-time (JIT) programming where there is a direct correlation
+between a program's representation and its execution. An example of
+this is the visual language Self~\parencite{ungar_self_1987} where
+each visual element in the language is a directly programmable object.
+As the ambition of live-coding has grown, support systems and languages
+ have evolved to have access to clock-time and other
+computer-system properties at a language level in order to, for
+example, create, modify and interact with music and cyberphysical devices
+in real time. 
+Such an approach has been 
+termed ``Programming with Time"~\parencite{sorensen2010programming}. This project will make use of the {\it Extempore} software environment~\parencite{sorensen_extempore} which has been shown to be able to harness  a traditional batch-mode scientific simulations, written in the C language, and visualise and modify that simulation interactively, and in real-time, with negligible performance overhead (Swift et al., paper title, Journal of Supercomputing Frontiers and Innovations, next issue, to appear in 2016). This software environment will be a key tool for this project as it ill allow us to fine tune our suite of simulation software for disaster response scenarios.\\
 
-% \todo[inline]{I'm not sure it's worth mentioning inverse problems in
-%   such detail. Given that we're not really that clear on how the
-%   forward problem fits in.}
-% The study of large scale inverse problems has made significant gains
-% in recent years. Given the forward problem of computing
-% $u_{\mathbf{p}}(\mathbf{x})$ and/or $Q(u_{\mathbf{p}}(\mathbf{x}))$
-% given a $\mathbf{p}\in\mathcal{P}$ then the inverse problem is to
-% estimate the $\mathbf{p}$ which produce a given (and generally noisy)
-% $u_{\mathbf{p}}(\mathbf{x})$ or $Q(u_{\mathbf{p}}(\mathbf{x}))$.
-% Sparse grids have had some impact in this
-% area~\parencite{Zabaras2010}, and further, the Bayesian approach to
-% solving inverse problems has some parallels with uncertainty
-% quantification. Thus, combined with the fast and highly interactive
-% exploration of the forward model problem, the integration of techiques
-% for solving inverse problems would be a natural extension to this
-% project. There are also opportunities to incorporate reduced basis
-% models~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015}
-% into the software framework.
 
-% TODO Need to say something about the exemplar/case studies here.
 
-% try to chunk the interactions and thought processes involved in
-% real-time decisionmaking
+\noindent{\bf From Disaster-Response Human-Factors Optimisation to Software Development}\\
 
 % GOMS model for co-operative scenarios where someone wants
 % information, and someone is trying to present it to them
@@ -831,14 +506,46 @@ results in high-pressure and time-critical decisionmaking scenarios.
 % the goal: quantitative requirements on the time bounds, which has
 % implications for the design of the systems
 
-% interface should be aware of time, just like Extempore. so it's a
-% contribution to human-in-the-loop programming
+Similar to ~\parencite{ramchurn2016human} we will employ game scenarios to understand and optimise 
+collaboration for disaster response~\parencite{ramchurn2016human}.
+However, our focus will be on  decision-maker/modeller communication rather than human/agent communication and our game scenarios will take place while software and systems parameters, particularly the human-computer interface, visualisations and system configuration, are being tuned in real time by a live coder.  
+In a novel approach, the protocols obtained from this live coding will then be analyse to determine macro, ``chunking" states, of human action and transitions between those states. 
+We have recently used similar approaches to understand the real-time actions of single live-coders in computer music performance~\parencite{swift2014coding} and the macro-gesture states of group computer musicians using iPads~\parencite{martin2015tracking}. 
+In both of these studies, transition matrices derived from interaction protocols were able to yield insights into the artistic process. 
+In the case of the present project, data from the interaction protocols of the live-coder will be feed back into redesign of the software interface and the controls needed for the computational platform.
 
-% Why is interactivity important? Because it takes the abstract
-% connection between $\mathbf{p}$ and $Q(u_{\mathbf{p}})$ and makes it a malleable,
-% responsive, tactile one. What happens when I change $\mathbf{p}$ a little bit
-% in this direction? What about in \emph{that} one? How about \emph{both
-%   together?}
+By way of one simple example, we imagine that, perhaps, the live coder finds that a particular measure of uncertainty, Measure-A, is routinely requested by a decision maker after another particular measure, Measure-B. The live coder could tune up the software in real time so that these two measures could be presented together. The interaction protocols in this instance might reveal insights into the {\em context} where these two measures were requested one after the other and the software might be redesigned to recognise that context and to make the two measures accessible in that context. For another simple example, the live-coding protocol might show that data processing needed to be occasionally shifted from one part of a cloud resource to a local cluster. Examination of these instances could impact on the computer systems settings needed to properly deploy these simulations. (Note that our approach to protocol analysis will go well beyond simple examples like these and will use matrix theory to derive insights into the nature of state transitions across entire protocols and across test participants.)\\
+
+
+\noindent{\bf High-Performance Computing Systems Support}\\
+
+A reliance on high performance computing for the evaluation of scientific 
+models provides additional challenges to the technical side of the project. 
+Specifically, our algorithms must be highly scalable and robust to errors and faults in the computer system layer.
+There have been many recent developments in both highly-scalable algorithms 
+and the sparse grid combination technique which will be of use for this and,
+additionally, it has been recently shown that such computations can be made robust~\parencite{HardingHLS2015,AliEtal2015}.
+By leveraging and continuing to develop these algorithms we can ensure that
+the components of our software system that require high performance 
+computing resources will be both scalable and robust.
+
+In this project we will leverage on-demand compute resources, such as
+the Amazon AWS cloud~\parencite{amazon_aws} and the National Compute
+Infrastructure NCI Cloud~\parencite{nci_cloud}. Using these cloud
+services will further improve the project's ability to deliver timely
+results in high-pressure and time-critical decision making scenarios.
+
+Once again, we emphasise that our approach to live-coding of test software is a novel aspect of our methodology. The {\em Extempore} tool that we have developed has been shown to be able to harness and steer scientific simulation in real time. In this part of the project, we will apply this tool to the real-time steering of the computer systems layer itself.\\
+
+
+\noindent{\bf Interactive visualisation of environmental forecasts with uncertainty}\\
+
+Similar to the impact of visually presented geodata on decision making~\parencite{kinkeldey2015evaluating}, the particular visualisations of 
+uncertainty in our environmental models will need to be systematically evaluated with 
+human participants. Here we will adopt traditional human-factors trials with non-expert participants together with qualitative feedback from emergency services experts. We will solicit qualitative feedback from expert participants from emergency authorities in our local area including ACT Emergency Service, Geosciences Australia, the Australian Maritime and Safety Authority and the Australian Federal Police. Perspectives offered by this participant pool will be important in extrapolating our study results to real world disaster-management. 
+
+
+
 
 \subsubsection*{ROLE OF PERSONNEL}
 % - Summarise the role, responsibilities and contributions of each Chief Investigator (CI) and Partner Investigator (PI)
@@ -858,55 +565,39 @@ results in high-pressure and time-critical decisionmaking scenarios.
 
 % Brendan: to some extent I have copied/reworked this section from the linkage project with Fujitsu
 
-The personnel involved in this project will be the CIs from the two
-ANU colleges, two post-doctoral fellows and four PhD
-students.
+The personnel involved in this project will be  CIs Gardner and Roberts, two Postdoctoral Research Associates and two PhD
+students. This project is split  between the the  ANU Research School of Computer Science (CI Gardner, one PDRA, one PhD student) and the ANU Mathematical Sciences Institute (CI Roberts, one PDRA and one PhD student). In addition, we forecast that upwards of four  Honours students will work with this project team over the three years of the project.
 
-CI Gardner is responsible for the overall project and will lead the
-interactive and visual interface components. The distributed computing
-and mathematical component is lead by CI Roberts. One post-doctoral
+CI Henry Gardner will be responsible for the overall project and will lead the
+interactive computing and visual interface components. The distributed computing
+and mathematical component will be lead by CI Stephen Roberts. One post-doctoral
 fellow, to be situated in the Research School of Computer Science
 (RSCS), will develop large portions of the live programming tools and
-software interface which will interact with the scientific models. The
+software interface which will interact with the scientific models and will conduct experiments on live scenarios where human actors mimic the interactions and information flows involved in the group dynamics of disaster response with simulation support. The
 second post-doctoral fellow, to be situated in the Mathematical
 Sciences Institute (MSI), will develop the numerical methods for
 computing sparse grid surrogates and reduced basis models which are
-able to efficiently propagate uncertainties. 
+able to efficiently propagate uncertainties in model applications of tsunami and flood surge events. Because of the larger skill set and responsibilities of the computer science PDRA, this position has been factored into the budget at a higher academic level (B3) than the mathematics PDRA (B1). Without prejudicing a competitive selection process, suitable candidates are known to be available for both positions. 
 
-The four PhD students will be split between the two departments---two
+The two  PhD students will be split between the two departments---two
 in RSCS and two in MSI, focusing on specific aspects of the project.
 In RSCS, these will be the dynamic distributed computing
 infrastructure and the development of live interfaces for data
 visualisation. In the MSI, these will be the uncertainty
 quantification and the development of numerical methods for the sparse
-grid technique.
+grid technique. We anticipate being able to support a number of Honours level projects in computer science and mathematics during the course of this project. Some of these projects will relate to the core mission of the project detailed above, others will concentrate on related studies with a view to achieving high-impact pure and applied research and training young people for a career in the computing and mathematical modelling disciplines.
 
 \subsubsection*{RESEARCH ENVIRONMENT}
 % - Outline the adequacy and opportunities within the Research Environment in your relevant department, school or research group, and the extent to which it will provide for knowledge growth, innovation, collaboration, mentoring and student training
 % - Describe the existing, or developing, research environment within the Administering Organisation and collaborating Organisation(s) which will enable this Project
 % - Describe how the Project aligns with the Administering Organisation’s research plans and strategies.
 
-As the home institution of the Extempore live programming environment, 
+The Australian National University is a research-intensive university of high international standing. The quality of the research at ANU has been reflected in every one of the ERA evaluation exercises where, relevant to the current proposal, both Information and Computing Sciences (08) and Mathematical Sciences (01) have been assessed as being at the highest level of 5. At ANU, the Research School of Computer Science and the Mathematical Sciences Institute have a long and deep collaboration in numerical and applied mathematics, notably in a number of "Area" projects linked to the supercomputing facilities on campus. Indeed, since the early 1980s ANU has housed the largest supercomputers in Australia and the present National Computational Infrastructure is located on campus. 
+
+Over the next 2 years, a new building will be constructed at ANU to locate the Mathematical Sciences Institute with part of the Research School of Computer Science. This co-location of academics in these two areas will be particularly fruitful for the present project. Indeed, it is possible that this project will become a showcase of cooperation between these two Schools and that some of the more visible and interactive components of the project will be strongly featured in outreach activities. 
 
 
-It seems we need to address three issues: 
 
-\begin{enumerate}
-\item the environment within the department/school/research group
-\item the environment between the groups---perhaps between the MSI
-  group and the CS group, (and also CSIRO?)
-\item how does it align with the ANU's research plans and strategies
-\end{enumerate}
-
-Ideas\ldots
-
-Numerical methods and applied mathematics---we're kicking goals.
-
-Collaboration across maths and compsci, have track record through e.g.
-the Fujitsu grant
-
-CSIRO/ADFA/BOM(? although we haven't mentioned them thus far) for more
-fire and flood stuff
 
 \subsubsection*{COMMUNICATION OF RESULTS}
 % - Outline plans for communicating the research results to other researchers and the broader community, including but not limited to scholarly and public communication and dissemination.
@@ -919,18 +610,11 @@ fire and flood stuff
 % software available, open-source???
 
 % TODO brendan can you maybe put a couple of journals in here?
+The ANU expects publications at the highest levels of international journals and conferences.
 We will communicate the results of this project by publishing in
-top-ranked journals and conferences. Advances in numerical methods
-will be communicated in scholarly journals in numerical analysis and
-high-performance computing including the journals “SIAM Journal of
-Scientific Computing” and “Parallel Computing”, and national and
-international conferences like the “SIAM Conference on Computational
-Science and Engineering”, the “Computational Techniques and
-Applications Conference (CTAC)”, “Supercomputing” and various
-international workshops. We will share our results on the
-human-in-the-loop workflow in the context of simulations with
-uncertainty in human factors conferences and journals and conferences
-such as CHI and VL/HCC.
+top  venues such as the ``SIAM Journal of
+Scientific Computing" and  “Parallel Computing”. In computer science, refereed publications associated with the top conferences are infinitely more prestigious  than journals. Our publication targets will be the ACM Conference on Human Factors in Computing Systems (CHI), OOPSLA, ICSE,  VL/HCC, Supercomputing (SC), Computer Supported Cooperative Work (CSCW) and IEEE Information Visualisation. In both disciplines, we also value the community and high quality of Australian conferences, and we will be submitting work to OzCHI, ASWEC and Computational Techniques and Applications (CTAC).
+
 
 % TODO Steve, Brendan: check that this is ok re: anuga
 In addition, the source code contributions of this project will be
@@ -949,483 +633,18 @@ code in the open on GitHub.
 
 % Brendan: does this include distribution of software? or mainly about raw data? Perhaps mention use of the NCI facility and reliance on their backup procedures?
 
+All research output will be stored on the ANU Data Commons and ANU Digital Collections. 
 
+Data Commons is a central data repository for ANU research data which has been designed to securely store data and ensure that data are immune to format and media changes. This repository enables data to be accessed and reused with full open-access functionality to the public.
+
+Digital Collections accepts journal articles, conference papers, book chapters, working or technical papers and other forms of scholarly communication. It is also a repository for digital images of manuscripts and photographs in other university research collections. 
 
 \subsubsection*{REFERENCES}
 
 \vskip -3em
 \printbibliography[title=\ ]
 
-\newpage
-\setcounter{section}{5} % E1.
-\setcounter{subsection}{0}
-\subsection{Justification of funding requested from the ARC for the
-  duration of the Project}
-\label{sec:funding-justification}
-% (In no more than 5 A4 pages and within the required format fully
-% justify, in terms of need and cost, each budget item requested from
-% the ARC. Use the same headings as in the Description column in the
-% budget at Part D of this Proposal. )
 
-
-
-\newpage
-% E2.
-\subsection{Details of non-ARC contributions}
-\label{sec:non-arc-contributions}
-% (In no more than 2 A4 pages and within the required format, provide
-% an explanation of how non-ARC contributions will support the
-% proposed Project. Use the same headings as in the Description column
-% in the budget at Part D of this Proposal. )
-
-
-\newpage
-\setcounter{section}{6}
-\setcounter{subsection}{11} % F12. 
-\subsection{Research Opportunity and Performance Evidence (ROPE)\\
-  Recent significant research outputs and ARC grants (since 2005)}
-\label{sec:recent-significant-outputs}
-% (Please attach a PDF with a list of your recent significant research
-% outputs and ARC grants most relevant to this Proposal (20 pages
-% maximum). Please refer to the Instructions to Applicants for the
-% required content and formatting.)
-
-
-
-\newpage
-% F13. 
-\subsection{Research Opportunity and Performance Evidence (ROPE)\\
-  Ten career-best research outputs}
-\label{sec:ten-best-outputs}
-% (Please attach a PDF with a list of your 10 career-best research
-% outputs, with a brief paragraph for each output explaining its
-% significance (5 pages maximum). Please refer to the Instructions to
-% Applicants for the required content and formatting.)
-
-
-
-\newpage
-\setcounter{section}{7} % G1. 
-\setcounter{subsection}{0}
-\subsection{Research support from sources other than the ARC}
-\label{sec:other-research-support}
-% (For all participants on this Proposal, please provide details of
-% research funding from sources other than the ARC (in Australia and
-% overseas) for the years 2014 to 2018 inclusive. That is, list all
-% Projects/Proposals/Fellowships awarded or requests submitted for
-% funding involving the Proposal participants. Please refer to the
-% Instructions to Applicants for submission requirements.)
-
-% \section{Conclusion}
-% \label{sec:conclusion}
-
-% Please give us all the money, and we'll do amazing science.
-
-\appendix
-\newpage
-
-\todo[inline]{Ok, from here on it's the wild west. Caveat lector.}
-
-\textbf{Ben notes}: uncertainty and risk in decisionmaking - it's a
-real problem that bites
-
-BNE floods were in part a human factors problem - they decided to make
-decision based on ignorance rather than uncertainty
-
-fire: The myriad of information collected from diverse sources had a broad
-range of reliability---\parencite{cruz_anatomy_2012}
-
-\blockquote[\parencite{alexander_limitations_2013}]{Given the nonlinear
-  dynamics of free-burning wildland fires (Sullivan 2009d), model
-  output may be highly sensitive to a particular parameter over one
-  range of values and quite insensitive to that same parameter over a
-  different value range (Albini 1976a, Cruz et al. 2006)}
-
-but one other limitation is the modelling is just provided - limited
-ability to assess different scenarios other than the ones presented,
-and therefore unable to do the helpful ``relative/anchoring'' natural
-decisionmaking approach which is what actually happens in these
-scenarios
-
-\blockquote[\parencite{vandenhonert_2011_2011} p1158]{In the aftermath of
-  the January 2011 flood, a senior Wivenhoe engineer has stated before
-  the Commission of Inquiry [17] that uncertainty in BoM rainfall
-  forecasts and the paucity of rain gauges in the catchment
-  immediately above the Wivenhoe Dam led them to conclude that the
-  precipitation forecasts were not sufficiently reliable to form the
-  basis for operational decision making.}
-
-naturalistic decisionmaking\parencite{lipshitz_taking_2001}
-
-Can we make the case that the better approach to the uncertainty thing
-is the constructivist one? need some refs I reckon
-
-
-uncertainty and complexity are present and irreducible. human factors!
-
-human in the loop (or something similar) is generally accepted
-
-but all the papers making a big deal of that gloss over the technical
-challenges of this + complex models
-
-\textbf{Notes from Henry}:
-The proposal needs to document the methodology to be followed. I think
-that this could include:
-
-\begin{enumerate}
-\item construction of a virtual command room
-\item construction of a prototype suite of modelling software
-\item interviews with domain experts from Geosciences, Flood
-  management, RFT
-  \begin{enumerate}
-  \item from these interviews, develop principal distraction scenarios
-    to be tested in the virtual command room
-  \item build a form of cooperative game that would be played by a
-    group of test participants
-  \end{enumerate}
-\item development and testing of interactive visualistions
-\end{enumerate}
-
-What this proposal does NOT include is advice from AI agents. That can
-be left to others in collaboration with us.
-
-At present, the version of the proposal that I have seen has a focus
-on flood modelling. I wonder if we could better position it in the
-realms of storm surges. Important for the future. Links to bathymetry
-and tsunamis etc. What do people think?
-
-% overview of dynamic decision support
-% systems\parencite{gonzalez_decision_2005}
-
-% mceachern on the current SoA in visual analytics and
-% uncertainty\parencite{maceachren_visual_2015}
-
-% \textquote[\parencite{sprague_framework_1980}]{interactive computer
-%   based systems, which help decision makers utilize data and models to
-%   solve unstructured problems.}
-
-\textcite{zack_role_2007} describes four classes (well, $2\times2$ really) of uncertainty:
-\begin{itemize}
-\item Uncertainty: not having enough information;
-\item Complexity: having more information than one can
-\item Ambiguity: not having a conceptual framework for interpreting
-  information;
-\item Equivocality: having several competing or contradictory
-  conceptual frameworks.
-\end{itemize}
-
-In addition, recent developments in sensor networks and pervasive
-monitoring technologies have increased our ability to gather data from
-the world. Streaming data analysis is an active area of research, and
-in an uncertainty quantification context streaming data provides the
-opportunity to be continuously estimating model uncertainties and
-updating our models in response to new data coming in.
-
-This project asks the question: \textbf{can streaming data be used to
-  update and model uncertainties and provide intelligible insights in
-  time-critical decisionmaking scenarios?}
-
-One example scenario: sensors detect an earthquake in the Pacific Ocean,
-and the countdown timer begins---what is the likelihood of a
-destructive tsunami, where will it impact, and does an evacuation
-order need to be issued? Some initial modelling has already been done,
-but new readings are coming in regularly from sensor buoys throughout
-the ocean. How can this new (and potentially noisy) data be used to
-update the model, and how does this affect the predicted impact? How
-does uncertainty in the buoy readings affect our confidence in the
-model?
-
-\todo[inline]{What follows is from a draft which Henry and Ben started
-to put together last year, and there is some material here which could
-be used to fill out the ``building the interfaces'' part of the
-``Research Project'' section of this application. But it won't
-necessarily make sense as-is.}
-
-\subsubsection*{AIMS AND BACKGROUND}
-\label{SWfMS-grant}
-\paragraph*{Aims}\mbox{}\\
-
-The modern world appears to be saturated with computing power.
-Contemporary smart phones outperform the original Cray~1
-``supercomputer'' by three orders of magnitude. Accessing contemporary
-high-performance computing (HPC) resources has never been easier and,
-when combined with machine learning\parencite{Hastie2009}, and big
-data\parencite{Manyika2011}, modern supercomputing performance has the
-potential to provide answers to deep questions in science, business
-and the humanities.
-
-Modern comodity computing devices are spectacularly \textbf{visual}
-and \textbf{interactive}, enabling users to slide, tap, watch, speak
-and listen with real-time feedback. It is this combination of
-interactivity with power which makes mobile and personal computing
-useful, usable and an agent of change.
-
-But the closer one comes to true high-performance computing, the less
-interactive computing systems become. Due to a combination of
-technical and social factors, high-performance scientific computing
-(HPSC) is still often performed in a batch \emph{compile-run-analyse}
-style: simulation codes are complex both conceptually (i.e.~the
-underlying mathematics and physics) and in implementation (distributed
-computation, large codebases). Supercomputing resources are expensive
-and need to be kept secure.
-
-It is worthwhile imagining some example scenarios that might be
-possible if better interactive \textbf{access to} and \textbf{steering
-  of} scientific supercomputing applications were to be available:
-\begin{enumerate}
-\item A computational physicist submits a job to a supercomputer which
-  takes 3 weeks to execute. But subsequent monitoring of incremental
-  visualisations indicates that something about the simulation does
-  not make sense.A check of the, almost 200, input parameters reveals
-  that two of these have been incorrectly set. The phyicist cancels
-  this run and submits another.
-
-\item That same physicist has a sudden insight into the physical
-  system being modelled as a result of watching some of the
-  incremental visualisations of the running code. She initiaties a new
-  simulation with several changes to the parameter deck before the
-  first simulation is complete. Both simulations turn out to be useful
-  in understanding the phenomenon under study.
-
-\item Our physicist decides to improve the numerical accuracy of the
-  model itself. She quickly modifies one of the functions being called
-  by that simulation, one that implements flux-conservation across
-  computational elements of the magneto-fluid being modelled. She then
-  tests her new function on the active program by branching the
-  simulation and swapping the function call on active data. Through a
-  comparison of the two active simulations, she is able to estimate
-  what the effects of her new numerical method will be on the
-  accumulation of errors in the simulation data. She lets both
-  simulations run to completion, and in her subsequent data analysis,
-  she is able to use her error estimates to adjust and compare
-  sumulations using both methods.
-
-\item Performance diagnostics reveal that a multicore simulation is
-  very unbalanced in terms of processor allocation. Due to the
-  complexity of this simulation, the only way to rebalance resources
-  is to rewrite part of the code which maps the geometric grid to the
-  processor model. Our physicist is able to rewrite this function and
-  to swap the new version in, in real-time. The simulation continues
-  seemlessly with enhanced use of resources and finishes faster.
-
-\item A computer scientist is developing a custom visualisation of a
-  scientific simulation. Because of the size of the dataset being
-  rendered, and because of its distribution across hundreds of
-  processors it is impossible to move all of the data. Instead each
-  data nodes needs to be ``visited'' and a sample of that data
-  transferred for visualisation. This visualisation is planned, tuned
-  and debugged on running code and is complete by the time actual the
-  simulation is finished.
-
- % \item A bioinformatics researcher runs a supercomputer simulation which searches and matches millions of generated phylogenic candidates in order to develop evolutionary trees. Rather than 
-
-%A subsequent analysis of the results finds that the stopping
-%   criteria were satisfied after only the first hundered such files had
-%   been compared.
-
-\item A team of emergency-services personnel are monitoring a
-  real-time satellite feed of a bushfire which is hours away from
-  threatening homes and lives. A computational simulation of the
-  bushfire is being monitored and compared with data but it appears to
-  be giving unreliable results. The simulation experts quickly
-  initiate several companion simulations having different values of
-  fuel loads. The fire-front trajectories of these companion
-  simulations neatly bracket those of the main simulation and provide
-  an estimate of the confidence that can be ascribed to those
-  predicted fire-fronts.
-
-
-%\item A growing hi-tech manufacturing company has historically relied
-%  on managing their supply chain by hand. However, as the company
-%  grows and the number of supplier relationships increases this is no
-% longer feasible. A purely automated approach generates suboptimal
-%  results, because the supply chain involves a complex network of
-%  human relationships and hand-shake agreements between the suppliers.
-%  The expert team can see subtle problems with the results (and
-%  appropriate subtle corrections) as the automated model is running,
-%  but are prevented by the software from making these changes until
-%  the model has finished running.
-\end{enumerate}
-
-All of these scenarios benefit from a tight human-in-the-loop (HIL)
-coupling between run-time analysis, visualisation and high-performance
-simulation software. The benefits include greater \emph{efficiency}
-and greater \textbf{potential for discovery} in scientific workflows.
-\textbf{The aim of this project proposal is thus to build
-  human-in-the-loop interactivity into high performance scientific
-  computing}.
-
-\paragraph*{Background}\mbox{}\\
-
-In 2007, a National Science Foundation (NSF)
-workshop\parencite{Gil2007} highlighted the need for dynamic
-interactivity as a looming ``grand challenge'' in scientific
-computation and data analysis.
-% Other challenges included data provenance (where data comes
-% from\parencite{McPhillips2009}), reproducibility and shareability of
-% complex data processing software pipelines.
-In spite of many advances in the field of computational steering it is
-clear that challenges remain. A recent (2014) review, ``Dynamic
-steering of HPC scientific workflows: A survey''\parencite{Mattoso},
-identified six key areas of interaction/steering:
-\begin{enumerate}
-\item \textbf{monitoring}: the ability to monitor intermediate
-  quantities of interest (e.g.~total energy)
-\item \textbf{analysis}: the ability to perform analysis of simulation
-  quantities (e.g.~viewing a live histogram of the energy
-  distribution)
-\item \textbf{adaptation}: the ability to adapt/modify the running
-  simulation
-\item \textbf{notification}: the ability of the system to alert users of the
-  need/opportunity to interfere
-\item \textbf{interface for interaction}: the interface (either command-based
-  or GUI) presented to the user to monitor and adapt the computation
-\item \textbf{computing model}: the ability to tailor the types of interaction
-  depending on the compute model in use (e.g.~providing full
-  monitoring when running locally on a workstation vs only statistical
-  sampling when the job is distributed over a cluster)
-\end{enumerate}
-At the end of their survey, Mattoso et~al.~particularly identify the
-\emph{analysis} and \emph{adaptation} branches of their taxonomy as
-not being well addressed by the current state of the art.
-
-Elaborating further, in terms of \emph{real-time analysis} the open
-challenges are:
-\begin{itemize}
-\item \textbf{in-situ analysis}: modern terascale compute
-  infrastructure is often IO-bound, and HPC applications must minimise
-  inter-node communication to achieve efficient use of the hardware.
-  As a result, it is often unfeasible to move the data of interest
-  back to a central node for processing and analysis, so any such
-  analysis must be performed in-situ\parencite{Bennett2012} on the compute
-  node itself.
-\item \textbf{decision-support tools}: giving a user the
-  \emph{ability} to interfere with a running computational process is
-  one thing---knowing \emph{when and how} to interfere is another
-  thing altogether. Dynamic SWfMS must provide as useful real-time
-  feedback to the user (a domain expert) to assist them in deciding
-  when and how to interfere. This problem is an example of a more
-  general end-user programming (EUP)\parencite{Myers2006} problem---giving
-  domain experts the appropriate tools to transfer their domain
-  expertise into the computational domain.
-\end{itemize}
-In the area of \emph{adaptation} the open challenges are:
-\begin{itemize}
-\item \textbf{dynamic workflow engines}: most of the surveyed systems
-  allowed the user to adapt the computation at a high level (e.g.
-  add/delete subtasks). However, there was much less support for
-  modifying the evolution of specific tasks (e.g.~swapping out
-  low-level algorithms and tight-loops in computation). This level of
-  adaptivity would allow for even more steering possibilities, but may
-  exacerbate the problem of deciding when/how to interfere (although
-  support for rolling back interventions would be helpful here).
-\item \textbf{parameter slice exploration}: many scientific problems
-  involve searching high-dimensional parameter spaces for optimal
-  parameter configurations, and many algorithms exist for this task.
-  However, there are some problems (e.g.~buisness informatics) where
-  cost/loss functions are hard to articulate, and more traditional
-  purely numerical optimization approaches tend to overfit or get
-  stuck in local maxima. In these situations an expert domain user, if
-  presented with appropriate feedback in real-time, may be able to
-  recognise these type of convergence problems early on, and perform
-  appropriate algorithmic and parameter adaptations to avoid the
-  problem.
-\end{itemize}
-
-
-\subsubsection*{RESEARCH PROJECT}
-
-% explore $\rightarrow$ enliven $\rightarrow$ empower
-
-% Want to bring the idea of ``liveness'' to HPC/big data software – allow
-% developers to get rapid, incremental update of target data process
-% algs ; allow developers to get near-instantaneous feedback on input of
-% changes to outputs data via rich visualisations
-
-% Want to leverage domain-specific visual languages to specify these big
-% data analysis problems to enable end users a high-level, controlled
-% environment c.f. R-type scripting, code, BI configs etc
-
-% Want to leverage rich information visualisations to provide small
-% snapshot and overall output understanding by end users
-
-% << Worth a big picture ``concept diagram'' here >>
-
-% The aim of this project is thus to invent a new approach to specifying
-% and realizing data-centric software systems using live visual
-% programming and data visualisation we break into specific aims:
-
-% - SDL++ for data analytics
-% - Live visual programming of data analytics - DSVLs
-% - extempore -> live update of GPU/HPC/IR/ML algs etc
-% - live visualisations of complex data analytics alg data for feedback,
-%   output
-% - evaluate effectiveness by apply to several exemplars e.g.~particles,
-%   big data analysis, infoVis...
-
-This project will allow domain experts to better harness the power of
-computational simulation the in a safe and effective way by creating
-tools and interfaces for \emph{interactive} computational simulation
-and anaylsis. This involves integrating research and tools from the
-domains where such computational analyses are used with insights from
-human-computer interaction and software workflows.
-
-Through a series of exemplar case studies in different domains, we
-will unlock new ways to perform complex computation analyses through
-three steps:
-
-\begin{enumerate}
-\item \textbf{explore}: first, by exploring the problem domain (and
-  existing tools) of interest in conjunction with domain experts, do
-  determine the dimensions of the domain which could most benefit from
-  interactive, human-in-the-loop analysis
-\item \textbf{enliven}: taking these modelling and simulation codes
-  and providing new interfaces for real-time interaction---this is not
-  just a matter of superficially wrapping these systems in a slick
-  GUI, but requires a restructuring of codes which are designed with
-  batch processing in mind to allow for meaningful interaction and
-  feedback
-\item \textbf{empower}: using a user-centred design approach, we will
-  create appropriate interfaces (e.g.~graphical user interfaces) to
-  empower these domain experts to unlock their expertise in
-  interactive computational simulation
-\end{enumerate}
-
-\paragraph*{Research significance}\mbox{}\\
-
-
-Computational simulation and modelling is ubiquitous in both academia
-and industry, and its importance is growing. Large-scale basic physics
-relies on computational simulation to probe the subatomic landscape;
-the auto industry uses simulation extensively for calculating the
-efficiency of new designs; and algorithmic pattern recognition and
-recommendation has transformed the way we search (Google), shop
-(Amazon), watch (Netflix).
-
-However, performing these analyses increasingly requires specialised
-computational skills such as high-performance and distributed
-computing. There is a risk that the power of simulation is available
-only to a HPC-literate elite, and to those rare experts who assimilate
-both the domain knowledge and computing skills to access it, and to
-interpret it's results.
-
-\paragraph*{Advancing the knowledge base with innovation}\mbox{}\\
-
-As highlighted by Mattoso et~al.\parencite{Mattoso}, there is a desire for
-more dynamic interactivity in scientific workflows, but progress in
-that area has been limited. This project will contribute to the
-knowledge base by providing these dynamic workflows, allowing us to
-answer open questions such as:
-
-\begin{itemize}
-\item how can interactivity most effectively be ``added'' to existing
-  scientific workflows?
-\item how can automated assistance/analysis be provided to the user to
-  best guide their interaction?
-\item how do other outstanding issues in scientific computation, such
-  as data provenance, reproducibility, etc.~impact the interactive
-  workflow?
-\end{itemize}
 
 \end{document}
 
