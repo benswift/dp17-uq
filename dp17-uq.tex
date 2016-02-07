@@ -82,7 +82,7 @@ hyperfootnotes=true]{hyperref}
 
 When systems are disrupted during environmental disasters (for example,
 flood, fire, wind, earthquakes) information from
-computational simulation can be needed urgently and in an
+computational simulation is needed urgently and in an
 acceptable format to aid  decision-making by emergency services. 
 Meeting such a modelling and simulation 
 challenge is not simply a matter of compute power but involves
@@ -138,9 +138,9 @@ environmental disasters with uncertainty quantification.
 
 
 Computational decision support systems for disaster management
-have existed for many decades~\parencite{wallace_decision_1985}, and
+have existed for many decades \parencite{wallace_decision_1985}, and
 advances have been made both in incorporating
-uncertainty~\parencite{thompson_social_2014-1,neale_navigating_2015}
+uncertainty \parencite{thompson_social_2014-1,neale_navigating_2015}
 and providing real-time output~\parencite{yu_support_2006}. More recently, 
 mixed-reality game scenarios have been used to understand and optimise human-agent 
 collaboration for disaster response~\parencite{ramchurn2016human}.
@@ -151,7 +151,7 @@ This project will provide the following discoveries and benefits:
 \begin{enumerate}
 
 \item a suite of interactive, real-time modelling tools for surge-tsunami flood disasters which combine
-full simulations with coarse-grid, rough simulations to quantify
+high fidelity simulations (fine grids) with low fidelity (coarse grid) simulations to quantify
 uncertainty, optimised for human exploration
 
 
@@ -320,8 +320,8 @@ primary challenges}:
 \begin{enumerate}
 \item \emph{The model may not provide a way to express uncertainty in
     the inputs}. Many models do not provide methods for including
-  uncertainty information in their inputs, as was the case in the
-  Lockyer valley example.
+  uncertainty information in their inputs, as was the case in the 2011
+  Brisbane River flood example.
 \item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
     calculate}. Many
   sophisticated models require non-trivial computing resources to evaluate. These compute resources may be
@@ -368,11 +368,10 @@ combined with live modification
 of simulation parameters, dynamic steering of computational resources and
 interactive visualisation. Specifically:
 \begin{enumerate}
-\item \emph{(Uncertainty in inputs):} By using sparse grids and reduced basis models to precompute
-  a surrogate model, $\tilde{u}_{\mathbf{p}}(\mathbf{x}$, 
-  existing models (which may not
-  provide a way to encode uncertainty information) can be used as
-  ``black boxes'', and expectation integrals over subsets of the
+\item \emph{(Uncertainty in inputs):} Sparse grids and reduced basis models can be used
+  to precompute a surrogate model, $\mathbf{p} \rightarrow \tilde{u}_{\mathbf{p}}$, of the original
+  (expensive) model solution process, $\mathbf{p} \rightarrow {u}_{\mathbf{p}}$.
+  The expectation integrals of the original model over subsets of the
   parameter space $\mathcal{P}$ (which are important for quantifying
   uncertainty) can be efficiently estimated from the
   surrogate model. This has
@@ -455,7 +454,9 @@ equivalent sparse grid and the corresponding full grid.
   \input{figures/sparse_grid_fig.tex}  
   \caption{Combination grids on the left (with coefficients, marked with
     a blue plus for $+1$ and red minus for $-1$), sparse grid in the
-    middle, full grid on the right.}
+    middle, full grid on the right. Note the marked reduction in the number of 
+    grid points for the sparse grid relative to the full grid. 
+   This is even more pronounced in hgher dimensions.}
   \label{fig:sparse_grids}
 \end{figure}
 
