@@ -234,13 +234,19 @@ Slightly more formally, suppose that we have a mathematical model $M_{\mathbf{p}
 parameterised by the vector $\mathbf{p}\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may
 be a parameterised partial differential equation %(PPDE) 
 in a storm
-surge model. For each $\mathbf{p}$ we suppose the model is
+surge model.
+For each $\mathbf{p}$ we suppose the model is
 well-defined and there exists a unique function
 \begin{equation}
   \label{eq:1}
   u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
 \end{equation}
 which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
+Here the {\em domain space} $\Omega$ represents variables such as 
+time and space, 
+and $u_{\mathbf{p}}$ represents scalar or vector fields of interest, 
+such as storm surge water level and/or velocity.    
+
 Sometimes the goal of the modeller is to better understand the relationship
 between $\mathbf{p}$ and some lower-dimensional quantity of interest
 $Q(u_{\mathbf{p}})$, such as the relationship between a particular rainfall scenario and the maximum storm surge levels at particular geographical locations. In order to achieve such understanding, repeated executions of the model are often required with an expert analysis of the outputs of each stage and selection of the next parameter set based on an assessment of those outputs. Such repeated model executions can also be used to estimate the {\em uncertainty} in any given set of predictions of 
@@ -363,12 +369,13 @@ of simulation parameters, dynamic steering of computational resources and
 interactive visualisation. Specifically:
 \begin{enumerate}
 \item \emph{(Uncertainty in inputs):} By using sparse grids and reduced basis models to precompute
-  a surrogate model, existing models (which may not
+  a surrogate model, $\tilde{u}_{\mathbf{p}}(\mathbf{x}$, 
+  existing models (which may not
   provide a way to encode uncertainty information) can be used as
   ``black boxes'', and expectation integrals over subsets of the
   parameter space $\mathcal{P}$ (which are important for quantifying
   uncertainty) can be efficiently estimated from the
-  surrogate model $\tilde{u}_{\mathbf{p}}(\mathbf{x})$. This has
+  surrogate model. This has
   significant benefits over classical Monte Carlo methods when the
   integrand is sufficiently
   smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
