@@ -1,4 +1,5 @@
 \documentclass[a4paper,fontsize=12pt]{scrartcl}
+\pagestyle{empty}
 \usepackage{geometry}
 \geometry{total={170mm,257mm},
 left=20mm,
@@ -25,7 +26,9 @@ url=false,
 doi=false]{biblatex}
 
 % make bibliography a bit smaller if necessary
-\renewcommand*{\bibfont}{\small}
+\renewcommand*{\bibfont}{\footnotesize} 
+% \footnotesize should be 10pt with a standard 12pt class, 
+% see https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text
 
 % \AtEveryBibitem{\clearfield{month}}
 % \AtEveryCitekey{\clearfield{month}}
