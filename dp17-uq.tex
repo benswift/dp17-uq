@@ -4,9 +4,12 @@
 \geometry{total={170mm,257mm},
 left=20mm,
 top=20mm}
-\usepackage{times}
+\usepackage{times} % a times new roman clone apparantly
 %\usepackage{Alegreya}
 %\usepackage{AlegreyaSans}
+% The following two lines for true Times New Roman with XeLaTeX
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
 
 \usepackage[svgnames,hyperref]{xcolor}
 \usepackage{url}
@@ -387,12 +390,15 @@ interactive visualisation. Specifically:
   $u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
   cheaply using the combination technique over the domain
   $\mathbf{x}\in\Omega$.
-  One may also develop reduced basis models to achieve the same outcome. For our disaster response scenarios, the concept of ``cheapness" will be reframed as one of ``timeliness": we will build systems which guarantee modelling results within particular timeframes of relevance to human factor processes in group decision making.
+  An alternative is to use proper orthogonal decompositions or greedy algorithms to construct a reduced basis model which is then cheap to compute with. 
+  In both cases the initial construction can be somewhat costly but the savings gained later when these surrogates are used extensively for UQ and optimisation significantly outweight this cost.
+  Additionally, the initial construction can be done in an offline phase.
+  For our disaster response scenarios, the concept of ``cheapness" will be reframed as one of ``timeliness": we will build systems which guarantee modelling results within particular timeframes of relevance to human factor processes in group decision making (occurring in the online phase).
 
 \item \emph{(Easy to interpret):} Since a sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
   and efficient exploration of parameter space, there is more time for
   visualisation and post-processing in an interactive interface, which
-  allowing richer ensembles of visualisation techniques to assist the
+  facilitates richer ensembles of visualisation techniques to assist the
   decision-maker in interpreting the results of the model.
 \end{enumerate}
 
@@ -429,7 +435,7 @@ interactive visualisation. Specifically:
 
 The mathematical component of this project will be based on new
 mathematical developments combining sparse grids~\parencite{BungartzGriebel2004}, 
-reduced basis methods~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015}
+reduced basis methods~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015,PeherstorferWillcox2015}
 and uncertainty quantification. 
 One of the main difficulties in the study of current scientific models is
 the high dimensional spaces involved, often both in the parameter and
@@ -437,17 +443,16 @@ domain spaces, $\mathcal{P}$ and $\Omega$ respectively.
 This is a significant barrier for the timely evaluation of models due to the 
 ``curse of dimensionality'' in which the cost scales exponentially with dimension.
 By using sparse grids and reduced basis models we will be able to compute
-{\em surrogates of the full problem} which have lower dimensionality and are thus cheaper  
-to compute whilst maintaining a high order of accuracy.
+{\em surrogates of the full problem} which have significantly fewer unkowns and 
+are thus cheaper to compute whilst maintaining a high order of accuracy.
 For example, a general approach would be to find a lower dimensional manifold 
 of the parameter space $\mathcal{Q}\subset\mathcal{P}$ over which the 
-model is most sensitive using reduced basis methods.
-A sparse grid surrogate of the model over $\mathcal{Q}$ can then be 
+model is most sensitive using a proper orthogonal decomposition.
+A sparse grid surrogate of the model over $\mathcal{Q}$ can also be 
 computed in an offline phase, so that in an online phase model solutions
 can be efficiently estimated using the surrogate model.
 For many problems sparse grids can also be used over $\Omega$ when  
-computing solutions to the full model. 
-This will significantly speed up the computation of a reduced basis.
+computing solutions to the full model to speed up the construction of a reduced basis.
 We will compute sparse grid solutions via the
 ``combination technique''~\parencite{Griebel1990}. 
 Figure~\ref{fig:sparse_grids} depicts the combination technique, the
@@ -468,24 +473,24 @@ Propagating uncertainty in scientific models which are high dimensional
 and/or expensive to compute is a significant challenge.
 For models which are not stochastic in nature, and thus have no means
 of directly quantifying uncertainty, one must typically estimate statistical 
-moments via quadrature rules. For high dimensional problems 
+moments via monte carlo methods or quadrature rules. For high dimensional problems 
 it has been shown that sparse grids can estimate these moments faster 
 and more accurately than traditional Monte Carlo methods when the 
 probability density functions are sufficiently smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 Despite the advantages of reduced basis methods, the manifold $\mathcal{Q}$
 is still sufficiently high dimensional that the quantification of uncertainty
-is a challenge. As such we will continue to develop numerical methods for 
-uncertainty quantification through the study of high dimensional approximations.
+remains a challenge due to the shear number of function evaluations required. 
+This is particularly true when the quantification of uncertainty in a model is a component of an optimisation algorithm.
+As such it is important to continue to developing efficient numerical methods for 
+uncertainty quantification for high dimensional problems.
 Replacing the full model with a reduced basis model also adds additional 
-uncertainties. One needs to have some idea what the model outcomes may be 
+error and uncertainties. One needs to have some idea what the model outcomes may be 
 for parameters not lying on the lower dimensional manifold $\mathcal{Q}$.
-By using ensemble methods and gradient enhanced 
-approximation~\parencite{deBaarHarding2015,Jakeman2015} we will
-propagate these uncertainties through the reduced basis model 
-to provide a complete picture of uncertainties in the full model problem.
+An important part of developing reduced models is `verifying' the model, by bounding ther error of the surrogate for example.
+By using ensemble methods, multifidelity models~\parencite{NgWillcox2014} and gradient enhanced approximation~\parencite{deBaarHarding2015,Jakeman2015} we hope to improve the verification and propogation of uncertainties in models.
 Incorporating ideas from ``Kriging" (Gaussian process regression), a feature of which is having 
 confidence intervals over an interpolant, together with sparse-grid interpolation,
-we will be able to express uncertainties explicitly in the surrogate model.\\
+we will be able to express uncertainties explicitly in the surrogate model. \\
 
 
 \noindent{\bf Live-Coding of Scientific Simulation}\\
