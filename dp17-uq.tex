@@ -1,13 +1,22 @@
-\documentclass[a4paper,fontsize=12.1pt]{scrartcl}
-\pagestyle{empty}
-\usepackage{geometry}
-\geometry{total={170mm,257mm},
-left=20mm,
-top=20mm}
-\usepackage{times} % a times new roman clone apparantly
-%\usepackage{Alegreya}
-%\usepackage{AlegreyaSans}
-% The following two lines for true Times New Roman with XeLaTeX
+\documentclass[a4paper,fontsize=13pt]{scrartcl}
+\pagestyle{empty} % suppress page numbers
+
+% set margins
+\usepackage[left=1.0cm,top=1.0cm,right=1.0cm,bottom=1.0cm,bindingoffset=0cm]{geometry}
+% \usepackage[left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
+
+%%%%%%%%%
+% fonts %
+%%%%%%%%%
+
+% use the Alegreya font
+\usepackage{Alegreya}
+\usepackage{AlegreyaSans}
+
+% a times new roman clone
+% \usepackage{times}
+
+% true Times New Roman with XeLaTeX
 %\usepackage{fontspec}
 %\setmainfont{Times New Roman}
 
@@ -19,8 +28,6 @@ top=20mm}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage[utf8]{inputenc}
-
-% \usepackage{fullpage}
 
 \usepackage[%
 backend=biber,
@@ -479,7 +486,7 @@ and more accurately than traditional Monte Carlo methods when the
 probability density functions are sufficiently smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 Despite the advantages of reduced basis methods, the manifold $\mathcal{Q}$
 is still sufficiently high dimensional that the quantification of uncertainty
-remains a challenge due to the shear number of function evaluations required. 
+remains a challenge due to the sheer number of function evaluations required. 
 This is particularly true when the quantification of uncertainty in a model is a component of an optimisation algorithm.
 As such it is important to continue to developing efficient numerical methods for 
 uncertainty quantification for high dimensional problems.
@@ -496,20 +503,21 @@ we will be able to express uncertainties explicitly in the surrogate model. \\
 \noindent{\bf Live-Coding of Scientific Simulation}\\
 
 
-Live coding is a term which has been used to denote
-systems which support the direct intervention of the programmer in a
-program's run-time state. It can be thought of as an extreme version of
+Live coding is a term which has been used to denote systems which
+support the direct intervention of the programmer in a program's
+run-time state. It can be thought of as an extreme version of
 just-in-time (JIT) programming where there is a direct correlation
 between a program's representation and its execution. An example of
 this is the visual language Self~\parencite{ungar_self_1987} where
 each visual element in the language is a directly programmable object.
-As the ambition of live-coding has grown, support systems and languages
- have evolved to have access to clock-time and other
+As the ambition of live-coding has grown, support systems and
+languages have evolved to have access to clock-time and other
 computer-system properties at a language level in order to, for
-example, create, modify and interact with music and cyberphysical devices
-in real time. 
-Such an approach has been 
-termed ``Programming with Time"~\parencite{sorensen2010programming}. This project will make use of the {\it Extempore} software environment~\parencite{sorensen_extempore} which has been shown to be able to harness  a traditional batch-mode scientific simulations, written in the C language, and visualise and modify that simulation interactively, and in real-time, with negligible performance overhead (Swift et al., paper title, Journal of Supercomputing Frontiers and Innovations, next issue, to appear in 2016). This software environment will be a key tool for this project as it ill allow us to fine tune our suite of simulation software for disaster response scenarios.\\
+example, create, modify and interact with music and cyberphysical
+devices in real time. Such an approach has been termed ``Programming
+with Time"~\parencite{sorensen2010programming}. This project will make
+use of the \emph{Extempore} software
+environment\footnote{\url{http://extempore.moso.com.au}} which has been shown to be able to harness  a traditional batch-mode scientific simulations, written in the C language, and visualise and modify that simulation interactively, and in real-time, with negligible performance overhead (Swift et al., paper title, Journal of Supercomputing Frontiers and Innovations, next issue, to appear in 2016). This software environment will be a key tool for this project as it ill allow us to fine tune our suite of simulation software for disaster response scenarios.\\
 
 
 
