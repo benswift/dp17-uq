@@ -37,7 +37,7 @@ url=false,
 doi=false]{biblatex}
 
 % make bibliography a bit smaller if necessary
-\renewcommand*{\bibfont}{\footnotesize} 
+\renewcommand*{\bibfont}{\small} 
 % \footnotesize should be 10pt with a standard 12pt class, 
 % see https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text
 
@@ -143,18 +143,20 @@ interfaces for storm-surge and tsunami flood modelling, which
 exemplify these characteristics.
 
 The mathematical component of this project will be based on new
-mathematical developments combining sparse grids and uncertainty
+developments combining model order reduction techniques and uncertainty
 quantification. One of the main difficulties in current models is the
 high-dimensional spaces involved, both in the parameter and domain
 spaces. Sparse grids~\parencite{BungartzGriebel2004} are known to
 reduce the effects of the so-called ``curse of dimensionality'', where
 the cost of computation increases exponentially with the dimension of
-the model. We have recently found new ways to incorporate gradient
+the model. Recent work has found new ways to incorporate gradient
 information and multi-fidelity models into sparse grid
 approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}
 and we will use this knowledge in our construction of a suite of
 storm surge-tsunami models to simulate environmental disasters with
-uncertainty quantification.
+uncertainty quantification. Reduced basis 
+methods~\parencite{quarteroni2015reduced} provide an alternative approach
+for constructing a reduced order models and will also be investigated.
 
 Computational decision support systems for disaster management have
 existed for many decades \parencite{wallace_decision_1985}, and
@@ -188,11 +190,11 @@ This project will provide the following discoveries and benefits:
 
 \item models of group interaction scenarios for decision-making with
   expert modelling support; from these models, empirical estimates of
-  the time constraints that such scenarios place impose on software
+  the time constraints that such scenarios impose on software
   and computer system requirements and the live controls needed to run
   them effectively in volatile contexts
 
-\item interactive information visualisations of simulation predictions
+\item interactive information visualisation of simulation predictions
 together with uncertainties
  
 
@@ -423,7 +425,7 @@ visualisation. Specifically:
   $M_{\mathbf{p}}$ can be done cheaply using the combination technique
   over the domain $\mathbf{x}\in\Omega$. An alternative is to use
   proper orthogonal decompositions or greedy algorithms to construct a
-  reduced basis model which is then cheap to compute with. In both
+  reduced order model which is then cheap to compute with. In both
   cases the initial construction can be somewhat costly but the
   savings gained later when these surrogates are used extensively for
   UQ and optimisation significantly outweight this cost. Additionally,
@@ -474,7 +476,7 @@ visualisation. Specifically:
 \subsubsection*{Sparse-Grids and Uncertainty Quantification}
 
 The mathematical component of this project will be based on new
-mathematical developments combining sparse
+developments combining sparse
 grids~\parencite{BungartzGriebel2004}, reduced basis
 methods~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015,PeherstorferWillcox2015}
 and uncertainty quantification. One of the main difficulties in the
