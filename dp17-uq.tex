@@ -73,10 +73,7 @@ hyperfootnotes=true]{hyperref}
 
 \begin{document}
 
-\renewcommand{\thesection}{\Alph{section}}
-
-\setcounter{section}{3} % C1.
-\subsection{Project Description}
+\section*{C1. Project Description}
 \label{sec:project-description}
 % (Please upload a Project Description as detailed in the Instructions
 % to Applicants in no more than 10 A4 pages and in the required
@@ -84,39 +81,47 @@ hyperfootnotes=true]{hyperref}
 % instructions on the required content and format of the Project
 % Description.)
 
-\subsubsection*{PROJECT TITLE}
+\subsection*{PROJECT TITLE}
+% can differ from grant title and be longer 
 
-\textbf{Live and interactive parameter-space exploration of environmental simulations with uncertainty quantification} %can differ from grant title and be longer 
+\textbf{Live and interactive parameter-space exploration of environmental simulations with uncertainty quantification}
 
+\subsection*{AIMS AND BACKGROUND}
 
+When systems are disrupted during environmental disasters (for
+example, flood, fire, wind, earthquakes) information from
+computational simulation is needed urgently and in an acceptable
+format to aid decision-making by emergency services. Meeting such a
+modelling and simulation challenge is not simply a matter of compute
+power but involves ideas from software engineering, computational
+mathematics, human computer interaction, high performance computing,
+and data visualisation. Furthermore, all of these disciplines need to
+be tightly coupled and benchmarked to realistic team-coordination and
+decision-making scenarios where decision-makers collaborate with
+modelling experts. In particular, a crucial aspect of advice provided
+from modellers to decision makers is to properly quantify and
+communicate the \emph{uncertainty} in predictions obtained by computer
+simulations. This advice will need to be provided in a time-bound
+manner and in a context where the computer support may vary
+dramatically over time due to system outages.
 
-\subsubsection*{AIMS AND BACKGROUND}
-
-
-
-When systems are disrupted during environmental disasters (for example,
-flood, fire, wind, earthquakes) information from
-computational simulation is needed urgently and in an
-acceptable format to aid  decision-making by emergency services. 
-Meeting such a modelling and simulation 
-challenge is not simply a matter of compute power but involves
-ideas from software engineering, computational mathematics,
-human computer interaction, high performance computing, and data visualisation. Furthermore, all
-of these disciplines need to be tightly coupled and benchmarked to
-realistic  team-coordination and decision-making scenarios where decision-makers collaborate with modelling experts. 
-In particular, 
-a crucial aspect of advice provided from modellers to decision makers is to properly quantify and communicate 
-the {\em uncertainty} in predictions obtained
-by computer simulations. This advice will need to be provided in a time-bound manner and in a context where the computer support may vary dramatically over time due to system outages.
-
-We address this grand
-challenge through a {\em live-programming} approach to the software-system development
-and deployment of  environmental simulations including uncertainty. 
-We will develop new environmental simulations of flood surge and tsunamis which combine sparse grids and uncertainty quantification to dramatically increase the speed of delivery of useful predictions and the uncertainty associated with those predictions.
-We will deploy  ``live"  distributed
-computing infrastructure to {\em rapidly prototype} the human interface to these new environmental simulations and to effectively transform the
-traditional, batch-oriented modality of environmental simulation into a highly-interactive one. We will 
-evaluate team coordination and decision-making under uncertainty by field trials of our prototype systems in the setting of a mock-reality game and by analysing the protocols of live-coding optimisation of the software system during those field trials. From these protocols, identifiable states and transitions between those states will be used to iterate our software-system development. 
+We address this grand challenge through a \emph{live-programming}
+approach to the software-system development and deployment of
+environmental simulations including uncertainty. We will develop new
+environmental simulations of flood surge and tsunamis which combine
+sparse grids and uncertainty quantification to dramatically increase
+the speed of delivery of useful predictions and the uncertainty
+associated with those predictions. We will deploy ``live'' distributed
+computing infrastructure to \emph{rapidly prototype} the human
+interface to these new environmental simulations and to effectively
+transform the traditional, batch-oriented modality of environmental
+simulation into a highly-interactive one. We will evaluate team
+coordination and decision-making under uncertainty by field trials of
+our prototype systems in the setting of a mock-reality game and by
+analysing the protocols of live-coding optimisation of the software
+system during those field trials. From these protocols, identifiable
+states and transitions between those states will be used to iterate
+our software-system development.
 
 Our vision is that decision makers
 will be able to examine many different environmental disaster scenarios in a short space of
@@ -131,34 +136,42 @@ knowledge is constructed, tested, refined and shared.''
 
 Although the mathematical and computational tools we will employ in
 this project are generalisable to any modelling workflow, we will
-focus on specific application domains where (a) the model is (computationally)
-complex, (b) uncertainty is significant and (c) decisions are
-time-sensitive. Specifically, we will build interactive interfaces for
- storm-surge and tsunami flood modelling. 
+focus on specific application domains where (a) the model is
+(computationally) complex, (b) uncertainty is significant and (c)
+decisions are time-sensitive. Specifically, we will build interactive
+interfaces for storm-surge and tsunami flood modelling.
 
 The mathematical component of this project will be based on new
 mathematical developments combining sparse grids and uncertainty
 quantification. One of the main difficulties in current models is the
-high dimensional spaces involved, both in the parameter and
-domain spaces. Sparse grids~\parencite{BungartzGriebel2004} are
-well-known to reduce the effects of the so called ``curse of
-dimensionality", whereby the cost of computation increases
-exponentially with the dimension of the model.
-We have recently found new ways to incorporate gradient
-information and multi-fidelity models into sparse grid
-approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015} and we will be
-deploying this knowledge in our construction of a suite of surge-tsunami models to simulate
-environmental disasters with uncertainty quantification.
+high dimensional spaces involved, both in the parameter and domain
+spaces. Sparse grids~\parencite{BungartzGriebel2004} are well-known
+to reduce the effects of the so called ``curse of dimensionality'',
+whereby the cost of computation increases exponentially with the
+dimension of the model. We have recently found new ways to
+incorporate gradient information and multi-fidelity models into
+sparse grid
+approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}
+and we will be deploying this knowledge in our construction of a
+suite of surge-tsunami models to simulate environmental disasters
+with uncertainty quantification.
 
-
-Computational decision support systems for disaster management
-have existed for many decades \parencite{wallace_decision_1985}, and
+Computational decision support systems for disaster management have
+existed for many decades \parencite{wallace_decision_1985}, and
 advances have been made both in incorporating
 uncertainty \parencite{thompson_social_2014-1,neale_navigating_2015}
-and providing real-time output~\parencite{yu_support_2006}. More recently, 
-mixed-reality game scenarios have been used to understand and optimise human-agent 
-collaboration for disaster response~\parencite{ramchurn2016human}.
-In our project plan we will follow a similar approach and will employ mock-game scenarios to examine and understand the nature of decision making with expert modelling support. In a novel twist, we will run these games together with live-coding optimisation and tuning of the software system and the underlying computational platform. By analysing the protocols of these live optimisations, we will accumulate data to feed into redesign of the software interface and to understand the time requirements and controls needed for the computational platform.
+and providing real-time output~\parencite{yu_support_2006}. More
+recently, mixed-reality game scenarios have been used to understand
+and optimise human-agent collaboration for disaster
+response~\parencite{ramchurn2016human}. In our project plan we will
+follow a similar approach and will employ mock-game scenarios to
+examine and understand the nature of decision making with expert
+modelling support. In a novel twist, we will run these games together
+with live-coding optimisation and tuning of the software system and
+the underlying computational platform. By analysing the protocols of
+these live optimisations, we will accumulate data to feed into
+redesign of the software interface and to understand the time
+requirements and controls needed for the computational platform.
 
 
 This project will provide the following discoveries and benefits:
@@ -169,12 +182,14 @@ high fidelity simulations (fine grids) with low fidelity (coarse grid) simulatio
 uncertainty, optimised for human exploration
 
 
-\item a ``live software engineering" approach to the development, deployment 
+\item a ``live software engineering'' approach to the development, deployment 
 and optimisation of these interactive software systems; 
 
-\item models of group interaction scenarios for decision-making 
- with expert modelling support; from these models, empirical estimates of  the 
-time constraints that such scenarios place impose on software and computer system requirements and the live controls needed to run them effectively in volatile contexts
+\item models of group interaction scenarios for decision-making with
+  expert modelling support; from these models, empirical estimates of
+  the time constraints that such scenarios place impose on software
+  and computer system requirements and the live controls needed to run
+  them effectively in volatile contexts
 
 \item interactive information visualisations of simulation predictions
 together with uncertainties
@@ -195,7 +210,7 @@ interactive and \emph{alive} as flicking through photos on an iPad.
 
 
 
-\subsubsection*{RESEARCH PROJECT}
+\subsection*{RESEARCH PROJECT}
 % - Describe how the research is significant and how it addresses an important problem
 % - Describe how the Proposal meets the objectives of the Discovery Projects scheme
 % - Describe how the anticipated outcomes will advance the knowledge base of the discipline and
@@ -236,42 +251,50 @@ events become more common, there is a significant need for better ways to
 gather timely insights from modelling in the presence of uncertainty and to communicate those insights to 
 decision makers and emergency services.
 
-Computational modelling and simulation is an invaluable support tool for disaster response,
- allowing  emergency services personnel to explore 
-what might happen in the immediate future 
-under various scenarios. But these model simulations can be fraught with uncertainty: 
-some of their {\em input parameters}  may be well
-known (possibly from reliable sensor data), while others are known only approximately, and others still may
-only be guessed at. Even given perfect input data, the models themselves entail assumptions and numerical approximations which bound the reliability of their predictions. 
+Computational modelling and simulation is an invaluable support tool
+for disaster response, allowing emergency services personnel to
+explore what might happen in the immediate future under various
+scenarios. But these model simulations can be fraught with
+uncertainty: some of their \emph{input parameters} may be well known
+(possibly from reliable sensor data), while others are known only
+approximately, and others still may only be guessed at. Even given
+perfect input data, the models themselves entail assumptions and
+numerical approximations which bound the reliability of their
+predictions.
 
-Slightly more formally, suppose that we have a mathematical model $M_{\mathbf{p}}$
-parameterised by the vector $\mathbf{p}\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may
-be a parameterised partial differential equation %(PPDE) 
-in a storm
-surge model.
-For each $\mathbf{p}$ we suppose the model is
+Slightly more formally, suppose that we have a mathematical model
+$M_{\mathbf{p}}$ parameterised by the vector
+$\mathbf{p}\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may be a
+parameterised partial differential equation %(PPDE)
+in a storm surge model. For each $\mathbf{p}$ we suppose the model is
 well-defined and there exists a unique function
 \begin{equation}
   \label{eq:1}
   u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
 \end{equation}
 which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
-Here the {\em domain space} $\Omega$ represents variables such as 
+Here the \emph{domain space} $\Omega$ represents variables such as 
 time and space, 
 and $u_{\mathbf{p}}$ represents scalar or vector fields of interest, 
 such as storm surge water level and/or velocity.    
 
-Sometimes the goal of the modeller is to better understand the relationship
-between $\mathbf{p}$ and some lower-dimensional quantity of interest
-$Q(u_{\mathbf{p}})$, such as the relationship between a particular rainfall scenario and the maximum storm surge levels at particular geographical locations. In order to achieve such understanding, repeated executions of the model are often required with an expert analysis of the outputs of each stage and selection of the next parameter set based on an assessment of those outputs. Such repeated model executions can also be used to estimate the {\em uncertainty} in any given set of predictions of 
-$Q(u_{\mathbf{p}})$. Through the process
-of trying different model parameterisations, the scientist is able to
-build up an understanding of the \emph{general} relationship between
-$\mathbf{p}$ and $Q(u_{\mathbf{p}})$, including the areas of the
-parameter space $\mathcal{P}$ which have the greatest influence on the
-result and which
-types of uncertainty have the greatest impact on the certainty of the
-results.
+Sometimes the goal of the modeller is to better understand the
+relationship between $\mathbf{p}$ and some lower-dimensional quantity
+of interest $Q(u_{\mathbf{p}})$, such as the relationship between a
+particular rainfall scenario and the maximum storm surge levels at
+particular geographical locations. In order to achieve such
+understanding, repeated executions of the model are often required
+with an expert analysis of the outputs of each stage and selection of
+the next parameter set based on an assessment of those outputs. Such
+repeated model executions can also be used to estimate the
+\emph{uncertainty} in any given set of predictions of
+$Q(u_{\mathbf{p}})$. Through the process of trying different model
+parameterisations, the scientist is able to build up an understanding
+of the \emph{general} relationship between $\mathbf{p}$ and
+$Q(u_{\mathbf{p}})$, including the areas of the parameter space
+$\mathcal{P}$ which have the greatest influence on the result and
+which types of uncertainty have the greatest impact on the certainty
+of the results.
 
 %or to find the parameter choice $\mathbf{p}$
 %which optimises $Q$. %over all $\mathbf{x}$.
@@ -345,10 +368,12 @@ primary challenges}:
   where an approximately correct answer provided in a short time is
   significantly more useful than a perfect answer provided after it is
   too late to act on.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ together with estimates of its uncertainty may not be easy to
-    interpret}. Oftentimes this is a visualisation problem---
-  the mapping $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimensional,
-  and presenting that to a decision-maker, particularly when combining it with its uncertainty estimates, may not be straightforward.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ together with estimates
+    of its uncertainty may not be easy to interpret}. Oftentimes this
+  is a visualisation problem--- the mapping
+  $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimensional,
+  and presenting that to a decision-maker, particularly when combining
+  it with its uncertainty estimates, may not be straightforward.
 \end{enumerate}
 %\begin{figure}
  % \centering
@@ -393,14 +418,21 @@ interactive visualisation. Specifically:
   integrand is sufficiently
   smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 
-\item \emph{(Cheap to calculate):} For many problems the computation of solutions 
-  $u_{\mathbf{p}}(\mathbf{x})$ to the model $M_{\mathbf{p}}$ can be done 
-  cheaply using the combination technique over the domain
-  $\mathbf{x}\in\Omega$.
-  An alternative is to use proper orthogonal decompositions or greedy algorithms to construct a reduced basis model which is then cheap to compute with. 
-  In both cases the initial construction can be somewhat costly but the savings gained later when these surrogates are used extensively for UQ and optimisation significantly outweight this cost.
-  Additionally, the initial construction can be done in an offline phase.
-  For our disaster response scenarios, the concept of ``cheapness" will be reframed as one of ``timeliness": we will build systems which guarantee modelling results within particular timeframes of relevance to human factor processes in group decision making (occurring in the online phase).
+\item \emph{(Cheap to calculate):} For many problems the computation
+  of solutions $u_{\mathbf{p}}(\mathbf{x})$ to the model
+  $M_{\mathbf{p}}$ can be done cheaply using the combination technique
+  over the domain $\mathbf{x}\in\Omega$. An alternative is to use
+  proper orthogonal decompositions or greedy algorithms to construct a
+  reduced basis model which is then cheap to compute with. In both
+  cases the initial construction can be somewhat costly but the
+  savings gained later when these surrogates are used extensively for
+  UQ and optimisation significantly outweight this cost. Additionally,
+  the initial construction can be done in an offline phase. For our
+  disaster response scenarios, the concept of ``cheapness'' will be
+  reframed as one of ``timeliness'': we will build systems which
+  guarantee modelling results within particular timeframes of
+  relevance to human factor processes in group decision making
+  (occurring in the online phase).
 
 \item \emph{(Easy to interpret):} Since a sparse grid sampling of $\mathbf{p}\in\mathcal{P}$ enables a fast 
   and efficient exploration of parameter space, there is more time for
@@ -438,7 +470,7 @@ interactive visualisation. Specifically:
 
 
 
-\noindent{\bf Sparse-Grids and Uncertainty Quantification}\\
+\subsubsection*{Sparse-Grids and Uncertainty Quantification}
 
 The mathematical component of this project will be based on new
 mathematical developments combining sparse grids~\parencite{BungartzGriebel2004}, 
@@ -450,7 +482,7 @@ domain spaces, $\mathcal{P}$ and $\Omega$ respectively.
 This is a significant barrier for the timely evaluation of models due to the 
 ``curse of dimensionality'' in which the cost scales exponentially with dimension.
 By using sparse grids and reduced basis models we will be able to compute
-{\em surrogates of the full problem} which have significantly fewer unkowns and 
+\emph{surrogates of the full problem} which have significantly fewer unkowns and 
 are thus cheaper to compute whilst maintaining a high order of accuracy.
 For example, a general approach would be to find a lower dimensional manifold 
 of the parameter space $\mathcal{Q}\subset\mathcal{P}$ over which the 
@@ -476,31 +508,39 @@ equivalent sparse grid and the corresponding full grid.
   \label{fig:sparse_grids}
 \end{figure}
 
-Propagating uncertainty in scientific models which are high dimensional 
-and/or expensive to compute is a significant challenge.
+Propagating uncertainty in scientific models which are high
+dimensional and/or expensive to compute is a significant challenge.
 For models which are not stochastic in nature, and thus have no means
-of directly quantifying uncertainty, one must typically estimate statistical 
-moments via monte carlo methods or quadrature rules. For high dimensional problems 
-it has been shown that sparse grids can estimate these moments faster 
-and more accurately than traditional Monte Carlo methods when the 
-probability density functions are sufficiently smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
-Despite the advantages of reduced basis methods, the manifold $\mathcal{Q}$
-is still sufficiently high dimensional that the quantification of uncertainty
-remains a challenge due to the sheer number of function evaluations required. 
-This is particularly true when the quantification of uncertainty in a model is a component of an optimisation algorithm.
-As such it is important to continue to developing efficient numerical methods for 
-uncertainty quantification for high dimensional problems.
-Replacing the full model with a reduced basis model also adds additional 
-error and uncertainties. One needs to have some idea what the model outcomes may be 
-for parameters not lying on the lower dimensional manifold $\mathcal{Q}$.
-An important part of developing reduced models is `verifying' the model, by bounding ther error of the surrogate for example.
-By using ensemble methods, multifidelity models~\parencite{NgWillcox2014} and gradient enhanced approximation~\parencite{deBaarHarding2015,Jakeman2015} we hope to improve the verification and propogation of uncertainties in models.
-Incorporating ideas from ``Kriging" (Gaussian process regression), a feature of which is having 
-confidence intervals over an interpolant, together with sparse-grid interpolation,
-we will be able to express uncertainties explicitly in the surrogate model. \\
+of directly quantifying uncertainty, one must typically estimate
+statistical moments via monte carlo methods or quadrature rules. For
+high dimensional problems it has been shown that sparse grids can
+estimate these moments faster and more accurately than traditional
+Monte Carlo methods when the probability density functions are
+sufficiently
+smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
+Despite the advantages of reduced basis methods, the manifold
+$\mathcal{Q}$ is still sufficiently high dimensional that the
+quantification of uncertainty remains a challenge due to the sheer
+number of function evaluations required. This is particularly true
+when the quantification of uncertainty in a model is a component of an
+optimisation algorithm. As such it is important to continue to
+developing efficient numerical methods for uncertainty quantification
+for high dimensional problems. Replacing the full model with a reduced
+basis model also adds additional error and uncertainties. One needs to
+have some idea what the model outcomes may be for parameters not lying
+on the lower dimensional manifold $\mathcal{Q}$. An important part of
+developing reduced models is `verifying' the model, by bounding ther
+error of the surrogate for example. By using ensemble methods,
+multifidelity models~\parencite{NgWillcox2014} and gradient enhanced
+approximation~\parencite{deBaarHarding2015,Jakeman2015} we hope to
+improve the verification and propogation of uncertainties in models.
+Incorporating ideas from ``Kriging'' (Gaussian process regression), a
+feature of which is having confidence intervals over an interpolant,
+together with sparse-grid interpolation, we will be able to express
+uncertainties explicitly in the surrogate model.
 
 
-\noindent{\bf Live-Coding of Scientific Simulation}\\
+\subsubsection*{Live-Coding of Scientific Simulation}
 
 
 Live coding is a term which has been used to denote systems which
@@ -515,13 +555,21 @@ languages have evolved to have access to clock-time and other
 computer-system properties at a language level in order to, for
 example, create, modify and interact with music and cyberphysical
 devices in real time. Such an approach has been termed ``Programming
-with Time"~\parencite{sorensen2010programming}. This project will make
+with Time''~\parencite{sorensen2010programming}. This project will make
 use of the \emph{Extempore} software
-environment\footnote{\url{http://extempore.moso.com.au}} which has been shown to be able to harness  a traditional batch-mode scientific simulations, written in the C language, and visualise and modify that simulation interactively, and in real-time, with negligible performance overhead (Swift et al., paper title, Journal of Supercomputing Frontiers and Innovations, next issue, to appear in 2016). This software environment will be a key tool for this project as it ill allow us to fine tune our suite of simulation software for disaster response scenarios.\\
+environment\footnote{\url{http://extempore.moso.com.au}} which has
+been shown to be able to harness a traditional batch-mode scientific
+simulations, written in the C language, and visualise and modify that
+simulation interactively, and in real-time, with negligible
+performance overhead (Swift et al., paper title, Journal of
+Supercomputing Frontiers and Innovations, next issue, to appear in
+2016). This software environment will be a key tool for this project
+as it ill allow us to fine tune our suite of simulation software for
+disaster response scenarios.
 
 
 
-\noindent{\bf From Disaster-Response Human-Factors Optimisation to Software Development}\\
+\subsubsection*{From Disaster-Response Human-Factors Optimisation to Software Development}
 
 % GOMS model for co-operative scenarios where someone wants
 % information, and someone is trying to present it to them
@@ -531,27 +579,59 @@ environment\footnote{\url{http://extempore.moso.com.au}} which has been shown to
 % the goal: quantitative requirements on the time bounds, which has
 % implications for the design of the systems
 
-Similar to ~\parencite{ramchurn2016human} we will employ game scenarios to understand and optimise 
-collaboration for disaster response~\parencite{ramchurn2016human}.
-However, our focus will be on  decision-maker/modeller communication rather than human/agent communication and our game scenarios will take place while software and systems parameters, particularly the human-computer interface, visualisations and system configuration, are being tuned in real time by a live coder.  
-In a novel approach, the protocols obtained from this live coding will then be analyse to determine macro, ``chunking" states, of human action and transitions between those states. 
-We have recently used similar approaches to understand the real-time actions of single live-coders in computer music performance~\parencite{swift2014coding} and the macro-gesture states of group computer musicians using iPads~\parencite{martin2015tracking}. 
-In both of these studies, transition matrices derived from interaction protocols were able to yield insights into the artistic process. 
-In the case of the present project, data from the interaction protocols of the live-coder will be feed back into redesign of the software interface and the controls needed for the computational platform.
+Similar to ~\parencite{ramchurn2016human} we will employ game
+scenarios to understand and optimise collaboration for disaster
+response~\parencite{ramchurn2016human}. However, our focus will be on
+decision-maker/modeller communication rather than human/agent
+communication and our game scenarios will take place while software
+and systems parameters, particularly the human-computer interface,
+visualisations and system configuration, are being tuned in real time
+by a live coder. In a novel approach, the protocols obtained from this
+live coding will then be analyse to determine macro, ``chunking''
+states, of human action and transitions between those states. We have
+recently used similar approaches to understand the real-time actions
+of single live-coders in computer music
+performance~\parencite{swift2014coding} and the macro-gesture states
+of group computer musicians using
+iPads~\parencite{martin2015tracking}. In both of these studies,
+transition matrices derived from interaction protocols were able to
+yield insights into the artistic process. In the case of the present
+project, data from the interaction protocols of the live-coder will be
+feed back into redesign of the software interface and the controls
+needed for the computational platform.
 
-By way of one simple example, we imagine that, perhaps, the live coder finds that a particular measure of uncertainty, Measure-A, is routinely requested by a decision maker after another particular measure, Measure-B. The live coder could tune up the software in real time so that these two measures could be presented together. The interaction protocols in this instance might reveal insights into the {\em context} where these two measures were requested one after the other and the software might be redesigned to recognise that context and to make the two measures accessible in that context. For another simple example, the live-coding protocol might show that data processing needed to be occasionally shifted from one part of a cloud resource to a local cluster. Examination of these instances could impact on the computer systems settings needed to properly deploy these simulations. (Note that our approach to protocol analysis will go well beyond simple examples like these and will use matrix theory to derive insights into the nature of state transitions across entire protocols and across test participants.)\\
+By way of one simple example, we imagine that, perhaps, the live coder
+finds that a particular measure of uncertainty, Measure-A, is
+routinely requested by a decision maker after another particular
+measure, Measure-B. The live coder could tune up the software in real
+time so that these two measures could be presented together. The
+interaction protocols in this instance might reveal insights into the
+\emph{context} where these two measures were requested one after the
+other and the software might be redesigned to recognise that context
+and to make the two measures accessible in that context. For another
+simple example, the live-coding protocol might show that data
+processing needed to be occasionally shifted from one part of a cloud
+resource to a local cluster. Examination of these instances could
+impact on the computer systems settings needed to properly deploy
+these simulations. (Note that our approach to protocol analysis will
+go well beyond simple examples like these and will use matrix theory
+to derive insights into the nature of state transitions across entire
+protocols and across test participants.)
 
 
-\noindent{\bf High-Performance Computing Systems Support}\\
+\subsubsection*{High-Performance Computing Systems Support}
 
-A reliance on high performance computing for the evaluation of scientific 
-models provides additional challenges to the technical side of the project. 
-Specifically, our algorithms must be highly scalable and robust to errors and faults in the computer system layer.
-There have been many recent developments in both highly-scalable algorithms 
-and the sparse grid combination technique which will be of use for this and,
-additionally, it has been recently shown that such computations can be made robust~\parencite{HardingHLS2015,AliEtal2015}.
-By leveraging and continuing to develop these algorithms we can ensure that
-the components of our software system that require high performance 
+A reliance on high performance computing for the evaluation of
+scientific models provides additional challenges to the technical side
+of the project. Specifically, our algorithms must be highly scalable
+and robust to errors and faults in the computer system layer. There
+have been many recent developments in both highly-scalable algorithms
+and the sparse grid combination technique which will be of use for
+this and, additionally, it has been recently shown that such
+computations can be made
+robust~\parencite{HardingHLS2015,AliEtal2015}. By leveraging and
+continuing to develop these algorithms we can ensure that the
+components of our software system that require high performance
 computing resources will be both scalable and robust.
 
 In this project we will leverage on-demand compute resources, such as
@@ -560,10 +640,15 @@ Infrastructure NCI Cloud~\parencite{nci_cloud}. Using these cloud
 services will further improve the project's ability to deliver timely
 results in high-pressure and time-critical decision making scenarios.
 
-Once again, we emphasise that our approach to live-coding of test software is a novel aspect of our methodology. The {\em Extempore} tool that we have developed has been shown to be able to harness and steer scientific simulation in real time. In this part of the project, we will apply this tool to the real-time steering of the computer systems layer itself.\\
+Once again, we emphasise that our approach to live-coding of test
+software is a novel aspect of our methodology. The \emph{Extempore}
+tool that we have developed has been shown to be able to harness and
+steer scientific simulation in real time. In this part of the project,
+we will apply this tool to the real-time steering of the computer
+systems layer itself.
 
 
-\noindent{\bf Interactive visualisation of environmental forecasts with uncertainty}\\
+\subsubsection*{Interactive visualisation of environmental forecasts with uncertainty}
 
 Similar to the impact of visually presented geodata on decision making~\parencite{kinkeldey2015evaluating}, the particular visualisations of 
 uncertainty in our environmental models will need to be systematically evaluated with 
@@ -572,7 +657,7 @@ human participants. Here we will adopt traditional human-factors trials with non
 
 
 
-\subsubsection*{ROLE OF PERSONNEL}
+\subsection*{ROLE OF PERSONNEL}
 % - Summarise the role, responsibilities and contributions of each Chief Investigator (CI) and Partner Investigator (PI)
 % - Summarise the roles and levels of involvement of other Participants, for example, technical staff, Research Associates and other personnel
 % - Describe how each Participant will ensure they have the ‘time and capacity’ to undertake the proposed research, taking into account any other grants or roles that they hold.
@@ -612,19 +697,19 @@ visualisation. In the MSI, these will be the uncertainty
 quantification and the development of numerical methods for the sparse
 grid technique. We anticipate being able to support a number of Honours level projects in computer science and mathematics during the course of this project. Some of these projects will relate to the core mission of the project detailed above, others will concentrate on related studies with a view to achieving high-impact pure and applied research and training young people for a career in the computing and mathematical modelling disciplines.
 
-\subsubsection*{RESEARCH ENVIRONMENT}
+\subsection*{RESEARCH ENVIRONMENT}
 % - Outline the adequacy and opportunities within the Research Environment in your relevant department, school or research group, and the extent to which it will provide for knowledge growth, innovation, collaboration, mentoring and student training
 % - Describe the existing, or developing, research environment within the Administering Organisation and collaborating Organisation(s) which will enable this Project
 % - Describe how the Project aligns with the Administering Organisation’s research plans and strategies.
 
-The Australian National University is a research-intensive university of high international standing. The quality of the research at ANU has been reflected in every one of the ERA evaluation exercises where, relevant to the current proposal, both Information and Computing Sciences (08) and Mathematical Sciences (01) have been assessed as being at the highest level of 5. At ANU, the Research School of Computer Science and the Mathematical Sciences Institute have a long and deep collaboration in numerical and applied mathematics, notably in a number of "Area" projects linked to the supercomputing facilities on campus. Indeed, since the early 1980s ANU has housed the largest supercomputers in Australia and the present National Computational Infrastructure is located on campus. 
+The Australian National University is a research-intensive university of high international standing. The quality of the research at ANU has been reflected in every one of the ERA evaluation exercises where, relevant to the current proposal, both Information and Computing Sciences (08) and Mathematical Sciences (01) have been assessed as being at the highest level of 5. At ANU, the Research School of Computer Science and the Mathematical Sciences Institute have a long and deep collaboration in numerical and applied mathematics, notably in a number of ''Area'' projects linked to the supercomputing facilities on campus. Indeed, since the early 1980s ANU has housed the largest supercomputers in Australia and the present National Computational Infrastructure is located on campus. 
 
 Over the next 2 years, a new building will be constructed at ANU to locate the Mathematical Sciences Institute with part of the Research School of Computer Science. This co-location of academics in these two areas will be particularly fruitful for the present project. Indeed, it is possible that this project will become a showcase of cooperation between these two Schools and that some of the more visible and interactive components of the project will be strongly featured in outreach activities. 
 
 
 
 
-\subsubsection*{COMMUNICATION OF RESULTS}
+\subsection*{COMMUNICATION OF RESULTS}
 % - Outline plans for communicating the research results to other researchers and the broader community, including but not limited to scholarly and public communication and dissemination.
 
 % Brendan: to some extent I have copied/reworked this section from the
@@ -638,7 +723,7 @@ Over the next 2 years, a new building will be constructed at ANU to locate the M
 The ANU expects publications at the highest levels of international journals and conferences.
 We will communicate the results of this project by publishing in
 top  venues such as the ``SIAM Journal of
-Scientific Computing" and  “Parallel Computing”. In computer science, refereed publications associated with the top conferences are infinitely more prestigious  than journals. Our publication targets will be the ACM Conference on Human Factors in Computing Systems (CHI), OOPSLA, ICSE,  VL/HCC, Supercomputing (SC), Computer Supported Cooperative Work (CSCW) and IEEE Information Visualisation. In both disciplines, we also value the community and high quality of Australian conferences, and we will be submitting work to OzCHI, ASWEC and Computational Techniques and Applications (CTAC).
+Scientific Computing'' and  “Parallel Computing”. In computer science, refereed publications associated with the top conferences are infinitely more prestigious  than journals. Our publication targets will be the ACM Conference on Human Factors in Computing Systems (CHI), OOPSLA, ICSE,  VL/HCC, Supercomputing (SC), Computer Supported Cooperative Work (CSCW) and IEEE Information Visualisation. In both disciplines, we also value the community and high quality of Australian conferences, and we will be submitting work to OzCHI, ASWEC and Computational Techniques and Applications (CTAC).
 
 
 % TODO Steve, Brendan: check that this is ok re: anuga
@@ -652,7 +737,7 @@ committed to accessible and reproducible computational science, and
 support these goals by using free software licences and developing our
 code in the open on GitHub.
 
-\subsubsection*{MANAGEMENT OF DATA}
+\subsection*{MANAGEMENT OF DATA}
 % - Outline plans for the management of data produced as a result of the proposed research, including but not limited to storage, access and re-use arrangements.
 % - It is not sufficient to state that the organisation has a data management policy. Researchers are encouraged to highlight specific plans for the management of their research data.
 
@@ -664,9 +749,9 @@ Data Commons is a central data repository for ANU research data which has been d
 
 Digital Collections accepts journal articles, conference papers, book chapters, working or technical papers and other forms of scholarly communication. It is also a repository for digital images of manuscripts and photographs in other university research collections. 
 
-\subsubsection*{REFERENCES}
+\subsection*{REFERENCES}
 
-\vskip -3em
+\vskip -2.5em
 \printbibliography[title=\ ]
 
 
