@@ -561,12 +561,17 @@ been termed ``\emph{with-time}
 programming''~\parencite{sorensen2010programming}. This project will
 make use of the \emph{Extempore} software
 environment\footnote{\url{http://extempore.moso.com.au}} which has
-been shown to be able to harness a traditional batch-mode scientific
-simulations, written in the C language, and visualise and modify that
-simulation interactively, and in real-time, with negligible
-performance overhead~\cite{swift_live_2016}. This software environment
-will be a key tool for this project as it will allow us to fine tune
-our suite of simulation software for disaster response scenarios.
+been used for live modification and real-time visualisation of
+particle-in-cell (PIC) plasma physics simulation codes, with
+negligible performance overhead compared to batch-mode execution in
+C~\parencite{swift_live_2016}. This allows the scientist to modify the
+domain size/shape, the initial and boundary conditions, and various
+other parameters while the simulation is running, with live visual
+feedback.
+
+The Extempore software environment is a key tool for this project as
+it allows us to fine tune our suite of simulation software for the
+specific requirements of the task domain.
 
 Uncertainty quantification can benefit greatly from live coding. Specifically, the
 ability to alter function sampling in real time as computations progress
@@ -632,7 +637,7 @@ insights into the nature of state transitions across entire protocols
 and across test participants.
 
 
-\subsubsection*{Application to design optimisation}
+\subsubsection*{Interactive design optimisation}
 
 We envisage this project will also have significant benefits to engineering.
 This will be demonstrated in the context of design optimisation problems,
