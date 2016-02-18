@@ -396,8 +396,8 @@ surge/bushfire modelling) this is often not the case. There are
 The ability to stop, modify, or restart computations ``in flight'' has
 the potential to significantly improve the efficiency of an
 uncertainty analysis. There exist many algorithms, for example
-adaptive MCMC (TODO brendan expand this acronym, maybe provide a
-ref?), which attempt to choose the best samples based on the sampling
+adaptive Markov chain Monte Carlo methods~\parencite{GilksEtal1994}, 
+which attempt to choose the best samples based on the sampling
 history. For complex problems however, a domain expert may often have
 a better idea about the region of the parameter domain where function
 evaluations should be concentrated. Through live programming within a
@@ -405,8 +405,8 @@ tight feedback loop a domain expert can incrementally guide the
 current sampling strategy being used for uncertainty quantification to
 improve the end result. The resulting strategies are expected to be
 more aggressive in nature as they are better targeted to the specific
-problem at hand. (TODO brendan one more sentence about how this helps
-with UQ specifically...)
+problem at hand. The upshot of this is more efficient quantification of
+uncertainty.
 
 In this project, by accelerating the feedback loop between
 $\mathbf{p}$ and $Q(u_{\mathbf{p}})$, together with estimates of its
@@ -657,7 +657,7 @@ process is not exact, and the full range of attack angles, velocities,
 stresses and weather conditions the airfoil will be exposed to during
 flight can only be guessed at. In this project we will build on our
 previous work in applying sparse grid methods in airfoil
-design~\parencite{SU2,TODO-jouke-SU2-paper}, using an interactive
+design~\parencite{SU2,deBaarHarding2015}, using an interactive
 feedback loop to improve the efficiency of the design process within
 our live coding and uncertainty quantification framework.
 
