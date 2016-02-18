@@ -263,6 +263,8 @@ perfect input data, the models themselves entail assumptions and
 numerical approximations which bound the reliability of their
 predictions.
 
+\subsubsection*{The Modelling Problem}
+
 More formally, suppose that we have a mathematical model
 $M_{\mathbf{p}}$ parameterised by the vector
 $\mathbf{p}\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may be a
@@ -387,6 +389,24 @@ surge/bushfire modelling) this is often not the case. There are
  % its impact on the results of the model.}
  % \label{fig:long-fb-loop.pdf}
 %\end{figure}
+
+\subsubsection{The benefits of live interactivity for uncertainty
+  quantification}
+
+The ability to stop, modify, or restart computations ``in flight'' has
+the potential to significantly improve the efficiency of an
+uncertainty analysis. There exist many algorithms, for example
+adaptive MCMC (TODO brendan expand this acronym, maybe provide a
+ref?), which attempt to choose the best samples based on the sampling
+history. For complex problems however, a domain expert may often have
+a better idea about the region of the parameter domain where function
+evaluations should be concentrated. Through live programming within a
+tight feedback loop a domain expert can incrementally guide the
+current sampling strategy being used for uncertainty quantification to
+improve the end result. The resulting strategies are expected to be
+more aggressive in nature as they are better targeted to the specific
+problem at hand. (TODO brendan one more sentence about how this helps
+with UQ specifically...)
 
 In this project, by accelerating the feedback loop between
 $\mathbf{p}$ and $Q(u_{\mathbf{p}})$, together with estimates of its
@@ -573,19 +593,6 @@ The Extempore software environment is a key tool for this project as
 it allows us to fine tune our suite of simulation software for the
 specific requirements of the task domain.
 
-Uncertainty quantification can benefit greatly from live coding. Specifically, the
-ability to alter function sampling in real time as computations progress
-has the potential to significantly improve the efficiency of an uncertainty analysis.
-Indeed, there exist many algorithms, adaptive MCMC for example, which attempt to 
-choose the best samples based on the sampling history. 
-For complex problems however, a domain expert may often have a better idea
-on where the most function evaluations should be spent.
-Through live programming within a tight feedback loop a domain expert can
-incrementally guide the current sampling strategy being used for uncertainty 
-quantification to improve the end result.
-The resulting strategies are expected to be more aggressive in nature as they 
-are better targeted to the specific problem at hand.
-
 
 \subsubsection*{From Disaster-Response Human-Factors Optimisation to Software Development}
 
@@ -639,21 +646,20 @@ and across test participants.
 
 \subsubsection*{Interactive design optimisation}
 
-We envisage this project will also have significant benefits to engineering.
-This will be demonstrated in the context of design optimisation problems,
-specifically in design problems from aerospace and aeronautics. 
-Design optimisation poses a significant challenge due to the large number of input parameters, to describe the geometry of an aircraft wing for example.
-Additionally there are a number of ways in which uncertainty comes into the 
-modelling. The manufacturing process, 
-whilst generally having small tolerances in modern facilities, is not exact.
-One must also account for a range of angles of attack and velocities during various 
-stages of flight.
-The full range of weather conditions and stresses an aircraft will be exposed to can only be guessed at.
-By utilising a tighter feedback loop coupled with live programming and visualisation support this project will improve the efficiency of the design process.
-This will be demonstrated by using the open source solvers, for example the SU2~\parencite{SU2} software, within our live coding and uncertainty quantification framework.
-
-
-
+The methodology we will develop for this project will also have
+significant benefits for engineering design. We will explore this in
+the context of design optimisation problems from aerospace and
+aeronautics. Design optimisation poses a significant challenge due to
+the large number of input parameters, for example in describing the
+geometry of an airfoil, and there are a number of ways in which
+uncertainty comes into the modelling. For example, The manufacturing
+process is not exact, and the full range of attack angles, velocities,
+stresses and weather conditions the airfoil will be exposed to during
+flight can only be guessed at. In this project we will build on our
+previous work in applying sparse grid methods in airfoil
+design~\parencite{SU2,TODO-jouke-SU2-paper}, using an interactive
+feedback loop to improve the efficiency of the design process within
+our live coding and uncertainty quantification framework.
 
 
 \subsubsection*{High-Performance Computing Systems Support}
