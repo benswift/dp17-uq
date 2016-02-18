@@ -569,6 +569,17 @@ performance overhead~\cite{swift_live_2016}. This software environment
 will be a key tool for this project as it will allow us to fine tune
 our suite of simulation software for disaster response scenarios.
 
+Uncertainty quantification can benfit greatly from live coding. Specifically, the
+ability to alter function sampling in real time as computations progress
+has the potential to significantly improve the efficiency of an uncertainty analysis.
+Indeed, there exist many algorithms, adaptive MCMC for example, which attempt to 
+choose the best samples based on the sampling history. 
+For complex problems however, a domain expert may often have a better idea
+on where the most function evaluations should be spent.
+Through live programming the domain experts input can be compared with the 
+current algorithms strategy to potentially guide the next step.
+The resulting strategies are expected to be more aggressive in nature as they 
+are more specific to the problem at hand.
 
 
 \subsubsection*{From Disaster-Response Human-Factors Optimisation to Software Development}
