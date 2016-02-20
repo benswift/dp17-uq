@@ -1,0 +1,125 @@
+\subsection*{AIMS AND BACKGROUND}
+
+When systems are disrupted during environmental disasters (for example
+during floods, storm surges or tsunamis) information from
+computational simulation is needed urgently to aid decision-making by
+emergency services. This is not simply a matter of compute power but
+requires insight from computational fluid dynamics, software
+engineering, human computer interaction, high performance computing
+and data visualisation. All of these facets need to be tightly coupled
+and tested in realistic team-coordination and decision-making
+scenarios where decision-makers collaborate with modelling experts. In
+particular, a crucial aspect of advice provided from modellers to
+decision makers is to properly quantify and communicate the
+\emph{uncertainty} in predictions obtained by computer simulations.
+This advice needs to be provided in a timely manner and in a context
+where the computer support may vary dramatically over time due to
+system outages.
+
+We will address this grand challenge through a \emph{live programming}
+approach to the development and deployment of software systems for
+environmental simulation in the presence of uncertainty. We will
+develop new ``inundation models'' (models of riverine floods, storm
+surges and tsunamis) which use sparse grids and uncertainty
+quantification to dramatically increase the speed, quality and
+usefulness of model predictions and their associated uncertainty. We
+will deploy ``live'' distributed computing infrastructure to
+\emph{rapidly prototype} the human interface to these new
+environmental simulations and to transform the traditional,
+batch-oriented workflow of environmental simulation into a highly
+interactive one. We will evaluate team coordination and
+decision-making in the presence of uncertainty through role-playing
+scenarios of representative flood and tsunami scenarios, analysing the
+protocols of live-coding optimisation of the software system during
+those field trials. From these protocols, identifiable states and
+transitions between those states will be used to iterate our
+software-system development.
+
+Our vision is that decision makers will be able to examine many
+different environmental disaster scenarios in a short space of time,
+even with computationally-expensive models. This will enable them to
+develop an intuitive understanding of the uncertainty relationships in
+the system---from uncertainties in input data through to
+representations of uncertainty in model outputs. The importance of
+this human-in-the-loop workflow is expressed
+by~\cite{pikeScience2009} in the following quote: ``it is
+through the interactive manipulation of a visual interface---the
+analytic discourse---that knowledge is constructed, tested, refined
+and shared.''
+
+Although the mathematical and computational tools we will employ in
+this project are generalisable to any modelling workflow, our focus is
+on specific application domains where (a) the model is
+(computationally) complex, (b) uncertainty is significant and (c)
+decisions are time-sensitive. Specifically, we will build interactive
+interfaces for riverine floods, storm surge and tsunami modelling,
+which exemplify these characteristics.
+
+The mathematical component of this project will be based on new
+developments combining model order reduction techniques and uncertainty
+quantification. One of the main difficulties in current models is the
+high-dimensional spaces involved, both in the parameter and domain
+spaces. Sparse grids~\parencite{BungartzGriebel2004} are known to
+reduce the effects of the so-called ``curse of dimensionality'', where
+the cost of computation increases exponentially with the dimension of
+the model. Recent work has found new ways to incorporate gradient
+information and multi-fidelity models into sparse grid
+approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}
+and we will use this knowledge in our construction of a suite of
+storm surge-tsunami models to simulate environmental disasters with
+uncertainty quantification. Reduced basis 
+methods~\parencite{quarteroni2015reduced} provide an alternative approach
+for constructing a reduced order models and will also be investigated.
+
+Computational decision support systems for disaster management have
+existed for many decades \parencite{wallaceDecision1985}, and
+advances have been made both in incorporating
+uncertainty \parencite{thompsonSocial2014,nealeNavigating2015}
+and providing real-time interaction and
+output~\parencite{yuSupport2006}. More recently, mixed-reality game
+scenarios have been used to understand and optimise human-agent
+collaboration for disaster response~\parencite{ramchurn2016human}. In
+our project plan we will follow a similar approach and will employ
+mock-game scenarios to examine and understand the nature of decision
+making with expert modelling support. In a novel twist, we will run
+these games together with live-coding optimisation and tuning of the
+software system and the underlying computational platform. By
+analysing the protocols of these live optimisations, we will
+accumulate data to feed into redesign of the software interface and to
+understand the time requirements and controls needed for the
+computational platform.
+
+
+This project will provide the following discoveries and benefits:
+\begin{enumerate}
+
+\item a suite of interactive, real-time modelling tools for
+  surge-tsunami flood disasters which combine high fidelity
+  simulations (fine grids) with low fidelity (coarse grid) simulations
+  to quantify uncertainty, optimised for human exploration
+
+\item a ``live software engineering'' approach to the development,
+  deployment and optimisation of these interactive software systems;
+
+\item models of group interaction scenarios for decision-making with
+  expert modelling support; from these models, empirical estimates of
+  the time constraints that such scenarios impose on software
+  and computer system requirements and the live controls needed to run
+  them effectively in volatile contexts
+
+\item interactive information visualisation of simulation predictions
+together with uncertainties
+ 
+
+\end{enumerate}
+
+This research is significant because it aims to unlock the power of
+sophisticated computational simulation for \emph{interactive} use.
+Although we concentrate our research on simulation support for
+disaster response, the ultimate potential of this work is to
+eventually empower domain experts from a broad range of areas to
+better use the high-performance computing power which is now available
+to them. We envision a future where performing a complex flood model
+or disaster simulation is as interactive and \emph{alive} as flicking
+through photos on an iPad.
+
