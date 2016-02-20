@@ -1,0 +1,230 @@
+\documentclass[a4paper,fontsize=12pt]{scrartcl}
+\pagestyle{empty} % suppress page numbers
+
+% set margins
+\usepackage[left=1.0cm,top=1.0cm,right=1.0cm,bottom=1.0cm,bindingoffset=0cm]{geometry}
+% \usepackage[left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
+
+%%%%%%%%%
+% fonts %
+%%%%%%%%%
+
+% use the Alegreya font
+\usepackage{Alegreya}
+\usepackage{AlegreyaSans}
+
+% a times new roman clone
+% \usepackage{times}
+
+% true Times New Roman with XeLaTeX
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+
+\usepackage[svgnames,hyperref]{xcolor}
+\usepackage{url}
+\usepackage{graphicx}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage[utf8]{inputenc}
+
+\usepackage[%
+backend=biber,
+style=authoryear, % numeric-comp
+maxbibnames=10,
+url=false,
+doi=false]{biblatex}
+
+% make bibliography a bit smaller if necessary
+\renewcommand*{\bibfont}{\footnotesize} 
+% \footnotesize should be 10pt with a standard 12pt class, 
+% see https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text
+
+% \AtEveryBibitem{\clearfield{month}}
+% \AtEveryCitekey{\clearfield{month}}
+
+\addbibresource{references.bib}
+
+\usepackage[english=british,threshold=15,thresholdtype=words]{csquotes}
+\SetCiteCommand{\parencite}
+
+\newenvironment*{smallquote}
+{\quote\small}
+{\endquote}
+\SetBlockEnvironment{smallquote}
+
+\usepackage[%
+unicode=true,
+hyperindex=true,
+bookmarks=true,
+colorlinks=true, % change to false for final
+pdfborder=0,
+allcolors=DarkBlue,
+% plainpages=false,
+pdfpagelabels,
+hyperfootnotes=true]{hyperref}
+
+\usepackage{todonotes}
+
+\author{}
+
+\date{\today}
+
+\begin{document}
+
+\section*{E2. Details of non-ARC contributions}
+\label{sec:justificatoin}
+
+%==========================
+\subsection*{Personnel}
+
+%------------------------------------------------
+\subsubsection*{A/Prof Henry Gardner (in-kind Salary Level D2, 0.2 FTE)}
+A/Professor  Henry Gardner’s salary (20\% of Academic Level D2 at ANU) and on-costs of 30\% and cash contribution of 1.55\% (difference between ANU and ARC on-cost percentage) are
+directly contributed by the Australian National University. 
+
+%------------------------------------------------
+\subsubsection*{A/Prof Stephen Roberts (in-kind Salary Level D3, 0.2 FTE)}
+A/Professor  Stephen Roberts’ salary (20\% of Academic Level D3 at ANU) and on-costs of 30\% and cash contribution of 1.55\% (difference between ANU and ARC on-cost percentage) are
+directly contributed by the Australian National University. 
+
+%------------------------------------------------
+\subsubsection*{A/Prof Peter Strazdins (in-kind Salary Level D2, 0.2 FTE)}
+A/Professor  Peter Strazdins’ salary (20\% of Academic Level D2 at ANU) and on-costs of 30\% and cash contribution of 1.55\% (difference between ANU and ARC on-cost percentage) are
+directly contributed by the Australian National University. 
+
+%------------------------------------------------
+\subsubsection*{Prof Trygve Hegland (in kind Salary Level E1. 0.2 FTE)}
+Professor  Trygve Hegland's salary (20\% of Academic Level E1 at ANU) and on-costs of 30\% and cash contribution of 1.55\% (difference between ANU and ARC on-cost percentage) are
+directly contributed by the Australian National University. 
+
+
+%------------------------------------------------
+\subsubsection*{Research Associate – Computer Science (Level B3, 1.0 FTE)}
+
+The ANU will cover the difference in ARC and ANU salary levels.
+
+
+%------------------------------------------------
+\subsubsection*{Research Associate – Mathematics (Level B1, 1.0 FTE)}
+
+The ANU will cover the difference in ARC and ANU salary levels.
+
+%%------------------------------------------------
+%\subsubsection*{PhD/HDR stipend – Computer Science}
+
+
+%%------------------------------------------------
+%\subsubsection*{PhD/HDR stipend - Mathematics}
+
+
+%==========================
+\subsection*{Travel}
+
+%------------------------------------------------
+\subsubsection*{Domestic conference - computer science}
+
+The ANU will cover the cost of one of the CIs, Gardner or Strazdins to attend the  same domestic conferences as the computer science research associate. 
+
+The Australian Conference on Human-Computer Interaction, OzCHI is the premier domestic conference in which to present Human Computer Interaction research. 
+The Australasian Software Engineering Conference, ASWEC, is the premier domestic software engineering conference.
+
+\begin{description}
+\item[Year 1 - 2017] OzCHI. Cost \$2,266  (see E1 justification).
+
+\item[Year 2 - 2018] ASWEC. (see E1) \$2,030  (see E1 justification).
+
+\item[Year 3 -  2019] OzCHI.  Cost \$2,316 (see E1 justification).
+
+\end{description}
+
+%------------------------------------------------
+\subsubsection*{Domestic Conference - mathematics}
+
+The ANU will cover the cost of one of the CIs, Roberts or Hegland to attend the  same domestic conferences as the mathematics research associate. 
+
+The International Congress on Modelling and Simulation, MODSIM is the premier domestic conference in which to present advances in modelling and simulation. 
+The Computational Techniques and Applications Conference, CTAC, is the premier domestic computational mathematics conference.
+
+\begin{description}
+\item[Year 1 - 2017] Modsim2017. Cost \$2.401  (see E1 justification).
+
+\item[Year 2 - 2018] CTAC2018. Cost \$2,440  (see E1 justification).
+
+\item[Year 3 - 2019] Modsim2019.  Cost \$2,440  (see E1 justification).
+
+
+\end{description}
+
+%------------------------------------------------
+\subsubsection*{International conference - computer science}
+
+
+The ANU will cover the cost of one of the CIs, Gardner or Strazdins to also attend the same international conferences as the research associate. 
+
+The  Association for Computing Machinery’s (ACM) SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH) is the premier international conference at the intersection of programming, languages, and software engineering.
+The International Conference on Software Engineering, ICSE, is the premier international software engineering conference.
+The Association for Computing Machinery’s (ACM) CHI conference is the world's premiere conference on Human Factors in Computing Systems.
+
+\begin{description}
+\item[Year 1 - 2017] ICSE 2017: SPLASH. Cost \$4,959  (see E1 justification).
+
+\item[Year 2 - 2018] ICSE 2018.  Cost \$5,421  (see E1 justification).
+
+\item[Year 3 - 2019] CHI.  Cost \$4,257  (see E1 justification).
+
+\end{description}
+
+
+%------------------------------------------------
+\subsubsection*{International conference - mathematics}
+
+The ANU will cover the cost of one of the CIs, Roberts or Hegland to also attend the same international conferences as the mathematics research associate. 
+
+The SIAM Conference on Computational Science and Engineering, SIAM CSE is the premier international conference in which to present advances in computational algorithms and methods. 
+The SIAM Conference on Uncertainty Quantification, SIAM UQ, is the premier international uncertainty quantification conference.
+
+\begin{description}
+\item[Year 1 - 2017] SIAM CSE 2017.  Cost \$5,485   (see E1 justification).
+
+\item[Year 2 - 2018] SIAM UQ 2018.  Cost \$5,660   (see E1 justification).
+
+\item[Year 3 - 2019]  SIAM CSE 2019.  Cost \$5,660   (see E1 justification).
+
+\end{description}
+
+%==========================
+\subsection*{Equipment}
+
+%------------------------------------------------
+%\subsubsection*{Data server}
+
+
+%------------------------------------------------
+%\subsubsection*{Video cameras}
+
+
+%------------------------------------------------
+%\subsubsection*{Video editing software}
+
+
+%------------------------------------------------
+\subsubsection*{Access to NCI tenjin HPC Cluster. 200k service units}
+
+In this project we will leverage on-demand compute resources, such as the National Compute
+Infrastructure NCI Cloud Tenjin. Using these cloud
+services will further improve the project's ability to deliver timely
+results in high-pressure and time-critical decision making scenarios. We will apply for 200k service units 
+from the ANU allocation of NCI facility.  
+
+Costing based on NCI partner rate of 0.75  of the standard NCI rate of 4c/service Unit. Total \$6,000/year. 
+
+
+
+
+\end{document}
+
+% Local Variables:
+% TeX-engine: xetex
+% End:
