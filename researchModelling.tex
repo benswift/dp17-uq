@@ -1,0 +1,127 @@
+\subsubsection*{The Modelling Problem}
+
+More formally, suppose that we have a mathematical model
+$M_{\mathbf{p}}$ parameterised by the vector
+$\mathbf{p}\in\mathcal{P}$. For example, $M_{\mathbf{p}}$ may be a
+parameterised partial differential equation %(PPDE)
+in a storm surge model. For each $\mathbf{p}$ we suppose the model is
+well-defined and there exists a unique function
+\begin{equation}
+  \label{eq:1}
+  u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
+\end{equation}
+which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
+Here the \emph{domain space} $\Omega$ represents variables such as 
+time and space, 
+and $u_{\mathbf{p}}$ represents scalar or vector fields of interest, 
+such as storm surge water level and/or velocity.    
+
+Sometimes the goal of the modeller is to better understand the
+relationship between $\mathbf{p}$ and some lower-dimensional quantity
+of interest $Q(u_{\mathbf{p}})$, such as the relationship between a
+particular rainfall scenario and the maximum storm surge levels at
+particular geographical locations. In order to achieve such
+understanding, repeated executions of the model are often required
+with an expert analysis of the outputs of each stage and selection of
+the next parameter set based on an assessment of those outputs. Such
+repeated model executions can also be used to estimate the
+\emph{uncertainty} in any given set of predictions of
+$Q(u_{\mathbf{p}})$. Through the process of trying different model
+parameterisations, the scientist is able to build up an understanding
+of the \emph{general} relationship between $\mathbf{p}$ and
+$Q(u_{\mathbf{p}})$, including the areas of the parameter space
+$\mathcal{P}$ which have the greatest influence on the result and
+which types of uncertainty have the greatest impact on the certainty
+of the results.
+
+%or to find the parameter choice $\mathbf{p}$
+%which optimises $Q$. %over all $\mathbf{x}$.
+%This high-level description of the ``model selection/optimisation''
+% workflow 
+%(shown
+%graphically in Figure~\ref{fig:general-fb-loop})
+ %lies at the heart of
+%a great deal of modern science.
+%\begin{figure}
+ % \centering
+  %\includegraphics[width=.6\textwidth]{figures/general-fb-loop.pdf}
+  %\caption{The human-in-the-loop modelling workflow. A scientist
+    %selects an initial parameter $\mathbf{p_0}$ for their model,
+    %examines the model output $Q(u_{\mathbf{p}})$, and either accepts
+    %the output of the model or re-runs the model with a different
+    %choice of the parameter $\mathbf{p_1}$.}
+  %\label{fig:general-fb-loop}
+%\end{figure}
+%There are many ways of finding an optimal $\mathbf{p}$, from 
+%trial-and-error experimentation to expert judgement through to fully-automated algorithmic
+%optimization procedures. Often there are ways to optimise $\mathbf{p}$
+%algorithmically, although these methods often introduce new parameters (the
+%arguments of the function being optimised) which must be selected by the
+%scientist. 
+%As a result, this feedback loop will often require many
+%iterations, with a scientist-in-the-loop, evaluating the results
+%of the model (possibly through visualising the model output) and
+%choosing a parameter update $\Delta\mathbf{p}$ at each step.
+% (see
+%Figure~\ref{fig:unrolled-fb-loop}). 
+%Each step through this loop
+%provides feedback to the scientist about the response of the system to
+%a particular value of $\mathbf{p}$ --  for example, the maximum storm
+%surge level under a particular rainfall scenario. 
+
+%\begin{figure}
+% \centering
+%  \includegraphics[width=\textwidth]{figures/unrolled-fb-loop.pdf}
+%  \caption{If the modelling \& post-processing/visualisation steps can
+%    be performed sufficiently quickly, then the scientist can explore
+%    the $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship
+%    \emph{interactively}, with the all the associated benefits for
+%    exploratory analysis.}
+%  \label{fig:unrolled-fb-loop}
+%\end{figure}
+
+From a workflow perspective, the productivity of the
+modeller/scientist is proportional to the rate at which they can
+explore the $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship.
+Any latency improvements in this feedback loop will translate into
+productivity gains~\parencite{liuEffects2014}. If the model
+parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known precisely
+and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate and easy to
+interpret, then the task is simple: provide the scientist with an
+interface for manipulating $\mathbf{p}$ and set them loose. However,
+for real-world models (such as those used in flood/storm
+surge/bushfire modelling) this is often not the case. There are
+\textbf{three primary challenges}:
+\begin{enumerate}
+\item \emph{The model may not provide a way to express uncertainty in
+    the inputs}. Many models do not provide methods for including
+  uncertainty information in their inputs, as was the case in the 2011
+  Brisbane River flood example.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
+    calculate}. Many
+  sophisticated models require non-trivial computing resources to evaluate. These compute resources may be
+  difficult to secure, with submitted jobs having to wait in a queue, and may
+  take a long time to compute even when the resources are available.
+  This is especially problematic in a disaster-response scenario,
+  where an approximately correct answer provided in a short time is
+  significantly more useful than a perfect answer provided after it is
+  too late to act on.
+\item \emph{The quantity $Q(u_{\mathbf{p}})$ together with estimates
+    of its uncertainty may not be easy to interpret}. Oftentimes this
+  is a visualisation problem--- the mapping
+  $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimensional,
+  and presenting that to a decision-maker, particularly when combining
+  it with its uncertainty estimates, may not be straightforward.
+\end{enumerate}
+%\begin{figure}
+ % \centering
+  %\includegraphics[width=\textwidth]{figures/long-fb-loop.pdf}
+  %\caption{If the model is computationally expensive to run, then the
+   % workflow is dominated by waiting for the model to finish. This
+    %results in lower productivity---not only due to the time spent
+    %waiting for the model, but also because of the temporal separation
+  %between the selection of a new parameter $\mathbf{p}$, and seeing
+ % its impact on the results of the model.}
+ % \label{fig:long-fb-loop.pdf}
+%\end{figure}
+
