@@ -8,31 +8,70 @@ in a storm surge model. For each $\mathbf{p}$ we suppose the model is
 well-defined and there exists a unique function
 \begin{equation}
   \label{eq:1}
-  u_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
+  U_{\mathbf{p}}(\mathbf{x})\, \quad \mathbf{x}\in\Omega
 \end{equation}
-which is a solution to the model problem, that is $M_{\mathbf{p}}(u_{\mathbf{p}})=0$.
+which is a solution to the model problem, that is $M_{\mathbf{p}}(U_{\mathbf{p}})=0$.
 Here the \emph{domain space} $\Omega$ represents variables such as 
 time and space, 
-and $u_{\mathbf{p}}$ represents scalar or vector fields of interest, 
+and $U_{\mathbf{p}}$ represents scalar or vector fields of interest, 
 such as storm surge water level and/or velocity.    
 
 Sometimes the goal of the modeller is to better understand the
 relationship between $\mathbf{p}$ and some lower-dimensional quantity
-of interest $Q(u_{\mathbf{p}})$, such as the relationship between a
+of interest $Q(U_{\mathbf{p}})$, such as the relationship between a
 particular rainfall scenario and the maximum storm surge levels at
 particular geographical locations. In order to achieve such
-understanding, repeated executions of the model are often required
+understanding, repeated executions of the model (or approximations of the model solution) are often required
 with an expert analysis of the outputs of each stage and selection of
 the next parameter set based on an assessment of those outputs. Such
 repeated model executions can also be used to estimate the
 \emph{uncertainty} in any given set of predictions of
-$Q(u_{\mathbf{p}})$. Through the process of trying different model
+$Q(U_{\mathbf{p}})$. Through the process of trying different model
 parameterisations, the scientist is able to build up an understanding
 of the \emph{general} relationship between $\mathbf{p}$ and
-$Q(u_{\mathbf{p}})$, including the areas of the parameter space
+$Q(U_{\mathbf{p}})$, including the areas of the parameter space
 $\mathcal{P}$ which have the greatest influence on the result and
 which types of uncertainty have the greatest impact on the certainty
 of the results.
+
+\paragraph*{A specific storm-surge example:}
+Consider the problem of predicting the maximum 
+storm surge water level along a coast threatened by a cyclone. 
+
+A mathematical model of storm surge is provided 
+by the shallow water wave equation,  which encodes the conservation of water and Newton's second Law (Force = mass $\times$ acceleration) 
+\begin{align*}
+\frac{\partial h}{\partial t} +
+\frac{\partial }{\partial x} \left(uh\right) + \frac{\partial }{\partial y} \left(vh\right) &= R, \\
+\frac{\partial uh}{\partial t} +
+\frac{\partial }{\partial x} \left(u^2h  \frac12 gh^2 \right) 
++ \frac{\partial }{\partial y} \left(vuh\right) &= gh \frac{\partial b}{\partial x} 
++ \frac{\partial P}{\partial  x} + S_{fx} + S_{wx} ,\\
+\frac{\partial vh}{\partial t} +
+\frac{\partial }{\partial x} \left(uvh  \right) 
++ \frac{\partial }{\partial y} \left(v^2h + \frac12 g h^2 \right) &= gh \frac{\partial b}{\partial y} 
++ \frac{\partial P}{\partial  y} + S_{fy} + S_{wy},
+\end{align*}
+where $h(x,y,t)$ is the depth of water, $u(x,y,t)$ and $v(x,y,t)$ are the $x$ and $y$ horizontal components of water velocity, $g$ is the gravitational constant (9.81), $b(x,y)$ is the bathymetry (elevation of the ocean bed), $R$ is the rate of rainfall, $P$ is the atmospheric pressure (which generates a surge due to spatial differences in atmospheric pressure associated with a cyclone), $S_{fx}$ and $S_{fy}$ are the $x$ and $y$ components of the frictional force due to the flow of the surge over the ocean bed (flow over sand is different than flow through mangroves) , and $S_{wx}$ and $S_{wy}$ are the $x$ and $y$ components of the wind  frictional force (which generates a wind driven wave runup). As is evident, there are many opportunities for uncertainty in the data defining this model. 
+As demonstrated in our papers~\parencite{anugamanual,nielsen2005hydrodynamic}  these
+equations and their implementation in the AnuGA package provide a reliable
+model of general flows associated with inundation such as riverine flooding, storm-surge 
+and tsunamis.
+
+The parameter space $\mathcal{P}$ could represent the input data $R$, $b$, $P$, $S_f$, $S_w$, as well as design parameters describing actions such as raising or lowering flood barriers and releasing or diverting flow from upstream rivers, or flood basins, or indeed constructing emergency levees. 
+The domain $\Omega$ represents the variables $x$, $y$ ,$t$ over a geographical region and time range, such the coastal region threatened by a cyclone over particular time interval. The model solution 
+$$
+U_{\mathbf{p}} (\mathbf{x})  = \begin{bmatrix} h(x,y,t) \\ u(x,y,t) \\ v(x,y,t) \end{bmatrix}
+$$
+represents the water depth and velocity fields obtained by solving the model problem for a particular value of the parameter $\mathbf{p}$ (or perhaps a high fidelity numerical approximation of this problem). 
+
+
+
+
+
+
+
+
 
 %or to find the parameter choice $\mathbf{p}$
 %which optimises $Q$. %over all $\mathbf{x}$.
@@ -82,11 +121,11 @@ of the results.
 
 From a workflow perspective, the productivity of the
 modeller/scientist is proportional to the rate at which they can
-explore the $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ relationship.
+explore the $\mathbf{p} \rightarrow Q(U_{\mathbf{p}})$ relationship.
 Any latency improvements in this feedback loop will translate into
 productivity gains~\parencite{liuEffects2014}. If the model
 parameters $\mathbf{p}$ and inputs $\mathbf{x}$ are known precisely
-and the quantity $Q(u_{\mathbf{p}})$ is cheap to calculate and easy to
+and the quantity $Q(U_{\mathbf{p}})$ is cheap to calculate and easy to
 interpret, then the task is simple: provide the scientist with an
 interface for manipulating $\mathbf{p}$ and set them loose. However,
 for real-world models (such as those used in flood/storm
@@ -97,7 +136,7 @@ surge/bushfire modelling) this is often not the case. There are
     the inputs}. Many models do not provide methods for including
   uncertainty information in their inputs, as was the case in the 2011
   Brisbane River flood example.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ may not be cheap to
+\item \emph{The quantity $Q(U_{\mathbf{p}})$ may not be cheap to
     calculate}. Many
   sophisticated models require non-trivial computing resources 
   to evaluate. These compute resources may be
@@ -108,10 +147,10 @@ surge/bushfire modelling) this is often not the case. There are
   where an approximately correct answer provided in a short time is
   significantly more useful than a perfect answer provided after it is
   too late to act on.
-\item \emph{The quantity $Q(u_{\mathbf{p}})$ together with estimates
+\item \emph{The quantity $Q(U_{\mathbf{p}})$ together with estimates
     of its uncertainty may not be easy to interpret}. Oftentimes this
   is a visualisation problem--- the mapping
-  $\mathbf{p} \rightarrow Q(u_{\mathbf{p}})$ may be high-dimensional,
+  $\mathbf{p} \rightarrow Q(U_{\mathbf{p}})$ may be high-dimensional,
   and presenting that to a decision-maker, particularly when combining
   it with its uncertainty estimates, may not be straightforward.
 \end{enumerate}

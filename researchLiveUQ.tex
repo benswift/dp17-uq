@@ -23,7 +23,7 @@ problem at hand. The result of this is more efficient quantification of
 uncertainty.
 
 In this project, by accelerating the feedback loop between
-$\mathbf{p}$ and $Q(u_{\mathbf{p}})$, together with estimates of its
+$\mathbf{p}$ and $Q(U_{\mathbf{p}})$, together with estimates of its
 uncertainty, we will give the scientist the ability to interactively
 \emph{explore} the connection (and the associated uncertainty) between
 the different dimensions of $\mathbf{p}$ and the overall response of
@@ -45,8 +45,8 @@ dynamic steering of computational resources and interactive
 visualisation. Specifically:
 \begin{enumerate}
 \item \emph{Uncertainty in inputs:} sparse grids and reduced basis models can be used
-  to pre-compute a surrogate model, $\mathbf{p} \rightarrow \tilde{u}_{\mathbf{p}}$, of the original
-  (expensive) model solution process, $\mathbf{p} \rightarrow {u}_{\mathbf{p}}$.
+  to pre-compute a surrogate model, $\mathbf{p} \rightarrow \tilde{U}_{\mathbf{p}}$, of the original
+  (expensive) model solution process, $\mathbf{p} \rightarrow {U}_{\mathbf{p}}$.
   The expectation integrals of the original model over subsets of the
   parameter space $\mathcal{P}$ (which are important for quantifying
   uncertainty) can be efficiently estimated from the
@@ -56,7 +56,7 @@ visualisation. Specifically:
   smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 
 \item \emph{Cheap to calculate:} for many problems the computation
-  of solutions $u_{\mathbf{p}}(\mathbf{x})$ to the model
+  of solutions $U_{\mathbf{p}}(\mathbf{x})$ to the model
   $M_{\mathbf{p}}$ can be done cheaply using the combination technique
   over the domain $\mathbf{x}\in\Omega$. An alternative is to use
   proper orthogonal decompositions or greedy algorithms to construct a
