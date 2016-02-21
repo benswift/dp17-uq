@@ -4,11 +4,11 @@ When systems are disrupted during environmental disasters (for example
 during floods, storm surges or tsunamis) information from
 computational simulation is needed urgently to aid decision-making by
 emergency services. This is not simply a matter of compute power but
-requires insight from computational fluid dynamics, software
+requires insight from applied mathematics, software
 engineering, human computer interaction, high performance computing
 and data visualisation. All of these facets need to be tightly coupled
 and tested in realistic team-coordination and decision-making
-scenarios where decision-makers collaborate with modelling experts. In
+scenarios where decision makers collaborate with modelling experts. In
 particular, a crucial aspect of advice provided from modellers to
 decision makers is to properly quantify and communicate the
 \emph{uncertainty} in predictions obtained by computer simulations.
@@ -19,33 +19,35 @@ system outages.
 We will address this grand challenge through a \emph{live programming}
 approach to the development and deployment of software systems for
 environmental simulation in the presence of uncertainty. We will
-develop new ``inundation models'' (models of riverine floods, storm
-surges and tsunamis) which use sparse grids and uncertainty
-quantification to dramatically increase the speed, quality and
-usefulness of model predictions and their associated uncertainty. We
-will deploy ``live'' distributed computing infrastructure to
+\textbf{develop} new ``inundation models'' (models of riverine floods,
+storm surges and tsunamis) which use sparse grids and uncertainty
+quantification to dramatically increase the speed and usefulness of
+model predictions and their associated uncertainty. We will
+\textbf{deploy} ``live'' distributed computing infrastructure to
 \emph{rapidly prototype} the human interface to these new
 environmental simulations and to transform the traditional,
 batch-oriented workflow of environmental simulation into a highly
-interactive one. We will evaluate team coordination and
+interactive one. We will \textbf{evaluate} team coordination and
 decision-making in the presence of uncertainty through role-playing
-scenarios of representative flood and tsunami scenarios, analysing the
-protocols of live-coding optimisation of the software system during
-those field trials. From these protocols, identifiable states and
-transitions between those states will be used to iterate our
-software-system development.
+scenarios of representative flood and tsunami scenarios. In these mock
+field trials, we will record (both through instrumented system logs
+and interviews with participants) the interaction patterns and
+protocols of live-programmed optimisation of the software modelling
+systems. From a human-computer interaction (HCI) analysis of these
+protocols, we will \textbf{identify} patterns in the interaction
+states and transitions between those states which we will use to
+iterate our software-system development.
 
-Our vision is that decision makers will be able to examine many
-different environmental disaster scenarios in a short space of time,
-even with computationally-expensive models. This will enable them to
-develop an intuitive understanding of the uncertainty relationships in
-the system---from uncertainties in input data through to
-representations of uncertainty in model outputs. The importance of
-this human-in-the-loop workflow is expressed
-by~\cite{pikeScience2009} in the following quote: ``it is
-through the interactive manipulation of a visual interface---the
-analytic discourse---that knowledge is constructed, tested, refined
-and shared.''
+Our vision is that using this approach, decision makers will be able
+to examine many different environmental disaster scenarios in a short
+space of time, even with computationally-expensive models. This will
+enable them to develop an intuitive understanding of the uncertainty
+relationships in the system---from uncertainties in input data through
+to representations of uncertainty in model outputs. The importance of
+this human-in-the-loop workflow is expressed by~\cite{pikeScience2009}
+in the following quote: ``it is through the interactive manipulation
+of a visual interface---the analytic discourse---that knowledge is
+constructed, tested, refined and shared.''
 
 Although the mathematical and computational tools we will employ in
 this project are generalisable to any modelling workflow, our focus is

@@ -1,0 +1,289 @@
+\documentclass[a4paper,fontsize=12pt]{scrartcl}
+\pagestyle{empty} % suppress page numbers
+
+% set margins
+\usepackage[left=1.0cm,top=1.0cm,right=1.0cm,bottom=1.0cm,bindingoffset=0cm]{geometry}
+% \usepackage[left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
+
+%%%%%%%%%
+% fonts %
+%%%%%%%%%
+
+% use the Alegreya font
+\usepackage{Alegreya}
+\usepackage{AlegreyaSans}
+
+% a times new roman clone
+% \usepackage{times}
+
+% true Times New Roman with XeLaTeX
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+
+\usepackage[svgnames,hyperref]{xcolor}
+\usepackage{url}
+\usepackage{graphicx}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage[utf8]{inputenc}
+
+\usepackage[%
+backend=biber,
+style=authoryear, % numeric-comp
+maxbibnames=10,
+url=false,
+doi=false]{biblatex}
+
+% make bibliography a bit smaller if necessary
+\renewcommand*{\bibfont}{\footnotesize} 
+% \footnotesize should be 10pt with a standard 12pt class, 
+% see https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text
+
+% \AtEveryBibitem{\clearfield{month}}
+% \AtEveryCitekey{\clearfield{month}}
+
+\addbibresource{references.bib}
+
+\usepackage[english=british,threshold=15,thresholdtype=words]{csquotes}
+\SetCiteCommand{\parencite}
+
+\newenvironment*{smallquote}
+{\quote\small}
+{\endquote}
+\SetBlockEnvironment{smallquote}
+
+\usepackage[%
+unicode=true,
+hyperindex=true,
+bookmarks=true,
+colorlinks=true, % change to false for final
+pdfborder=0,
+allcolors=DarkBlue,
+% plainpages=false,
+pdfpagelabels,
+hyperfootnotes=true]{hyperref}
+
+\usepackage{todonotes}
+
+\author{}
+
+\date{\today}
+
+\begin{document}
+
+\section*{E1. Justification of funding requested from the ARC}
+\label{sec:justificatoin}
+
+%==========================
+\subsection*{Personnel}
+
+
+%------------------------------------------------
+\subsubsection*{Research Associate – Computer Science (Level B3, 1.0 FTE)}
+
+This Computer Science Research Associate will need to have overall technical oversight of this project. It needs to be a relatively senior postdoctoral appointment because of the range of interdisciplinary research expertise in software engineering, human computer interaction and mathematics required. In particular, prior expertise in the Extempore programming language and environment would be valued for this position and would warrant the higher level B3 appointment.
+
+
+%------------------------------------------------
+\subsubsection*{Research Associate – Mathematics (Level B1, 1.0 FTE)}
+
+This Mathematics Research Associate will need to have specialist expertise in the area of sparse grids and uncertainty quantification at the level of a PhD.  Research experience in the engineering of substantial modelling software will also be expected. Level B1 is appropriate for a beginning post doc. 
+
+%------------------------------------------------
+\subsubsection*{PhD/HDR stipend – Computer Science}
+
+The Computer Science PhD project will be primarily concerned with methodological aspects of live-coding in the software engineering process. The project will start by building mock disaster response game scenarios and then conducting experiments with prototype software and humans playing these game scenarios. As the main software suite comes together these scenarios will become more realistic. We will need an applicant who has experience in live programming, a specialised skill. 
+
+The contributions from a PhD student to the Computer Science component of the project is essential to the wider outcomes of this project.
+Although the university will support some postgraduates, this is a competitive
+process across the whole university, and so is not guaranteed success. Having one guaranteed stipend in Computer Science will enable us to advertise for the best postgrads for the project and will guarantee that we are able to fulfil the outcomes of the project. 
+
+%------------------------------------------------
+\subsubsection*{PhD/HDR stipend - Mathematics}
+
+The Mathematics PhD project will be primarily concerned with flood-surge modelling. At present our major expertise is in tsumami modelling with uncertain bathymetry data. This project will focus on down-stream surge modelling and will model forcing functions from disaster swell phenomena. 
+
+The contributions from a PhD student to the Mathematics component of the project is essential to the wider outcomes of this project.
+Although the university will support some postgraduates, this is a competitive
+process across the whole university, and so is not guaranteed success. Having one guaranteed stipend in Mathematics will enable us to advertise for the best postgrads for the project and will guarantee that we are able to fulfil the outcomes of the project. 
+
+%==========================
+\subsection*{Travel}
+
+%------------------------------------------------
+\subsubsection*{Domestic conference - computer science}
+
+We request funds to cover the cost of the computer science research associate to attend important domestic conferences.  The ANU will cover the cost of one of the CIs, Gardner or Strazdins to also attend the same domestic conferences as the research associate. 
+
+The Australian Conference on Human-Computer Interaction, OzCHI is the premier domestic conference in which to present Human Computer Interaction research. 
+The Australasian Software Engineering Conference, ASWEC, is the premier domestic software engineering conference.
+
+\begin{description}
+\item[Year 1 - 2017] OzCHI. 
+Location is unknown at the time of writing. Perhaps Brisbane. 
+Return airfare Canberra-Brisbane \$830.0 (Qantas - Flex). Accommodation Brisbane, 
+Rydges South Bank \$169 $\times$  4 = \$676. 
+Conference registration \$760 (non-member early reg, 2015) No per diem. Cost \$2,266. 
+
+\item[Year 2 - 2018] ASWEC.
+Location is unknown at the time of writing. Perhaps Sydney
+Return airfare Canberra-Sydney (Qantas - Rede-Deal) \$240
+Accommodation Sydney, Aspire Ultimo \$188 $\times$ 4 = \$752
+Conference registration \$1,038 (non-member early reg, 2015) 
+No per diem. Cost \$2,030.
+
+
+
+\item[Year 3 -  2019] OzCHI.
+Location is unknown at the time of writing. Perhaps Adelaide
+Return airfare Canberra- Adelaide (Qantas - Flexi) \$880
+Accommodation Adelaide, Stamford Plaza \$169 $\times$ 4 =\$676
+Conference registration \$760 (non-member early reg, 2015)
+No per diem. Cost \$2,316.
+
+
+\end{description}
+
+
+
+%------------------------------------------------
+\subsubsection*{Domestic Conference - mathematics}
+
+We request funds to cover the cost of the mathematics research associate to attend important domestic conferences.  The ANU will cover the cost of one of the CIs, Roberts or Hegland to also attend the same domestic conferences as the research associate. 
+
+The International Congress on Modelling and Simulation, MODSIM is the premier domestic conference in which to present advance in modelling and simulation. 
+The Computational Techniques and Applications Conference, CTAC, is the premier domestic computational mathematics conference.
+
+\begin{description}
+\item[Year 1 - 2017] Modsim2017.
+Paramount modelling and simulation conference in Australia. It provides an excellent venue for the Mathematics Research Associate to present the results of our research. 
+Registration fee of \$850, 
+Airfare to Tasmania of \$840 (Qantas Flex)
+Accommodation \$711 (Best Western Hobart).  
+No per diem. Cost \$2.401.
+
+
+
+\item[Year 2 - 2018] CTAC2018.
+Paramount computational science conference in Australia. It will provide an excellent venue to present the results of our research. Location unknown.
+Estimated costs are based on 
+Registration fee of \$850, 
+Airfare of \$840
+Accommodation of \$750.
+No per diem. Cost \$2,440.
+
+\item[Year 3 - 2019] Modsim2019.
+Paramount modelling and simulation conference in Australia. It will provide an excellent venue to present the results of our research. Location unknown.
+Costs are based on 
+Registration fee of \$850, 
+Airfare of \$840,
+Accommodation of \$750,
+No per diem. Cost \$2,440.
+
+
+
+
+\end{description}
+
+%------------------------------------------------
+\subsubsection*{International conference - computer science}
+
+We request funds to cover the cost of the computer science research associate to attend important international conferences.    The ANU will cover the cost of one of the CIs, Gardner or Strazdins to also attend the same international conferences as the research associate. 
+
+The  Association for Computing Machinery’s (ACM) SIGPLAN conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH) is the premier international conference at the intersection of programming, languages, and software engineering.
+The International Conference on Software Engineering, ICSE, is the premier international software engineering conference.
+The Association for Computing Machinery’s (ACM) CHI conference is the world's premiere conference on Human Factors in Computing Systems.
+
+\begin{description}
+\item[Year 1 - 2017] SPLASH 2017.
+Vancouver. 
+Registration \$850 (US\$595) 
+Airfare Qantas xCanberra \$2635. 
+5 nights accomm. Pinacle Hotel, Vancouver Waterfront \$899 (C\$177 p. night)
+Per Diem: 50\% ATO; cost group 5; 50\% AT0 = \$115, 
+5 nights \$575. Cost \$4,959.
+
+
+\item[Year 2 - 2018] ICSE 2018.
+Gothenburg, Sweden
+Airfare Canberra - Gothenburg \$4206
+Quality Hotel Panorama \$131 $\times$ 5 = \$655
+Registration: \$932 (IEEE Member rate; 2015)
+Per diem 50\% ATO; cost group 5; 50\% AT0= \$115, 
+5 nights = \$560. Cost \$5,421.
+
+
+\item[Year 3 - 2019] CHI.
+Location: unknown
+Perhaps Pittsburg, USA?
+Return Airfare Canberra - Pittsburg \$2582
+Hotel - Hyatt Place 6 $\times$ \$135 = US\$810 = \$1150
+Per diem: 50\% ATO; cost group 4; 50\% AT0= \$87.5, 6 nights = \$525. Cost \$4,257.
+
+\end{description}
+
+
+%------------------------------------------------
+\subsubsection*{International conference - mathematics}
+
+
+We request funds to cover the cost of the mathematics research associate to attend important international conferences.  The ANU will cover the cost of one of the CIs, Roberts or Hegland to also attend the same international conferences as the research associate. 
+
+The SIAM Conference on Computational Science and Engineering, SIAM CSE is the premier international conference in which to present advances in computational algorithms and methods. 
+The SIAM Conference on Uncertainty Quantification, SIAM UQ, is the premier international uncertainty quantification conference.
+
+\begin{description}
+\item[Year 1 - 2017] SIAM CSE 2017.
+Costs based on registration \$640 (US\$450), 
+Travel (to Atlanta, Georgia, USA) \$3280, 
+Accommodation Atlanta Hilton, \$1005 (\$201 p. night).  
+Per Diem: 50\% ATO; cost group 5; 50\% AT0 =\$115, 5 nights =\$560, Cost \$5,485.
+
+\item[Year 2 - 2018] SIAM UQ 2018.
+Main international conference for the presentation of research in uncertainty quantification. Location unknown.
+Estimated costs based on 
+Registration \$600,
+Travel (to US) \$3500, 
+Accommodation \$1000.
+Per diem 50\% ATO; cost group 5; 50\% AT0= \$115, 5 nights = \$560. Cost \$5,660.
+
+\item[Year 3 - 2019]  SIAM CSE 2019.
+Main international conference for the presentation of research in computational science and engineering. Location unknown.
+Estimated costs based on 
+Registration \$600,
+Travel (to US) \$3500, 
+Accommodation \$1000.
+Per diem 50\% ATO; cost group 5; 50\% AT0= \$115, 5 nights = \$560. Cost \$5,660.
+
+\end{description}
+
+%==========================
+\subsection*{Equipment}
+
+%------------------------------------------------
+\subsubsection*{Data server}
+
+We will need to have a server to manage the large amount of data that we will collect. A typical machine is the Dell 462-8700 Precision Tower 5810 Workstation features 3.5 GHz Intel Xeon E5-1620 v3 Processor, 16GB of 2133 MHz DDR4 ECC RDIMM RAM, quoted as \$2,622 inclusive of GST.  Cost \$2,384.
+
+
+%------------------------------------------------
+\subsubsection*{Video cameras}
+
+We need 3 video cameras to film human experiments, for instance, GOPRO - 8MP - HERO+ LCD – CHDHB-101, quoted as \$450. Total cost \$1,350.
+
+%------------------------------------------------
+\subsubsection*{Video editing software}
+
+We will need at least 2 licences for professional video editing software such as Final Cut Pro. Quote \$500/licence. Cost \$1,000.
+
+
+
+
+
+\end{document}
+
+% Local Variables:
+% TeX-engine: xetex
+% End:
