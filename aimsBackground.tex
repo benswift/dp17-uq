@@ -1,6 +1,6 @@
 \subsection*{AIMS AND BACKGROUND}
 
-When systems are disrupted during environmental disasters (for example
+When systems are disrupted during environmental disasters (for example,
 during floods, storm surges or tsunamis) information from
 computational simulation is needed urgently to aid decision-making by
 emergency services. This is not simply a matter of compute power but
@@ -19,11 +19,11 @@ system outages.
 We will address this grand challenge through a \emph{live programming}
 approach to the development and deployment of software systems for
 environmental simulation in the presence of uncertainty. We will
-\textbf{develop} new ``inundation models'' (models of riverine floods,
+\textbf{develop} new `inundation models' (models of riverine floods,
 storm surges and tsunamis) which use sparse grids and uncertainty
 quantification to dramatically increase the speed and usefulness of
 model predictions and their associated uncertainty. We will
-\textbf{deploy} ``live'' distributed computing infrastructure to
+\textbf{deploy} `live' distributed computing infrastructure to
 \emph{rapidly prototype} the human interface to these new
 environmental simulations and to transform the traditional,
 batch-oriented workflow of environmental simulation into a highly
@@ -31,7 +31,7 @@ interactive one. Indeed live programming offers an unprecedented opportunity
 for interactive parallel program performance evaluation and tuning.
 We will \textbf{evaluate} team coordination and
 decision-making in the presence of uncertainty through role-playing
-scenarios of representative flood and tsunami scenarios. In these mock
+scenarios of representative flood and tsunami situations. In these mock
 field trials, we will record (both through instrumented system logs
 and interviews with participants) the interaction patterns and
 protocols of live-programmed optimisation of the software modelling
@@ -59,21 +59,29 @@ decisions are time-sensitive. Specifically, we will build interactive
 interfaces for riverine floods, storm surge and tsunami modelling,
 which exemplify these characteristics.
 
-The mathematical component of this project will be based on new
-developments combining model order reduction techniques and uncertainty
-quantification. One of the main difficulties in current models is the
-high-dimensional spaces involved, both in the parameter and domain
-spaces. Sparse grids~\parencite{BungartzGriebel2004} are known to
-reduce the effects of the so-called ``curse of dimensionality'', where
+When uncertainty is included, the 
+essential dimension of the problem is increased markedly.  
+New techniques are then required to deal with the
+`curse of dimensionality', where
 the cost of computation increases exponentially with the dimension of
-the model. Recent work has found new ways to incorporate gradient
+the problem. 
+
+The mathematical component of this project will be based on new
+developments combining reduced order models 
+(such as sparse grids and reduced basis methods)
+with uncertainty quantification.
+Sparse grids~\parencite{BungartzGriebel2004} are known to
+reduce the effects of the curse of dimensionality and 
+recent work in our group has found new ways to incorporate gradient
 information and multi-fidelity models into sparse grid
-approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}
-and we will use this knowledge in our construction of a suite of
-storm surge-tsunami models to simulate environmental disasters with
-uncertainty quantification. Reduced basis 
-methods~\parencite{quarteroni2015reduced} provide an alternative approach
-for constructing a reduced order models and will also be investigated.
+approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}.
+We will extend this work to construct efficient techniques 
+for incorporating uncertain  information into 
+storm surge-tsunami models. 
+Reduced basis 
+methods~\parencite{quarteroni2015reduced} provide an 
+alternative approach for constructing reduced order 
+models and will also be investigated.
 
 Computational decision support systems for disaster management have
 existed for many decades \parencite{wallaceDecision1985}, and
@@ -93,7 +101,7 @@ accumulate data to feed into redesign of the software interface and to
 understand the time requirements and controls needed for the
 computational platform.
 
-
+\medskip
 This project will provide the following discoveries and benefits:
 \begin{enumerate}
 
@@ -102,8 +110,8 @@ This project will provide the following discoveries and benefits:
   simulations (fine grids) with low fidelity (coarse grid) simulations
   to quantify uncertainty, optimised for human exploration
 
-\item a ``live software engineering'' approach to the development,
-  deployment and optimisation of these interactive software systems;
+\item a `live software engineering' approach to the development,
+  deployment and optimisation of these interactive software systems
 
 \item models of group interaction scenarios for decision-making with
   expert modelling support; from these models, empirical estimates of
@@ -125,5 +133,5 @@ eventually empower domain experts from a broad range of areas to
 better use the high-performance computing power which is now available
 to them. We envision a future where performing a complex flood model
 or disaster simulation is as interactive and \emph{alive} as flicking
-through photos on an iPad.
+through photos on a tablet.
 
