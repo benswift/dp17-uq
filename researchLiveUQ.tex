@@ -1,19 +1,25 @@
 \subsubsection*{The benefits of Live Interactivity for Uncertainty
   Quantification}
 
-The ability to stop, modify, or restart computations ``in flight'' has
+The ability to stop, modify, or restart computations `in flight' has
 the potential to significantly improve the efficiency of an
 uncertainty analysis. There exist many algorithms, for example
 adaptive Markov chain Monte Carlo methods~\parencite{GilksEtal1994}, 
 which attempt to choose the best samples based on the sampling
-history. For complex problems however, a domain expert may often have
+history. For complex problems however, a domain expert
+may often have
 a better idea about the region of the parameter domain where function
 evaluations should be concentrated. Through live programming within a
 tight feedback loop a domain expert can incrementally guide the
-current sampling strategy being used for uncertainty quantification to
-improve the end result. The resulting strategies are expected to be
+current sampling strategy being used for uncertainty 
+quantification, and in turn be guided by 
+real time information derived from the reduced order model 
+(such as surpluses
+provided by sparse grid approximation to 
+identify important parameter dimensions and regions of interest), 
+to improve the end result. The resulting strategies are expected to be
 more aggressive in nature as they are better targeted to the specific
-problem at hand. The upshot of this is more efficient quantification of
+problem at hand. The result of this is more efficient quantification of
 uncertainty.
 
 In this project, by accelerating the feedback loop between
@@ -54,14 +60,14 @@ visualisation. Specifically:
   $M_{\mathbf{p}}$ can be done cheaply using the combination technique
   over the domain $\mathbf{x}\in\Omega$. An alternative is to use
   proper orthogonal decompositions or greedy algorithms to construct a
-  reduced order model which is then cheap to compute with. In both
+  reduced order model which is cheap to compute. In both
   cases the initial construction can be somewhat costly but the
   savings gained later when these surrogates are used extensively for
   UQ and optimisation significantly outweigh this cost. Additionally,
   the initial construction can be done in an offline phase. For our
-  disaster response scenarios, the concept of ``cheapness'' will be
-  re-framed as one of ``timeliness'': we will build systems which
-  guarantee modelling results within particular timeframes of
+  disaster response scenarios, the concept of `cheapness' will be
+  re-framed as one of `timeliness'. We will build systems which
+  guarantee modelling results within timeframes of
   relevance to human factor processes in group decision making
   (occurring in the online phase).
 
