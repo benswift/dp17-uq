@@ -27,4 +27,18 @@ steer scientific simulation in real time. In this part of the project,
 we will apply this tool to the real-time steering of the computer
 systems layer itself.
 
-
+This will involve developing code libraries to assist the developer in
+the live performance evaluation and tuning of these complex and highly
+parallel simulations. For example, groups of processes will be
+allocated to different parts of the simulation. If some parts are
+delayed relative to others, processes can be `stolen' from the faster
+group to improve load balance \cite{parSGCT16}. Communication
+bottlenecks can be identified and alternate communication algorithms
+can be employed to rectify this.  Different computational kernels can
+be selected depending on the current memory system and floating point
+performance.  It should be noted that this fine-tuning is not only
+application-dependent, but within an application, it depends on the
+workload selected, and even within that, may depend on the current
+phase of the simulation. Only Live Programming by \emph{Extempore} has
+the flexibility and agility to facilitate such a degree of performance
+tuning.
