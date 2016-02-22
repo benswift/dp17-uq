@@ -134,7 +134,7 @@ surge/bushfire modelling) this is often not the case. There are
 %\end{figure}
 As described in the following sections, we will address these {three primary challenges} using {\bf sparse grids and reduced basis models}, {\bf live coding} and {\bf interactive visualisation}. Specifically: 
 \begin{enumerate}
-\item \emph{Uncertainty in inputs:} {\bf sparse grids and reduced basis models} can be used
+\item {\bf Sparse grids and reduced basis models} will be used
   to pre-compute a surrogate model, $\mathbf{p} \rightarrow \tilde{U}_{\mathbf{p}}$, of the original
   (expensive) model solution process, $\mathbf{p} \rightarrow {U}_{\mathbf{p}}$.
   The expectation integrals of the original model over subsets of the
@@ -145,28 +145,32 @@ As described in the following sections, we will address these {three primary cha
   integrand is sufficiently
   smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
 
-\item \emph{Cheap to calculate:} for many problems the computation
-  of solutions $U_{\mathbf{p}}(\mathbf{x})$ to the model
-  $M_{\mathbf{p}}$ can be done cheaply using the combination technique
-  over the domain $\mathbf{x}\in\mathcal{D}$. An alternative is to use
-  proper orthogonal decompositions or greedy algorithms to construct a
-  reduced order model which is cheap to compute. In both
-  cases the initial construction can be somewhat costly but the
-  savings gained later when these surrogates are used extensively for
-  UQ and optimisation significantly outweigh this cost. Additionally,
-  the initial construction can be done in an {\bf offline} phase. For our
-  disaster response scenarios, the concept of `cheapness' will be
-  re-framed as one of `timeliness'. We will build systems which
-  guarantee modelling results within timeframes of
-  relevance to human factor processes in group decision making
-  (occurring in the {\bf online} phase). We will use {\bf live coding} to understand these human
-  constraints and to rapidly prototype our sytems for delivery into time-bound environments.   
+\item {\bf Live coding} will be used to build systems which guarantee modelling results within timeframes
+relevant to decision making in disaster management scenarios as described below.
 
-\item \emph{Easy to interpret:} since a sparse grid sampling of
+
+
+%for many problems the computation
+%  of solutions $U_{\mathbf{p}}(\mathbf{x})$ to the model
+%  $M_{\mathbf{p}}$ can be done cheaply using the combination technique
+%  over the domain $\mathbf{x}\in\mathcal{D}$. An alternative is to use
+%  proper orthogonal decompositions or greedy algorithms to construct a
+%  reduced order model which is cheap to compute. In both
+%  cases the initial construction can be somewhat costly but the
+%  savings gained later when these surrogates are used extensively for
+%  UQ and optimisation significantly outweigh this cost. Additionally,
+%  the initial construction can be done in an {\bf offline} phase. For our
+ % disaster response scenarios, the concept of `cheapness' will be
+ % re-framed as one of `timeliness'. We will build systems which
+ % guarantee modelling results within timeframes of
+  %relevance to human factor processes in group decision making
+  %(occurring in the {\bf online} phase). We will use {\bf live coding} to understand these human
+  %constraints and to rapidly prototype our sytems for delivery into time-bound environments.   
+
+\item {\bf Interactive visualisations} will be developed to assist decision makers
+in interpreting the results of our models. Since sparse grid sampling of
   $\mathbf{p}\in\mathcal{P}$ enables a fast and efficient exploration
   of parameter space, there is more time for {\bf visualisation and
-  post-processing} in the interactive interface, which facilitates
-  richer ensembles of visualisation techniques to assist the
-  decision-maker in interpreting the results of the model.
+  post-processing} in the interactive interface.
 \end{enumerate}
 
