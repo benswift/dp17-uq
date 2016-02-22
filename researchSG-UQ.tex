@@ -7,7 +7,7 @@ methods~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015,Peherstorfe
 and uncertainty quantification. One of the main difficulties in the
 study of current scientific models is the high dimensional spaces
 involved, often both in the parameter and domain spaces, $\mathcal{P}$
-and $\Omega$ respectively. This is a significant barrier for the
+and $\mathcal{D}$ respectively. This is a significant barrier for the
 timely evaluation of models due to the `curse of dimensionality' in
 which the cost scales exponentially with dimension. By using sparse
 grids and reduced basis models we will be able to compute
@@ -20,7 +20,7 @@ using a proper orthogonal decomposition. A sparse grid surrogate of
 the model over $\mathcal{Q}$ can also be computed in an offline phase,
 so that in an online phase model solutions can be efficiently
 estimated using the surrogate model. For many problems sparse grids
-can also be used over $\Omega$ when computing solutions to the full
+can also be used over $\mathcal{D}$ when computing solutions to the full
 model to speed up the construction of a reduced basis. We will compute
 sparse grid solutions via the `combination
 technique'~\parencite{Griebel1990}. Figure~\ref{fig:sparse_grids}
