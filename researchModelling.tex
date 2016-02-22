@@ -132,4 +132,41 @@ surge/bushfire modelling) this is often not the case. There are
  % its impact on the results of the model.}
  % \label{fig:long-fb-loop.pdf}
 %\end{figure}
+As described in the following sections, we will address these {three primary challenges} using {\bf sparse grids and reduced basis models}, {\bf live coding} and {\bf interactive visualisation}. Specifically: 
+\begin{enumerate}
+\item \emph{Uncertainty in inputs:} {\bf sparse grids and reduced basis models} can be used
+  to pre-compute a surrogate model, $\mathbf{p} \rightarrow \tilde{U}_{\mathbf{p}}$, of the original
+  (expensive) model solution process, $\mathbf{p} \rightarrow {U}_{\mathbf{p}}$.
+  The expectation integrals of the original model over subsets of the
+  parameter space $\mathcal{P}$ (which are important for quantifying
+  uncertainty) can be efficiently estimated from the
+  surrogate model. This has
+  significant benefits over classical Monte Carlo methods when the
+  integrand is sufficiently
+  smooth~\parencite{JakemanRoberts2013,FranzelinDiehlPfluger2014}.
+
+\item \emph{Cheap to calculate:} for many problems the computation
+  of solutions $U_{\mathbf{p}}(\mathbf{x})$ to the model
+  $M_{\mathbf{p}}$ can be done cheaply using the combination technique
+  over the domain $\mathbf{x}\in\mathcal{D}$. An alternative is to use
+  proper orthogonal decompositions or greedy algorithms to construct a
+  reduced order model which is cheap to compute. In both
+  cases the initial construction can be somewhat costly but the
+  savings gained later when these surrogates are used extensively for
+  UQ and optimisation significantly outweigh this cost. Additionally,
+  the initial construction can be done in an {\bf offline} phase. For our
+  disaster response scenarios, the concept of `cheapness' will be
+  re-framed as one of `timeliness'. We will build systems which
+  guarantee modelling results within timeframes of
+  relevance to human factor processes in group decision making
+  (occurring in the {\bf online} phase). We will use {\bf live coding} to understand these human
+  constraints and to rapidly prototype our sytems for delivery into time-bound environments.   
+
+\item \emph{Easy to interpret:} since a sparse grid sampling of
+  $\mathbf{p}\in\mathcal{P}$ enables a fast and efficient exploration
+  of parameter space, there is more time for {\bf visualisation and
+  post-processing} in the interactive interface, which facilitates
+  richer ensembles of visualisation techniques to assist the
+  decision-maker in interpreting the results of the model.
+\end{enumerate}
 
