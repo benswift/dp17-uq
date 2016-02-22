@@ -4,8 +4,8 @@
 \pagestyle{empty} % suppress page numbers
 
 % set margins
-%\usepackage[left=1.0cm,top=1.0cm,right=1.0cm,bottom=1.0cm,bindingoffset=0cm]{geometry}
-\usepackage[left=0.7cm,top=0.7cm,right=0.7cm,bottom=0.7cm,bindingoffset=0cm]{geometry}
+\usepackage[left=1.0cm,top=1.0cm,right=1.0cm,bottom=1.0cm,bindingoffset=0cm]{geometry}
+%\usepackage[left=0.7cm,top=0.7cm,right=0.7cm,bottom=0.7cm,bindingoffset=0cm]{geometry}
 %\usepackage[left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm,bindingoffset=0cm]{geometry}
 
 %%%%%%%%%
@@ -45,14 +45,14 @@
 %\addbibresource{references.bib}
 
 % Make the spacing smaller in the bibliography
-\newlength{\bibitemsep}\setlength{\bibitemsep}{.1\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
 \newlength{\bibparskip}\setlength{\bibparskip}{0pt}
 \let\oldthebibliography\thebibliography
 \renewcommand\thebibliography[1]{%
   \oldthebibliography{#1}%
   \setlength{\parskip}{\bibitemsep}%
   \setlength{\itemsep}{\bibparskip}%
-  \setlength{\baselineskip}{5pt}%
+  \setlength{\baselineskip}{7pt}%
 }
 
 
