@@ -13,7 +13,7 @@ by the shallow water wave equation,  which encodes the conservation of water and
 \frac{\partial h}{\partial t} +
 \frac{\partial }{\partial x} \left(uh\right) + \frac{\partial }{\partial y} \left(vh\right) -R & =  0 ,\\
 \frac{\partial uh}{\partial t} +
-\frac{\partial }{\partial x} \left(u^2h  \frac12 gh^2 \right) 
+\frac{\partial }{\partial x} \left(u^2h +  \frac12 gh^2 \right) 
 + \frac{\partial }{\partial y} \left(vuh\right) + gh \frac{\partial b}{\partial x} 
 - \frac{h}{\rho} \frac{\partial P}{\partial  x} - S_{fx} - S_{wx}  &= 0 ,   \\
 \frac{\partial vh}{\partial t} +
@@ -24,7 +24,7 @@ by the shallow water wave equation,  which encodes the conservation of water and
 \end{subequations}
 where $h(x,y,t)$ is the depth of water, $u(x,y,t)$ and $v(x,y,t)$ are the $x$ and $y$ horizontal components of water velocity. In particular $h$, $u$ and $v$ are functions defined on $\Omega \times T = \mathcal{D}$. 
 
-We have some physical constants  $g$ being the gravitational constant (9.81) and $\rho$ is the density of water. 
+Here $g$ being the gravitational constant (9.81) and $\rho$ is the density of water. 
 The other terms constitute input data to the model. 
  $b(x,y)$ is the  elevation of the ocean bed (the bathymetry).
 $R$ is the the rate of rainfall on the region over time.
