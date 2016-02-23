@@ -22,6 +22,13 @@ by the shallow water wave equations~\parencite{tan1992shallow}
 - \frac{h}{\rho} \frac{\partial P}{\partial  y} - S_{fy} -  S_{wy}& = 0,  
 \end{align}
 \end{subequations}
+%\begin{subequations}
+% \label{eqn:storm} 
+%\begin{align}
+%h_t + \mathbf{\nabla} \cdot (h  \mathbf{u} ) - R &= 0 \\
+%( \mathbf{u}h)_t + \mathbf{\nabla} \cdot \left(h \mathbf{u} \otimes  \mathbf{u}  \right)  + gh \mathbf{\nabla} (h+b) - \frac{h}{\rho}  \mathbf{\nabla} P - \mathbf{S}_f - \mathbf{S}_w &=0
+%\end{align}
+%\end{subequations}
 where $h(x,y,t)$ is the depth of water, $u(x,y,t)$ and $v(x,y,t)$ are the $x$ and $y$ horizontal components of water velocity. In particular $h$, $u$ and $v$ are functions defined on $\Omega \times T = \mathcal{D}$. 
 
 Here $g$ is the gravitational constant (9.81) and $\rho$ is the density of water. 
@@ -43,8 +50,9 @@ $$
 U_{\mathbf{p}} (\mathbf{x})  = (  h(x,y,t) , u(x,y,t) ,  v(x,y,t) )
 $$
 represents the water depth and velocity fields obtained by solving the model problem for a choice of parameter $\mathbf{p}$ at a particular location and time $\mathbf{x} = (x,y,t)$.
+Equation~\eqref{eqn:storm} can be characterised as $M_{\mathbf{p}}(U_{\mathbf{P}}) = 0$.
 
-The quantity of interest $Q(U_{\mathbf{p}})$ in this case will be the maximum storm surge height at a particular location $(x_0, y_0) \in \Omega$,
+In this case, the quantity of interest $Q(U_{\mathbf{p}})$ will be the maximum storm surge height at a particular location $(x_0, y_0) \in \Omega$,
 $$ 
 Q(U_{\mathbf{p}})  = \max_{t_0 \leq t \leq t_1} \left( h(x_0,y_0,t) + b(x_0,y_0) \right).
 $$
