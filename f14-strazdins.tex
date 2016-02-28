@@ -1,0 +1,199 @@
+% a list of your ten career-best research outputs, with a brief
+% paragraph for each research output explaining its significance (four
+% pages maximum).
+% Provide the full reference for each, 
+% provide information on any relevant ARC grant scheme that your were CI on,
+% add a brief paragraph for each, explaining and justifying its impact,
+% mark with an asterisk the research outputs relevant to this proposal
+
+\documentclass[a4paper,oneside,12pt]{article}
+\usepackage{arcdoc}
+
+\begin{document}
+
+\subsubsection*{G12~ Ten Career-best Publications: PE Strazdins}
+
+Citation counts as at 4 November 2015 from Google Scholar.
+
+\setlength{\leftmargini}{8mm}
+~ \\
+\textbf{Scholarly Book Chapters:}
+\begin{enumerate}
+\item * {Peter Strazdins}, K.\ Homma, K.\ Nagase, V.\ Nguyen, M.\
+      Noro, and T.\ Yamagajo,
+{\em Efficient {P}arallel {E}lectromagnetic {F}ield {A}nalysis
+      {E}xploiting {S}ymmetry},
+	chapter in {\em Practical Applications of Parallel Computing},
+      Advances in Computation: Theory and Practice Series Volume 12,
+      pp.\ 201--222. NOVA Science Publishers Inc, Huntington NY,
+      2002. 
+
+Describes how the first parallelization of symmetric
+indefinite solvers and other techniques were used to speedup an already
+efficiently parallelized commercial application (ACCUFIELD) by a factor
+of three. 
+
+\end{enumerate}
+~\\[-2mm]
+\textbf{Refereed Journal Articles:}
+\begin{enumerate}
+\setcounter{enumi}{1}
+%\setlength{\itemsep}{1mm}
+%\setlength{\itemsep}{0.5ex plus0.2ex}
+
+\item * {Peter Strazdins}, 
+	{\em A Comparison of Lookahead and {A}lgorithmic {B}locking
+      Techniques for {P}arallel {M}atrix {F}actorization.} 
+	International Journal of Parallel and Distributed Systems and
+      Networks, 4(1), pp.\ 26--35, April 2001. 
+
+First comparison of leading load balancing techniques for parallel
+dense linear algebra, also developing formal properties and
+performance models. The technique is of continuing relevance, and in
+particular for manycore devices such as GPUs. 44 citations, 25 over
+the last 5 years. The conference version of this paper (1998) has received
+12 citations, making 56 in total.
+
+
+\item P.E. Strazdins.
+                {\em Accelerated methods for performing the {LDLT} decompositio\
+n.}
+                {ANZIAM J.} 42(E), pages C1328--C1355, Dec 2000.
+
+First ever distributed memory parallelization of the LDLT
+decomposition.  Proposed and evaluated several algorithms along a
+spectrum of performance and numerical stability tradeoffs. Led to a
+follow-up paper co-authored by John Lewis from Boeing, a world leader
+in the area of numerical algorithms. Cited by 10.
+
+\item R.P. Brent and P.E. Strazdins. {\em Implementation of BLAS Level
+  3 and LINPACK Benchmark on the AP1000}, Fujitsu Scientific and
+  Technical Journal, 29(1):61–70, 1993.  A collaboration with a
+  world-leading computer scientist leading to the first description of
+  what later became known as the algorithmic blocking technique for
+  matrix factorization; also one of the first papers on parallel BLAS
+  implementation. 23 citations.
+
+\end{enumerate}
+
+~\\[-2mm]
+\textbf{Refereed Conference Papers:}
+\begin{enumerate}
+\setcounter{enumi}{4}
+%\setlength{\itemsep}{1mm}
+%\setlength{\itemsep}{0.5ex plus0.2ex}
+
+\item
+
+* Md Mohsin Ali, Peter E. Strazdins, Brendan Harding, Markus Hegland,
+J. Walter Larson, {\em A Fault-Tolerant Gyrokinetic Plasma Application          
+using the Sparse Grid Combination Technique}, Proceedings of the 2015
+International Conference on High Performance Computing \& Simulation
+(HPCS 2015), pp499-507, Amsterdam, July 2015.
+
+Culminating paper of a series of papers produced by
+LP100200079. Demonstrated that an existing, widely used and highly
+complex real-world application running over thousands of processes can
+be made robustly tolerant to hard faults. The novelty lies in using a form
+of Algorithmic-Based Fault Tolerance to do so (the project was the
+first to use it for that purpose).  One of CI Strazdins contributions
+was solely devising and implementing the first-ever distributed memory
+SGCT algorithm -- a major achievement in its own right.
+The technique is applicable to a large
+class of scientific simulations, and the project has similarly made
+two other major applications fault-tolerant since. 
+In recognition of its breakthrough research, it was given the {\bf
+  Outstanding Paper Award} at HPCS-15.
+
+Under grant LP100200079.
+
+
+\item * Rui Yang, Joseph Antony, Alistair Rendell, Danny Robson and
+  Peter Strazdins, {\em Profiling Directed NUMA Optimization on Linux
+    Systems: A Case Study of the Gaussian Computational Chemistry
+    Code}, Proceedings of the 2011 IEEE International Parallel \&
+  Distributed Processing Symposium, Anchorage, p1033-1042, May 2011.
+  
+  ERA Rank A venue, regarded as one of the best in the field. Used
+  novel performance analysis techniques and computer simulation tools
+  to reveal deep aspects of the performance of NUMA systems.  9
+  citations.
+
+ Under grant LP0774896.
+
+
+\item Jie Cai, Peter E. Strazdins, and Alistair P. Rendell, {\em
+Region-Based Prefetch Techniques for Software Distributed Shared Memory
+Systems}, Proceedings of the  2010 10th IEEE/ACM International
+Conference on Cluster, Cloud and Grid Computing, pages 113-122, IEEE,
+Melbourne, May 2010.
+
+A new technique significantly improving the accuracy of prefetch
+prediction over earlier work with the potential to make shared memory
+programming on clusters more widely applicable. ERA Rank A venue. 
+
+Under grant LP0669726.
+
+\item * Andrew Over, Bill Clarke and Peter Strazdins, 
+{\em A Comparison of Two Approaches to Parallel Simulation of
+      Multiprocessors.},
+      Proceedings of the IEEE International Symposium on Performance Analysis of
+      Systems and Software (ISPASS'07), San Jose, April 2007.
+
+First paper on parallel computer simulation quantifying stability issues
+and accuracy-performance tradeoffs; will become increasingly more
+important in the coming `manycore' era. 13 citations. Venue's citation
+rate of 4.8 in 2007.  
+
+Under grant LP0347178.
+
+\item  Peter Strazdins and John Uhlmann,
+{\em A Comparison of Local and Gang Scheduling on a Beowulf
+      Cluster}, Proceedings of the IEEE International Conference of Cluster
+      Computing, pp.\ 55--62, San Diego, Sep 2004. 
+
+First paper to challenge the need for gang scheduling, the
+then-dominant scheduling paradigm for interactive clusters. 
+Provided analysis as well as compelling experimental results.
+ERA rank A venue, regarded as a leading venue in the field. 27 citations.
+
+
+\item * Andrew Over, Peter Strazdins and Bill Clarke, {\em Cycle
+  Accurate Memory Modelling: A Case-Study in Validation.}, Proceedings
+  of the IEEE International Symposium on Modeling, Analysis, and
+  Simulation (MASCOTS'05), pp.\ 85--94, Atlanta, September 2005.
+
+One of the first papers examining validation issues on a real parallel
+machine, exposing greater difficulties than formerly understood.
+Will become increasingly important in the manycore era. 
+ERA Rank A venue. 7 citations.
+
+Under grant LP0347178.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+\item * Peter Strazdins,
+{\em Optimal {L}oad {B}alancing {T}echniques for
+      {B}lock-{C}yclic {D}ecompositions for {M}atrix {F}actorization},
+         In 2nd International Conference on Parallel and
+      Distributed Computing and Networks (PDCN'98), pp 192--199, IASTED,
+      Brisbane, December 1998.
+
+Proposes, analyzes and evaluates a new technique in parallel dense
+linear algebra; key finding that small storage block sizes are optimal
+for this and related techniques. Cited by 6.
+
+
+\item Jie Cai and Peter E. Strazdins,
+{\em An Accurate Prefetch Technique for                                         
+Dynamic Paging Behavior for Software Distributed Shared Memory},
+41st International Conference on Parallel Processing (ICPP),
+pp.209-218, Sep 2012.
+
+  The paper develops prefetching techniques which brought a a dramatic
+  improvement in both coverage and efficiency over the work of other
+  authors. ERA rank A venue. Under grant LP0669726.
+
