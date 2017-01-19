@@ -1,4 +1,8 @@
+\iffalse
 \subsection*{RESEARCH PROJECT}
+\fi
+\subsection*{PROJECT QUALITY AND INNOVATION}
+
 % - Describe how the research is significant and how it addresses an important problem
 % - Describe how the Proposal meets the objectives of the Discovery Projects scheme
 % - Describe how the anticipated outcomes will advance the knowledge base of the discipline and
@@ -18,27 +22,30 @@
 % - If the research has been nominated as focussing upon a topic or outcome that falls within one
 %   of the Science and Research Priorities, describe the potential for the project to contribute to the associated Priority Goals.
 
+\subsubsection*{Significance}
+
 The January 2011 Brisbane River floods in south-east Queensland cost
 32 lives and caused 2.5~billion dollars worth of
-damage~\parencite{vandenhonert2011}. In the days leading up to
-these events, a key issue facing authorities was incorporating their
-\textbf{uncertainty} about the preceding fortnight's rainfall and the forcast rainfall 
-into their
-modelling. In their report on the causes, impacts and implications of
-the floods, \cite{vandenhonert2011} concluded:
+damage~\parencite{vandenhonert2011}. In the days leading up to these
+events, a key issue facing authorities was incorporating their
+\textbf{uncertainty} about the preceding fortnight's rainfall and the
+forecast rainfall into their modelling. In their report on the causes,
+impacts and implications of the floods, \cite{vandenhonert2011}
+concluded:
+
 \blockquote{whilst the dam operators were acting in accordance with
   the operations manual for the dam, their modelling did not take
   account of forecast rainfall in determining the predicted dam water
   level, and this resulted in a sub-optimal water release strategy.
   Employing tools for decision making under uncertainty would have
-  resulted in a different water release strategy.} At the other end of
-the environmental spectrum, bushfire model predictions are similarly
-`fraught with uncertainty'~\cite[p375]{alexanderLimitations2013}.
-As Australia's climate changes and extreme weather
-events become more common, there is a significant need for better ways
-to gather timely insights from modelling in the presence of
-uncertainty and to communicate those insights to decision makers and
-emergency services.
+  resulted in a different water release strategy.} 
+At the other end of the environmental spectrum, bushfire model
+predictions are similarly `fraught with
+uncertainty'~\cite[p375]{alexanderLimitations2013}.  As Australia's
+climate changes and extreme weather events become more common, there
+is a significant need for better ways to gather timely insights from
+modelling in the presence of uncertainty and to communicate those
+insights to decision makers and emergency services.
 
 Computational modelling and simulation is an invaluable support tool
 for disaster response, allowing emergency services personnel to
@@ -70,3 +77,46 @@ predictions.
 
 \input{researchVisualization.tex}
 
+The overall context of our project is shown in
+Figure \ref{fig:projcontect}.  . In the application layer, the project
+is concerned with developing and delivering simulations with
+quantified uncertainty in a time-bound manner under conditions of
+rapidly changing human demands. At the systems layer, the project is
+concerned with managing large and ambitious simulations, and their
+associated data, in emergency disaster management settings where the
+very existence of such systems may be volatile. Both of these layers
+of concern will be supported by a novel live-coding approach to
+software development and prototyping as well as the use of live-coding
+for delivered simulations in order to modify and tune them, and their
+computational systems in real time.
+
+\begin{figure}
+% insert Henry's photo here
+\caption{The overall system context of the project}
+\label{fig:projcontect}
+\end{figure}
+
+\subsubsection*{Expected Outcomes}
+
+This project will provide the following discoveries:
+\begin{enumerate}
+
+\item a suite of interactive, real-time modelling tools for
+  surge-tsunami flood disasters which combine high fidelity
+  simulations (fine grids) with low fidelity (coarse grid) simulations
+  to quantify uncertainty, optimised for human exploration
+
+\item a `live software engineering' approach to the development,
+  deployment and optimisation of these interactive software systems
+
+\item models of group interaction scenarios for decision-making with
+  expert modelling support; from these models, we will obtain
+  empirical estimates of the time constraints that such scenarios
+  impose on software and computer system requirements and the live
+  controls needed to run them effectively in volatile contexts
+
+\item interactive information visualisation of simulation predictions
+together with uncertainties
+
+
+\end{enumerate}

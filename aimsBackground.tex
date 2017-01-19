@@ -1,5 +1,21 @@
 \subsection*{AIMS AND BACKGROUND}
 
+Emergency services responding to environmental disasters (such as
+floods and bushfires) increasingly utilise computational simulations
+to model and influence critical decisions involving the deployment of
+resources. Such simulations involve elaborate mathematical models
+overlayed on realistic terrain at scales relevant to local
+communities. They need to incorporate field data (weather conditions,
+flood levels etc) and they are very demanding computationally,
+requiring high-performance computing in order to run effectively. In
+order to be useful for decision makers, simulations need to
+accommodate rapidly changing scenarios and field data, and they need
+to be able to properly quantify and communicate the uncertainty in
+their predictions. Developing such simulations requires insights from
+applied mathematics, software engineering, high-performance computing
+and human-computer interaction.
+
+\iffalse
 When systems are disrupted during environmental disasters (for example,
 during floods, storm surges or tsunamis) information from
 computational simulation is needed urgently to aid decision-making by
@@ -15,19 +31,46 @@ decision makers is to {\bf properly quantify and communicate the
 This advice needs to be provided in a timely manner and in a context
 where the computer support may vary dramatically due to
 system outages.
+\fi
 
-We will address this grand challenge through a \emph{live coding} (or `live programming')
-approach to the development and deployment of software systems for
-environmental simulation in the presence of uncertainty. We will
-\textbf{develop} new `inundation models' (models of riverine floods,
-storm surges and tsunamis) which use sparse grids and uncertainty
-quantification to dramatically increase the speed and usefulness of
-model predictions and their associated uncertainty. We will
-\textbf{deploy} `live' distributed computing infrastructure to
+\subsubsection*{Aims}
+
+This research addresses the need for real-time simulation of
+environmental disasters through a {\em live coding} (or ‘live programming’)
+approach to {\bf rapid scenario building including uncertainty}. For the
+purposes of this project, we will specialise our concerns to
+environmental models of inundation with the specific objectives of
+\begin{enumerate}
+
+\item {\bf Developing} new inundation models (models of riverine floods,
+  storm surges and tsunamis) which use sparse grids and reduced basis
+  approaches to quantify uncertainty and dramatically increase the
+  speed and usefulness of model predictions.
+
+\item {\bf Harnessing and prototyping} these models using live coding
+  infrastructure to accelerate software development and to provide an
+  interactive interface to deployed software in a rapidly changing
+  environment.
+
+\item {\bf Deploying and benchmarking} these models on realistic,
+  heterogeneous, high-performance computational infrastructure,
+  including local compute clusters and the cloud.
+
+\end{enumerate}
+
+\iffalse
+We will address this grand challenge through a \emph{live coding} (or
+`live programming') approach to the development and deployment of
+software systems for environmental simulation in the presence of
+uncertainty. We will \textbf{develop} new `inundation models' (models
+of riverine floods, storm surges and tsunamis) which use sparse grids
+and uncertainty quantification to dramatically increase the speed and
+usefulness of model predictions and their associated uncertainty. We
+will \textbf{deploy} `live' distributed computing infrastructure to
 \emph{rapidly prototype} the human interface to these new
 environmental simulations and to transform the traditional,
 batch-oriented workflow of environmental simulation into a highly
-interactive one. 
+interactive one.
 %Indeed live programming offers an unprecedented opportunity
 %for interactive parallel program performance evaluation and tuning.
 We will \textbf{evaluate team coordination and
@@ -41,7 +84,23 @@ scenarios of representative flood and tsunami situations.
 %protocols, we will \textbf{identify} patterns in the interaction
 %states and transitions between those states which we will use to
 %iterate our software-system development.
+\fi
 
+
+The outcome of the research will enable decision makers to examine
+many different environmental disaster scenarios in real-time, even
+with computationally-intensive models. Through this, they will develop
+an intuitive understanding of the uncertainty relationships in the
+system—from uncertainties in input data through to representations of
+uncertainty in model outputs. Although the mathematical and
+computational tools we will employ in this project are generalizable
+to any modelling environment, our focus is on specific application
+domains where (a) the model is (computationally) complex, (b)
+uncertainty is significant and (c) decisions are time-sensitive. A key
+element to our approach is the use of live coding infrastructure that
+we have developed and that we will describe below.
+
+\iffalse
 Our vision is that decision makers will be able
 to examine many different environmental disaster scenarios in a short
 space of time, even with computationally-expensive models. They will 
@@ -60,29 +119,90 @@ on specific application domains where (a) the model is
 decisions are time-sensitive. Specifically, we will build interactive
 interfaces for riverine floods, storm surge and tsunami modelling,
 which exemplify these characteristics.
+\fi
 
-When uncertainty is included into a model, the 
-essential dimensionality of the problem is increased markedly.  
-New and more sophisticated techniques are then required to deal with the so called
-`curse of dimensionality', where
-the cost of computation increases exponentially with the dimension of
-the problem. 
-The mathematical component of this project will be based on new
-developments combining reduced order models 
-(such as sparse grids and reduced basis methods)
-with uncertainty quantification.
-Sparse grids~\parencite{BungartzGriebel2004} are known to
-reduce the effects of the curse of dimensionality and 
-recent work in our group has found new ways to incorporate gradient
-information and multi-fidelity models into sparse grid
+
+\subsubsection*{Background}
+
+{\bf Uncertainty quantification} describes a collection of
+mathematical techniques that allow the predictions of computational
+simulations to be bounded probabilistically. The area is important in
+high-performance-computing (HPC) simulations of scientific and
+engineering systems where it is desired to know how likely the
+outcomes of a simulation will be when various assumptions underlying
+the simulations are open to doubt. When uncertainty is included into a
+model, the essential dimensionality of the problem is increased
+markedly and sophisticated mathematical techniques are then required
+to deal with the “curse of dimensionality” where the cost of
+computation increases exponentially with the dimension of the
+problem. This project will exploit new mathematical techniques that
+combine {\bf reduced order models} (such as sparse grids and reduced
+basis methods) with uncertainty quantification. Sparse grids
+~\parencite{BungartzGriebel2004} are known to reduce the effects of
+the curse of dimensionality and recent work in our group has found new
+ways to incorporate gradient information and multi-fidelity models
+into sparse grid approximations
+~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}.  Reduced
+basis models normally involve the computation of a large number of
+`offline' simulations that are examined together with an `online'
+simulation to quantify its uncertainty. With our live-coding approach,
+we plan to modify this approach so that the bounding simulations are
+also  `online' and `live' in a way that allows them to be extended and
+interpolated and steered in real time.
+
+\iffalse
+When uncertainty is included into a model, the essential
+dimensionality of the problem is increased markedly.  New and more
+sophisticated techniques are then required to deal with the so called
+`curse of dimensionality', where the cost of computation increases
+exponentially with the dimension of the problem.  The mathematical
+component of this project will be based on new developments combining
+reduced order models (such as sparse grids and reduced basis methods)
+with uncertainty quantification.  Sparse
+grids~\parencite{BungartzGriebel2004} are known to reduce the effects
+of the curse of dimensionality and recent work in our group has found
+new ways to incorporate gradient information and multi-fidelity models
+into sparse grid
 approximations~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}.
-We will extend this work to construct efficient techniques 
-for incorporating uncertainty  information into 
-storm surge-tsunami models. 
-Reduced basis 
-methods~\parencite{quarteroni2015reduced} provide an 
-alternative approach for constructing reduced order 
-models and will also be investigated.
+We will extend this work to construct efficient techniques for
+incorporating uncertainty information into storm surge-tsunami models.
+Reduced basis methods~\parencite{quarteroni2015reduced} provide an
+alternative approach for constructing reduced order models and will
+also be investigated.
+\fi
+
+{\bf Live coding} describes software systems that support the direct
+intervention of the programmer in a program’s run-time state. It can
+be thought of as an extreme version of agile
+programming~\parencite{fowlerAgile2001}, where code changes are
+hot-swapped into running programs, allowing for extremely fast
+exploration and iteration of new ideas and system updates. As the
+ambition of live-coding has grown, support systems and languages have
+evolved to, for example, create, modify and interact with music and
+hardware devices in real-time [refs]. Such an approach has been
+described by one of our team members as ``with-time
+programming''~\parencite{sorensen2010programming} because it allows
+for timing constraints on a running system, including
+human-computer-interaction constraints to be explicitly modelled and
+guaranteed. The present project will make use of the {\em Extempore
+  live-coding software
+  environment}\footnote{\url{http://extempore.moso.com.au}} that can
+harness and steer scientific simulations (written in ABI compatible
+languages such as C, C++ and Fortran) and evaluate (and visualise) the
+outcomes of those simulations in real time. Such an intervention in
+the world of high-performance computer simulation radically changes
+the landscape and ambition of simulation codes; no longer do they need
+to be considered as hands-off batch processes running on
+supercomputers, but they can now be interacted with on-the-fly while a
+simulation is in progress. We envision that there will be several
+benefits of the application live-coding to our problem: firstly, it
+will enable us to rapidly prototype our simulation software and to
+deliver systems which can deliver feedback on a myriad of demands of a
+disaster emergency response; secondly, live coding will allow us to
+maintain and tune a set of, traditionally-offline simulations used to
+quantify uncertainty in real time; and thirdly, the use of live coding
+will allow us to adjust and optimise our systems for the volatile HPC
+systems expected in disaster management situations as described below.
 
 Computational decision support systems for disaster management have
 existed for many decades \parencite{wallaceDecision1985}, and
@@ -102,6 +222,8 @@ accumulate data to feed into redesign of the software interface and to
 understand the time requirements and controls needed for the
 computational platform.
 
+
+\iffalse
 \newpage
 \subsubsection*{Discoveries and Benefits}
 
@@ -124,9 +246,9 @@ This project will provide the following discoveries and benefits:
 
 \item interactive information visualisation of simulation predictions
 together with uncertainties
- 
-
 \end{enumerate}
+\fi
+
 
 This research is significant because it aims to unlock the power of
 sophisticated computational simulation incorporating  uncertainty 

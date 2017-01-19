@@ -5,14 +5,14 @@ scientific models provides additional challenges to the technical side
 of the project. Specifically, our algorithms must be highly scalable
 and robust to errors and faults in the computer system layer. There
 have been many recent developments in both highly-scalable algorithms
-for the sparse grid combination technique \cite{sgctalg15,pdsec15extsgctalg} 
-which will be of use for
+for the sparse grid combination
+technique \cite{sgctalg15,pdsec15extsgctalg} which will be of use for
 this and, additionally, it has been recently shown that such
 computations can be made
-robust~\parencite{HardingHLS2015,AliEtal2015,Ali11022016}. By leveraging and
-continuing to develop these algorithms we can ensure that the
-offline components of our software system that require high performance
-computing resources will be both scalable and robust.
+robust~\parencite{HardingHLS2015,AliEtal2015,Ali11022016}. By
+leveraging and continuing to develop these algorithms we can ensure
+that the offline components of our software system that require high
+performance computing resources will be both scalable and robust.
 
 In this project we will leverage on-demand compute resources, such as
 the Amazon AWS cloud~\parencite{amazonAws} and the National Compute
@@ -42,3 +42,11 @@ workload selected, and even within that, may depend on the current
 phase of the simulation. Only Live Programming by \emph{Extempore} has
 the flexibility and agility to facilitate such a degree of performance
 tuning.
+
+Live coding of the systems layer of our project will, once again,
+allow rapid prototyping and performance-tuning of our software so that
+it can be run on realistic (cluster and cloud) HPC computer
+support. Most importantly, live-coding will allow a computer support
+expert to optimise the execution of those running simulations under
+conditions where the computer systems may be unreliable or subject to
+rapid change.
