@@ -22,30 +22,7 @@
 % - If the research has been nominated as focussing upon a topic or outcome that falls within one
 %   of the Science and Research Priorities, describe the potential for the project to contribute to the associated Priority Goals.
 
-\subsubsection*{Significance}
-
-The January 2011 Brisbane River floods in south-east Queensland cost
-32 lives and caused 2.5~billion dollars worth of
-damage~\parencite{vandenhonert2011}. In the days leading up to these
-events, a key issue facing authorities was incorporating their
-\textbf{uncertainty} about the preceding fortnight's rainfall and the
-forecast rainfall into their modelling. In their report on the causes,
-impacts and implications of the floods, \cite{vandenhonert2011}
-concluded:
-
-\blockquote{whilst the dam operators were acting in accordance with
-  the operations manual for the dam, their modelling did not take
-  account of forecast rainfall in determining the predicted dam water
-  level, and this resulted in a sub-optimal water release strategy.
-  Employing tools for decision making under uncertainty would have
-  resulted in a different water release strategy.} 
-At the other end of the environmental spectrum, bushfire model
-predictions are similarly `fraught with
-uncertainty'~\cite[p375]{alexanderLimitations2013}.  As Australia's
-climate changes and extreme weather events become more common, there
-is a significant need for better ways to gather timely insights from
-modelling in the presence of uncertainty and to communicate those
-insights to decision makers and emergency services.
+%\subsubsection*{Significance}
 
 Computational modelling and simulation is an invaluable support tool
 for disaster response, allowing emergency services personnel to
@@ -58,25 +35,67 @@ perfect input data, the models themselves entail assumptions and
 numerical approximations which bound the reliability of their
 predictions.
 
+The January 2011 Brisbane River floods in south-east Queensland cost
+32 lives and caused 2.5~billion dollars worth of
+damage~\parencite{vandenhonert2011}. In the days leading up to these
+events, a key issue facing authorities was incorporating their
+\textbf{uncertainty} about the preceding fortnight's rainfall and the
+forecast rainfall into their modelling. In their report on the causes,
+impacts and implications of the floods, \cite{vandenhonert2011}
+concluded:
+\blockquote{whilst the dam operators were acting in accordance with
+  the operations manual for the dam, their modelling did not take
+  account of forecast rainfall in determining the predicted dam water
+  level, and this resulted in a sub-optimal water release strategy.
+  } 
+In this one instance, it is speculatively possible that employing tools 
+for decision making under uncertainty would have
+resulted in a different water release strategy. Our ambition is to build models 
+and support infrastructure that will ensure that all relevant scenarios
+can be explored properly before such decisions are undertaken.
+
+\iffalse
+At the other end of the environmental spectrum, bushfire model
+predictions are similarly `fraught with
+uncertainty'~\cite[p375]{alexanderLimitations2013}.  As Australia's
+climate changes and extreme weather events become more common, there
+is a significant need for better ways to gather timely insights from
+modelling in the presence of uncertainty and to communicate those
+insights to decision makers and emergency services.
+\fi
+
+The project described in this application is core to a larger context for our work as 
+ shown in Figure 1. We envision a context where real-time and rapidly-varying human demands for 
+ simulation results will derive the development of appropriate interfaces and modelling infrastructure including uncertainty. 
+ Such simulations will be running on heterogenous HPC compute systems which, themselves, may need to be optimised and redistributed in real-time because of the volatile nature of the deployed environment. Both layers of the simulation environment will be developed and deployed using live-coding infrastructure. This discovery grant addresses the vertical box in this diagram in order to understand and have confidence in the core mathematical and computational principles behind the quantification of uncertainty for innudation models, and their deployment onto heterogenous and volatile HPC resources using live-coding. 
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=0.5]{figures/overallProject.PNG}%
+    \caption{Context of overall project}\label{projectFig}
+  \end{center}
+\end{figure}
+
+
 \input{researchExample.tex}
 
-\input{researchModelling.tex}
+%\input{researchModelling.tex}
 
-\input{researchSG-UQ.tex}
+%\input{researchSG-UQ.tex}
 
-\input{researchLiveCodingSci.tex}
+%\input{researchLiveCodingSci.tex}
 
 \input{researchLiveUQ.tex}
 
 
-\input{researchDisasterResponse.tex}
+%\input{researchDisasterResponse.tex}
 
 %\input{researchInteractiveDesign.tex}
 
 \input{researchHPC.tex}
 
-\input{researchVisualization.tex}
+%\input{researchVisualization.tex}
 
+\iffalse
 The overall context of our project is shown in
 Figure \ref{fig:projcontect}.  . In the application layer, the project
 is concerned with developing and delivering simulations with
@@ -90,11 +109,17 @@ software development and prototyping as well as the use of live-coding
 for delivered simulations in order to modify and tune them, and their
 computational systems in real time.
 
+
+
 \begin{figure}
-% insert Henry's photo here
+% insert Henry's photo here?
 \caption{The overall system context of the project}
 \label{fig:projcontect}
 \end{figure}
+
+\fi
+\iffalse
+%move this stuff into benefits?
 
 \subsubsection*{Expected Outcomes}
 
@@ -120,3 +145,4 @@ together with uncertainties
 
 
 \end{enumerate}
+\fi

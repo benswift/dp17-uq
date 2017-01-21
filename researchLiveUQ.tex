@@ -1,6 +1,29 @@
 \subsubsection*{Live Coding for Uncertainty
   Quantification}
 
+This project will
+make use of the \emph{Extempore} live-coding software
+environment.%\footnote{\url{http://extempore.moso.com.au}}
+ Extempore has already
+been used for the live modification and real-time visualisation of
+particle-in-cell plasma-physics simulation codes with
+negligible performance overhead compared to batch-mode execution in
+C~\parencite{swiftLive2016}. 
+
+
+
+Such a live deployment of a traditional, batch-oriented HPC simulation allows a user to 
+modify the
+domain size and shape, the initial and boundary conditions, and various
+other parameters of a simulation while that simulation is running. It is of use
+for optimising software for later, stand-alone,
+deployment as well as for harnessing and steering simulation codes
+after deployment.
+
+%The Extempore software environment is a key tool for this project as
+%it allows us to fine tune our suite of simulation software for the
+%specific requirements of the task domain.
+
 The ability to stop, modify, or restart computations `in flight' has
 the potential to significantly improve the efficiency of an
 uncertainty analysis. There exist many algorithms, for example
@@ -22,18 +45,31 @@ more aggressive in nature as they are better targeted to the specific
 problem at hand. The result of this is more efficient quantification of
 uncertainty.
 
-In this project, using live coding to accelerate the feedback loop between
-$\mathbf{p}$ and $Q(U_{\mathbf{p}})$, together with estimates of its
-uncertainty,  will give a scientist the ability to interactively
+In this project, using live coding to accelerate the feedback loop between the vector of input parameters,
+$\mathbf{p}$,  and quantities of interest  will give a scientist the ability to interactively
 \emph{explore} the connection (and the associated uncertainty) between
 the different dimensions of $\mathbf{p}$ and the overall response of
-the system. This will be used to {\bf rapidly prototype software} with a view to 
-identifying the necessary interactive controls needed to modify and interact with 
-the final, relased and running, software in real-time. 
-By understanding the human-factors and systems-level time
-constraints on the delivery of useful information in disaster-response
-settings, we will also be able to specify timing requirements on our model
-simulations as in the next section. 
+the system. Such a prototyping and optimising of these models ({\bf Aim 2 of our project}) will help us rapidly scope and deliver 
+robust models. The ``liveness'' that this approach brings will be deployed 
+into the deployed architecture of uncertainty quantification models as well. For example, reduced-basis methods for uncertainty 
+quantification typically employ a number of ``offline'' simulations that are used together with an ``online'' simulation of 
+a system of interest to provide uncertainty estimates for that online simulation. We plan to explore novel live-coding
+approaches to such methods where the offline as well as the online simulations are all harnessed and live. The 
+potential advantage of such an approach is that the offline simulations can be restarted, modified, reduced and 
+explored at the same time that the online simulation is running. 
+
+
+
+
+
+
+%This will be used to {\bf rapidly prototype software} with a view to 
+%dentifying the necessary interactive controls needed to modify and interact with 
+%the final, relased and running, software in real-time. 
+%By understanding the human-factors and systems-level time
+%constraints on the delivery of useful information in disaster-response
+%settings, we will also be able to specify timing requirements on our model
+%simulations as in the next section. 
 %By developing software that is time-constrained and
 %time-aware, we will be able to provide decision makers with
 %information when it is needed and with an estimate on the uncertainty

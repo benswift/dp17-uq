@@ -1,19 +1,22 @@
-\subsubsection*{High-Performance Computing Systems Support}
+\subsubsection*{HPC Systems Support}
 
 A reliance on high performance computing for the evaluation of
 scientific models provides additional challenges to the technical side
 of the project. Specifically, our algorithms must be highly scalable
-and robust to errors and faults in the computer system layer. There
-have been many recent developments in both highly-scalable algorithms
+and robust to errors and faults in the computer system layer. 
+We will take advantage of 
+recent developments in both highly-scalable algorithms
 for the sparse grid combination
-technique \cite{sgctalg15,pdsec15extsgctalg} which will be of use for
-this and, additionally, it has been recently shown that such
+technique \cite{sgctalg15,pdsec15extsgctalg} and other results that demonstrate that such
 computations can be made
-robust~\parencite{HardingHLS2015,AliEtal2015,Ali11022016}. By
-leveraging and continuing to develop these algorithms we can ensure
-that the offline components of our software system that require high
-performance computing resources will be both scalable and robust.
+robust~\parencite{HardingHLS2015,AliEtal2015,Ali11022016}. 
 
+%By
+%leveraging and continuing to develop these algorithms we can ensure
+%that the offline components of our software system that require high
+%performance computing resources will be both scalable and robust.
+
+\iffalse
 In this project we will leverage on-demand compute resources, such as
 the Amazon AWS cloud~\parencite{amazonAws} and the National Compute
 Infrastructure NCI Cloud~\parencite{nciCloud}. Using these cloud
@@ -21,14 +24,15 @@ services will further improve the project's ability to deliver timely
 results in high-pressure and time-critical decision making scenarios.
 
 Once again, we emphasise that our approach to live coding of test
-software is a novel aspect of our methodology. The \emph{Extempore}
-tool that we have developed has been shown to be able to harness and
-steer scientific simulation in real time. In this part of the project,
-we will apply this tool to the real-time steering of the computer
-systems layer itself.
+software is a novel aspect of our methodology. 
+\fi
 
-This will involve developing code libraries to assist the developer in
-the live performance evaluation and tuning of these complex and highly
+The \emph{Extempore}
+system that we have developed has been shown to be able to harness and
+steer scientific simulation in real time. In this part of the project, {\bf addressing Aim 3},
+we will apply live-coding to the real-time steering of the computer
+systems layer itself. This will involve developing code libraries to assist the developer in
+real-time performance-evaluation and tuning of these complex and highly
 parallel simulations. For example, groups of processes will be
 allocated to different parts of the simulation. If some parts are
 delayed relative to others, processes can be `stolen' from the faster
@@ -43,10 +47,10 @@ phase of the simulation. Only Live Programming by \emph{Extempore} has
 the flexibility and agility to facilitate such a degree of performance
 tuning.
 
-Live coding of the systems layer of our project will, once again,
+Live coding of the systems layer of our project will
 allow rapid prototyping and performance-tuning of our software so that
 it can be run on realistic (cluster and cloud) HPC computer
 support. Most importantly, live-coding will allow a computer support
-expert to optimise the execution of those running simulations under
+expert to optimise the execution of running simulations under
 conditions where the computer systems may be unreliable or subject to
-rapid change.
+rapid change (as might happen in some disaster-management scenarios).
