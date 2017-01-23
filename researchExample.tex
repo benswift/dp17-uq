@@ -62,10 +62,14 @@ estimated using the surrogate model. For many problems sparse grids
 can also be used over $\mathcal{D}$ when computing solutions to the full
 model to speed up the construction of a reduced basis. We will compute
 sparse grid solutions via the `combination
-technique'~\parencite{Griebel1990}. Figure~\ref{fig:sparse_grids}
+technique'~\parencite{Griebel1990}. 
+
+ \iffalse
+ 
+ Figure~\ref{fig:sparse_grids}
 depicts the combination technique, the equivalent sparse grid and the
 corresponding full grid.
-
+ 
  \begin{figure}
   \centering
   \input{figures/sparse_grid_fig.tex}  
@@ -76,6 +80,7 @@ corresponding full grid.
    This is even more pronounced in higher dimensions.}
   \label{fig:sparse_grids}
 \end{figure}
+\fi
 
  \iffalse
 The model solution 
