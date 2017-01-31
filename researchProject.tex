@@ -73,6 +73,44 @@ The aims and topic areas for this project are
   \end{center}
 \end{figure}
 
+\tikzset{%
+  block/.style    = {draw, thick, rectangle, minimum height = 3em,
+    minimum width = 3em},
+  sum/.style       = {draw, circle, node distance = 2.5cm}, % Adder
+  splitter/.style   = {draw, circle, node distance = 2.5cm}, % splitter
+}
+
+\begin{center}
+\begin{tikzpicture}[auto, node distance=2.5cm, >=triangle 45,
+minimum width={width("Heterogeneous HPC")+2pt},]
+\draw
+    node [block, name=sim]{Simulation}
+    node[block, right of=sim](uq){Uncertainty Quantification}
+    node[block,below=0.1cm of sim](live){Live Programming}
+    node[block,below=0.1cm of live](hpc){Heterogeneous HPC};
+    
+\end{tikzpicture}
+\end{center}
+
+
+%\begin{tikzpicture}[auto, node distance=2.5cm, >=triangle 45]
+%\draw
+%	node [block, name=input1] {$U$} 
+%	node [sum, right of=input1] (suma1) {}
+%	node [block, right of=suma1] (inte1) {$P$}
+%        node [splitter, right of=inte1](split) {} 
+%         node [block, right of=split] (output) {$Y$}
+%         node [block, below of=inte1] (ret1) {$H$};
+%    % Joining blocks. 
+%    % Commands \draw with options like [->] must be written individually
+%	\draw[->](input1) -- node[near end]{$b$} (suma1);
+% 	\draw[->](suma1) -- node {} (inte1);
+%        \draw[->](inte1) -- node {} (split);
+% 	\draw[->](split) |- node {} (ret1);
+% 	\draw[->](split) -- node {} (output);
+%	\draw[->](ret1) -| node[pos=0.9]{$a$} (suma1);
+%\end{tikzpicture}
+
 
 \input{researchExample.tex}
 
