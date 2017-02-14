@@ -2,29 +2,19 @@
 
 Emergency services responding to environmental disasters (such as
 floods and bushfires) increasingly use computational simulations
-to model rapidly-developing threats. Such simulations involve elaborate mathematical models
+to model rapidly developing threats. Such simulations involve elaborate mathematical models
 overlayed on realistic terrain at scales relevant to local
 communities. They need to incorporate field data (weather conditions,
-water levels etc) and they can be very demanding computationally,
-requiring high-performance computing in order to run effectively.
-
-Until now, environmental simulations for disaster management have lacked a systematic treatment of the effects of uncertainties in their predictions. The inclusion of properly quantified uncertainty would allow decision makers to better estimate the risks of taking particular decisions. In a well-known example, discussed below, a report into the 2011 Brisbane floods found that water released from a dam adopted a sub-optimal strategy because modelling did not properly account for uncertainties in the forecast rainfall.
-
-Developing enhanced environmental simulations that properly quantify uncertainty and that provide information to decision makers in real time requires insights from applied mathematics, software engineering, high-performance computing and human-computer interaction. In this project, we tackle this challenge in a unique way by employing a software engineering approach  known as ``live coding''. 
-
-
-
-\iffalse
- In
+water levels etc) and they are very demanding computationally,
+requiring high-performance computing in order to run effectively. In
 order to be useful for decision makers, simulations need to
-accommodate rapidly-changing scenarios and streaming data, and they need
+accommodate rapidly-changing scenarios and field data, and they need
 to properly quantify and communicate the uncertainty in
 their predictions. Developing such simulations requires insights from
 applied mathematics, software engineering, high-performance computing
 and human-computer interaction.
 
-
-
+\iffalse
 When systems are disrupted during environmental disasters (for example,
 during floods, storm surges or tsunamis) information from
 computational simulation is needed urgently to aid decision-making by
@@ -46,28 +36,29 @@ system outages.
 
 This research addresses the need for real-time simulation of
 environmental disasters through a {\em live coding} (or ‘live programming’)
-approach to {rapid scenario modelling including uncertainty}. Although our ultimate ambition is to investigate a wide range of envinronmental simulations, in the present project we specialise our concerns to {\bf models of inundation} with the three main aims of:
+approach to {rapid scenario modelling including uncertainty}. We specialise our concerns to
+environmental models of inundation with the three main aims of:
 \begin{enumerate}
 
-\item {\bf Developing inundation models that quantify uncertainty}. Our case studies will include riverine floods,
-  storm surges and tsunamis and we will use sparse grids and reduced basis
-  approaches to quantify uncertainty.
-  
+\item {\bf Developing new inundation models} (riverine floods,
+  storm surges and tsunamis) that use sparse grids and reduced basis
+  approaches to {\em quantify uncertainty} to dramatically increase the
+  speed and usefulness of model predictions. 
+  % discovery: 1) new uq models 
 
-\item {\bf Prototyping and optimising these models using live coding}. We will use live coding to 
-  search and optimise the very large parameter and solution spaces of our models in real time with human 
-  experts. 
-  In this way, live coding will accelerate the development of stand-alone simulations. It will also be explored in the 
-  context of  live, deployed simulations to make traditionally ``offline'' aspects of 
+\item {\bf Prototyping and optimising these models using live coding}
+  to interactively search and optimise their parameter and solution spaces in real time. 
+  Such an approach will accelerate the development of stand-alone simulations. It will also be explored in the 
+  context of  live, deployed simulations to, for example, make traditionally ``offline'' aspects of 
    quantifying uncertaintly into  interative and ``online'' simulations.
   % discovery: 2) harnessing reduced basis functions
   
 
-\item {\bf Dynamically optimising computer systems support for  these models in real time.}
-Here, live coding will be used
-  to dynamically redeploy models across changing high-performance-computing (HPC) 
-  systems in order to optimise the efficiency of computations and 
-  to cope with the networking and compute-node failures expected in volatile emergency-management scenarios.
+\item {\bf Deploying and redeploying these models} on realistic,
+  high-performance-computing (HPC) systems,
+  including local compute clusters and the cloud. Live coding will be used
+  to dynamically redeploy models across changing HPC systems configurations in order to optimise the efficiency of computations and 
+  to cope with the compute node failures expected in volatile emergency-management scenarios.
   % discovery here: 3) moving systems support stuff around in real time
 
 \end{enumerate}
@@ -101,28 +92,15 @@ scenarios of representative flood and tsunami situations.
 \fi
 
 
-The outcomes of this research will be to demonstrate that effective environmental simulations can be developed to enable
-decision makers to examine disaster scenarios in real time with quantified uncertainty. By considering uncertainty, decision makers will
-develop an intuitive understanding of the uncertainty relationships in the
-system—from uncertainties in input data through to representations of
-uncertainty in model outputs. 
-
-
-
-
-
-
-
-\iffalse
-
-in real-time, even
+The outcomes of this research will enable decision makers to examine
+environmental disaster scenarios in real-time, even
 with computationally-intensive models. Through this, they will develop
 an intuitive understanding of the uncertainty relationships in the
 system—from uncertainties in input data through to representations of
 uncertainty in model outputs. 
 
 
-
+\iffalse
 Our focus is on specific application
 domains where (a) the model is (computationally) complex, (b)
 uncertainty is significant and (c) decisions are time-sensitive.
@@ -161,7 +139,8 @@ outcomes of a simulation will be when various assumptions underlying
 the simulations are open to doubt. When uncertainty is included in a
 model, the essential dimensionality of the problem is increased
 markedly and sophisticated mathematical techniques are required
-to obtain results in human-relevant timescales.
+to stop the cost of
+computation exploding (the so-called ``curse of dimensionality''). 
 This project will exploit new mathematical techniques that
 combine {reduced order models} (such as {sparse grids and reduced
 basis methods}) with uncertainty quantification. {\bf Sparse grids}
@@ -173,7 +152,7 @@ into sparse grid approximations
 basis models} normally involve the computation of a large number of bounding
 `offline' simulations that are examined together with an `online'
 simulation to quantify its uncertainty. With our live-coding approach,
-we plan to make the bounding simulations are
+we plan to modify this approach so that the bounding simulations are
 also  `online' and `live' in a way that allows them to be extended and
 interpolated and steered in real time.
 
@@ -204,7 +183,7 @@ code changes can be
 hot-swapped into running programs, allowing for extremely fast
 exploration and iteration of new ideas and system updates. As the
 ambition of live-coding has grown, support systems and languages have
-evolved to allow users to modify 
+evolved to, for example, create, modify and interact with
 cyberphysical systems in real-time. Such an approach has been
 described as ``with-time
 programming''~\parencite{sorensen2010programming} because it allows
@@ -216,19 +195,19 @@ guaranteed. The present project will make use of the {\em\bf Extempore
 {\bf harness and steer scientific simulations} (written in ABI compatible
 languages such as C, C++ and Fortran) in real time. Such an intervention in
 the world of HPC simulation radically changes
-the landscape and ambition of simulation codes. No longer do they need
+the landscape and ambition of simulation codes; no longer do they need
 to be considered as hands-off batch processes running on
-supercomputers but they can now be interacted with on-the-fly while a
+supercomputers, but they can now be interacted with on-the-fly while a
 simulation is in progress. We envision that there will be several
-benefits of the use of live-coding in our project: firstly, it
+benefits of the application of live-coding to our problem: firstly, it
 will enable us to {\bf rapidly prototype our simulation software}  to
 deliver robust systems for
-disaster emergency response and to optimise the vast parameter space of these simulations together with 
-human experts; secondly, live coding will allow us to
-{\bf enliven a set of traditionally-offline simulations used to
-quantify uncertainty in real time}; thirdly, the use of live coding
-will allow us to {\bf adjust and optimise our compute systems for better efficiency} and to cope 
-with network and compute-node failures expected in disaster management situations.
+disaster emergency response; secondly, live coding will allow us to
+{\bf maintain and tune a set of, traditionally-offline simulations used to
+quantify uncertainty in real time}; and thirdly, the use of live coding
+will allow us to {\bf adjust and optimise our systems for better efficiency} and to cope 
+with compute node failure in  the volatile HPC
+systems expected in disaster management situations.
 
 \iffalse
 Computational decision support systems for disaster management have

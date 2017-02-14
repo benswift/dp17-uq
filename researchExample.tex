@@ -1,8 +1,10 @@
 
 
-\subsubsection*{A storm-surge example}
-To make matters concrete, we consider the problem of predicting the maximum 
-storm surge water level at a location (or locations) along a coast threatened by a cyclone. We denote the geographical area of interest by $\Omega$ 
+%\subsubsection*{A storm-surge example}
+
+\noindent{\bf Framework/Advancing Knowledge -- AIM 1:}
+We illustrate our approach to Aim 1 with a concrete example. Consider the problem of predicting the maximum 
+storm surge water level at a location (or locations) along a coast threatened by a cyclone. If we denote the geographical area of interest by $\Omega$ 
 (the region threatened by the cyclone) and consider 
 spatial points $(x,y) \in \Omega$. We restrict our interest to times $t$ in an interval of time $T = [t_0, t_1]$ (the duration of the storm). 
 A mathematical model for storm surge is provided 
@@ -44,12 +46,12 @@ As is evident, there are many opportunities for uncertainty in the input data de
 If we denote by $\mathcal{P}$ the space representing the possible variation in both the {\bf input parameters} ($R$, $b$, $P$, $S_f$, $S_w$) and the {\bf design parameters} (emergency response actions such as raising or lowering flood barriers and releasing or diverting flow from upstream rivers or flood basins) then the aim of uncertainty quantification is to obtain useful relationships between the parameter vector $\mathbf{p}$
 ($\mathbf{p} \in \mathcal{P}$) and output quantities such as the maximum storm surge height as a function of location. 
 A completely general parameter space $\mathcal{P}$ may lead to an intractable problem and it is sensible to look for a lower dimensional manifold $\mathcal{C} \subset \mathcal{P}$.
-This can be done algorithmically or by using a specific reduced model, however, even such lower-dimensional approaches still necessitate numerous simulations of our model problem to quantify the uncertainty in our quantity of interest. {\bf In addressing Aim 1 of this project}, we will study the shallow water wave equations in realistic flood innundation contexts in order to understand the relationship between their inputs and uncertainty. This research will be facilitated by new
+This can be done algorithmically or by using a specific reduced model, however, even such lower-dimensional approaches still necessitate numerous simulations of our model problem to quantify the uncertainty in our quantity of interest. {In addressing Aim 1}, we will study the shallow water wave equations in realistic flood innundation contexts in order to understand the relationship between their inputs and uncertainty and we will take advantage of new
 developments combining sparse
 grids~\parencite{BungartzGriebel2004}, reduced basis
 methods~\parencite{LiebermanEtal2010,Peherstorfer2013,ChenSchwab2015,PeherstorferWillcox2015}
 and uncertainty quantification.
- In particular, by using sparse
+ By using sparse
 grids and reduced basis models we will be able to compute
 \emph{surrogates of the full problem} which have significantly fewer
 unknowns and are thus cheaper to compute whilst maintaining a high
@@ -57,11 +59,13 @@ order of accuracy.
 A sparse grid surrogate of
 the model  can also be computed in an offline phase,
 so that in an online phase model solutions can be efficiently
-estimated using the surrogate model. For many problems sparse grids
+estimated using the surrogate model and for many problems sparse grids
 can also be used over $\mathcal{D}$ when computing solutions to the full
-model to speed up the construction of a reduced basis. We will compute
-sparse grid solutions via the `combination
-technique'~\parencite{Griebel1990}. 
+model to speed up the construction of a reduced basis.\\
+
+%We will compute
+%sparse grid solutions via the `combination
+%technique'~\parencite{Griebel1990}. 
 
  \iffalse
  

@@ -1,5 +1,4 @@
-\subsubsection*{HPC Systems Support}
-
+\noindent{\bf Framework/Advancing Knowledge -- AIM 3:}
 A reliance on high performance computing for the evaluation of
 scientific models provides additional challenges to the technical side
 of the project. Specifically, our algorithms must be highly scalable
@@ -9,7 +8,22 @@ recent developments in both highly-scalable algorithms
 for the sparse grid combination
 technique \cite{sgctalg15,pdsec15extsgctalg} and other results that demonstrate that such
 computations can be made
-robust~\parencite{HardingHLS2015,AliEtal2015,Ali11022016}. 
+robust~\parencite{HardingHLS2015,AliEtal2015,Ali11022016}. We will then apply live-coding to the real-time steering of the computer
+systems layer itself. This will involve developing code libraries to assist the developer in
+real-time performance-evaluation and tuning of these complex and highly
+parallel simulations. For example, groups of processes will be
+allocated to different parts of the simulation. If some parts are
+delayed relative to others, processes can be `stolen' from the faster
+group to improve load balance \cite{parSGCT16}. Communication
+bottlenecks can be identified and alternate communication algorithms
+can be employed to rectify this.  Different computational kernels can
+be selected depending on the current memory system and floating point
+performance.  It should be noted that this fine-tuning is not only
+application-dependent, but within an application it depends on the
+workload selected on the current
+phase of the simulation. Of live-coding systems, only \emph{Extempore} has
+the flexibility and agility to facilitate such performance
+tuning.
 
 %By
 %leveraging and continuing to develop these algorithms we can ensure
@@ -27,25 +41,8 @@ Once again, we emphasise that our approach to live coding of test
 software is a novel aspect of our methodology. 
 \fi
 
-The \emph{Extempore}
-system that we have developed has been shown to be able to harness and
-steer scientific simulation in real time. In this part of the project, {\bf addressing Aim 3},
-we will apply live-coding to the real-time steering of the computer
-systems layer itself. This will involve developing code libraries to assist the developer in
-real-time performance-evaluation and tuning of these complex and highly
-parallel simulations. For example, groups of processes will be
-allocated to different parts of the simulation. If some parts are
-delayed relative to others, processes can be `stolen' from the faster
-group to improve load balance \cite{parSGCT16}. Communication
-bottlenecks can be identified and alternate communication algorithms
-can be employed to rectify this.  Different computational kernels can
-be selected depending on the current memory system and floating point
-performance.  It should be noted that this fine-tuning is not only
-application-dependent, but within an application, it depends on the
-workload selected, and even within that, may depend on the current
-phase of the simulation. Only Live Programming by \emph{Extempore} has
-the flexibility and agility to facilitate such a degree of performance
-tuning.
+
+
 
 Live coding of the systems layer of our project will
 allow rapid prototyping and performance-tuning of our software so that
@@ -53,4 +50,4 @@ it can be run on realistic (cluster and cloud) HPC computer
 support. Most importantly, live-coding will allow a computer support
 expert to optimise the execution of running simulations under
 conditions where the computer systems may be unreliable or subject to
-rapid change (as might happen in some disaster-management scenarios).
+rapid change (as might happen in some disaster-management scenarios).\\
