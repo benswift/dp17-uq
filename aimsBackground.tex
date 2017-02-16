@@ -166,15 +166,16 @@ This project will exploit new mathematical techniques that
 combine {reduced order models} (such as {sparse grids and reduced
 basis methods}) with uncertainty quantification. {\bf Sparse grids}
 ~\parencite{BungartzGriebel2004} are known to reduce the effects of
-the curse of dimensionality and recent work in our group has found new
+increased effective dimensionality,
+and recent work in our group has found new
 ways to incorporate gradient information and multi-fidelity models
 into sparse grid approximations
 ~\parencite{deBaarHarding2015,Jakeman2015,deBaarRDM2015}.  {\bf Reduced
 basis models} normally involve the computation of a large number of bounding
 `offline' simulations that are examined together with an `online'
 simulation to quantify its uncertainty. With our live-coding approach,
-we plan to make the bounding simulations are
-also  `online' and `live' in a way that allows them to be extended and
+we plan to make the bounding simulations 
+also  `online' and `live' in a way that allows them to be extended, 
 interpolated and steered in real time.
 
 \iffalse
@@ -214,20 +215,20 @@ guaranteed. The present project will make use of the {\em\bf Extempore
   live-coding software
   environment}\footnote{\url{http://extempore.moso.com.au}} that can
 {\bf harness and steer scientific simulations} (written in ABI compatible
-languages such as C, C++ and Fortran) in real time. Such an intervention in
+languages such as C, C++ and Fortran). Such an intervention in
 the world of HPC simulation radically changes
 the landscape and ambition of simulation codes. No longer do they need
 to be considered as hands-off batch processes running on
 supercomputers but they can now be interacted with on-the-fly while a
 simulation is in progress. We envision that there will be several
 benefits of the use of live-coding in our project: firstly, it
-will enable us to {\bf rapidly prototype our simulation software}  to
-deliver robust systems for
-disaster emergency response and to optimise the vast parameter space of these simulations together with 
-human experts; secondly, live coding will allow us to
-{\bf enliven a set of traditionally-offline simulations used to
-quantify uncertainty in real time}; thirdly, the use of live coding
-will allow us to {\bf adjust and optimise our compute systems for better efficiency} and to cope 
+will enable us to {rapidly prototype our simulation software}  with human participants to
+deliver robust, stand-alone systems for
+ emergency response;  secondly, the use of live coding in a deployed system will allow us to deliver live and flexible visualisations 
+ to decision makers and it might also allow us to 
+{enliven and tune a set of traditionally-offline simulations to optimise the 
+quantification of uncertainty in real time}; thirdly, the use of live coding
+will allow us to {adjust and optimise our compute systems for better efficiency} and to cope 
 with network and compute-node failures expected in disaster management situations.
 
 \iffalse
