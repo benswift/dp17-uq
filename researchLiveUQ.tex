@@ -1,8 +1,7 @@
 \noindent{\bf Framework/Advancing Knowledge -- AIM 2:}
 This project will
 make use of the \emph{Extempore} live-coding software
-environment.%\footnote{\url{http://extempore.moso.com.au}}
- Extempore has already
+environment. Extempore has already
 been used for the live modification and real-time visualisation of
 particle-in-cell plasma-physics simulation codes with
 negligible performance overhead compared to batch-mode execution~\parencite{swiftLive2016}. 
@@ -22,8 +21,10 @@ negligible performance overhead compared to batch-mode execution~\parencite{swif
 %specific requirements of the task domain.
 
 The ability to steer HPC simulations in real time has
-the potential to significantly improve the efficiency of an
-uncertainty analysis. There exist many algorithms (such as 
+the potential to improve simulations including the quantification of 
+uncertainty -- both for software {\em development} and for software {\em deployment}.
+\iffalse
+ There exist many algorithms (such as 
 adaptive Markov chain Monte Carlo methods~\parencite{GilksEtal1994}) 
 that attempt to choose the best samples based on the sampling
 history. However, for complex problems a domain expert
@@ -41,16 +42,15 @@ real time information derived from the reduced order model.
 The resulting strategies are expected to be
 more aggressive in nature as they are better targeted to the specific
 problem at hand. 
-
+\fi
 %The result of this should be more efficient quantification of
 %uncertainty.
-
 In this project, using live coding to accelerate the feedback loop between the vector of input parameters,
-$\mathbf{p}$,  and quantities of interest  will give a scientist the ability to interactively
+$\mathbf{p}$,  and quantities of in\-terest  will give a decision maker the ability to interactively
 \emph{explore} the connection (and the associated uncertainty) between
 the different dimensions of $\mathbf{p}$ and the overall response of
-the system. Such a prototyping and optimising of these models will help us to rapidly scope and deliver 
-robust software. The ``liveness'' that this approach brings will also be deployed 
+the system. Such a prototyping and optimising of these simulation models will help us to {\em rapidly scope and deliver 
+robust software}. The ``liveness'' that this approach brings can also be deployed 
 into the uncertainty quantification models in very novel ways. For example, reduced-basis methods for uncertainty 
 quantification typically employ a number of ``offline'' simulations that are used together with an ``online'' simulation of 
 a system of interest to provide uncertainty estimates for that online simulation. We will apply novel live-coding
@@ -61,9 +61,9 @@ optimise the quantification of uncertainty in real time.
 
 
 Such a research agenda in live coding is one that 
-includes human-computer interaction (HCI) as well as software engineering. HCI research questions include the realistic time-scales of 
-human-in-the-loop interaction with running simulation software, both for software development and for decision making in real time.
-We will be soliciting participation from local emergency services personnel and other experts in human-in-the-loop live coding experiments (see Feasibility).
+includes human-computer interaction (HCI) as well as software engineering. HCI research questions include understanding the realistic time-scales of 
+human-in-the-loop interaction with environmental simulations, both for software development and for decision making in real time.
+For our human-in-the-loop live coding experiments, we will be soliciting participation from emergency services personnel, environmental scientists and other experts (see Feasibility).
 %HCI research methodologies will include protocol analysis of ``staged'' interaction scenarios including
 %human actors in a mock emergency management environment. 
 Interaction protocol analysis will include both logged events at the interface and 
